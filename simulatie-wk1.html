@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Strategische Bedrijfssimulatie</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: "Inter", sans-serif;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+
+			.fade-in {
+				animation: fadeIn 0.5s ease-in-out;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(-10px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			.tooltip {
+				position: relative;
+				display: inline-block;
+			}
+
+			.tooltip .tooltiptext {
+				visibility: hidden;
+				width: 250px;
+				background-color: #555;
+				color: #fff;
+				text-align: left;
+				border-radius: 6px;
+				padding: 10px;
+				position: absolute;
+				z-index: 1;
+				bottom: 125%;
+				left: 50%;
+				margin-left: -125px;
+				opacity: 0;
+				transition: opacity 0.3s;
+				font-size: 0.8rem;
+				line-height: 1.4;
+			}
+
+			.tooltip:hover .tooltiptext {
+				visibility: visible;
+				opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body class="bg-slate-50 text-slate-800">
+		<div id="app" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+			<!-- Start Screen -->
+			<div id="start-screen" class="text-center fade-in">
+				<h1 class="text-4xl font-bold text-slate-900">
+					Strategische Bedrijfssimulatie
+				</h1>
+				<p class="mt-4 text-lg text-slate-600">
+					Neem de rol aan van de directie en navigeer uw bedrijf door een
+					dynamische economische omgeving.
+				</p>
+
+				<div class="mt-8 max-w-4xl mx-auto">
+					<h2 class="text-2xl font-semibold mb-4 text-slate-800">
+						Kies uw bedrijf
+					</h2>
+					<div
+						id="company-selection"
+						class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+					>
+						<!-- Companies will be injected here by JS -->
+					</div>
+				</div>
+
+				<div id="roles-setup" class="mt-8 max-w-lg mx-auto hidden">
+					<h3 class="text-xl font-semibold mb-4 text-slate-800">
+						Stel het directieteam samen
+					</h3>
+					<div class="space-y-4">
+						<div>
+							<label
+								for="ceo-name"
+								class="block text-sm font-medium text-slate-700 text-left"
+								>CEO (Chief Executive Officer)</label
+							>
+							<input
+								type="text"
+								id="ceo-name"
+								class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Naam van de CEO"
+							/>
+						</div>
+						<div>
+							<label
+								for="cfo-name"
+								class="block text-sm font-medium text-slate-700 text-left"
+								>CFO (Chief Financial Officer)</label
+							>
+							<input
+								type="text"
+								id="cfo-name"
+								class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Naam van de CFO"
+							/>
+						</div>
+						<div>
+							<label
+								for="coo-name"
+								class="block text-sm font-medium text-slate-700 text-left"
+								>COO (Chief Operations Officer)</label
+							>
+							<input
+								type="text"
+								id="coo-name"
+								class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Naam van de COO"
+							/>
+						</div>
+						<div>
+							<label
+								for="cio-name"
+								class="block text-sm font-medium text-slate-700 text-left"
+								>CIO (Chief Innovation Officer)</label
+							>
+							<input
+								type="text"
+								id="cio-name"
+								class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Naam van de CIO"
+							/>
+						</div>
+					</div>
+					<button
+						id="start-simulation-btn"
+						class="mt-6 w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300 disabled:bg-slate-400"
+					>
+						Start Simulatie
+					</button>
+				</div>
+			</div>
+
+			<!-- Main Game Screen -->
+			<div id="game-screen" class="hidden fade-in">
+				<!-- Header -->
+				<div class="flex justify-between items-center mb-6">
+					<div>
+						<h1
+							id="company-name"
+							class="text-3xl font-bold text-slate-900"
+						></h1>
+						<p id="company-sector" class="text-md text-slate-500"></p>
+					</div>
+					<div class="text-right">
+						<div class="text-lg font-semibold text-slate-700">
+							Huidig Kwartaal
+						</div>
+						<div id="current-round" class="text-3xl font-bold text-indigo-600">
+							1/5
+						</div>
+					</div>
+				</div>
+
+				<!-- KPIs -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+					<div class="bg-white p-5 rounded-lg shadow">
+						<h3 class="text-sm font-medium text-slate-500">Omzet</h3>
+						<p
+							id="kpi-revenue"
+							class="text-3xl font-semibold text-slate-800"
+						></p>
+					</div>
+					<div class="bg-white p-5 rounded-lg shadow">
+						<h3 class="text-sm font-medium text-slate-500">Winst</h3>
+						<p
+							id="kpi-profit"
+							class="text-3xl font-semibold text-slate-800"
+						></p>
+					</div>
+					<div class="bg-white p-5 rounded-lg shadow">
+						<h3 class="text-sm font-medium text-slate-500">Marktaandeel</h3>
+						<p
+							id="kpi-market-share"
+							class="text-3xl font-semibold text-slate-800"
+						></p>
+					</div>
+					<div class="bg-white p-5 rounded-lg shadow">
+						<h3 class="text-sm font-medium text-slate-500">Moraal</h3>
+						<p
+							id="kpi-morale"
+							class="text-3xl font-semibold text-slate-800"
+						></p>
+					</div>
+				</div>
+
+				<!-- Main Content -->
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+					<!-- News Feed -->
+					<div class="lg:col-span-1 bg-white p-6 rounded-lg shadow">
+						<h2 class="text-xl font-semibold mb-4">Economische Nieuwsfeed</h2>
+						<div id="news-feed" class="space-y-3">
+							<!-- News items will be injected here -->
+						</div>
+					</div>
+
+					<!-- Decisions -->
+					<div class="lg:col-span-2 bg-white p-6 rounded-lg shadow">
+						<div class="flex justify-between items-start">
+							<h2 class="text-xl font-semibold mb-4">Directiebesluiten</h2>
+							<button
+								id="get-advice-btn"
+								class="bg-amber-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors duration-300"
+							>
+								Vraag Advies (€8.00M)
+							</button>
+						</div>
+						<div id="decisions-panel" class="space-y-6">
+							<!-- Decision items will be injected here -->
+						</div>
+						<button
+							id="submit-decisions-btn"
+							class="mt-8 w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300 disabled:bg-slate-400"
+						>
+							Analyse Bevestigen & Besluiten Doorvoeren
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal for News Analysis -->
+			<div
+				id="news-modal"
+				class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+			>
+				<div
+					class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md mx-4 fade-in"
+				>
+					<h3 id="modal-news-title" class="text-lg font-semibold mb-2"></h3>
+					<p id="modal-news-content" class="text-slate-600 mb-6"></p>
+
+					<div class="space-y-4">
+						<div>
+							<label class="block text-sm font-medium text-slate-700"
+								>Beoordeel de impact:</label
+							>
+							<div class="mt-2 flex space-x-4">
+								<label class="flex items-center">
+									<input
+										type="radio"
+										name="impact"
+										value="Bedreiging"
+										class="form-radio h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+									/>
+									<span class="ml-2 text-slate-700">Bedreiging</span>
+								</label>
+								<label class="flex items-center">
+									<input
+										type="radio"
+										name="impact"
+										value="Kans"
+										class="form-radio h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+									/>
+									<span class="ml-2 text-slate-700">Kans</span>
+								</label>
+							</div>
+						</div>
+						<div>
+							<label
+								for="primary-department"
+								class="block text-sm font-medium text-slate-700"
+								>Primaire afdeling:</label
+							>
+							<select
+								id="primary-department"
+								class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+							>
+								<option>Strategie (CEO)</option>
+								<option>Financiën (CFO)</option>
+								<option>Operatie (COO)</option>
+								<option>Innovatie (CIO)</option>
+							</select>
+						</div>
+					</div>
+					<button
+						id="submit-analysis-btn"
+						class="mt-6 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300"
+					>
+						Analyse Bevestigen
+					</button>
+				</div>
+			</div>
+
+			<!-- Modal for Strategic Advice -->
+			<div
+				id="advice-modal"
+				class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+			>
+				<div
+					class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md mx-4 fade-in"
+				>
+					<h3 class="text-lg font-semibold mb-4">Strategisch Advies</h3>
+					<div
+						id="advice-content"
+						class="bg-slate-100 p-4 rounded-md text-slate-700"
+					>
+						<!-- Advice text will be injected here -->
+					</div>
+					<button
+						id="close-advice-btn"
+						class="mt-6 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300"
+					>
+						Sluiten
+					</button>
+				</div>
+			</div>
+
+			<!-- Debriefing Screen -->
+			<div
+				id="debriefing-screen"
+				class="hidden fixed inset-0 bg-slate-50 flex items-center justify-center z-40"
+			>
+				<div
+					class="text-center p-8 bg-white rounded-lg shadow-2xl w-full max-w-3xl mx-4 fade-in"
+				>
+					<h2
+						id="debriefing-title"
+						class="text-3xl font-bold text-slate-900 mb-6"
+					></h2>
+					<div
+						class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
+					>
+						<!-- Debrief KPIs will be injected here -->
+					</div>
+					<div class="bg-slate-100 p-6 rounded-lg">
+						<h3 class="text-lg font-semibold text-slate-800">
+							Analyse & Besluitvorming
+						</h3>
+						<p id="analysis-quality" class="text-2xl font-bold mt-1 mb-2"></p>
+						<div id="feedback-text" class="text-slate-600 space-y-2">
+							<!-- Feedback text will be injected here -->
+						</div>
+					</div>
+					<button
+						id="next-round-btn"
+						class="mt-8 bg-indigo-600 text-white font-semibold py-3 px-12 rounded-lg hover:bg-indigo-700 transition-colors duration-300"
+					>
+						Volgende Kwartaal
+					</button>
+				</div>
+			</div>
+
+			<!-- Director Briefing Modal -->
+			<div
+				id="briefing-modal"
+				class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+			>
+				<div
+					class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg mx-4 fade-in"
+				>
+					<h3
+						id="briefing-title"
+						class="text-xl font-semibold mb-4 text-slate-900"
+					></h3>
+					<div id="briefing-content" class="text-slate-600 space-y-3">
+						<!-- Briefing content here -->
+					</div>
+					<button
+						id="close-briefing-btn"
+						class="mt-6 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300"
+					>
+						Begrepen, start het kwartaal
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const App = {
+				// ... Game state and configuration ...
+				state: {
+					currentRound: 0,
+					totalRounds: 5,
+					selectedCompany: null,
+					kpis: {
+						revenue: 1000,
+						profit: 150,
+						marketShare: 25,
+						morale: 80,
+					},
+					initialKpis: null, // <-- NEW: To store starting values
+					analyses: {},
+					teamNames: { ceo: "", cfo: "", coo: "", cio: "" },
+				},
+
+				// ... Database of companies and news events ...
+				database: {
+					companies: [
+						{
+							id: "visser",
+							name: "Visser Techniek B.V.",
+							sector: "Machinebouw",
+							briefing: {
+								title: "Directie Briefing: Visser Techniek B.V.",
+								text: [
+									"Welkom bij Visser Techniek. We zijn een gevestigde naam in de machinebouw, bekend om onze kwaliteit en betrouwbaarheid. Onze orderportefeuille is stabiel, maar de concurrentie uit lagelonenlanden neemt toe.",
+									"**Strategische Uitdaging:** Het balanceren van investeringen in innovatie (Smart Industry, AI) om de concurrentie voor te blijven, zonder de winstgevendheid op korte termijn in gevaar te brengen. De conjunctuurgevoeligheid van onze sector maakt ons kwetsbaar voor economische schommelingen.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.5,
+								consumerConfidence: 0.8,
+								interestRates: -1.2,
+								inflation: -0.5,
+								globalTrade: 1.8,
+							},
+						},
+						{
+							id: "eco-energies",
+							name: "EcoEnergies",
+							sector: "Hernieuwbare Energie",
+							briefing: {
+								title: "Directie Briefing: EcoEnergies",
+								text: [
+									"Welkom bij EcoEnergies. We opereren in een snelgroeiende markt, gedreven door de energietransitie en overheidssubsidies. De technologie ontwikkelt zich razendsnel en de vraag naar onze oplossingen is hoog.",
+									"**Strategische Uitdaging:** Agressief investeren om onze technologische voorsprong te behouden en marktaandeel te veroveren. Tegelijkertijd moeten we de operationele efficiëntie verbeteren om op lange termijn winstgevend te zijn, vooral als subsidies afnemen.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.2,
+								consumerConfidence: 0.5,
+								interestRates: -1.5,
+								inflation: 0.2,
+								globalTrade: 0.8,
+							},
+						},
+						{
+							id: "foodcorp",
+							name: "FoodCorp Nederland",
+							sector: "Supermarkten",
+							briefing: {
+								title: "Directie Briefing: FoodCorp Nederland",
+								text: [
+									"Welkom bij FoodCorp. Onze business is stabiel; mensen moeten altijd eten. De concurrentie is moordend en de marges zijn flinterdun. Klantloyaliteit is laag en de focus ligt sterk op prijs.",
+									"**Strategische Uitdaging:** Het verhogen van de winstgevendheid door efficiënte bedrijfsvoering, slimme inkoop en het introduceren van huismerken met hogere marges. Innovatie in online bezorging en duurzaamheid zijn cruciaal om relevant te blijven.",
+								],
+							},
+							sensitivities: {
+								gdp: 0.4,
+								consumerConfidence: 0.8,
+								interestRates: -0.2,
+								inflation: -1.0,
+								globalTrade: 0.3,
+							},
+						},
+						{
+							id: "vd_laan_trucks",
+							name: "Van der Laan Trucks",
+							sector: "Vrachtwagenfabrikant",
+							briefing: {
+								title: "Directie Briefing: Van der Laan Trucks",
+								text: [
+									"Welkom bij Van der Laan Trucks. We zijn een belangrijke speler in de Europese transportsector. Onze orderboeken zijn direct gekoppeld aan de economische activiteit en wereldhandel. De overstap naar elektrische en waterstofaandrijving is de grootste uitdaging.",
+									"**Strategische Uitdaging:** Enorme investeringen in R&D voor duurzame aandrijflijnen financieren, terwijl de cyclische vraag naar traditionele vrachtwagens fluctueert. We moeten de fabriek draaiende houden en tegelijkertijd de toekomst veiligstellen.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.8,
+								consumerConfidence: 0.7,
+								interestRates: -1.0,
+								inflation: -0.6,
+								globalTrade: 2.0,
+							},
+						},
+						{
+							id: "de_graaf_zuivel",
+							name: "De Graaf Zuivel",
+							sector: "Voedselverwerking",
+							briefing: {
+								title: "Directie Briefing: De Graaf Zuivel",
+								text: [
+									"Welkom bij De Graaf Zuivel. We verwerken melk tot een breed scala aan consumentenproducten. We hebben te maken met volatiele melkprijzen en een supermarktsector die voortdurend op prijs drukt. De consument vraagt steeds meer om plantaardige alternatieven.",
+									"**Strategische Uitdaging:** Het behouden van marges in een competitieve markt en tegelijkertijd innoveren in plantaardige producten. Een efficiënte en duurzame productieketen is essentieel voor ons succes.",
+								],
+							},
+							sensitivities: {
+								gdp: 0.6,
+								consumerConfidence: 0.5,
+								interestRates: -0.3,
+								inflation: -1.2,
+								globalTrade: 0.7,
+							},
+						},
+						{
+							id: "holland_express",
+							name: "Holland Express",
+							sector: "Transport & Logistiek",
+							briefing: {
+								title: "Directie Briefing: Holland Express",
+								text: [
+									"Welkom bij Holland Express. Als logistiek dienstverlener zijn wij de motor van de economie. Onze volumes zijn direct afhankelijk van de consumentenbestedingen (e-commerce) en de industriële productie. Brandstofprijzen en een tekort aan chauffeurs zijn constante zorgen.",
+									"**Strategische Uitdaging:** Investeren in automatisering van warehouses en een duurzaam wagenpark, terwijl we de operationele kosten onder controle houden. Het behouden en aantrekken van gekwalificeerd personeel is onze topprioriteit.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.7,
+								consumerConfidence: 1.0,
+								interestRates: -0.8,
+								inflation: -0.9,
+								globalTrade: 1.5,
+							},
+						},
+						{
+							id: "data_driven",
+							name: "Data-Driven Solutions",
+							sector: "IT Consultancy",
+							briefing: {
+								title: "Directie Briefing: Data-Driven Solutions",
+								text: [
+									"Welkom bij Data-Driven Solutions. Wij helpen bedrijven met hun digitale transformatie. Onze projecten zijn vaak strategisch, maar kunnen worden uitgesteld als bedrijven moeten bezuinigen. Er is een 'war for talent' gaande voor goede data scientists en AI-specialisten.",
+									"**Strategische Uitdaging:** Vooroplopen in de nieuwste technologische ontwikkelingen (AI, cloud) en het aantrekken en behouden van toptalent. We moeten onze klanten overtuigen van de ROI van onze projecten, vooral in economisch onzekere tijden.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.4,
+								consumerConfidence: 0.9,
+								interestRates: -0.5,
+								inflation: 0.1,
+								globalTrade: 0.6,
+							},
+						},
+						{
+							id: "jansen_bouw",
+							name: "Bouwbedrijf Jansen & ZN",
+							sector: "Bouwnijverheid",
+							briefing: {
+								title: "Directie Briefing: Bouwbedrijf Jansen & ZN",
+								text: [
+									"Welkom bij Jansen & ZN. We zijn een klassiek bouwbedrijf, sterk afhankelijk van de huizenmarkt en overheidsinvesteringen in infrastruttuur. Stijgende materiaalkosten en strenge duurzaamheidseisen (stikstof) vormen een constante uitdaging.",
+									"**Strategische Uitdaging:** Onze orderportefeuille managen in een zeer conjunctuurgevoelige markt. We moeten investeren in prefab en duurzame bouwmethoden om concurrerend te blijven, terwijl de rente en materiaalprijzen onze marges onder druk zetten.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.9,
+								consumerConfidence: 1.2,
+								interestRates: -2.0,
+								inflation: -1.5,
+								globalTrade: 0.4,
+							},
+						},
+						{
+							id: "kustparken",
+							name: "Kustparken Nederland",
+							sector: "Recreatie & Toerisme",
+							briefing: {
+								title: "Directie Briefing: Kustparken Nederland",
+								text: [
+									"Welkom bij Kustparken. Wij exploiteren vakantieparken aan de Nederlandse kust. Ons succes hangt af van het besteedbaar inkomen en het vertrouwen van de consument. Goed weer helpt, maar de internationale concurrentie van zonbestemmingen is groot.",
+									"**Strategische Uitdaging:** De bezettingsgraad maximaliseren, ook in het laagseizoen. We moeten continu investeren in de kwaliteit van onze accommodaties en faciliteiten om de hogere prijsklasse te rechtvaardigen en ons te onderscheiden van de concurrentie.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.3,
+								consumerConfidence: 1.8,
+								interestRates: -0.4,
+								inflation: -0.7,
+								globalTrade: 0.2,
+							},
+						},
+						{
+							id: "woon_xl",
+							name: "Woon & Bouw XL",
+							sector: "Detailhandel non-food",
+							briefing: {
+								title: "Directie Briefing: Woon & Bouw XL",
+								text: [
+									"Welkom bij Woon & Bouw XL. Als doe-het-zelf- en meubelwinkel zijn we sterk afhankelijk van de huizenmarkt en het consumentenvertrouwen. Grote aankopen voor huis en tuin worden snel uitgesteld als het economisch tegenzit. De concurrentie van online spelers is hevig.",
+									"**Strategische Uitdaging:** Het aantrekken van klanten naar onze fysieke winkels door beleving en deskundig advies te bieden. Tegelijkertijd moeten we onze eigen e-commerce activiteiten optimaliseren en de logistiek efficiënt inrichten om online te kunnen concurreren.",
+								],
+							},
+							sensitivities: {
+								gdp: 1.1,
+								consumerConfidence: 1.6,
+								interestRates: -0.9,
+								inflation: -0.8,
+								globalTrade: 0.5,
+							},
+						},
+					],
+					news: [
+						// Round 1
+						[
+							{
+								id: "r1n1",
+								title: "CPB: BBP-groeiverwachting licht verhoogd",
+								content:
+									"Het Centraal Planbureau heeft de groeiverwachting voor het komende jaar met 0.5% verhoogd door sterke exportcijfers.",
+								effects: {
+									gdp: 0.5,
+									consumerConfidence: 0.2,
+									interestRates: 0,
+									inflation: 0,
+									globalTrade: 0.3,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Strategie (CEO)",
+							},
+							{
+								id: "r1n2",
+								title:
+									"Consumentenvertrouwen stijgt naar hoogste punt in een jaar",
+								content:
+									"Het vertrouwen van consumenten in de economie is aanzienlijk gestegen, wat kan leiden tot hogere bestedingen.",
+								effects: {
+									gdp: 0.2,
+									consumerConfidence: 1.0,
+									interestRates: 0,
+									inflation: 0.1,
+									globalTrade: 0,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Strategie (CEO)",
+							},
+						],
+						// Round 2
+						[
+							{
+								id: "r2n1",
+								title: "ECB verhoogt rente onverwacht met 0.75%",
+								content:
+									"De Europese Centrale Bank heeft de rente fors verhoogd om de inflatie te bestrijden. Lenen wordt hierdoor aanzienlijk duurder.",
+								effects: {
+									gdp: -0.3,
+									consumerConfidence: -0.5,
+									interestRates: 0.75,
+									inflation: -0.2,
+									globalTrade: 0,
+								},
+								idealSentiment: "Bedreiging",
+								idealDepartment: "Financiën (CFO)",
+							},
+							{
+								id: "r2n2",
+								title: "Tekort aan technisch personeel nijpender dan ooit",
+								content:
+									"Bedrijven in diverse sectoren hebben grote moeite om gekwalificeerd technisch personeel te vinden, wat de groei remt.",
+								effects: {
+									gdp: -0.2,
+									consumerConfidence: 0,
+									interestRates: 0,
+									inflation: 0.3,
+									globalTrade: 0,
+								},
+								idealSentiment: "Bedreiging",
+								idealDepartment: "Operatie (COO)",
+							},
+						],
+						// Round 3
+						[
+							{
+								id: "r3n1",
+								title: "VS implementeert nieuwe importheffingen",
+								content:
+									"De Amerikaanse overheid heeft een nieuwe ronde van importtarieven aangekondigd op goederen uit o.a. de EU en China, wat de wereldhandel onder druk zet.",
+								effects: {
+									gdp: -0.4,
+									consumerConfidence: -0.2,
+									interestRates: 0,
+									inflation: 0.5,
+									globalTrade: -1.5,
+								},
+								idealSentiment: "Bedreiging",
+								idealDepartment: "Strategie (CEO)",
+							},
+							{
+								id: "r3n2",
+								title: "Doorbraak in AI-technologie versnelt automatisering",
+								content:
+									"Een nieuwe generatie AI-modellen maakt het mogelijk om complexe taken te automatiseren, wat kansen biedt voor productiviteitsverhoging.",
+								effects: {
+									gdp: 0.3,
+									consumerConfidence: 0.1,
+									interestRates: 0,
+									inflation: -0.1,
+									globalTrade: 0,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Innovatie (CIO)",
+							},
+						],
+						// Round 4
+						[
+							{
+								id: "r4n1",
+								title: "Inflatie daalt sneller dan verwacht",
+								content:
+									"De inflatie is gedaald naar 2%, wat de koopkracht van consumenten ten goede komt en de druk op de ECB vermindert om de rente verder te verhogen.",
+								effects: {
+									gdp: 0.1,
+									consumerConfidence: 0.6,
+									interestRates: -0.2,
+									inflation: -1.0,
+									globalTrade: 0,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Financiën (CFO)",
+							},
+							{
+								id: "r4n2",
+								title:
+									"Overheid lanceert groot investeringsfonds voor verduurzaming",
+								content:
+									"De overheid stelt €20 miljard beschikbaar voor bedrijven die investeren in duurzame technologie en processen.",
+								effects: {
+									gdp: 0.4,
+									consumerConfidence: 0.2,
+									interestRates: 0,
+									inflation: 0,
+									globalTrade: 0,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Innovatie (CIO)",
+							},
+						],
+						// Round 5
+						[
+							{
+								id: "r5n1",
+								title:
+									"Geopolitieke spanningen leiden tot onrust op energiemarkt",
+								content:
+									"Toenemende spanningen in het Midden-Oosten zorgen voor volatiliteit op de olie- en gasmarkten, wat leidt tot hogere energieprijzen.",
+								effects: {
+									gdp: -0.5,
+									consumerConfidence: -0.7,
+									interestRates: 0,
+									inflation: 1.2,
+									globalTrade: -0.5,
+								},
+								idealSentiment: "Bedreiging",
+								idealDepartment: "Operatie (COO)",
+							},
+							{
+								id: "r5n2",
+								title: "Wereldwijde economie trekt aan, wereldhandel groeit",
+								content:
+									"Het IMF heeft de prognose voor de wereldwijde economische groei verhoogd, wat een positief effect heeft op de internationale handel.",
+								effects: {
+									gdp: 0.6,
+									consumerConfidence: 0.3,
+									interestRates: 0,
+									inflation: 0.1,
+									globalTrade: 1.0,
+								},
+								idealSentiment: "Kans",
+								idealDepartment: "Strategie (CEO)",
+							},
+						],
+					],
+				},
+
+				init() {
+					this.cacheDOM();
+					this.renderCompanySelection();
+					this.bindEvents();
+				},
+
+				cacheDOM() {
+					this.dom = {
+						app: document.getElementById("app"),
+						startScreen: document.getElementById("start-screen"),
+						gameScreen: document.getElementById("game-screen"),
+						companySelection: document.getElementById("company-selection"),
+						rolesSetup: document.getElementById("roles-setup"),
+						startBtn: document.getElementById("start-simulation-btn"),
+						companyName: document.getElementById("company-name"),
+						companySector: document.getElementById("company-sector"),
+						currentRound: document.getElementById("current-round"),
+						kpiRevenue: document.getElementById("kpi-revenue"),
+						kpiProfit: document.getElementById("kpi-profit"),
+						kpiMarketShare: document.getElementById("kpi-market-share"),
+						kpiMorale: document.getElementById("kpi-morale"),
+						newsFeed: document.getElementById("news-feed"),
+						decisionsPanel: document.getElementById("decisions-panel"),
+						submitDecisionsBtn: document.getElementById("submit-decisions-btn"),
+						newsModal: document.getElementById("news-modal"),
+						modalNewsTitle: document.getElementById("modal-news-title"),
+						modalNewsContent: document.getElementById("modal-news-content"),
+						submitAnalysisBtn: document.getElementById("submit-analysis-btn"),
+						primaryDepartment: document.getElementById("primary-department"),
+						debriefingScreen: document.getElementById("debriefing-screen"),
+						debriefingTitle: document.getElementById("debriefing-title"),
+						analysisQuality: document.getElementById("analysis-quality"),
+						feedbackText: document.getElementById("feedback-text"),
+						nextRoundBtn: document.getElementById("next-round-btn"),
+						getAdviceBtn: document.getElementById("get-advice-btn"),
+						adviceModal: document.getElementById("advice-modal"),
+						adviceContent: document.getElementById("advice-content"),
+						closeAdviceBtn: document.getElementById("close-advice-btn"),
+						briefingModal: document.getElementById("briefing-modal"),
+						briefingTitle: document.getElementById("briefing-title"),
+						briefingContent: document.getElementById("briefing-content"),
+						closeBriefingBtn: document.getElementById("close-briefing-btn"),
+						teamNameInputs: {
+							ceo: document.getElementById("ceo-name"),
+							cfo: document.getElementById("cfo-name"),
+							coo: document.getElementById("coo-name"),
+							cio: document.getElementById("cio-name"),
+						},
+					};
+				},
+
+				bindEvents() {
+					this.dom.startBtn.addEventListener("click", () =>
+						this.startSimulation()
+					);
+					this.dom.submitDecisionsBtn.addEventListener("click", () =>
+						this.calculateResultsAndShowDebriefing()
+					);
+					this.dom.submitAnalysisBtn.addEventListener("click", () =>
+						this.submitAnalysis()
+					);
+					this.dom.nextRoundBtn.addEventListener("click", () =>
+						this.nextRound()
+					);
+					this.dom.getAdviceBtn.addEventListener("click", () =>
+						this.showAdvice()
+					);
+					this.dom.closeAdviceBtn.addEventListener("click", () =>
+						this.dom.adviceModal.classList.add("hidden")
+					);
+					this.dom.closeBriefingBtn.addEventListener("click", () =>
+						this.dom.briefingModal.classList.add("hidden")
+					);
+				},
+
+				renderCompanySelection() {
+					this.database.companies.forEach((company) => {
+						const button = document.createElement("button");
+						button.className =
+							"text-left p-4 border border-slate-300 rounded-lg hover:bg-indigo-50 hover:border-indigo-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500";
+						button.dataset.companyId = company.id;
+						button.innerHTML = `
+                        <h4 class="font-semibold text-slate-800">${company.name}</h4>
+                        <p class="text-sm text-slate-500">${company.sector}</p>
+                    `;
+						button.addEventListener("click", () =>
+							this.selectCompany(company.id)
+						);
+						this.dom.companySelection.appendChild(button);
+					});
+				},
+
+				selectCompany(companyId) {
+					this.state.selectedCompany = this.database.companies.find(
+						(c) => c.id === companyId
+					);
+
+					// Highlight selected company
+					const buttons = this.dom.companySelection.querySelectorAll("button");
+					buttons.forEach((btn) => {
+						if (btn.dataset.companyId === companyId) {
+							btn.classList.add(
+								"bg-indigo-100",
+								"border-indigo-500",
+								"ring-2",
+								"ring-indigo-500"
+							);
+						} else {
+							btn.classList.remove(
+								"bg-indigo-100",
+								"border-indigo-500",
+								"ring-2",
+								"ring-indigo-500"
+							);
+						}
+					});
+
+					this.dom.rolesSetup.classList.remove("hidden");
+				},
+
+				startSimulation() {
+					if (!this.state.selectedCompany) {
+						alert("Kies eerst een bedrijf.");
+						return;
+					}
+					this.state.teamNames.ceo = this.dom.teamNameInputs.ceo.value || "CEO";
+					this.state.teamNames.cfo = this.dom.teamNameInputs.cfo.value || "CFO";
+					this.state.teamNames.coo = this.dom.teamNameInputs.coo.value || "COO";
+					this.state.teamNames.cio = this.dom.teamNameInputs.cio.value || "CIO";
+
+					// *** MODIFICATION: Store a copy of the initial KPIs ***
+					this.state.initialKpis = { ...this.state.kpis };
+
+					this.dom.startScreen.classList.add("hidden");
+					this.dom.gameScreen.classList.remove("hidden");
+					this.dom.companyName.textContent = this.state.selectedCompany.name;
+					this.dom.companySector.textContent =
+						this.state.selectedCompany.sector;
+
+					this.showBriefing();
+					this.nextRound();
+				},
+
+				showBriefing() {
+					const briefing = this.state.selectedCompany.briefing;
+					this.dom.briefingTitle.textContent = briefing.title;
+					this.dom.briefingContent.innerHTML = briefing.text
+						.map((p) => `<p>${p}</p>`)
+						.join("");
+					this.dom.briefingModal.classList.remove("hidden");
+				},
+
+				nextRound() {
+					if (this.state.currentRound > 0) {
+						this.dom.debriefingScreen.classList.add("hidden");
+						this.dom.gameScreen.classList.remove("hidden"); // Show the main screen again
+					}
+
+					this.state.currentRound++;
+					if (this.state.currentRound > this.state.totalRounds) {
+						this.endSimulation();
+						return;
+					}
+
+					this.dom.getAdviceBtn.disabled = false; // Re-enable advice button for the new round
+					this.state.analyses = {};
+					this.updateUI();
+					this.renderNews();
+					this.renderDecisions();
+				},
+
+				updateUI() {
+					this.dom.currentRound.textContent = `${this.state.currentRound}/${this.state.totalRounds}`;
+					this.dom.kpiRevenue.textContent = `€${this.state.kpis.revenue.toFixed(
+						2
+					)}M`;
+					this.dom.kpiProfit.textContent = `€${this.state.kpis.profit.toFixed(
+						2
+					)}M`;
+					this.dom.kpiMarketShare.textContent = `${this.state.kpis.marketShare.toFixed(
+						1
+					)}%`;
+					this.dom.kpiMorale.textContent = `${Math.round(
+						this.state.kpis.morale
+					)}/100`;
+
+					// Correctly set the state of the submit button based on analysis progress
+					const totalNewsForRound =
+						this.database.news[this.state.currentRound - 1]?.length || 0;
+					this.dom.submitDecisionsBtn.disabled =
+						Object.keys(this.state.analyses).length < totalNewsForRound;
+				},
+
+				renderNews() {
+					this.dom.newsFeed.innerHTML = "";
+					const currentNews = this.database.news[this.state.currentRound - 1];
+					currentNews.forEach((newsItem) => {
+						const div = document.createElement("div");
+						div.id = `news-${newsItem.id}`;
+						div.className =
+							"p-3 bg-slate-100 rounded-md cursor-pointer hover:bg-slate-200 transition-colors duration-200";
+						div.innerHTML = `<p class="font-medium text-sm text-slate-700">${newsItem.title}</p>`;
+						div.addEventListener("click", () => this.openNewsModal(newsItem));
+						this.dom.newsFeed.appendChild(div);
+					});
+				},
+
+				renderDecisions() {
+					const panel = this.dom.decisionsPanel;
+					panel.innerHTML = ""; // Clear previous decisions
+
+					const decisionsHTML = `
+                    <div class="decision-group">
+                        <label class="block text-md font-semibold text-slate-700">${this.state.teamNames.ceo} (CEO): Strategische Focus 
+                            <span class="tooltip">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>
+                                <span class="tooltiptext">Kies de overkoepelende strategie. Focus op marktaandeel kan de omzet verhogen ten koste van de winst. Focus op winstgevendheid doet het omgekeerde.</span>
+                            </span>
+                        </label>
+                        <select name="strategy" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="balanced">Gebalanceerd</option>
+                            <option value="market_share">Focus op marktaandeel</option>
+                            <option value="profitability">Focus op winstgevendheid</option>
+                        </select>
+                    </div>
+                    <div class="decision-group">
+                        <label class="block text-md font-semibold text-slate-700">${this.state.teamNames.cfo} (CFO): Investeringsniveau
+                             <span class="tooltip">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>
+                                <span class="tooltiptext">Agressief investeren kan groei stimuleren maar kost geld. Kosten besparen verhoogt de winst op korte termijn maar kan ten koste gaan van moraal en toekomstige groei.</span>
+                            </span>
+                        </label>
+                        <select name="finance" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="neutral">Neutraal</option>
+                            <option value="aggressive_investment">Agressief investeren</option>
+                            <option value="cost_cutting">Kosten besparen</option>
+                        </select>
+                    </div>
+                     <div class="decision-group">
+                        <label class="block text-md font-semibold text-slate-700">${this.state.teamNames.coo} (COO): Operationele Schaal
+                             <span class="tooltip">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>
+                                <span class="tooltiptext">Uitbreiden van operaties kan de omzetcapaciteit vergroten maar verhoogt de kosten. Inkrimpen verlaagt kosten maar kan de omzet en moraal schaden.</span>
+                            </span>
+                        </label>
+                        <select name="operations" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="maintain">Behouden</option>
+                            <option value="expand">Uitbreiden</option>
+                            <option value="downsize">Inkrimpen</option>
+                        </select>
+                    </div>
+                     <div class="decision-group">
+                        <label class="block text-md font-semibold text-slate-700">${this.state.teamNames.cio} (CIO): Innovatiebudget
+                             <span class="tooltip">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>
+                                <span class="tooltiptext">Verhogen van het innovatiebudget is een investering in de toekomst (bonus op marktaandeel in latere rondes), maar verlaagt de winst nu. Verlagen doet het omgekeerde.</span>
+                            </span>
+                        </label>
+                        <select name="innovation" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="standard">Standaard</option>
+                            <option value="increase">Verhogen</option>
+                            <option value="decrease">Verlagen</option>
+                        </select>
+                    </div>
+                `;
+					panel.innerHTML = decisionsHTML;
+				},
+
+				openNewsModal(newsItem) {
+					this.state.activeNewsItem = newsItem;
+					this.dom.modalNewsTitle.textContent = newsItem.title;
+					this.dom.modalNewsContent.textContent = newsItem.content;
+
+					// Reset form fields
+					this.dom.newsModal.querySelector(
+						'input[name="impact"][value="Bedreiging"]'
+					).checked = false;
+					this.dom.newsModal.querySelector(
+						'input[name="impact"][value="Kans"]'
+					).checked = false;
+					this.dom.primaryDepartment.selectedIndex = 0;
+
+					this.dom.newsModal.classList.remove("hidden");
+				},
+
+				submitAnalysis() {
+					const sentiment = this.dom.newsModal.querySelector(
+						'input[name="impact"]:checked'
+					);
+					const department = this.dom.primaryDepartment.value;
+
+					if (!sentiment) {
+						alert("Selecteer of dit een kans of een bedreiging is.");
+						return;
+					}
+
+					this.state.analyses[this.state.activeNewsItem.id] = {
+						sentiment: sentiment.value,
+						department: department,
+					};
+
+					const newsDiv = document.getElementById(
+						`news-${this.state.activeNewsItem.id}`
+					);
+					newsDiv.classList.remove("bg-slate-100", "hover:bg-slate-200");
+					newsDiv.classList.add("bg-green-100", "border", "border-green-400");
+					newsDiv.innerHTML += `<p class="text-xs text-green-700 mt-1 font-semibold">✓ Geanalyseerd</p>`;
+					newsDiv.style.pointerEvents = "none";
+
+					this.dom.newsModal.classList.add("hidden");
+
+					// Enable submit button if all news is analyzed
+					const totalNews =
+						this.database.news[this.state.currentRound - 1].length;
+					if (Object.keys(this.state.analyses).length === totalNews) {
+						this.dom.submitDecisionsBtn.disabled = false;
+					}
+				},
+
+				getDecisions() {
+					return {
+						strategy:
+							this.dom.decisionsPanel.querySelector('[name="strategy"]').value,
+						finance:
+							this.dom.decisionsPanel.querySelector('[name="finance"]').value,
+						operations: this.dom.decisionsPanel.querySelector(
+							'[name="operations"]'
+						).value,
+						innovation: this.dom.decisionsPanel.querySelector(
+							'[name="innovation"]'
+						).value,
+					};
+				},
+
+				calculateResultsAndShowDebriefing() {
+					const decisions = this.getDecisions();
+					const currentNews = this.database.news[this.state.currentRound - 1];
+					const companySensitivities = this.state.selectedCompany.sensitivities;
+					const oldKpis = { ...this.state.kpis };
+					let kpiChanges = { revenue: 0, profit: 0, marketShare: 0, morale: 0 };
+
+					// ... (rest of the calculation logic remains the same) ...
+					// Calculate analysis quality
+					let totalPossibleScore = 0;
+					let userScore = 0;
+					currentNews.forEach((news) => {
+						totalPossibleScore += 3; // 2 for sentiment, 1 for department
+						const userAnalysis = this.state.analyses[news.id];
+						if (userAnalysis) {
+							if (userAnalysis.sentiment === news.idealSentiment)
+								userScore += 2;
+							if (userAnalysis.department === news.idealDepartment)
+								userScore += 1;
+						}
+					});
+					const analysisScore = {
+						score: userScore / totalPossibleScore,
+						quality: "Matig",
+						multiplier: 0.9,
+					};
+					if (analysisScore.score > 0.8) {
+						analysisScore.quality = "Uitstekend";
+						analysisScore.multiplier = 1.1;
+					} else if (analysisScore.score > 0.5) {
+						analysisScore.quality = "Goed";
+						analysisScore.multiplier = 1.0;
+					}
+
+					// 1. Impact of news on KPIs
+					let netNewsImpact = 0;
+					currentNews.forEach((news) => {
+						const gdpEffect = news.effects.gdp * companySensitivities.gdp;
+						const confidenceEffect =
+							news.effects.consumerConfidence *
+							companySensitivities.consumerConfidence;
+						const interestEffect =
+							news.effects.interestRates * companySensitivities.interestRates;
+						const inflationEffect =
+							news.effects.inflation * companySensitivities.inflation;
+						const tradeEffect =
+							news.effects.globalTrade * companySensitivities.globalTrade;
+
+						const totalImpact =
+							gdpEffect +
+							confidenceEffect +
+							interestEffect +
+							inflationEffect +
+							tradeEffect;
+						netNewsImpact += totalImpact;
+
+						kpiChanges.revenue += totalImpact * 20;
+						kpiChanges.profit += totalImpact * 10;
+						kpiChanges.marketShare += totalImpact * 0.2;
+						kpiChanges.morale += totalImpact * 2;
+					});
+
+					// 2. Impact of decisions on KPIs
+					// Strategy
+					if (decisions.strategy === "market_share") {
+						kpiChanges.revenue += 50;
+						kpiChanges.profit -= 15;
+						kpiChanges.marketShare += 1;
+					}
+					if (decisions.strategy === "profitability") {
+						kpiChanges.revenue -= 20;
+						kpiChanges.profit += 25;
+						kpiChanges.marketShare -= 0.5;
+					}
+					// Finance
+					if (decisions.finance === "aggressive_investment") {
+						kpiChanges.revenue += 30;
+						kpiChanges.profit -= 20;
+						kpiChanges.marketShare += 0.5;
+					}
+					if (decisions.finance === "cost_cutting") {
+						kpiChanges.profit += 20;
+						kpiChanges.morale -= 10;
+					}
+					// Operations
+					if (decisions.operations === "expand") {
+						kpiChanges.revenue += 40;
+						kpiChanges.profit -= 10;
+					}
+					if (decisions.operations === "downsize") {
+						kpiChanges.profit += 10;
+						kpiChanges.morale -= 15;
+						kpiChanges.revenue -= 30;
+					}
+					// Innovation
+					if (decisions.innovation === "increase") {
+						kpiChanges.profit -= 10;
+						kpiChanges.marketShare += this.state.currentRound > 2 ? 0.5 : 0.2;
+					}
+					if (decisions.innovation === "decrease") {
+						kpiChanges.profit += 5;
+						kpiChanges.marketShare -= 0.2;
+					}
+
+					// Apply analysis multiplier to decision effects
+					kpiChanges.revenue +=
+						(kpiChanges.revenue - netNewsImpact * 20) *
+						(analysisScore.multiplier - 1);
+					kpiChanges.profit +=
+						(kpiChanges.profit - netNewsImpact * 10) *
+						(analysisScore.multiplier - 1);
+					kpiChanges.marketShare +=
+						(kpiChanges.marketShare - netNewsImpact * 0.2) *
+						(analysisScore.multiplier - 1);
+					kpiChanges.morale +=
+						(kpiChanges.morale - netNewsImpact * 2) *
+						(analysisScore.multiplier - 1);
+
+					// Update state
+					this.state.kpis.revenue += kpiChanges.revenue;
+					this.state.kpis.profit += kpiChanges.profit;
+					this.state.kpis.marketShare += kpiChanges.marketShare;
+					this.state.kpis.morale += kpiChanges.morale;
+
+					// Clamp values
+					this.state.kpis.morale = Math.max(
+						0,
+						Math.min(100, this.state.kpis.morale)
+					);
+					this.state.kpis.marketShare = Math.max(
+						0,
+						this.state.kpis.marketShare
+					);
+
+					// Always show the debriefing. The nextRound() function will handle the end of the simulation.
+					this.showDebriefing(oldKpis, analysisScore, netNewsImpact, decisions);
+				},
+
+				showDebriefing(oldKpis, analysisScore, netNewsImpact, decisions) {
+					this.dom.debriefingTitle.textContent = `Debriefing Kwartaal ${this.state.currentRound}`;
+					const debriefKpis = this.dom.debriefingScreen.querySelector(".grid");
+					debriefKpis.innerHTML = `
+                    <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Omzet</h3>
+                        <p class="text-2xl font-semibold text-slate-800">€${this.state.kpis.revenue.toFixed(
+													2
+												)}M</p>
+                        <p class="text-sm font-semibold ${
+													this.state.kpis.revenue - oldKpis.revenue >= 0
+														? "text-green-600"
+														: "text-red-600"
+												}">${(
+						this.state.kpis.revenue - oldKpis.revenue
+					).toFixed(2)}M</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Winst</h3>
+                        <p class="text-2xl font-semibold text-slate-800">€${this.state.kpis.profit.toFixed(
+													2
+												)}M</p>
+                        <p class="text-sm font-semibold ${
+													this.state.kpis.profit - oldKpis.profit >= 0
+														? "text-green-600"
+														: "text-red-600"
+												}">${(this.state.kpis.profit - oldKpis.profit).toFixed(
+						2
+					)}M</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Marktaandeel</h3>
+                        <p class="text-2xl font-semibold text-slate-800">${this.state.kpis.marketShare.toFixed(
+													1
+												)}%</p>
+                        <p class="text-sm font-semibold ${
+													this.state.kpis.marketShare - oldKpis.marketShare >= 0
+														? "text-green-600"
+														: "text-red-600"
+												}">${(
+						this.state.kpis.marketShare - oldKpis.marketShare
+					).toFixed(1)}%</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Moraal</h3>
+                        <p class="text-2xl font-semibold text-slate-800">${Math.round(
+													this.state.kpis.morale
+												)}</p>
+                        <p class="text-sm font-semibold ${
+													this.state.kpis.morale - oldKpis.morale >= 0
+														? "text-green-600"
+														: "text-red-600"
+												}">${Math.round(
+						this.state.kpis.morale - oldKpis.morale
+					)}</p>
+                    </div>
+                `;
+
+					this.dom.analysisQuality.textContent = analysisScore.quality;
+
+					let feedbackParts = [];
+					const currentNews = this.database.news[this.state.currentRound - 1];
+
+					// Step 1: Find dominant news item
+					let dominantNewsItem = null;
+					let maxImpact = -1;
+					currentNews.forEach((news) => {
+						const companySensitivities =
+							this.state.selectedCompany.sensitivities;
+						let impactScore =
+							Math.abs(news.effects.gdp * companySensitivities.gdp) +
+							Math.abs(
+								news.effects.consumerConfidence *
+									companySensitivities.consumerConfidence
+							) +
+							Math.abs(
+								news.effects.interestRates * companySensitivities.interestRates
+							) +
+							Math.abs(
+								news.effects.inflation * companySensitivities.inflation
+							) +
+							Math.abs(
+								news.effects.globalTrade * companySensitivities.globalTrade
+							);
+						if (impactScore > maxImpact) {
+							maxImpact = impactScore;
+							dominantNewsItem = news;
+						}
+					});
+
+					if (dominantNewsItem) {
+						feedbackParts.push(
+							`<p>Het economische klimaat werd dit kwartaal gedomineerd door: <strong>"${dominantNewsItem.title}"</strong>.</p>`
+						);
+
+						// Step 2: Evaluate analysis of this item
+						const analysisOfDominant = this.state.analyses[dominantNewsItem.id];
+						if (
+							analysisOfDominant &&
+							analysisOfDominant.sentiment === dominantNewsItem.idealSentiment
+						) {
+							feedbackParts.push(
+								`<p>Uw analyse identificeerde dit correct als een <strong>${analysisOfDominant.sentiment.toLowerCase()}</strong>, wat een solide basis was voor uw strategie.</p>`
+							);
+						} else {
+							feedbackParts.push(
+								`<p>Uw team heeft de impact hiervan echter <strong>verkeerd ingeschat</strong>, wat uw besluitvorming bemoeilijkte.</p>`
+							);
+						}
+					}
+
+					// Step 3: Describe strategic reaction
+					let decisionStance = 0; // Positive for expansion, negative for defensive
+					if (decisions.strategy === "market_share") decisionStance++;
+					if (decisions.strategy === "profitability") decisionStance--;
+					if (decisions.finance === "aggressive_investment") decisionStance++;
+					if (decisions.finance === "cost_cutting") decisionStance--;
+					if (decisions.operations === "expand") decisionStance++;
+					if (decisions.operations === "downsize") decisionStance--;
+
+					let stanceDescription = "een neutrale koers";
+					if (decisionStance > 1)
+						stanceDescription = "een duidelijke groeistrategie";
+					if (decisionStance < -1)
+						stanceDescription = "een voorzichtige, defensieve strategie";
+					feedbackParts.push(
+						`<p>In reactie hierop koos uw directie voor <strong>${stanceDescription}</strong>.</p>`
+					);
+
+					// Step 4 & 5: Explain trade-off and learning point
+					if (netNewsImpact > 2 && decisionStance < 0) {
+						feedbackParts.push(
+							"<p>Deze aanpak heeft de winst beschermd, maar was mogelijk een gemiste kans om uw marktaandeel sneller te laten groeien.</p>"
+						);
+						feedbackParts.push(
+							"<p><strong>Leerpunt:</strong> Het balanceren van risico en het benutten van marktkansen tijdens een hoogconjunctuur.</p>"
+						);
+					} else if (netNewsImpact < -2 && decisionStance > 0) {
+						feedbackParts.push(
+							"<p>Deze aanpak is ten koste gegaan van de maximale winst, maar heeft wel uw marktpositie versterkt.</p>"
+						);
+						feedbackParts.push(
+							"<p><strong>Leerpunt:</strong> De strategische afweging tussen winst op korte termijn en investeren in marktpositie tijdens een recessie.</p>"
+						);
+					} else if (Math.abs(netNewsImpact) > 2 && decisionStance === 0) {
+						feedbackParts.push(
+							"<p>De economie was turbulent, maar uw besluiten waren neutraal. Een meer uitgesproken strategie had wellicht meer opgeleverd.</p>"
+						);
+						feedbackParts.push(
+							"<p><strong>Leerpunt:</strong> In een volatiele markt kan een neutrale houding zowel een veilige als een suboptimale keuze zijn.</p>"
+						);
+					} else {
+						if (analysisScore.quality === "Uitstekend") {
+							feedbackParts.push(
+								"<p>Uw besluiten waren uitstekend afgestemd op de economische realiteit.</p>"
+							);
+							feedbackParts.push(
+								"<p><strong>Leerpunt:</strong> Consistentie tussen analyse en strategie is de sleutel tot voorspelbare resultaten.</p>"
+							);
+						} else {
+							feedbackParts.push(
+								"<p>Uw besluiten waren redelijk in lijn met de situatie, maar een scherpere analyse had tot betere resultaten kunnen leiden.</p>"
+							);
+							feedbackParts.push(
+								"<p><strong>Leerpunt:</strong> Zelfs met een logische strategie kan een onvolledige analyse de effectiviteit verminderen.</p>"
+							);
+						}
+					}
+
+					this.dom.feedbackText.innerHTML = feedbackParts.join("");
+					this.dom.gameScreen.classList.add("hidden");
+					this.dom.debriefingScreen.classList.remove("hidden");
+
+					if (this.state.currentRound === this.state.totalRounds) {
+						this.dom.nextRoundBtn.textContent = "Eindresultaten Bekijken";
+					} else {
+						this.dom.nextRoundBtn.textContent = "Volgende Kwartaal";
+					}
+				},
+
+				showAdvice() {
+					if (this.state.kpis.profit < 8) {
+						alert("Onvoldoende winst om een consultant in te huren.");
+						return;
+					}
+					this.state.kpis.profit -= 8.0;
+					this.dom.getAdviceBtn.disabled = true; // Disable after use
+					this.updateUI();
+
+					const currentNews = this.database.news[this.state.currentRound - 1];
+					const companySensitivities = this.state.selectedCompany.sensitivities;
+					let dominantNewsItem = null;
+					let maxImpact = -1;
+
+					currentNews.forEach((news) => {
+						let impactScore =
+							Math.abs(news.effects.gdp * companySensitivities.gdp) +
+							Math.abs(
+								news.effects.consumerConfidence *
+									companySensitivities.consumerConfidence
+							) +
+							Math.abs(
+								news.effects.interestRates * companySensitivities.interestRates
+							) +
+							Math.abs(
+								news.effects.inflation * companySensitivities.inflation
+							) +
+							Math.abs(
+								news.effects.globalTrade * companySensitivities.globalTrade
+							);
+						if (impactScore > maxImpact) {
+							maxImpact = impactScore;
+							dominantNewsItem = news;
+						}
+					});
+
+					this.dom.adviceContent.innerHTML = `<p class="font-semibold">Analyse van de consultant:</p><p>Het nieuwsitem <strong>"${dominantNewsItem.title}"</strong> lijkt de grootste impact te hebben op uw sector. Het zou verstandig zijn uw strategie hierop af te stemmen.</p>`;
+					this.dom.adviceModal.classList.remove("hidden");
+				},
+
+				endSimulation() {
+					this.dom.debriefingTitle.textContent = "Eindevaluatie Simulatie";
+					const debriefKpis = this.dom.debriefingScreen.querySelector(".grid");
+
+					const finalKpis = this.state.kpis;
+					const initialKpis = this.state.initialKpis;
+
+					// *** MODIFICATION: Display final and initial KPIs ***
+					debriefKpis.innerHTML = `
+                    <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Finale Omzet</h3>
+                        <p class="text-2xl font-semibold text-slate-800">€${finalKpis.revenue.toFixed(
+													2
+												)}M</p>
+                        <p class="text-sm text-slate-500 mt-1">Start: €${initialKpis.revenue.toFixed(
+													2
+												)}M</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Finale Winst</h3>
+                        <p class="text-2xl font-semibold text-slate-800">€${finalKpis.profit.toFixed(
+													2
+												)}M</p>
+                        <p class="text-sm text-slate-500 mt-1">Start: €${initialKpis.profit.toFixed(
+													2
+												)}M</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Finaal Marktaandeel</h3>
+                        <p class="text-2xl font-semibold text-slate-800">${finalKpis.marketShare.toFixed(
+													1
+												)}%</p>
+                        <p class="text-sm text-slate-500 mt-1">Start: ${initialKpis.marketShare.toFixed(
+													1
+												)}%</p>
+                    </div>
+                     <div class="bg-slate-50 p-3 rounded-md">
+                        <h3 class="text-sm font-medium text-slate-500">Finaal Moraal</h3>
+                        <p class="text-2xl font-semibold text-slate-800">${Math.round(
+													finalKpis.morale
+												)}/100</p>
+                        <p class="text-sm text-slate-500 mt-1">Start: ${Math.round(
+													initialKpis.morale
+												)}/100</p>
+                    </div>
+                `;
+
+					this.dom.analysisQuality.textContent = "Eindscore";
+
+					// Updated scoring logic based on performance relative to start
+					const score =
+						finalKpis.revenue / initialKpis.revenue +
+						finalKpis.profit / initialKpis.profit +
+						finalKpis.marketShare / initialKpis.marketShare +
+						finalKpis.morale / initialKpis.morale;
+
+					let feedback = "";
+					if (score > 4.5) {
+						feedback =
+							"Uitstekend werk! U heeft het bedrijf door een complexe markt genavigeerd en op alle fronten sterke groei gerealiseerd. Uw strategisch inzicht is van topniveau.";
+					} else if (score > 4.0) {
+						feedback =
+							"Goed gedaan. U heeft het bedrijf stabiel gehouden en op de meeste vlakken groei laten zien. Er waren enkele uitdagingen, maar de algemene koers was positief.";
+					} else {
+						feedback =
+							"Een uitdagende periode. De resultaten bleven achter bij de verwachtingen. Dit was een waardevolle les in de impact van economische schokken en de noodzaak van een coherente strategie.";
+					}
+
+					this.dom.feedbackText.innerHTML = `<p>${feedback}</p>`;
+					this.dom.nextRoundBtn.textContent = "Opnieuw Spelen";
+
+					// Replace the button to remove old event listeners and add the new one
+					const newBtn = this.dom.nextRoundBtn.cloneNode(true);
+					this.dom.nextRoundBtn.parentNode.replaceChild(
+						newBtn,
+						this.dom.nextRoundBtn
+					);
+					newBtn.addEventListener("click", () => window.location.reload());
+					this.dom.nextRoundBtn = newBtn; // Update cache
+
+					// Make sure the debriefing screen is visible
+					this.dom.gameScreen.classList.add("hidden");
+					this.dom.debriefingScreen.classList.remove("hidden");
+				},
+			};
+
+			App.init();
+		</script>
+	</body>
+</html>

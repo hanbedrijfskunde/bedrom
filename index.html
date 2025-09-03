@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard AEC - BEDROM04</title>
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<!-- Bootstrap Icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+		<style>
+			body {
+				background-color: #f8f9fa;
+			}
+			.week-card {
+				margin-bottom: 2rem;
+				border-left: 5px solid #0d6efd;
+			}
+			.card-header h2 {
+				margin-bottom: 0;
+				font-size: 1.75rem;
+			}
+			.task-list li {
+				padding: 5px 0;
+			}
+			.deadline-card {
+				border-left: 5px solid #dc3545;
+			}
+			/* Stijl voor afgevinkte taken */
+			.form-check-input:checked + .form-check-label {
+				text-decoration: line-through;
+				color: #6c757d;
+			}
+			.form-check-label {
+				/* Zorgt ervoor dat de hele regel klikbaar is */
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container my-5">
+			<h1 class="mb-4">Dashboard Algemene Economie (AEC)</h1>
+			<p class="lead">
+				Een overzicht per week voor de module Omgevingsanalyse (BEDROM04).
+			</p>
+
+			<!-- Week 1 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 1: Macro-economische Analyse</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Plaats van de sector in de bedrijfskolom</li>
+								<li>- Macro-economische variabelen (BBP, inflatie, etc.)</li>
+								<li>- Invloed van variabelen op de gekozen sector</li>
+								<li>- Bepalen van de conjunctuurgevoeligheid</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Sector kiezen en bedrijfskolom definiëren</li>
+								<li>- Macro-economische data voor Nederland verzamelen</li>
+								<li>
+									- Eerste analyse schrijven over de invloeden op de sector
+								</li>
+								<li>- Starten met de weekopdracht</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w1-task1"
+										/><label class="form-check-label" for="w1-task1"
+											>Presentatie macro-economische begrippen
+											klaarzetten</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w1-task2"
+										/><label class="form-check-label" for="w1-task2"
+											>Actuele cijfers van CBS & CPB opzoeken als
+											voorbeeld</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w1-task3"
+										/><label class="form-check-label" for="w1-task3"
+											>Inrichting feedbacksessies in Teams/Moodle
+											controleren</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w1-task4"
+										/><label class="form-check-label" for="w1-task4"
+											>Casus voorbereiden om conjunctuurgevoeligheid te
+											duiden</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Week 2 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 2: Marktvorm en Overheidsregulatie</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Marktvormen en SGR-model</li>
+								<li>- Overheidsregulering</li>
+								<li>- Consumptiegoederen (B2B/B2C)</li>
+								<li>- Prijsgevoeligheid en elasticiteit</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Marktvorm van de gekozen sector beargumenteren</li>
+								<li>- Analyse van structuur, gedrag en resultaat</li>
+								<li>- Vormen van overheidsingrijpen beschrijven</li>
+								<li>- Peerfeedback geven op opdracht week 1</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w2-task1"
+										/><label class="form-check-label" for="w2-task1"
+											>Uitleg SGR-model voorbereiden</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w2-task2"
+										/><label class="form-check-label" for="w2-task2"
+											>Recente voorbeelden van overheidsingrijpen
+											verzamelen</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w2-task3"
+										/><label class="form-check-label" for="w2-task3"
+											>Oefening over prijselasticiteit klaarzetten</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w2-task4"
+										/><label class="form-check-label" for="w2-task4"
+											>Werkcollege structureren rondom peerfeedback</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Week 3 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 3: Structuurkenmerken</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Constante en variabele kosten</li>
+								<li>- Impact kostenstructuur op aanpassingsvermogen</li>
+								<li>- Vormen van innovatief gedrag</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Kostenstructuur van bedrijven in de sector analyseren</li>
+								<li>- Innovatief gedrag binnen de sector identificeren</li>
+								<li>- Gevolgen van innovatie voor het aanbod beschrijven</li>
+								<li>- Peerfeedback geven op opdracht week 2</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w3-task1"
+										/><label class="form-check-label" for="w3-task1"
+											>Casus hoge vs. lage vaste kosten voorbereiden</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w3-task2"
+										/><label class="form-check-label" for="w3-task2"
+											>Theorie over verschillende soorten innovatie
+											presenteren</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w3-task3"
+										/><label class="form-check-label" for="w3-task3"
+											>Voorbeelden van recente innovaties per sector
+											zoeken</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w3-task4"
+										/><label class="form-check-label" for="w3-task4"
+											>Discussie leiden over aanpassingsvermogen</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Week 4 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 4: Maatschappelijke Kosten & True Pricing</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Brede welvaart dimensies</li>
+								<li>- Maatschappelijke (verborgen) kosten</li>
+								<li>- True Pricing concept</li>
+								<li>- Ecologische en sociale kosten</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Sector analyseren op basis van brede welvaart</li>
+								<li>
+									- Desk research naar verborgen kosten van een product/dienst
+								</li>
+								<li>
+									- ABN AMRO rapport 'spijkerbroek' als inspiratie gebruiken
+								</li>
+								<li>- Peerfeedback geven op opdracht week 3</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w4-task1"
+										/><label class="form-check-label" for="w4-task1"
+											>Uitleg 'brede welvaart' en 'true pricing'
+											voorbereiden</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w4-task2"
+										/><label class="form-check-label" for="w4-task2"
+											>Het ABN AMRO rapport downloaden en highlights
+											presenteren</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w4-task3"
+										/><label class="form-check-label" for="w4-task3"
+											>Discussievragen opstellen over de rol van bedrijven
+											hierin</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Week 5 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 5: ESG</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- ESG Framework (Environmental, Social, Governance)</li>
+								<li>- Kansen en bedreigingen detecteren</li>
+								<li>- Topical standaarden</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>- ESG framework uitwerken voor de gekozen sector</li>
+								<li>- Kansen en bedreigingen in kaart brengen</li>
+								<li>- Shortlist maken van 4 impactvolle thema's</li>
+								<li>- Peerfeedback geven op opdracht week 4</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w5-task1"
+										/><label class="form-check-label" for="w5-task1"
+											>Structuur van een goede ESG-analyse uitleggen</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w5-task2"
+										/><label class="form-check-label" for="w5-task2"
+											>Voorbeelden van ESG-rapportages van bedrijven
+											tonen</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w5-task3"
+										/><label class="form-check-label" for="w5-task3"
+											>Werkcollege inrichten om studenten te helpen bij de
+											selectie</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Week 6 & 7 -->
+			<div class="card week-card">
+				<div class="card-header bg-white">
+					<h2>Week 6 & 7: Presentaties en Afronding</h2>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5><i class="bi bi-book"></i> Onderwerpen</h5>
+							<ul class="list-unstyled task-list">
+								<li>- Totaaloverzicht economische kansen en bedreigingen</li>
+								<li>- Presentatievaardigheden</li>
+								<li>- Field research (interviews, bedrijfsbezoek)</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-people"></i> Studentenactiviteiten</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									- <strong>Week 6:</strong> Deel 1 van de groepen presenteert
+								</li>
+								<li>
+									- <strong>Week 7:</strong> Deel 2 van de groepen presenteert
+								</li>
+								<li>
+									- Afronden en verwerken field research (knock-out criterium!)
+								</li>
+								<li>- Actief peerfeedback geven op presentaties</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h5><i class="bi bi-easel"></i> Voorbereiding Docent</h5>
+							<ul class="list-unstyled task-list">
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w67-task1"
+										/><label class="form-check-label" for="w67-task1"
+											>Presentatieschema opstellen en communiceren</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w67-task2"
+										/><label class="form-check-label" for="w67-task2"
+											>Beoordelings-/feedbackformulieren klaarzetten</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w67-task3"
+										/><label class="form-check-label" for="w67-task3"
+											>Week 7 inroosteren voor afronding field research</label
+										>
+									</div>
+								</li>
+								<li>
+									<div class="form-check">
+										<input
+											class="form-check-input task-checkbox"
+											type="checkbox"
+											id="w67-task4"
+										/><label class="form-check-label" for="w67-task4"
+											>Duidelijk communiceren over knock-out criteria</label
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Eindopdracht -->
+			<div class="card deadline-card">
+				<div class="card-header bg-white">
+					<h2>Eindopdracht: Inleveren Rapportage</h2>
+				</div>
+				<div class="card-body">
+					<p><strong>Deadline: Einde periode (T1/3)</strong></p>
+					<p>
+						De finale rapportage van de Omgevingsanalyse (BEDROM04) wordt
+						ingeleverd. Dit is het beroepsproduct waar de wekelijkse opdrachten
+						naartoe hebben gewerkt.
+					</p>
+					<h5>Acties Docent</h5>
+					<ul class="list-unstyled task-list">
+						<li>
+							<div class="form-check">
+								<input
+									class="form-check-input task-checkbox"
+									type="checkbox"
+									id="final-task1"
+								/><label class="form-check-label" for="final-task1"
+									>Controleer of de inleverlink op Moodle/Brightspace correct is
+									ingesteld.</label
+								>
+							</div>
+						</li>
+						<li>
+							<div class="form-check">
+								<input
+									class="form-check-input task-checkbox"
+									type="checkbox"
+									id="final-task2"
+								/><label class="form-check-label" for="final-task2"
+									>Communiceer de exacte deadline en het format nogmaals
+									helder.</label
+								>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap JS Bundle -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<!-- JavaScript voor Local Storage -->
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const checkboxes = document.querySelectorAll(".task-checkbox");
+
+				// Functie om de status van een checkbox op te slaan
+				const saveState = (checkbox) => {
+					localStorage.setItem(checkbox.id, checkbox.checked);
+				};
+
+				// Functie om de opgeslagen status te laden bij het openen van de pagina
+				const loadState = () => {
+					checkboxes.forEach((checkbox) => {
+						const isChecked = localStorage.getItem(checkbox.id) === "true";
+						checkbox.checked = isChecked;
+					});
+				};
+
+				// Voeg een event listener toe aan elke checkbox
+				checkboxes.forEach((checkbox) => {
+					checkbox.addEventListener("change", () => {
+						saveState(checkbox);
+					});
+				});
+
+				// Laad de opgeslagen status wanneer de pagina geladen is
+				loadState();
+			});
+		</script>
+	</body>
+</html>

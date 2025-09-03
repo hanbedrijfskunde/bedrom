@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>College 1: De Macro-Economische Omgeving</title>
+		<!-- Tailwind CSS via CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- MathJax for mathematical notation -->
+		<script
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Basisstijlen en slide-overgangen */
+			body {
+				font-family: "Inter", sans-serif;
+				transition: background-color 0.5s ease;
+			}
+			.slide {
+				display: none;
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+				min-height: 80vh;
+			}
+			.slide.active {
+				display: flex;
+				opacity: 1;
+			}
+			/* Aangepaste stijlen voor een professionele look */
+			.slide-content {
+				max-width: 900px;
+				width: 90%;
+			}
+			h1 {
+				font-size: 3rem;
+			}
+			h2 {
+				font-size: 2.25rem;
+			}
+			@media (min-width: 768px) {
+				h1 {
+					font-size: 4rem;
+				}
+				h2 {
+					font-size: 3rem;
+				}
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 1.5rem;
+			}
+			th,
+			td {
+				border: 1px solid #e2e8f0;
+				padding: 0.75rem;
+				text-align: left;
+			}
+			th {
+				background-color: #f7fafc;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden relative p-4"
+	>
+		<!-- Slide Deck Container -->
+		<main id="slide-deck" class="w-full h-full">
+			<!-- Slide 1: Titel & Introductie -->
+			<section
+				class="slide active h-full flex-col items-center justify-center text-center"
+			>
+				<!-- Spreker: Welkom heten aan de tweedejaars studenten. Kort de relevantie van dit vak benadrukken voor een bedrijfskundige: "Een manager die de economie niet begrijpt, wordt verrast door de toekomst. Wij gaan leren om niet verrast te worden." Link leggen met hun eerdere economievakken uit de propedeuse. -->
+				<div class="slide-content">
+					<span class="text-lg md:text-xl text-blue-600 font-semibold"
+						>Algemene Economie (AEC) - Week 1</span
+					>
+					<h1 class="text-4xl md:text-6xl font-bold text-gray-900 mt-2">
+						De Macro-Economische Omgeving
+					</h1>
+					<p class="mt-4 text-xl md:text-2xl text-gray-600">
+						BEDROM04 - Omgevingsanalyse
+					</p>
+					<p class="mt-12 text-lg text-gray-500">Docent: Witek ten Hove</p>
+				</div>
+			</section>
+
+			<!-- Slide 2: Vandaag op de Agenda -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2
+						class="font-bold text-blue-800 border-b-4 border-blue-200 pb-2 mb-8"
+					>
+						Vandaag op de Agenda
+					</h2>
+					<div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+						<div>
+							<h3 class="font-semibold text-2xl mb-4">Wat gaan we doen?</h3>
+							<ul class="space-y-3 text-xl list-decimal list-inside">
+								<li>De Opdracht & Toetsing</li>
+								<li>Het Grote Plaatje</li>
+								<li>Het Speelveld: de bedrijfskolom</li>
+								<li>Het Weerbericht: macro-variabelen</li>
+								<li>De Impact & Conclusie</li>
+								<li>Aan de slag voor deze week</li>
+							</ul>
+						</div>
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="font-semibold text-2xl mb-4">Leerdoelen</h3>
+							<p class="text-lg">Aan het eind van dit college kun je:</p>
+							<ul class="space-y-2 text-lg list-disc list-inside mt-2">
+								<li>...een sector positioneren in de bedrijfskolom.</li>
+								<li>
+									...de belangrijkste macro-indicatoren benoemen en vinden.
+								</li>
+								<li>
+									...de link leggen tussen indicatoren en de prestaties van een
+									sector.
+								</li>
+								<li>
+									...een eerste, onderbouwde inschatting maken van
+									conjunctuurgevoeligheid.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 3: Opdracht & Toetsing -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<!-- Spreker: Benadruk dit goed. Het is geen losse opdracht, maar een bouwsteen. De kwaliteit van deze week legt de fundering voor de rest. Het peerfeedback-element is verplicht en helpt om de kwaliteit te verhogen. -->
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-6">
+						Wat wordt er van je verwacht?
+					</h2>
+					<div class="bg-white p-8 rounded-lg shadow-md space-y-4 text-lg">
+						<div>
+							<h3 class="font-semibold text-xl text-blue-700">
+								Het Beroepsproduct: De Sectoranalyse
+							</h3>
+							<p>
+								Elke week bouw je aan een deel van het eindproduct. De
+								weekopdrachten deel je voor
+								<span class="font-bold">verplichte peerfeedback</span> met een
+								andere groep.
+							</p>
+						</div>
+						<div class="border-t pt-4">
+							<h3 class="font-semibold text-xl text-blue-700">De Toetsing</h3>
+							<p>
+								De wekelijkse opdrachten vormen samen het economische deel van
+								het beroepsproduct. Voor het gehele economische deel moet je een
+								<span class="font-bold">gemiddelde voldoende</span> halen.
+							</p>
+						</div>
+						<div
+							class="bg-red-50 border-l-4 border-red-500 text-red-800 p-4 rounded-md"
+						>
+							<p class="font-bold">
+								Let op: Je kunt een onvoldoende voor het economie-deel NIET
+								compenseren met een hoger cijfer voor Management of Recht.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 4: Het Grote Plaatje -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<!-- Spreker: Uitleggen dat je als bedrijfskundige de hele trechter moet begrijpen. Je kunt de strategie van een bedrijf (micro) niet bepalen zonder de sector (meso) en de algehele economie (macro) te snappen. -->
+				<div class="slide-content text-center">
+					<h2 class="font-bold text-gray-900 mb-4">
+						Het Grote Plaatje: De Analyse-trechter
+					</h2>
+					<p class="text-xl mb-6">We zoomen in van breed naar specifiek.</p>
+					<img
+						src="https://placehold.co/800x350/EBF8FF/3182CE?text=Macro+%E2%86%92+Meso+%E2%86%92+Micro"
+						alt="Analyse Trechter"
+						class="rounded-lg shadow-lg mx-auto"
+					/>
+					<div class="flex justify-around mt-4 text-lg text-left gap-4">
+						<p>
+							<strong class="text-blue-600">Macro:</strong> De economie als
+							geheel (het weer).
+							<span class="font-bold block">Focus van vandaag!</span>
+						</p>
+						<p>
+							<strong class="text-blue-600">Meso:</strong> Een specifieke sector
+							(de spelers op het veld).
+							<span class="font-bold block">Focus van deze module.</span>
+						</p>
+						<p>
+							<strong class="text-blue-600">Micro:</strong> Individuele
+							bedrijven en consumenten (de acties van één speler).
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 5: De Bedrijfskolom -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-6">
+						Stap 1: Het Speelveld - De Bedrijfskolom
+					</h2>
+					<p class="text-xl mb-4">
+						De reis van een product: van oerproducent tot consument. Elke
+						schakel voegt waarde toe.
+					</p>
+					<div class="bg-white p-6 rounded-lg shadow-md">
+						<h3 class="font-semibold text-lg mb-2">
+							Voorbeeld: De Bedrijfskolom van een Wollen Trui
+						</h3>
+						<p class="text-lg">
+							Schapenboer → Spinnerij → Kledingfabriek → Kledingmerk → Winkel →
+							Jij
+						</p>
+					</div>
+					<div
+						class="mt-6 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500"
+					>
+						<h3 class="font-semibold text-lg mb-2">
+							Waarom is dit belangrijk voor je analyse?
+						</h3>
+						<p class="text-lg">
+							Het bepaalt je klanten, leveranciers, machtspositie, en je
+							gevoeligheid voor economische schokken.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 6: Macro-Economische Variabelen -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<!-- Spreker: Benadrukken dat dit de 'harde data' is. Laat live de websites zien van het CBS en het CPB. Dit is cruciaal voor hun opdracht. -->
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-6">
+						Stap 2: Het Weerbericht - Macro-Variabelen
+					</h2>
+					<p class="text-xl mb-4">
+						De 'knoppen' en 'meters' die de gezondheid van de Nederlandse
+						economie weergeven.
+					</p>
+					<ul
+						class="list-disc list-inside space-y-2 text-xl bg-white p-6 rounded-lg shadow-md"
+					>
+						<li>
+							<b>Bruto Binnenlands Product (BBP):</b> De totale waarde van
+							productie. <br /><span class="text-base text-gray-600"
+								>Formule: \(BBP = C + I + O + (E - M)\)</span
+							>
+						</li>
+						<li>
+							<b>Inflatie (CPI):</b> De stijging van het algemene prijspeil
+							(koopkracht).
+						</li>
+						<li>
+							<b>Werkgelegenheid / Werkloosheid:</b> Hoeveel mensen hebben een
+							baan?
+						</li>
+						<li>
+							<b>Rente:</b> De prijs van geld (belangrijk voor investeringen).
+						</li>
+						<li>
+							<b>Wisselkoersen:</b> Waarde van de euro t.o.v. andere valuta
+							(€/$).
+						</li>
+						<li>
+							<b>Vertrouwensindicatoren:</b> Consumenten- en
+							producentenvertrouwen (psychologie!).
+						</li>
+					</ul>
+					<p class="mt-4 text-center font-semibold text-blue-700">
+						Bronnen: Centraal Bureau voor de Statistiek (CBS) & Centraal
+						Planbureau (CPB)
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 7: De Koppeling -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<!-- Spreker: Dit is de kern van de analyse. Laat de studenten meedenken. "Stel, we analyseren de supermarktbranche. Wat is het effect van een dalend consumentenvertrouwen?" -->
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-4 text-center">
+						Stap 3: De Koppeling
+					</h2>
+					<p class="text-xl mb-6 text-center">
+						Als het regent in de macro-economie, wie wordt er dan nat?
+					</p>
+					<table class="bg-white shadow-md rounded-lg">
+						<thead>
+							<tr>
+								<th>Variabele</th>
+								<th>Stijgt / Daalt</th>
+								<th class="w-1/2">
+									Mogelijke Invloed op Sector (bv. Autobranche)
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Rente</strong></td>
+								<td>Stijgt</td>
+								<td>
+									<strong>Negatief:</strong> Lenen voor een auto wordt duurder,
+									investeringen door fabrikanten dalen.
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Inflatie</strong></td>
+								<td>Stijgt</td>
+								<td>
+									<strong>Negatief:</strong> Koopkracht daalt, uitgaven aan luxe
+									goederen worden uitgesteld.
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Consumentenvertrouwen</strong></td>
+								<td>Daalt</td>
+								<td>
+									<strong>Zeer Negatief:</strong> Grote aankopen worden als
+									eerste geschrapt bij onzekerheid.
+								</td>
+							</tr>
+							<tr>
+								<td><strong>Euro/Dollar koers (€ stijgt)</strong></td>
+								<td>Stijgt</td>
+								<td>
+									<strong>Negatief voor export:</strong> Europese auto's worden
+									duurder in de VS.
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Slide 8: Conjunctuurgevoeligheid Definitie -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<h2 class="font-bold text-gray-900 mb-4">
+						Stap 4: Conjunctuurgevoeligheid
+					</h2>
+					<p class="text-2xl italic mb-8">
+						"Hoe hard deint een sector mee op de golven van de economie?"
+					</p>
+					<div class="flex flex-col md:flex-row gap-8">
+						<div
+							class="flex-1 bg-red-50 p-6 rounded-lg border-l-4 border-red-500"
+						>
+							<h3 class="text-2xl font-bold text-red-700 mb-2">
+								Procyclisch (Gevoelig)
+							</h3>
+							<p class="text-lg">
+								Groeit hard in hoogconjunctuur, krimpt hard in laagconjunctuur.
+							</p>
+							<p class="mt-2 text-gray-600">
+								Voorbeelden: Bouw, auto-industrie, uitzendbureaus, luxe
+								goederen.
+							</p>
+						</div>
+						<div
+							class="flex-1 bg-green-50 p-6 rounded-lg border-l-4 border-green-500"
+						>
+							<h3 class="text-2xl font-bold text-green-700 mb-2">
+								Anticyclisch (Niet-gevoelig)
+							</h3>
+							<p class="text-lg">
+								Presteert stabiel of zelfs beter in laagconjunctuur.
+							</p>
+							<p class="mt-2 text-gray-600">
+								Voorbeelden: Supermarkten, gezondheidszorg, deurwaarders.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 9: Criteria voor Gevoeligheid -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-6">
+						Hoe bepaal je dit voor jouw sector?
+					</h2>
+					<div class="space-y-3">
+						<div class="bg-white p-4 rounded-lg shadow">
+							<strong class="text-blue-600 text-xl"
+								>1. Aard van het product:</strong
+							>
+							Wordt de aankoop uitgesteld bij tegenslag? (Luxe vs. Noodzaak)
+						</div>
+						<div class="bg-white p-4 rounded-lg shadow">
+							<strong class="text-blue-600 text-xl"
+								>2. Positie in bedrijfskolom:</strong
+							>
+							Sectoren vooraan in de keten voelen een dip vaak eerder en harder.
+						</div>
+						<div class="bg-white p-4 rounded-lg shadow">
+							<strong class="text-blue-600 text-xl"
+								>3. Kapitaalintensiteit:</strong
+							>
+							Hoge vaste kosten maken kwetsbaar bij dalende vraag.
+						</div>
+						<div class="bg-white p-4 rounded-lg shadow">
+							<strong class="text-blue-600 text-xl"
+								>4. Internationale concurrentie:</strong
+							>
+							Veel export? Dan ben je afhankelijk van de wereldeconomie.
+						</div>
+						<div class="bg-white p-4 rounded-lg shadow">
+							<strong class="text-blue-600 text-xl"
+								>5. Grondstof-/Wisselkoersgevoeligheid:</strong
+							>
+							Sterk afhankelijk van de prijs van olie, staal, etc.?
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 10: Opdracht voor Week 1 -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2
+						class="font-bold text-blue-800 border-b-4 border-blue-200 pb-2 mb-8"
+					>
+						De Opdracht voor Week 1: Jouw To-Do Lijst
+					</h2>
+					<ol
+						class="list-decimal list-inside space-y-3 text-xl bg-white p-8 rounded-lg shadow-lg"
+					>
+						<li>
+							<b>Kies een Sector</b> en 2 (bij voorkeur beursgenoteerde)
+							bedrijven.
+						</li>
+						<li>
+							<b>Plaats in Bedrijfskolom:</b> Teken/beschrijf de bedrijfskolom
+							voor je sector.
+						</li>
+						<li>
+							<b>Verzamel Macro-Data (CBS/CPB):</b> Zoek actuele cijfers en
+							trends (2-3 jr) voor BBP, inflatie, werkloosheid en
+							consumentenvertrouwen.
+						</li>
+						<li>
+							<b>Analyseer de Invloed:</b> Beschrijf, met argumenten, de invloed
+							van deze trends op jouw sector.
+						</li>
+						<li>
+							<b>Concludeer over Gevoeligheid:</b> Geef een onderbouwde
+							conclusie over de conjunctuurgevoeligheid van de sector én de
+							bedrijven, gebruik de criteria van de vorige slide.
+						</li>
+					</ol>
+					<p class="mt-4 text-center font-semibold">
+						Deadline: [Datum], inleveren via Teams voor peerfeedback.
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 11: Afsluiting & Vooruitblik -->
+			<section
+				class="slide h-full flex-col items-center justify-center text-center"
+			>
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-8">Afsluiting & Vooruitblik</h2>
+					<div class="flex gap-8 text-left">
+						<div class="flex-1 bg-white p-6 rounded-lg shadow">
+							<h3 class="font-bold text-xl mb-2 text-blue-700">Samenvatting</h3>
+							<ul class="list-disc list-inside space-y-1">
+								<li>Macro-omgeving is de fundering.</li>
+								<li>Bedrijfskolom bepaalt je positie.</li>
+								<li>Conjunctuurgevoeligheid is de kernvraag van deze week.</li>
+							</ul>
+						</div>
+						<div class="flex-1 bg-gray-200 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-2">Volgende week (Week 2)</h3>
+							<p>
+								We zoomen in op de sector zelf:
+								<b>Marktvormen & Concurrentie</b> (Monopolie, Oligopolie, etc.)
+							</p>
+						</div>
+					</div>
+					<h1 class="text-6xl font-bold text-gray-900 mt-16">Vragen?</h1>
+					<p class="mt-4 text-lg text-blue-600 font-semibold">
+						witek.tenhove@han.nl
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<!-- Navigatie & Paginering -->
+		<div class="fixed bottom-5 right-5 flex items-center space-x-4">
+			<span
+				id="slide-counter"
+				class="text-lg font-semibold text-gray-700 bg-white py-2 px-4 rounded-lg shadow-md"
+				>1 / 11</span
+			>
+			<button
+				id="prev-btn"
+				class="bg-blue-600 text-white rounded-full p-3 shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M15 19l-7-7 7-7"
+					/>
+				</svg>
+			</button>
+			<button
+				id="next-btn"
+				class="bg-blue-600 text-white rounded-full p-3 shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M9 5l7 7-7 7"
+					/>
+				</svg>
+			</button>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				// Initialisatie
+				const slides = document.querySelectorAll(".slide");
+				const prevBtn = document.getElementById("prev-btn");
+				const nextBtn = document.getElementById("next-btn");
+				const slideCounter = document.getElementById("slide-counter");
+				let currentSlide = 0;
+				const totalSlides = slides.length;
+
+				// Functie om de slides te tonen/verbergen
+				function showSlide(index) {
+					slides.forEach((slide, i) => {
+						slide.classList.toggle("active", i === index);
+					});
+
+					slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+					prevBtn.disabled = index === 0;
+					nextBtn.disabled = index === totalSlides - 1;
+				}
+
+				// Event listeners voor de knoppen
+				nextBtn.addEventListener("click", () => {
+					if (currentSlide < totalSlides - 1) {
+						currentSlide++;
+						showSlide(currentSlide);
+					}
+				});
+
+				prevBtn.addEventListener("click", () => {
+					if (currentSlide > 0) {
+						currentSlide--;
+						showSlide(currentSlide);
+					}
+				});
+
+				// Navigatie met pijltoetsen
+				document.addEventListener("keydown", (e) => {
+					if (e.key === "ArrowRight") {
+						nextBtn.click();
+					} else if (e.key === "ArrowLeft") {
+						prevBtn.click();
+					}
+				});
+
+				// Toon de eerste slide bij het laden
+				showSlide(currentSlide);
+			});
+		</script>
+	</body>
+</html>
