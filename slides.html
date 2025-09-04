@@ -4,15 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>College 1: De Macro-Economische Omgeving</title>
-		<!-- Tailwind CSS via CDN -->
 		<script src="https://cdn.tailwindcss.com"></script>
-		<!-- MathJax for mathematical notation -->
 		<script
 			id="MathJax-script"
 			async
 			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 		></script>
-		<!-- Google Fonts: Inter -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -73,13 +71,10 @@
 	<body
 		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden relative p-4"
 	>
-		<!-- Slide Deck Container -->
 		<main id="slide-deck" class="w-full h-full">
-			<!-- Slide 1: Titel & Introductie -->
 			<section
 				class="slide active h-full flex-col items-center justify-center text-center"
 			>
-				<!-- Spreker: Welkom heten aan de tweedejaars studenten. Kort de relevantie van dit vak benadrukken voor een bedrijfskundige: "Een manager die de economie niet begrijpt, wordt verrast door de toekomst. Wij gaan leren om niet verrast te worden." Link leggen met hun eerdere economievakken uit de propedeuse. -->
 				<div class="slide-content">
 					<span class="text-lg md:text-xl text-blue-600 font-semibold"
 						>Algemene Economie (AEC) - Week 1</span
@@ -94,7 +89,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 2: URL en QR code -->
 			<section
 				class="slide h-full flex-col items-center justify-center text-center"
 			>
@@ -117,7 +111,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 3: Wat is Economie? -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="font-bold text-gray-900 mb-6">Wat is Economie?</h2>
@@ -143,7 +136,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 4: Vandaag op de Agenda -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2
@@ -185,9 +177,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 5: Opdracht & Toetsing -->
 			<section class="slide h-full flex-col items-center justify-center">
-				<!-- Spreker: Benadruk dit goed. Het is geen losse opdracht, maar een bouwsteen. De kwaliteit van deze week legt de fundering voor de rest. Het peerfeedback-element is verplicht en helpt om de kwaliteit te verhogen. -->
 				<div class="slide-content">
 					<h2 class="font-bold text-gray-900 mb-6">
 						Wat wordt er van je verwacht?
@@ -224,9 +214,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 6: Het Grote Plaatje -->
 			<section class="slide h-full flex-col items-center justify-center">
-				<!-- Spreker: Uitleggen dat je als bedrijfskundige de hele trechter moet begrijpen. Je kunt de strategie van een bedrijf (micro) niet bepalen zonder de sector (meso) en de algehele economie (macro) te snappen. -->
 				<div class="slide-content text-center">
 					<h2 class="font-bold text-gray-900 mb-4">
 						Het Grote Plaatje: De Analyse-trechter
@@ -256,7 +244,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 7: De Bedrijfskolom -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content max-w-4xl">
 					<h2 class="font-bold text-gray-900 mb-8 text-center">
@@ -310,7 +297,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 8: Macro-Economische Variabelen & De Economische Kringloop -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content w-full">
 					<h2 class="font-bold text-gray-900 mb-6 text-center">
@@ -370,9 +356,57 @@
 				</div>
 			</section>
 
-			<!-- Slide 9: De Koppeling -->
+			<!-- NIEUWE SLIDE 1: BBP vijf grootste economieën + Nederland -->
 			<section class="slide h-full flex-col items-center justify-center">
-				<!-- Spreker: Dit is de kern van de analyse. Laat de studenten meedenken. "Stel, we analyseren de supermarktbranche. Wat is het effect van een dalend consumentenvertrouwen?" -->
+				<div class="slide-content w-full">
+					<h2 class="font-bold text-gray-900 mb-6 text-center">
+						Bruto Binnenlands Product: Wereldwijde Vergelijking
+					</h2>
+					<div class="bg-white p-6 rounded-lg shadow-md">
+						<canvas id="gdpChart" style="height: 400px"></canvas>
+					</div>
+					<p class="text-sm text-gray-600 mt-4 text-center">
+						Bron: IMF 2024 Forecasts - Data uit "Titans of Value" rapport
+					</p>
+				</div>
+			</section>
+
+			<!-- NIEUWE SLIDE 2: BBP per capita -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content w-full">
+					<h2 class="font-bold text-gray-900 mb-6 text-center">
+						BBP Per Capita: Productiviteit per Inwoner
+					</h2>
+					<div class="bg-white p-6 rounded-lg shadow-md">
+						<canvas id="gdpPerCapitaChart" style="height: 400px"></canvas>
+					</div>
+					<p class="text-sm text-gray-600 mt-4 text-center">
+						De VS en Nederland tonen de hoogste productiviteit per inwoner,
+						terwijl India ondanks zijn grote economie een veel lager BBP per
+						capita heeft.
+					</p>
+				</div>
+			</section>
+
+			<!-- NIEUWE SLIDE 3: Vergelijking BBP per capita vs EVA per medewerker -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content w-full">
+					<h2 class="font-bold text-gray-900 mb-6 text-center">
+						De Productiviteitskloof: Landen vs. Techgiganten
+					</h2>
+					<div class="bg-white p-6 rounded-lg shadow-md">
+						<canvas id="comparisonChart" style="height: 400px"></canvas>
+					</div>
+					<p class="text-sm text-gray-600 mt-4 text-center">
+						<strong>Opvallend:</strong> Een NVIDIA-medewerker creëert meer dan
+						10x de economische waarde van de gemiddelde Amerikaanse burger. Dit
+						toont de enorme productiviteitskloof tussen technologiebedrijven en
+						nationale economieën.
+					</p>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="font-bold text-gray-900 mb-4 text-center">
 						Stap 3: De Koppeling
@@ -428,7 +462,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 10: Conjunctuurgevoeligheid Definitie -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
 					<h2 class="font-bold text-gray-900 mb-4">
@@ -469,7 +502,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 11: Criteria voor Gevoeligheid -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="font-bold text-gray-900 mb-6">
@@ -510,7 +542,32 @@
 				</div>
 			</section>
 
-			<!-- Slide 12: Opdracht voor Week 1 -->
+			<section
+				class="slide h-full flex-col items-center justify-center text-center"
+			>
+				<div class="slide-content">
+					<h2 class="font-bold text-gray-900 mb-4">
+						Toepassing: De Bedrijfssimulatie
+					</h2>
+					<p class="text-xl mb-8">
+						Tijd om de theorie in de praktijk te brengen. In deze simulatie vorm
+						je de directie van een Nederlands bedrijf en navigeer je door de
+						economische golven.
+					</p>
+					<a
+						href="./simulatie-wk1.html"
+						target="_blank"
+						class="bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition text-2xl"
+					>
+						Start de Simulatie
+					</a>
+					<p class="mt-6 text-gray-600">
+						Je keuzes hebben direct impact op de omzet, winst, en het
+						marktaandeel van je bedrijf. Werk samen en beslis verstandig!
+					</p>
+				</div>
+			</section>
+
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2
@@ -550,34 +607,6 @@
 				</div>
 			</section>
 
-			<!-- Slide 13: Introductie Bedrijfssimulatie -->
-			<section
-				class="slide h-full flex-col items-center justify-center text-center"
-			>
-				<div class="slide-content">
-					<h2 class="font-bold text-gray-900 mb-4">
-						Toepassing: De Bedrijfssimulatie
-					</h2>
-					<p class="text-xl mb-8">
-						Tijd om de theorie in de praktijk te brengen. In deze simulatie vorm
-						je de directie van een Nederlands bedrijf en navigeer je door de
-						economische golven.
-					</p>
-					<a
-						href="./simulatie-wk1.html"
-						target="_blank"
-						class="bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition text-2xl"
-					>
-						Start de Simulatie
-					</a>
-					<p class="mt-6 text-gray-600">
-						Je keuzes hebben direct impact op de omzet, winst, en het
-						marktaandeel van je bedrijf. Werk samen en beslis verstandig!
-					</p>
-				</div>
-			</section>
-
-			<!-- Slide 14: Afsluiting & Vooruitblik -->
 			<section
 				class="slide h-full flex-col items-center justify-center text-center"
 			>
@@ -624,12 +653,11 @@
 			</section>
 		</main>
 
-		<!-- Navigatie & Paginering -->
 		<div class="fixed bottom-5 right-5 flex items-center space-x-4">
 			<span
 				id="slide-counter"
 				class="text-lg font-semibold text-gray-700 bg-white py-2 px-4 rounded-lg shadow-md"
-				>1 / 14</span
+				>1 / 17</span
 			>
 			<button
 				id="prev-btn"
@@ -690,6 +718,15 @@
 					slideCounter.textContent = `${index + 1} / ${totalSlides}`;
 					prevBtn.disabled = index === 0;
 					nextBtn.disabled = index === totalSlides - 1;
+
+					// Initialize charts when their slides become active
+					if (index === 8) {
+						initGDPChart();
+					} else if (index === 9) {
+						initGDPPerCapitaChart();
+					} else if (index === 10) {
+						initComparisonChart();
+					}
 				}
 
 				// Event listeners voor de knoppen
@@ -715,6 +752,228 @@
 						prevBtn.click();
 					}
 				});
+
+				// Chart configurations
+				Chart.defaults.font.family = "Inter, sans-serif";
+
+				// GDP Chart
+				function initGDPChart() {
+					const ctx = document.getElementById("gdpChart");
+					if (ctx && !ctx.chartInstance) {
+						ctx.chartInstance = new Chart(ctx, {
+							type: "bar",
+							data: {
+								labels: [
+									"Verenigde Staten",
+									"China",
+									"Duitsland",
+									"Japan",
+									"India",
+									"Nederland",
+								],
+								datasets: [
+									{
+										label: "BBP in biljoenen USD (2024)",
+										data: [28.78, 18.53, 4.59, 4.11, 3.94, 1.14],
+										backgroundColor: [
+											"rgba(59, 130, 246, 0.8)",
+											"rgba(239, 68, 68, 0.8)",
+											"rgba(34, 197, 94, 0.8)",
+											"rgba(168, 85, 247, 0.8)",
+											"rgba(251, 146, 60, 0.8)",
+											"rgba(250, 204, 21, 0.8)",
+										],
+										borderColor: [
+											"rgba(59, 130, 246, 1)",
+											"rgba(239, 68, 68, 1)",
+											"rgba(34, 197, 94, 1)",
+											"rgba(168, 85, 247, 1)",
+											"rgba(251, 146, 60, 1)",
+											"rgba(250, 204, 21, 1)",
+										],
+										borderWidth: 2,
+									},
+								],
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: {
+									legend: {
+										display: false,
+									},
+									tooltip: {
+										callbacks: {
+											label: function (context) {
+												return `$${context.parsed.y.toFixed(2)} biljoen`;
+											},
+										},
+									},
+								},
+								scales: {
+									y: {
+										beginAtZero: true,
+										ticks: {
+											callback: function (value) {
+												return "$" + value + " T";
+											},
+										},
+									},
+								},
+							},
+						});
+					}
+				}
+
+				// GDP Per Capita Chart
+				function initGDPPerCapitaChart() {
+					const ctx = document.getElementById("gdpPerCapitaChart");
+					if (ctx && !ctx.chartInstance) {
+						ctx.chartInstance = new Chart(ctx, {
+							type: "bar",
+							data: {
+								labels: [
+									"Verenigde Staten",
+									"Nederland",
+									"Duitsland",
+									"Japan",
+									"China",
+									"India",
+								],
+								datasets: [
+									{
+										label: "BBP per capita in USD",
+										data: [82877, 62273, 54607, 33390, 13087, 2689],
+										backgroundColor: [
+											"rgba(59, 130, 246, 0.8)", // VS - blue
+											"rgba(250, 204, 21, 0.8)", // Nederland - yellow
+											"rgba(34, 197, 94, 0.8)", // Duitsland - green
+											"rgba(168, 85, 247, 0.8)", // Japan - purple
+											"rgba(239, 68, 68, 0.8)", // China - red
+											"rgba(251, 146, 60, 0.8)", // India - orange
+										],
+										borderColor: [
+											"rgba(59, 130, 246, 1)", // VS - blue
+											"rgba(250, 204, 21, 1)", // Nederland - yellow
+											"rgba(34, 197, 94, 1)", // Duitsland - green
+											"rgba(168, 85, 247, 1)", // Japan - purple
+											"rgba(239, 68, 68, 1)", // China - red
+											"rgba(251, 146, 60, 1)", // India - orange
+										],
+										borderWidth: 2,
+									},
+								],
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: {
+									legend: {
+										display: false,
+									},
+									tooltip: {
+										callbacks: {
+											label: function (context) {
+												return `$${context.parsed.y.toLocaleString()}`;
+											},
+										},
+									},
+								},
+								scales: {
+									y: {
+										beginAtZero: true,
+										ticks: {
+											callback: function (value) {
+												return "$" + value / 1000 + "k";
+											},
+										},
+									},
+								},
+							},
+						});
+					}
+				}
+
+				// Comparison Chart
+				function initComparisonChart() {
+					const ctx = document.getElementById("comparisonChart");
+					if (ctx && !ctx.chartInstance) {
+						ctx.chartInstance = new Chart(ctx, {
+							type: "bar",
+							data: {
+								labels: [
+									"VS",
+									"Nederland",
+									"Duitsland",
+									"Japan",
+									"China",
+									"India",
+									"NVIDIA",
+									"Apple",
+									"Alphabet",
+									"Microsoft",
+									"Amazon",
+								],
+								datasets: [
+									{
+										label: "BBP per Capita (USD)",
+										data: [
+											82877, 62273, 54607, 33390, 13087, 2689, 0, 0, 0, 0, 0,
+										],
+										backgroundColor: "rgba(59, 130, 246, 0.8)",
+										borderColor: "rgba(59, 130, 246, 1)",
+										borderWidth: 2,
+									},
+									{
+										label: "EVA per Medewerker (USD)",
+										data: [
+											0, 0, 0, 0, 0, 0, 902365, 470793, 387235, 254912, 21639,
+										],
+										backgroundColor: "rgba(34, 197, 94, 0.8)",
+										borderColor: "rgba(34, 197, 94, 1)",
+										borderWidth: 2,
+									},
+								],
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: {
+									legend: {
+										position: "top",
+									},
+									tooltip: {
+										callbacks: {
+											label: function (context) {
+												return (
+													context.dataset.label +
+													": $" +
+													context.parsed.y.toLocaleString()
+												);
+											},
+										},
+									},
+								},
+								scales: {
+									y: {
+										type: "logarithmic",
+										beginAtZero: false,
+										ticks: {
+											callback: function (value) {
+												if (value >= 1000000) {
+													return "$" + value / 1000000 + "M";
+												} else if (value >= 1000) {
+													return "$" + value / 1000 + "k";
+												}
+												return "$" + value;
+											},
+										},
+									},
+								},
+							},
+						});
+					}
+				}
 
 				// Toon de eerste slide bij het laden
 				showSlide(currentSlide);
