@@ -89,7 +89,7 @@ Na deze sessie kunnen studenten:
   - Laat 2-3 studenten antwoorden geven
 
 - **Definitie presenteren** (5 min)
-  - Slide 3: Economie = keuzes maken bij schaarste
+  - Slide 2: Economie = keuzes maken bij schaarste
   - Benadruk: "Sociale wetenschap - het gaat over mensen!"
   - Voorbeeld: "Waarom bestelt de ene student fancy koffie en de ander niet?"
 
@@ -278,7 +278,7 @@ Na deze sessie kunnen studenten:
   - Start vroeg - data verzamelen kost tijd
 
 - **Vooruitblik** (1 min)
-  - Slide 16: Volgende week marktvormen
+  - Slide 17: Volgende week marktvormen
   - "We bouwen elke week verder op wat je nu geleerd hebt"
 
 ---
