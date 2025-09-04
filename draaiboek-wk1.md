@@ -35,8 +35,9 @@ Na deze sessie kunnen studenten:
 
 | Tijd | Onderdeel | Duur |
 |------|-----------|------|
-| 0:00-0:10 | Opening & Introductie | 10 min |
-| 0:10-0:25 | Wat is Economie? | 15 min |
+| 0:00-0:02 | Opening | 2 min |
+| 0:02-0:15 | Wat is Economie? (Systeem 2 activatie) | 13 min |
+| 0:15-0:25 | QR-code & Agenda | 10 min |
 | 0:25-0:40 | Het Grote Plaatje | 15 min |
 | 0:40-1:00 | Het Speelveld: Bedrijfskolom | 20 min |
 | 1:00-1:10 | **PAUZE** | 10 min |
@@ -50,62 +51,91 @@ Na deze sessie kunnen studenten:
 
 ## 📝 Gedetailleerd Draaiboek
 
-### 🚀 Opening & Introductie (0:00-0:10)
+### 🚀 Opening (0:00-0:02)
 
-**Doel:** Verwachtingen stellen en studenten betrekken
+**Doel:** Korte welkom en directe activatie
 
 #### Activiteiten:
-- **Welkom** (1 min)
-  - Beamer aan, eerste slide tonen
+- **Welkom** (2 min)
+  - Beamer aan, eerste slide (titel) tonen
   - "Welkom bij Algemene Economie, week 1!"
+  - "We gaan vandaag beginnen met een fundamentele vraag..."
+  - **NIET:** QR-code tonen, devices nog niet nodig
 
-- **QR-code delen** (2 min)  
-  - Slide 2 tonen: "Volg de slides live!"
-  - Laat iedereen de QR scannen
-  - Check: "Wie heeft de slides op zijn telefoon?"
-
-- **Agenda & Leerdoelen** (5 min)
-  - Slide 4 bespreken
-  - Benadruk: "Over 2 uur kunnen jullie..."
-  - Interactie: "Wat verwachten jullie van economie?"
-
-- **Toetsing uitleggen** (2 min)
-  - Slide 5: Beroepsproduct & gemiddelde voldoende
-  - **Let op:** Benadruk dat economie niet gecompenseerd kan worden
-
-**Tip:** Maak oogcontact, loop door de klas, creëer energie!
+**Tip:** Creëer nieuwsgierigheid, hou de energie hoog!
 
 ---
 
-### 🎓 Wat is Economie? (0:10-0:25)
+### 🎓 Wat is Economie? - Systeem 2 Activatie (0:02-0:15)
 
-**Doel:** Fundamenten leggen en misconcepties wegnemen
+**Doel:** Analytisch denken activeren VOORDAT technologie wordt geïntroduceerd
 
 #### Activiteiten:
 
+- **Directe denkvraag** (2 min)
+  - Slide 2 tonen: "Wat is Economie?"
+  - "Voordat we verder gaan, schrijf voor jezelf op: Wat is economie volgens jou?"
+  - **Stilte:** Geef ze 30 seconden om na te denken
+  - "Geen telefoons, geen overleg - eerst zelf nadenken"
+
 - **Brainstorm** (5 min)
-  - Vraag: "Wat is economie volgens jullie?"
-  - Noteer antwoorden op whiteboard
-  - Laat 2-3 studenten antwoorden geven
+  - "Deel nu met je buurman/vrouw wat je opgeschreven hebt"
+  - Na 2 minuten: "Wie durft zijn definitie te delen?"
+  - Noteer kernwoorden op whiteboard
+  - Laat 3-4 studenten antwoorden geven
+  - **Niet corrigeren**, alleen verzamelen
 
-- **Definitie presenteren** (5 min)
-  - Slide 2: Economie = keuzes maken bij schaarste
-  - Benadruk: "Sociale wetenschap - het gaat over mensen!"
-  - Voorbeeld: "Waarom bestelt de ene student fancy koffie en de ander niet?"
-
-- **Interactieve vraag** (5 min)
+- **Definitie onthullen** (4 min)
+  - Toon de definitie op slide 2
+  - "Economie = keuzes maken bij schaarste"
+  - Vergelijk met wat op het bord staat
+  - Benadruk: "Het is een SOCIALE wetenschap - het gaat over mensen!"
+  
+- **Persoonlijke connectie** (2 min)
   - "Noem een economische keuze die je vandaag gemaakt hebt"
-  - Laat 3-4 studenten antwoorden
-  - Verbind antwoorden aan schaarste en alternatieven
+  - "Waarom koos je daarvoor en niet voor iets anders?"
+  - Link naar schaarste (tijd, geld, energie)
 
 **Verwachte antwoorden studenten:**  
 - Geld, beurs, bedrijven
 - Vraag en aanbod  
 - Crisis, inflatie
 
-**Doorvragen op:**
-- "Waarom maak je die keuze?"
-- "Wat zijn de alternatieven?"
+**Belangrijke noot:** 
+- Geen devices tijdens dit deel
+- Focus op denken, niet op noteren
+- Activeer Systeem 2 door complexiteit toe te voegen
+
+---
+
+### 📱 QR-code & Agenda (0:15-0:25)
+
+**Doel:** Nu pas technologie introduceren, met geactiveerd brein
+
+#### Activiteiten:
+
+- **Transitie** (1 min)
+  - "Nu jullie brein wakker is, tijd om de slides te delen"
+  - "Pak je telefoon of laptop erbij"
+
+- **QR-code delen** (3 min)  
+  - Slide 3 tonen: "Volg de slides live!"
+  - "Scan de QR-code of typ de URL"
+  - Check: "Wie heeft de slides op zijn scherm?"
+  - Wacht tot 80% het heeft
+
+- **Agenda & Leerdoelen** (4 min)
+  - Slide 4 bespreken
+  - "Nu jullie weten wat economie is, dit gaan we vandaag doen..."
+  - Doorloop de leerdoelen
+  - "Over 2 uur kunnen jullie..."
+
+- **Toetsing uitleggen** (2 min)
+  - Slide 5: Beroepsproduct & gemiddelde voldoende
+  - **Benadruk:** "Economie kan NIET gecompenseerd worden"
+  - "Peerfeedback is verplicht"
+
+**Tip:** Nu devices zijn toegestaan, accepteer dat sommige aandacht verdeeld is
 
 ---
 
@@ -158,7 +188,7 @@ Na deze sessie kunnen studenten:
 
 - **Presentaties** (2 min)
   - 2 groepen presenteren kort hun bedrijfskolom (1 min per groep)
-  - Feedback: "Wat missen ze? Waar zitten de meeste toegevoegde waarde?"
+  - Feedback: "Wat missen ze? Waar zit de meeste toegevoegde waarde?"
 
 **Docent-tips:**
 - Loop rond tijdens groepswerk
@@ -278,7 +308,7 @@ Na deze sessie kunnen studenten:
   - Start vroeg - data verzamelen kost tijd
 
 - **Vooruitblik** (1 min)
-  - Slide 17: Volgende week marktvormen
+  - Slide 16: Volgende week marktvormen
   - "We bouwen elke week verder op wat je nu geleerd hebt"
 
 ---
@@ -291,7 +321,7 @@ Na deze sessie kunnen studenten:
 
 - **Snelle evaluatie** (2 min)
   - "Steek je hand op als je het gevoel hebt dat je de leerdoelen behaald hebt"
-  - QR-code voor feedback tonen (Slide 17)
+  - QR-code voor feedback tonen (Slide 16)
 
 - **Laatste vragen** (3 min)
   - "Welke vragen hebben jullie nog?"
@@ -305,6 +335,13 @@ Na deze sessie kunnen studenten:
 ---
 
 ## 🎯 Docent Cheat Sheet
+
+### Systeem 2 Activatie Tips:
+- **Begin ZONDER devices** - dit is cruciaal voor focus
+- Stel complexe vragen die nadenken vereisen
+- Laat stiltes vallen - geef tijd voor reflectie
+- Vermijd ja/nee vragen in het begin
+- Bouw complexiteit op: eerst individueel denken, dan delen
 
 ### Bij technische problemen:
 - Backup: slides ook lokaal opgeslagen
@@ -322,12 +359,14 @@ Na deze sessie kunnen studenten:
 - Gebruik namen van studenten
 - Verbind voorbeelden aan hun leefwereld (Netflix, TikTok, studentenlening)
 - Bij lage energie: korte energizer ("Sta op als je gisteren online iets gekocht hebt")
+- **Systeem 2 check:** Als studenten te snel antwoorden, vraag "Waarom denk je dat?"
 
 ---
 
 ## 📊 Evaluatie-criteria (voor jezelf)
 
 **Geslaagd als:**
+- [ ] Studenten waren gefocust tijdens "Wat is Economie?" deel
 - [ ] 80% kan macro-indicatoren benoemen
 - [ ] Groepen begrijpen bedrijfskolom concept  
 - [ ] Studenten zien verband macro-economie en sectorprestaties
@@ -336,7 +375,8 @@ Na deze sessie kunnen studenten:
 - [ ] Positieve energie in de klas
 
 **Verbeterpunten volgende keer:**
-- Wat liep goed?
+- Was Systeem 2 succesvol geactiveerd?
+- Wat was het effect van eerst denken, dan devices?
 - Welke vragen kwamen vaak terug?
 - Waar verloor je studenten?
 - Timing aanpassingen nodig?
