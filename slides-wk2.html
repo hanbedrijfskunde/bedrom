@@ -216,7 +216,7 @@
 		<!-- Navigation -->
 		<div class="navigation">
 			<button id="prev-btn" class="nav-btn" title="Vorige slide">‹</button>
-			<span id="slide-counter" class="slide-counter">1 / 21</span>
+			<span id="slide-counter" class="slide-counter">1 / 22</span>
 			<button id="next-btn" class="nav-btn" title="Volgende slide">›</button>
 		</div>
 
@@ -327,14 +327,11 @@
 					</p>
 					<div class="mt-8 flex justify-center">
 						<img
-							src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://hanbedrijfskunde.github.io/bedrom/slides-wk2.html"
+							src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://example.com"
 							alt="QR Code"
-							class="rounded-lg shadow-lg mx-auto"
+							class="rounded-lg shadow-lg"
 						/>
 					</div>
-					<p class="mt-4 font-semibold text-blue-700 text-lg break-all">
-						hanbedrijfskunde.github.io/bedrom/slides-wk2.html
-					</p>
 				</div>
 			</section>
 
@@ -400,7 +397,7 @@
 						<div
 							class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
 						>
-							<h3 class="font-bold text-xl">Monopolistische Concurrentieh3>
+							<h3 class="font-bold text-xl">Monopolistische Conc.</h3>
 							<p class="text-sm text-gray-500 mt-1">
 								Veel aanbieders, heterogeen product.
 							</p>
@@ -621,7 +618,85 @@
 				</div>
 			</section>
 
-			<!-- Slide 10: Uitleg Wiskunde Horloge -->
+			<!-- Slide 10: Vraagcurve als Orderboek (NIEUW) -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-4xl font-bold text-center">
+						De Vraagcurve als 'Orderboek'
+					</h2>
+					<p class="mt-2 text-xl text-gray-600 text-center">
+						Laten we de vraagcurve bouwen op basis van de betalingsbereidheid in
+						de klas.
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Left: Input -->
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">
+								Veiling: Wat is een kop koffie waard?
+							</h3>
+							<p class="text-gray-600 mt-2">
+								Voer hieronder de maximale prijs in die studenten willen
+								betalen.
+							</p>
+							<div class="flex gap-2 mt-4">
+								<input
+									type="number"
+									id="bid-input"
+									placeholder="Voer een bod in..."
+									step="0.1"
+									class="flex-grow p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+								/>
+								<button
+									id="add-bid-btn"
+									class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+								>
+									Bod Toevoegen
+								</button>
+							</div>
+							<div class="mt-4">
+								<h4 class="font-semibold">Ingevoerde Biedingen:</h4>
+								<div
+									id="bids-list"
+									class="mt-2 p-2 bg-gray-50 h-32 overflow-y-auto rounded-md flex flex-wrap gap-2 content-start"
+								>
+									<!-- Bids will be added here -->
+								</div>
+							</div>
+							<button
+								id="process-bids-btn"
+								class="mt-4 w-full py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition text-lg"
+							>
+								Verwerk Biedingen & Bouw Vraagcurve
+							</button>
+						</div>
+						<!-- Right: Output -->
+						<div
+							id="orderbook-output"
+							class="bg-gray-50 p-6 rounded-lg shadow-inner hidden"
+						>
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+								<div>
+									<h3 class="font-bold text-xl text-blue-600">Orderboek</h3>
+									<div
+										id="orderbook-table-container"
+										class="mt-2 h-[300px] overflow-y-auto"
+									>
+										<!-- Table will be generated here -->
+									</div>
+								</div>
+								<div class="h-full flex flex-col">
+									<h3 class="font-bold text-xl text-blue-600">Vraagcurve</h3>
+									<div class="flex-grow relative mt-2">
+										<canvas id="orderbook-chart"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 11: Uitleg Wiskunde Horloge -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold text-center">
@@ -696,7 +771,7 @@
 				</div>
 			</section>
 
-			<!-- SLIDE 11: PUNTELASTICITEIT CALCULATOR -->
+			<!-- SLIDE 12: PUNTELASTICITEIT CALCULATOR -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold text-center">
@@ -797,7 +872,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 12: Oefening Brood -->
+			<!-- Slide 13: Oefening Brood -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold text-center">
@@ -869,7 +944,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 13: Prijselasticiteit Simulator -->
+			<!-- Slide 14: Prijselasticiteit Simulator -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold text-center">
@@ -978,7 +1053,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 14: Casus Wegtransport -->
+			<!-- Slide 15: Casus Wegtransport -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold text-center">
@@ -1083,7 +1158,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 15: Inspiratie -->
+			<!-- Slide 16: Inspiratie -->
 			<section
 				class="slide h-full flex-col items-center justify-center bg-gray-800 text-white"
 			>
@@ -1109,7 +1184,7 @@
 						<div
 							class="bg-gray-700 p-6 rounded-lg text-center border border-gray-600"
 						>
-							<h3 class="text-xl font-bold text-blue-400">
+							<h3 class="font-bold text-xl text-blue-400">
 								Chief True Pricing Officer
 							</h3>
 							<p class="mt-2 text-gray-300">
@@ -1133,7 +1208,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 16: Pauze -->
+			<!-- Slide 17: Pauze -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
 					<h2 class="text-6xl font-bold">☕ Pauze</h2>
@@ -1143,7 +1218,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 17: Centrale Casus -->
+			<!-- Slide 18: Centrale Casus -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
 					<span class="text-xl text-blue-600 font-semibold"
@@ -1159,7 +1234,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 18: Het Debat -->
+			<!-- Slide 19: Het Debat -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold">
@@ -1201,7 +1276,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 19: Opdracht Week 2 -->
+			<!-- Slide 20: Opdracht Week 2 -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
 					<h2 class="text-4xl font-bold">Aan de slag: Opdracht Week 2</h2>
@@ -1252,7 +1327,7 @@
 								</div>
 								<div>
 									Beschrijf de rol van de 'spelverdeler' (ACM, wetgeving). Denk
-									aan de casus op <strong>slide 17</strong>.
+									aan de casus op <strong>slide 18</strong>.
 								</div>
 							</div>
 							<!-- Item 4 -->
@@ -1267,7 +1342,7 @@
 								</div>
 								<div>
 									Beschrijf de B2B/B2C-mix, soort goederen en prijsgevoeligheid.
-									Zie <strong>slide 9, 10, 11, 12, 13 & 14</strong>.
+									Zie <strong>slides 9 t/m 15</strong>.
 								</div>
 							</div>
 						</div>
@@ -1275,7 +1350,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 20: Wrap-up -->
+			<!-- Slide 21: Wrap-up -->
 			<section
 				class="slide h-full flex-col items-center justify-center text-center"
 			>
@@ -1313,7 +1388,7 @@
 				</div>
 			</section>
 
-			<!-- Slide 21: Vragen? -->
+			<!-- Slide 22: Vragen? -->
 			<section
 				class="slide h-full flex-col items-center justify-center text-center"
 			>
@@ -1384,10 +1459,13 @@
 
 				// LocalStorage key
 				const STORAGE_KEY = "student_answers_ah_macht";
-				let elasticitySimulatorInitialized = false;
+
+				// Initialization flags
+				let orderBookBuilderInitialized = false;
 				let demandChartHorlogeInitialized = false;
 				let pointElasticityCalculatorInitialized = false;
 				let demandChartBroodInitialized = false;
+				let elasticitySimulatorInitialized = false;
 
 				// Functie om de slides te tonen/verbergen
 				function showSlide(index) {
@@ -1400,19 +1478,23 @@
 					nextBtn.disabled = index === totalSlides - 1;
 
 					// Initialize charts and simulator when their slides become active
-					if (index === 9 && !demandChartHorlogeInitialized) {
+					if (index === 9 && !orderBookBuilderInitialized) {
+						initOrderBookBuilder();
+						orderBookBuilderInitialized = true;
+					}
+					if (index === 10 && !demandChartHorlogeInitialized) {
 						initDemandCurveChart_Horloge();
 						demandChartHorlogeInitialized = true;
 					}
-					if (index === 10 && !pointElasticityCalculatorInitialized) {
+					if (index === 11 && !pointElasticityCalculatorInitialized) {
 						initPointElasticityCalculator();
 						pointElasticityCalculatorInitialized = true;
 					}
-					if (index === 11 && !demandChartBroodInitialized) {
+					if (index === 12 && !demandChartBroodInitialized) {
 						initDemandCurveChart_Brood();
 						demandChartBroodInitialized = true;
 					}
-					if (index === 12 && !elasticitySimulatorInitialized) {
+					if (index === 13 && !elasticitySimulatorInitialized) {
 						initElasticitySimulator();
 						elasticitySimulatorInitialized = true;
 					}
@@ -1522,6 +1604,128 @@
 					}, 2000);
 				}
 
+				// Order Book Builder Logic
+				function initOrderBookBuilder() {
+					const bidInput = document.getElementById("bid-input");
+					const addBidBtn = document.getElementById("add-bid-btn");
+					const bidsListEl = document.getElementById("bids-list");
+					const processBtn = document.getElementById("process-bids-btn");
+					const outputEl = document.getElementById("orderbook-output");
+					const tableContainer = document.getElementById(
+						"orderbook-table-container"
+					);
+					const ctx = document
+						.getElementById("orderbook-chart")
+						.getContext("2d");
+
+					let bids = [];
+					let chart = null;
+
+					function renderBids() {
+						bidsListEl.innerHTML = "";
+						bids.forEach((bid) => {
+							const span = document.createElement("span");
+							span.className =
+								"bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-sm font-medium";
+							span.textContent = `€ ${bid.toFixed(2)}`;
+							bidsListEl.appendChild(span);
+						});
+					}
+
+					addBidBtn.addEventListener("click", () => {
+						const value = parseFloat(bidInput.value);
+						if (!isNaN(value) && value > 0) {
+							bids.push(value);
+							renderBids();
+							bidInput.value = "";
+							bidInput.focus();
+						}
+					});
+
+					bidInput.addEventListener("keydown", (e) => {
+						if (e.key === "Enter") {
+							addBidBtn.click();
+						}
+					});
+
+					processBtn.addEventListener("click", () => {
+						if (bids.length === 0) return;
+
+						bids.sort((a, b) => b - a);
+
+						const orderBookData = [];
+						let cumulativeQuantity = 0;
+						const priceLevels = [...new Set(bids)].sort((a, b) => b - a);
+
+						priceLevels.forEach((price) => {
+							const quantityAtPrice = bids.filter((b) => b === price).length;
+							cumulativeQuantity += quantityAtPrice;
+							orderBookData.push({
+								price: price,
+								quantity: cumulativeQuantity,
+							});
+						});
+
+						let tableHTML = `<table class="w-full text-sm text-left text-gray-500">
+							<thead class="text-xs text-gray-700 uppercase bg-gray-100">
+								<tr><th scope="col" class="px-4 py-2">Prijs (of hoger)</th><th scope="col" class="px-4 py-2">Totale Vraag (Q)</th></tr>
+							</thead><tbody>`;
+						orderBookData.forEach((row) => {
+							tableHTML += `<tr class="bg-white border-b"><td class="px-4 py-2 font-medium text-gray-900">€ ${row.price.toFixed(
+								2
+							)}</td><td class="px-4 py-2">${row.quantity}</td></tr>`;
+						});
+						tableHTML += "</tbody></table>";
+						tableContainer.innerHTML = tableHTML;
+
+						if (chart) {
+							chart.destroy();
+						}
+
+						const chartDataPoints = [{ x: 0, y: orderBookData[0].price }];
+						orderBookData.forEach((point) => {
+							chartDataPoints.push({ x: point.quantity, y: point.price });
+						});
+
+						chart = new Chart(ctx, {
+							type: "line",
+							data: {
+								datasets: [
+									{
+										label: "Vraagcurve",
+										data: chartDataPoints,
+										borderColor: "#ef4444",
+										backgroundColor: "rgba(239, 68, 68, 0.1)",
+										stepped: true,
+										pointRadius: 5,
+										pointBackgroundColor: "#ef4444",
+									},
+								],
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: { legend: { display: false } },
+								scales: {
+									x: {
+										type: "linear",
+										title: { display: true, text: "Hoeveelheid (Q)" },
+										beginAtZero: true,
+										suggestedMax: cumulativeQuantity + 1,
+									},
+									y: {
+										title: { display: true, text: "Prijs (P) in €" },
+										beginAtZero: true,
+										suggestedMax: orderBookData[0].price * 1.1,
+									},
+								},
+							},
+						});
+
+						outputEl.classList.remove("hidden");
+					});
+				}
+
 				// Point Elasticity Calculator Logic
 				function initPointElasticityCalculator() {
 					const slopeSlider = document.getElementById("slope-slider");
@@ -1540,7 +1744,6 @@
 						.getElementById("point-elasticity-chart")
 						.getContext("2d");
 
-					// Define state variables
 					let slope = parseFloat(slopeSlider.value);
 					let yIntercept = 7000;
 					let currentQuantity = parseFloat(pointSlider.value);
@@ -1552,14 +1755,14 @@
 							datasets: [
 								{
 									label: "Vraagcurve",
-									data: [], // will be populated by update function
+									data: [],
 									borderColor: "#3b82f6",
 									fill: false,
 									pointRadius: 0,
 								},
 								{
 									label: "Gekozen Punt",
-									data: [], // will be populated
+									data: [],
 									borderColor: "#ef4444",
 									backgroundColor: "#ef4444",
 									pointRadius: 7,
@@ -1578,10 +1781,7 @@
 									title: { display: true, text: "Hoeveelheid (Q)" },
 									min: 0,
 								},
-								y: {
-									title: { display: true, text: "Prijs (P)" },
-									min: 0,
-								},
+								y: { title: { display: true, text: "Prijs (P)" }, min: 0 },
 							},
 						},
 					});
@@ -1596,12 +1796,12 @@
 							currentPrice = yIntercept + slope * currentQuantity;
 						}
 
-						let elasticity = Infinity;
-						let posRatio = Infinity;
-						if (currentQuantity > 0) {
-							posRatio = currentPrice / currentQuantity;
-							elasticity = (1 / slope) * posRatio;
-						}
+						let elasticity =
+							currentQuantity > 0
+								? (1 / slope) * (currentPrice / currentQuantity)
+								: Infinity;
+						let posRatio =
+							currentQuantity > 0 ? currentPrice / currentQuantity : Infinity;
 
 						demandFuncDisplay.textContent = `P = ${yIntercept.toFixed(
 							0
@@ -1612,21 +1812,19 @@
 						posRatioDisplay.textContent = posRatio.toFixed(2);
 						elasticityDisplay.textContent = elasticity.toFixed(2);
 
-						if (elasticity < -1) {
+						if (elasticity < -1)
 							elasticityDisplay.className =
 								"text-2xl ml-2 font-bold text-green-600";
-						} else if (elasticity < 0) {
+						else if (elasticity < 0)
 							elasticityDisplay.className =
 								"text-2xl ml-2 font-bold text-red-600";
-						} else {
+						else
 							elasticityDisplay.className =
 								"text-2xl ml-2 font-bold text-gray-700";
-						}
 
 						const chartData = [];
-						for (let q = 0; q <= maxQuantity; q += 5) {
+						for (let q = 0; q <= maxQuantity; q += 5)
 							chartData.push({ x: q, y: yIntercept + slope * q });
-						}
 
 						chart.data.datasets[0].data = chartData;
 						chart.data.datasets[1].data = [
@@ -1693,12 +1891,10 @@
 							currentProduct.baseQuantity * (1 + quantityPercentageChange)
 						);
 
-						let elasticity = 0;
-						if (pricePercentageChange !== 0) {
-							// For the simulator, we can simplify and use the factor directly
-							// as it represents the elasticity around the base point.
-							elasticity = quantityPercentageChange / pricePercentageChange;
-						}
+						let elasticity =
+							pricePercentageChange !== 0
+								? quantityPercentageChange / pricePercentageChange
+								: 0;
 
 						priceEl.textContent = `${
 							currentProduct.currency
@@ -1706,18 +1902,16 @@
 						quantityEl.textContent = `${newQuantity} stuks`;
 						elasticityEl.textContent = elasticity.toFixed(2);
 
-						if (elasticity < -1) {
+						if (elasticity < -1)
 							elasticityValueContainer.className =
 								"text-xl font-bold text-green-600";
-						} else if (elasticity < 0) {
+						else if (elasticity < 0)
 							elasticityValueContainer.className =
 								"text-xl font-bold text-red-600";
-						} else {
+						else
 							elasticityValueContainer.className =
 								"text-xl font-bold text-gray-700";
-						}
 
-						// Update visualization
 						demandVizEl.innerHTML = "";
 						const numCarts = Math.max(
 							0,
@@ -1755,7 +1949,6 @@
 					btnBrood.addEventListener("click", () => selectProduct("brood"));
 					btnHorloge.addEventListener("click", () => selectProduct("horloge"));
 
-					// Initial setup
 					selectProduct("brood");
 				}
 
@@ -1773,7 +1966,6 @@
 									label: "Vraagcurve Horloge",
 									data: [7000, 6000, 5000, 4000, 3000, 2000],
 									borderColor: "#3b82f6",
-									backgroundColor: "rgba(59, 130, 246, 0.1)",
 									tension: 0,
 									fill: false,
 									pointRadius: 0,
@@ -1819,23 +2011,19 @@
 					const ctx = document
 						.getElementById("demand-curve-chart-brood")
 						.getContext("2d");
-					// Qv = 280 - 40P  => P = 7 - 0.025Q
-					const dataPoints = Array.from({ length: 8 }, (_, i) => {
-						const q = i * 40;
-						const p = 7 - 0.025 * q;
-						return { x: q, y: p };
-					});
+					const dataPoints = Array.from({ length: 8 }, (_, i) => ({
+						x: i * 40,
+						y: 7 - 0.025 * (i * 40),
+					}));
 
 					new Chart(ctx, {
 						type: "line",
 						data: {
-							labels: ["0", "40", "80", "120", "160", "200", "240", "280"], // Corrected labels for scale
 							datasets: [
 								{
 									label: "Vraagcurve Brood",
 									data: dataPoints,
 									borderColor: "#3b82f6",
-									backgroundColor: "rgba(59, 130, 246, 0.1)",
 									tension: 0,
 									fill: false,
 									pointRadius: 0,
@@ -1864,7 +2052,7 @@
 							scales: {
 								x: {
 									title: { display: true, text: "Hoeveelheid (Q)" },
-									type: "linear", // Use linear scale for correct plotting
+									type: "linear",
 									min: 0,
 									max: 280,
 								},
