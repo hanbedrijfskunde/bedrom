@@ -43,7 +43,12 @@
 				width: 100%;
 				left: 0;
 				top: 0;
-				padding: 2rem 5rem; /* Added more horizontal padding */
+				padding: 2rem 1.5rem; /* Mobile-first padding */
+			}
+			@media (min-width: 1024px) {
+				.slide {
+					padding: 2rem 5rem; /* Desktop padding */
+				}
 			}
 			.slide.active {
 				display: flex;
@@ -56,26 +61,13 @@
 				width: 100%;
 				margin: auto;
 			}
-			h1 {
-				font-size: 3rem;
-			}
-			h2 {
-				font-size: 2.5rem;
-			}
-			@media (min-width: 768px) {
-				h1 {
-					font-size: 4rem;
-				}
-				h2 {
-					font-size: 3.25rem;
-				}
-			}
 
 			/* Navigation styles */
 			.navigation {
 				position: fixed;
-				bottom: 2rem;
-				right: 2rem;
+				bottom: 1rem; /* Mobile position */
+				left: 50%;
+				transform: translateX(-50%);
 				display: flex;
 				align-items: center;
 				gap: 1rem;
@@ -88,19 +80,28 @@
 					0 2px 4px -2px rgb(0 0 0 / 0.1);
 			}
 
+			@media (min-width: 768px) {
+				.navigation {
+					left: auto; /* Desktop position */
+					right: 2rem;
+					bottom: 2rem;
+					transform: none;
+				}
+			}
+
 			.nav-btn {
 				background: #3b82f6;
 				color: white;
 				border: none;
-				width: 44px; /* Slightly larger */
-				height: 44px; /* Slightly larger */
+				width: 44px;
+				height: 44px;
 				border-radius: 50%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				cursor: pointer;
 				transition: all 0.2s ease;
-				font-size: 1.5rem; /* Larger icon */
+				font-size: 1.5rem;
 			}
 
 			.nav-btn:hover:not(:disabled) {
@@ -208,6 +209,15 @@
 				visibility: visible;
 				opacity: 1;
 			}
+
+			/* Slow reveal for answer */
+			#brood-answer {
+				opacity: 0;
+				transition: opacity 180s ease-in; /* 3 minutes */
+			}
+			#brood-answer.visible {
+				opacity: 1;
+			}
 		</style>
 	</head>
 	<body
@@ -229,10 +239,12 @@
 					<span class="text-lg md:text-xl text-blue-600 font-semibold"
 						>Algemene Economie (AEC) - Week 2</span
 					>
-					<h1 class="text-4xl md:text-6xl font-bold text-gray-900 mt-2">
+					<h1
+						class="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mt-2"
+					>
 						Marktvormen & De Rol van de Spelverdeler
 					</h1>
-					<p class="mt-4 text-xl md:text-2xl text-gray-600">
+					<p class="mt-4 text-lg sm:text-xl md:text-2xl text-gray-600">
 						Van Speelveld naar Spelregels
 					</p>
 					<p class="mt-12 text-lg text-gray-500">Docent: Witek ten Hove</p>
@@ -245,13 +257,15 @@
 			>
 				<div class="slide-content text-center">
 					<span class="text-2xl">🧠 Systeem 2 Activatie</span>
-					<h2 class="text-5xl md:text-7xl font-bold mt-4 leading-tight">
+					<h2
+						class="text-4xl sm:text-6xl lg:text-7xl font-bold mt-4 leading-tight"
+					>
 						Is Albert Heijn machtig?
 					</h2>
-					<p class="mt-8 text-2xl text-gray-300">
+					<p class="mt-8 text-xl sm:text-2xl text-gray-300">
 						Denk 3 minuten na. Zonder laptop/telefoon.
 					</p>
-					<p class="mt-4 text-xl text-gray-400">
+					<p class="mt-4 text-lg sm:text-xl text-gray-400">
 						Bedenk argumenten voor én tegen. Wat betekent 'macht' hier?
 					</p>
 					<div class="mt-8">
@@ -268,8 +282,10 @@
 			<!-- Slide 3: Agenda & Leerdoelen -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-gray-900">Agenda & Leerdoelen</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						Agenda & Leerdoelen
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Wat gaan we vandaag doen en waarom?
 					</p>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
@@ -320,8 +336,10 @@
 			<!-- Slide 4: QR Code -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
-					<h2 class="text-4xl font-bold text-gray-900">Slides & Materiaal</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						Slides & Materiaal
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Scan de QR-code voor toegang tot de presentatie en aanvullende
 						bronnen.
 					</p>
@@ -329,12 +347,12 @@
 						<img
 							src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://hanbedrijfskunde.github.io/bedrom/slides-wk2.html"
 							alt="QR Code"
-							class="rounded-lg shadow-lg"
+							class="rounded-lg shadow-lg w-48 h-48 sm:w-64 sm:h-64"
 						/>
 						<a
 							href="https://hanbedrijfskunde.github.io/bedrom/slides-wk2.html"
 							target="_blank"
-							class="text-sm font-mono text-gray-500 hover:text-blue-600 transition-colors"
+							class="text-sm font-mono text-gray-500 hover:text-blue-600 transition-colors break-all"
 						>
 							hanbedrijfskunde.github.io/bedrom/slides-wk2.html
 						</a>
@@ -345,10 +363,10 @@
 			<!-- Slide 5: Van Intuïtie naar Theorie -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-gray-900">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
 						Van Intuïtie naar Theorie
 					</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Jullie antwoorden op de AH-vraag zijn de kern van Meso-economie.
 					</p>
 					<div class="mt-8 flex flex-col md:flex-row gap-8 items-stretch">
@@ -383,11 +401,11 @@
 			<!-- Slide 6: 4 Marktvormen -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-gray-900 text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
 						Het Speelveld: 4 Marktvormen
 					</h2>
 					<div
-						class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+						class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
 					>
 						<div
 							class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
@@ -445,10 +463,10 @@
 			<!-- Slide 7: SGR-Model -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
-					<h2 class="text-4xl font-bold text-gray-900">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
 						De Analysetool: Het SGR-Model
 					</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Hoe de marktstructuur leidt tot resultaten.
 					</p>
 					<div
@@ -456,36 +474,42 @@
 					>
 						<div class="bg-white p-6 rounded-lg shadow-xl w-64 text-center">
 							<div class="text-4xl mb-2">🏛️</div>
-							<h3 class="text-2xl font-bold text-blue-700">Structuur</h3>
-							<p class="text-gray-600 mt-2">
+							<h3 class="text-xl sm:text-2xl font-bold text-blue-700">
+								Structuur
+							</h3>
+							<p class="text-gray-600 mt-2 text-sm sm:text-base">
 								Aantal aanbieders, toetreding, productkenmerken.
 							</p>
 						</div>
 
 						<div
-							class="text-5xl font-light text-gray-400 mx-8 transform md:rotate-0 rotate-90"
+							class="text-5xl font-light text-gray-400 m-4 md:m-8 transform md:rotate-0 rotate-90"
 						>
 							→
 						</div>
 
 						<div class="bg-white p-6 rounded-lg shadow-xl w-64 text-center">
 							<div class="text-4xl mb-2">♟️</div>
-							<h3 class="text-2xl font-bold text-blue-700">Gedrag</h3>
-							<p class="text-gray-600 mt-2">
+							<h3 class="text-xl sm:text-2xl font-bold text-blue-700">
+								Gedrag
+							</h3>
+							<p class="text-gray-600 mt-2 text-sm sm:text-base">
 								Prijsstrategie, innovatie, marketing, samenwerking.
 							</p>
 						</div>
 
 						<div
-							class="text-5xl font-light text-gray-400 mx-8 transform md:rotate-0 rotate-90"
+							class="text-5xl font-light text-gray-400 m-4 md:m-8 transform md:rotate-0 rotate-90"
 						>
 							→
 						</div>
 
 						<div class="bg-white p-6 rounded-lg shadow-xl w-64 text-center">
 							<div class="text-4xl mb-2">🏆</div>
-							<h3 class="text-2xl font-bold text-blue-700">Resultaat</h3>
-							<p class="text-gray-600 mt-2">
+							<h3 class="text-xl sm:text-2xl font-bold text-blue-700">
+								Resultaat
+							</h3>
+							<p class="text-gray-600 mt-2 text-sm sm:text-base">
 								Winstgevendheid, efficiëntie, consumentensurplus.
 							</p>
 						</div>
@@ -496,10 +520,10 @@
 			<!-- Slide 8: Hotelling's Wet Introductie -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
-					<h2 class="text-4xl font-bold text-gray-900">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
 						SGR in Actie: De Wet van Hotelling
 					</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Waarom concurrenten naar elkaar toe trekken (en wat het resultaat
 						is).
 					</p>
@@ -580,7 +604,7 @@
 						<a
 							href="https://businessdatasolutions.github.io/business-economics-20/games/hotellingers-law/index-nl.html"
 							target="_blank"
-							class="inline-block bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-xl"
+							class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-lg sm:text-xl"
 						>
 							Start de Simulatie
 						</a>
@@ -591,8 +615,10 @@
 			<!-- Slide 9: Andere Dimensies -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold">Andere Dimensies van de Markt</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<h2 class="text-3xl md:text-4xl font-bold">
+						Andere Dimensies van de Markt
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Naast de 4 marktvormen zijn er meer manieren om een markt te duiden.
 					</p>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
@@ -628,10 +654,10 @@
 			<!-- Slide 10: Vraagcurve als Orderboek (NIEUW) -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						De Vraagcurve als 'Orderboek'
 					</h2>
-					<p class="mt-2 text-xl text-gray-600 text-center">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
 						Laten we de vraagcurve bouwen op basis van de betalingsbereidheid in
 						de klas.
 					</p>
@@ -706,7 +732,7 @@
 			<!-- Slide 11: Uitleg Wiskunde Horloge -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						De Wiskunde: Prijselasticiteit (Elastisch)
 					</h2>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -718,10 +744,12 @@
 								de gevraagde hoeveelheid ($Q_v$) als reactie op een procentuele
 								verandering in de prijs ($P$).
 							</p>
-							<div class="mt-4 text-center text-xl bg-gray-50 p-4 rounded">
-								$$ E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
-								\frac{\frac{\Delta Q_v}{Q_{v1}}}{\frac{\Delta P}{P_1}} =
-								\frac{\Delta Q_v}{\Delta P} \cdot \frac{P_1}{Q_{v1}} $$
+							<div
+								class="mt-4 text-center text-lg sm:text-xl bg-gray-50 p-4 rounded"
+							>
+								$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} = \frac{\frac{\Delta
+								Q_v}{Q_{v1}}}{\frac{\Delta P}{P_1}} = \frac{\Delta Q_v}{\Delta
+								P} \cdot \frac{P_1}{Q_{v1}}$$
 							</div>
 							<p class="mt-2 text-sm text-center text-gray-600">
 								De formule laat zien hoe de procentuele veranderingen zijn
@@ -761,8 +789,8 @@
 								</ul>
 								<p><strong>3. Berekening (Boogelasticiteit):</strong></p>
 								<div class="text-center text-xl bg-white p-4 rounded shadow-sm">
-									$$ E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
-									\frac{+50\%}{-20\%} = -2.5 $$
+									$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
+									\frac{+50\%}{-20\%} = -2.5$$
 								</div>
 								<p class="mt-4 text-center font-semibold">
 									Omdat $E_p < -1$, is de vraag
@@ -781,7 +809,7 @@
 			<!-- SLIDE 12: PUNTELASTICITEIT CALCULATOR -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						Interactief: Puntelasticiteit Berekenen
 					</h2>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -882,7 +910,7 @@
 			<!-- Slide 13: Oefening Brood -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						Oefening: Prijselasticiteit (Inelastisch)
 					</h2>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -935,13 +963,16 @@
 								<div
 									class="text-center text-xl bg-white p-4 rounded shadow-sm min-h-[68px] flex items-center justify-center"
 								>
-									$$ E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
-									\frac{??\%}{+20\%} = ?? $$
+									$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
+									\frac{??\%}{+20\%} = ??$$
 								</div>
 								<p class="mt-4 text-center font-semibold">
 									Is de vraag elastisch of inelastisch?
 								</p>
-								<p class="mt-2 text-center text-xs text-gray-500">
+								<p
+									id="brood-answer"
+									class="mt-2 text-center text-xs text-gray-500"
+								>
 									(Antwoord: $Q_2 = 160$, $\%\Delta Q_v \approx -11.1\%$, $E_p
 									\approx -0.56$ → Inelastisch)
 								</p>
@@ -954,7 +985,7 @@
 			<!-- Slide 14: Prijselasticiteit Simulator -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						Prijselasticiteit: Verken het Zelf
 					</h2>
 					<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -1063,10 +1094,10 @@
 			<!-- Slide 15: Casus Wegtransport -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						Casus: Elasticiteit in het Wegtransport
 					</h2>
-					<p class="mt-2 text-xl text-gray-600 text-center">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
 						Hoe reageert de vraag naar vrachtvervoer op prijs- en
 						inkomensveranderingen?
 					</p>
@@ -1204,15 +1235,17 @@
 				class="slide h-full flex-col items-center justify-center bg-gray-800 text-white"
 			>
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
 						🚀 Van Spelvolger naar Spelveranderaar
 					</h2>
-					<p class="mt-3 text-xl text-gray-300 text-center max-w-4xl mx-auto">
+					<p
+						class="mt-3 text-lg sm:text-xl text-gray-300 text-center max-w-4xl mx-auto"
+					>
 						De modellen die we leren zijn geen statische foto's, maar een
 						dynamisch speelbord. De bedrijfskundige van de toekomst verandert de
 						regels van het spel.
 					</p>
-					<div class="mt-10 grid md:grid-cols-3 gap-8">
+					<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 						<div
 							class="bg-gray-700 p-6 rounded-lg text-center border border-gray-600 h-full"
 						>
@@ -1269,8 +1302,8 @@
 			<!-- Slide 17: Pauze -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content text-center">
-					<h2 class="text-6xl font-bold">☕ Pauze</h2>
-					<p class="mt-4 text-3xl text-gray-600">
+					<h2 class="text-5xl sm:text-6xl font-bold">☕ Pauze</h2>
+					<p class="mt-4 text-2xl sm:text-3xl text-gray-600">
 						We zien jullie over 10 minuten terug.
 					</p>
 				</div>
@@ -1282,8 +1315,10 @@
 					<span class="text-xl text-blue-600 font-semibold"
 						>Centrale Casus</span
 					>
-					<h2 class="text-5xl font-bold mt-2">De Spelverdeler Grijpt In</h2>
-					<p class="mt-4 text-2xl text-gray-600 max-w-4xl mx-auto">
+					<h2 class="text-4xl sm:text-5xl font-bold mt-2">
+						De Spelverdeler Grijpt In
+					</h2>
+					<p class="mt-4 text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto">
 						PostNL wil concurrent Sandd overnemen. De markt voor postbezorging
 						verandert van een duopolie naar een monopolie. Jullie zijn de
 						<strong>Autoriteit Consument & Markt (ACM)</strong>. Wat doen
@@ -1295,13 +1330,13 @@
 			<!-- Slide 19: Het Debat -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold">
+					<h2 class="text-3xl md:text-4xl font-bold">
 						Het Debat: Goedkeuren of Blokkeren?
 					</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Vorm 3 groepen en bereid je voor (15 min).
 					</p>
-					<div class="mt-8 grid md:grid-cols-3 gap-8">
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
 						<div class="bg-green-100 p-6 rounded-lg">
 							<h3 class="font-bold text-xl text-green-800">
 								Groep 1: Vóór de fusie
@@ -1345,19 +1380,20 @@
 			<!-- Slide 20: Opdracht Week 2 -->
 			<section class="slide h-full flex-col items-center justify-center">
 				<div class="slide-content">
-					<h2 class="text-4xl font-bold">Aan de slag: Opdracht Week 2</h2>
-					<p class="mt-2 text-xl text-gray-600">
+					<h2 class="text-3xl md:text-4xl font-bold">
+						Aan de slag: Opdracht Week 2
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
 						Hoe pas je de theorie van vandaag toe op jullie sector?
 					</p>
-					<div class="bg-white p-8 rounded-lg shadow-xl mt-8">
-						<div class="space-y-6 text-lg">
+					<div class="bg-white p-6 sm:p-8 rounded-lg shadow-xl mt-8">
+						<div class="space-y-6 text-base sm:text-lg">
 							<!-- Item 1 -->
 							<div
-								class="grid items-start gap-x-6"
-								style="grid-template-columns: max-content auto"
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
 							>
 								<div
-									class="text-blue-600 font-bold text-right whitespace-nowrap"
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
 								>
 									1. Marktvorm →
 								</div>
@@ -1368,11 +1404,10 @@
 							</div>
 							<!-- Item 2 -->
 							<div
-								class="grid items-start gap-x-6"
-								style="grid-template-columns: max-content auto"
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
 							>
 								<div
-									class="text-blue-600 font-bold text-right whitespace-nowrap"
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
 								>
 									2. SGR-Analyse →
 								</div>
@@ -1383,11 +1418,10 @@
 							</div>
 							<!-- Item 3 -->
 							<div
-								class="grid items-start gap-x-6"
-								style="grid-template-columns: max-content auto"
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
 							>
 								<div
-									class="text-blue-600 font-bold text-right whitespace-nowrap"
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
 								>
 									3. Overheidsregulering →
 								</div>
@@ -1398,11 +1432,10 @@
 							</div>
 							<!-- Item 4 -->
 							<div
-								class="grid items-start gap-x-6"
-								style="grid-template-columns: max-content auto"
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
 							>
 								<div
-									class="text-blue-600 font-bold text-right whitespace-nowrap"
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
 								>
 									4. Marktkenmerken →
 								</div>
@@ -1421,8 +1454,8 @@
 				class="slide h-full flex-col items-center justify-center text-center"
 			>
 				<div class="slide-content">
-					<h2 class="text-5xl font-bold">Wrap-up & Feedback</h2>
-					<div class="mt-8 grid md:grid-cols-2 gap-8 text-left">
+					<h2 class="text-4xl sm:text-5xl font-bold">Wrap-up & Feedback</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
 						<div class="bg-gray-200 p-6 rounded-lg">
 							<h3 class="font-bold text-xl mb-2">Belangrijkste Takeaways</h3>
 							<ul class="list-disc list-inside space-y-2">
@@ -1592,7 +1625,7 @@
 					prevBtn.disabled = index === 0;
 					nextBtn.disabled = index === totalSlides - 1;
 
-					// Initialize charts and simulator when their slides become active
+					// Initialize charts, simulators and animations when their slides become active
 					if (index === 9 && !orderBookBuilderInitialized) {
 						initOrderBookBuilder();
 						orderBookBuilderInitialized = true;
@@ -1605,6 +1638,20 @@
 						initPointElasticityCalculator();
 						pointElasticityCalculatorInitialized = true;
 					}
+
+					// Logic for the slow reveal on slide 13 (index 12)
+					const answerEl = document.getElementById("brood-answer");
+					if (answerEl) {
+						if (index === 12) {
+							// Using a timeout to ensure the transition starts after the slide is displayed
+							setTimeout(() => {
+								answerEl.classList.add("visible");
+							}, 100);
+						} else {
+							answerEl.classList.remove("visible");
+						}
+					}
+
 					if (index === 12 && !demandChartBroodInitialized) {
 						initDemandCurveChart_Brood();
 						demandChartBroodInitialized = true;
