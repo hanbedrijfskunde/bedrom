@@ -14,10 +14,24 @@ Na deze les kunnen studenten:
 
 ### Materialen
 - Flipcharts + stiften voor teamwerk
-- Laptops/tablets voor berekeningen
-- Handout "Technologie Disruption Challenge"
+- Laptops/tablets voor berekeningen en Portfolio Game
+- Slides-wk3.html op beamer (23 slides totaal)
 - CORE Econ referentiesheets (Chapters 2, 7 & 21)
 - Calculator voor kostenberekeningen
+
+### Slide Overzicht
+| Slides | Inhoud | Timing |
+|--------|--------|--------|
+| 1-2 | Opening & Netflix provocatie | 0:00-0:05 |
+| 3-5 | Agenda, CORE Econ intro, QR codes | 0:05-0:20 |
+| 6-10 | Productie & kostenberekening pipeline | 0:20-0:40 |
+| PAUZE | 15 minuten break | 0:40-0:55 |
+| 11-12 | **Interactieve isowinstcurves** (hands-on!) | 0:55-1:10 |
+| 13 | Portfolio spel introductie | 1:10-1:15 |
+| 14-16 | Sector pattern bridge + frameworks | 1:40-1:55 |
+| 17-18 | Arbeidsmarkt reality check | 1:55-2:10 |
+| 19-21 | Synthese & strategische cases | 2:10-2:30 |
+| 22-23 | Afsluiting & feedback | 2:30+ |
 
 ---
 
@@ -25,7 +39,7 @@ Na deze les kunnen studenten:
 
 ### 🚀 Opening: De Technologie-Keuze Paradox (20 min)
 
-**0:00 - 0:05: Provocatieve opening**
+**0:00 - 0:05: Provocatieve opening** *(Slide 2)*
 ```
 💡 Provocatie: "Netflix vs Blockbuster - Waarom won streaming?"
 - Laat studenten roepen wat ze denken
@@ -33,23 +47,25 @@ Na deze les kunnen studenten:
 - Focus op: technologie, kosten, klantbeleving
 ```
 
-**0:05 - 0:15: Conceptuele frame**
+**0:05 - 0:15: Lesoverzicht & CORE Econ intro** *(Slides 3-4)*
+- Agenda doorlopen (Slide 3)
+- CORE Econ uitleg en PDF downloads (Slide 4)
+- Vandaag: Van productiekeuzes naar innovatiestrategieën
+- Journey: Productie & Technologie → Kosten & Winst → Innovatie & Netwerken
+
+**0:15 - 0:20: Conceptuele frame** *(Discussie + eventueel slide 6)*  
 - **CORE Econ Ch.2**: Arbeidsintensief vs kapitaalintensief
 - Voorbeeld: Uber (platform) vs traditionele taxi (mensen + auto's)
 - Poll via Mentimeter: "Is jouw gekozen sector meer mensen- of technologie-gedreven?"
-
-**0:15 - 0:20: Lesoverzicht & verwachtingen**
-- Vandaag: Van productiekeuzes naar innovatiestrategieën
-- Journey: Productie & Technologie → Kosten & Winst → Innovatie & Netwerken
-- Eindproduct: Innovatiestrategie voor jullie sector
+- Eindproduct preview: Innovatiestrategie voor jullie sector
 
 > **🎯 Onderwijstip**: Start met herkenbare voorbeelden uit hun eigen ervaring (Netflix, Uber). Activeer Systeem 2 door cognitieve dissonantie: waarom verdwijnen succesvolle bedrijven?
 
 ---
 
-### 📊 Blok 1: Productie-tot-Kosten Pipeline (50 min)
+### 📊 Blok 1: Productie-tot-Kosten Pipeline (20 min)
 
-**0:20 - 0:35: Productiefuncties & Technologiekeuzes (CORE Econ Ch.2)**
+**0:20 - 0:30: Productiefuncties & Technologiekeuzes (CORE Econ Ch.2)** *(Slide 6)*
 ```
 🔧 Interactieve demonstratie:
 - Bakkerij voorbeeld: 10 broden per dag
@@ -63,9 +79,9 @@ Na deze les kunnen studenten:
 - Substitutie-mogelijkheden tussen arbeid en kapitaal
 - Technologische vooruitgang verschuift productiefunctie
 
-**0:35 - 0:55: Van Productie naar Kosten (CORE Econ Ch.7)**
+**0:30 - 0:40: Van Productie naar Kosten (CORE Econ Ch.7)**
 
-**0:35 - 0:38: Setup Bakkerij Scenario (3 min)**
+**0:30 - 0:32: Setup Bakkerij Scenario (2 min)** *(Slide 7)*
 ```
 🥐 "Jullie gaan een bakkerij doorrekenen die croissants maakt!"
 
@@ -78,7 +94,7 @@ Vraag aan klas: "Wat kost een croissant bij de bakker waar jullie komen?"
 → Kies gemiddelde als verkoop prijs (bijv. €2,50)
 ```
 
-**0:38 - 0:48: Ontdekking Gemiddelde Kosten (10 min)**
+**0:32 - 0:37: Ontdekking Gemiddelde Kosten (5 min)** *(Slide 8)*
 ```
 📊 Teams krijgen elk een schaal:
 
@@ -97,7 +113,7 @@ Resultaten delen op bord:
 - Team 3: €1,00 per croissant 🚀
 ```
 
-**0:48 - 0:52: Ontdekking Marginale Kosten (4 min)**
+**0:37 - 0:40: Ontdekking Marginale Kosten (3 min)** *(Slide 9)*
 ```
 🤔 De Grote Vraag: 
 "Jullie maken nu 10/100/1000 croissants. 
@@ -109,10 +125,21 @@ Laat teams bedenken en antwoorden...
 Aha-moment: "Hoe kan dat? Gemiddelde kosten zijn zo verschillend, 
 maar marginale kosten zijn altijd hetzelfde?"
 
-Uitleg: Marginale kosten = alleen de variabele kosten van die ene extra
+🚀 Platform Economics Spectrum:
+"Maar in de moderne digitale economie zien we verschillende kostenstructuren..."
+- Airbnb: €1-5 per booking (platform overhead, maar veel lager dan hotels)
+- AWS: <€0,01 per compute hour (extreme schaal = minimale kosten)
+- OpenAI: €0,05-0,10 per prompt (GPU intensief, MAAR elke use bouwt data asset)
+
+💡 "Verschillende digitale modellen, verschillende kostenstructuren!"
+
+Uitleg: 
+- AWS = extreme schaal efficiency (best platform example)
+- Airbnb = platform vs traditional hospitality efficiency  
+- OpenAI = "betaal nu, investeer in data voor later" model
 ```
 
-**0:52 - 0:55: Winstgevendheid & Visualisatie (3 min)**
+**Winstgevendheid & Visualisatie** *(Slide 10 - optioneel, of na pauze)*
 ```
 💰 "Bij welke schaal maken jullie winst?"
 (Verkoop prijs €2,50 - Gemiddelde kosten)
@@ -125,15 +152,29 @@ Flipchart tekenen: Curve van dalende gemiddelde kosten
 → "Dit zijn schaalvoordelen in actie!"
 ```
 
-**Unit 7 Concepten ontdekt:**
+**CORE Econ Ch.7 Concepten ontdekt:**
 - **Vaste vs variabele kosten**: Studenten zien impact van vaste kostenverdeling
 - **Schaalvoordelen**: Gemiddelde kosten dalen dramatisch bij grotere productie
 - **Marginale vs gemiddelde kosten**: Verschil wordt tastbaar door eigen berekening
 - **Break-even denken**: Wanneer is uitbreiding lonend?
 
-**0:55 - 1:10: Isowinstcurves via Interactieve Slides (CORE Econ Ch.7)**
+---
 
-**0:55 - 1:00: Introductie Isowinstcurves (5 min)**
+### ☕ PAUZE (15 min) - 0:40-0:55
+
+**Doel**: Verwerk eerste theorie blok, voorbereiden op interactieve discovery
+
+**Timing**: 
+- **0:40-0:55**: 15 minuten pauze
+- **Optioneel**: Slide 10 (Winstgevendheid visualisatie) vlak voor pauze als samenvatting
+
+> **🎯 Onderwijstip**: Gebruik de pauze om te checken of studenten de basis kostenconcepten begrijpen. Na pauze komt de meest interactieve en uitdagende activiteit.
+
+---
+
+### 📱 Blok 2: Interactieve Isowinstcurves Discovery (15 min) - 0:55-1:10
+
+**0:55 - 1:00: Introductie Isowinstcurves (5 min)** *(Slide 11)*
 ```
 📱 Interactieve Demonstratie op Slides:
 "Nu gaan we kijken hoe bedrijven hun optimale prijs bepalen"
@@ -144,21 +185,41 @@ Slide 11 toont:
 - Studenten kunnen prijs en hoeveelheid aanpassen via sliders
 - Real-time winst berekening zichtbaar
 - Isowinstcurve update automatisch
+
+💡 Kleine Oefening (2 min):
+"Roep een prijs en hoeveelheid - ik stel de sliders in!"
+- Student roept: "€3,00 en 200 stuks" → Docent stelt sliders in
+- Winst wordt berekend: (€3,00 - €0,80) × 200 - €200 = €240
+- "Nu zoek een andere combinatie die ook €240 oplevert!"
+- Studenten roepen andere combinaties → curve wordt zichtbaar
+- "Aha! Dit zijn allemaal punten op dezelfde isowinstcurve!"
 ```
 
-**1:00 - 1:05: Optimization Discovery Challenge (5 min)**
+**1:00 - 1:05: Optimization Discovery Challenge (5 min)** *(Slide 12 - INTERACTIEF!)*
 ```
 🎯 Interactive Optimization Discovery (Slide 12):
 "Zoek het punt waar de isowinstcurve de vraagcurve raakt!"
 
-Studenten experimenteren met winstniveau slider:
+💡 Reminder voor docent: 
+"Jullie herinneren je de vraagcurve van vorige week - klanten kopen minder bij hogere prijzen.
+Nu voegen we daar de isowinstcurve aan toe die we net hebben geleerd!"
+
+⚡ HANDS-ON ACTIVITEIT:
+Studenten experimenteren met winstniveau slider (€0-800):
 - Beginnen met €50 → 2 snijpunten (oranje feedback)
-- Slider omhoog bewegen → curves komen dichter bij elkaar
+- Slider omhoog bewegen → curves komen dichter bij elkaar  
 - Zoeken naar het punt waar 2→1 snijpunt (groen feedback)
-- Exacte coördinaten worden getoond: "Punt 1: (267 stuks, €2.40)"
+- Dan verder omhoog → 1→0 snijpunten (rood feedback, te hoog)
+
+🎯 Optimization Principle Discovery:
+"Het optimale punt ligt ergens tussen de €1 stappen waar jullie van 2→1→0 snijpunten gingen.
+Dit toont een belangrijk principe: optimalisatie is vaak zoeken binnen constraints!"
+
+💡 Laat studenten zelf ontdekken - niet vertellen waar het optimum ligt!
+Benadruk dat het BEREIK vinden al heel waardevol is voor echte bedrijfsbeslissingen.
 ```
 
-**1:05 - 1:10: Winstmaximalisatie Moment (5 min)**
+**1:05 - 1:10: Winstmaximalisatie Moment (5 min)** *(Slide 12)*
 ```
 ⚡ Het Discovery Moment:
 Wanneer studenten 1 snijpunt bereiken:
@@ -180,7 +241,7 @@ Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"
 
 ### 🎮 Het Innovatie Portfolio Spel (30 min)
 
-**1:10 - 1:15: Spelintroductie & Setup (5 min)**
+**1:10 - 1:15: Spelintroductie & Setup (5 min)** *(Slide 13)*
 ```
 💼 "Jullie worden management team van een bedrijf!"
 URL: businessdatasolutions.github.io/innovation-portfolio/
@@ -195,7 +256,7 @@ Spelregels:
 Setup: Elk team opent de game en start direct
 ```
 
-**1:15 - 1:35: Actief Portfolio Management (20 min)**
+**1:15 - 1:35: Actief Portfolio Management (20 min)** *(Game actief - geen specifieke slide)*
 ```
 🎯 Strategische Beslissingen per Ronde:
 
@@ -221,7 +282,7 @@ Docent circuleert met vragen:
 "Wat zijn de risico's van jullie strategie?"
 ```
 
-**1:35 - 1:40: Resultaten & Strategische Reflectie (5 min)**
+**1:35 - 1:40: Resultaten & Strategische Reflectie (5 min)** *(Klassikaal - geen slide)*
 ```
 📊 Resultaten Vergelijken:
 - Welk team behaalde hoogste bedrijfswaarde?
@@ -246,7 +307,7 @@ Sector Verbinding:
 
 ### 🔍 Sector Pattern Bridge (15 min)
 
-**1:40 - 1:45: Abstract Decision Reflection (5 min)**
+**1:40 - 1:45: Abstract Decision Reflection (5 min)** *(Slide 14)*
 ```
 🎯 Van Blinde Experimenten naar Sector Reality
 
@@ -262,7 +323,7 @@ Pattern Recognition:
 - "Hoe leerden jullie welke 'arms' (projecttypen) het beste werkten?"
 ```
 
-**1:45 - 1:50: Concrete Sector Pattern Mapping (5 min)**
+**1:45 - 1:50: Concrete Sector Pattern Mapping (5 min)** *(Slide 15)*
 ```
 🎯 Van Abstract Game naar Sector Reality
 
@@ -287,9 +348,15 @@ Marktgroei vs Omvang (Altman Principe):
 Multi-Armed Bandit Reality:
 - "Welke 'bandits' proberen jullie onderzochte bedrijven momenteel uit?"
 - "Hoe reduceren zij onzekerheid? Pilots, MVP's, gefaseerde uitrol?"
+
+💰 Marginale Kosten Sector Check:
+- "Hoeveel kost een extra klant in jullie sector?"
+- "Platform potential: Kunnen jullie naar Airbnb (€0,05) model?"  
+- "Netwerkeffecten: Wat zijn jullie 'trainingsdata' equivalenten?"
+- "Schaalvoordelen: Linear traditioneel of exponential platform growth?"
 ```
 
-**1:50 - 1:55: Human Reality Check Setup (5 min)**
+**1:50 - 1:55: Human Reality Check Setup (5 min)** *(Slide 16)*
 ```
 ⚖️ Van Game Consequences naar Real Stakes
 
@@ -317,7 +384,7 @@ Bridge naar Reality Check:
 
 ### ⚖️ Arbeidsmarkt Reality Check (15 min)
 
-**1:55 - 2:05: Technologische Impact op Werk**
+**1:55 - 2:05: Technologische Impact op Werk** *(Slide 17)*
 ```
 🤔 Ethische Reflectie:
 - Hoeveel banen verdwijnen door jullie innovatie?
@@ -331,7 +398,7 @@ Bridge naar Reality Check:
 - Human capital en skills mismatch
 - Looneffecten van automatisering
 
-**2:05 - 2:10: Stakeholder Afweging**
+**2:05 - 2:10: Stakeholder Afweging** *(Slide 18)*
 ```
 ⚡ Snelle ronde per team:
 - Werknemers: winnaars vs verliezers
@@ -348,7 +415,7 @@ Bridge naar Reality Check:
 
 **2:10 - 2:30: Van Theorie naar Praktijk - Compacte Sectortoepassing**
 
-**2:10 - 2:20: Sector Innovatie Cases met Altman/Bezos Lens (10 min)**
+**2:10 - 2:20: Sector Innovatie Cases met Altman/Bezos Lens (10 min)** *(Slide 19)*
 ```
 📚 Real-World Verbindingen met Strategische Frameworks:
 
@@ -374,7 +441,7 @@ Opdracht per team - Integreerde Analyse:
 - CORE Econ Ch.21: Innovatiestrategie + "Love vs Like" impact
 ```
 
-**2:20 - 2:30: Portfolio Strategie met Strategische Frameworks (10 min)**
+**2:20 - 2:30: Portfolio Strategie met Strategische Frameworks (10 min)** *(Slides 20-21)*
 ```
 🎯 Van Spel naar Sector-Specifieke Innovatiestrategie:
 
