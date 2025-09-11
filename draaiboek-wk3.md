@@ -244,16 +244,22 @@ Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"
 **1:10 - 1:15: Spelintroductie & Setup (5 min)** *(Slide 13)*
 ```
 💼 "Jullie worden management team van een bedrijf!"
-URL: businessdatasolutions.github.io/innovation-portfolio/
 
-Spelregels:
-- Startbudget: €100 miljoen in jaar 1
+🎮 Verbeterde Workflow voor docent:
+1. Toon slide 13 met spelregels en projecttypen uitleg
+2. Laat teams de grote blauwe knop klikken: "🚀 Start Portfolio Game (Nieuwe Tab)"
+3. Benadruk: "Houd deze slides tab open voor over 20 minuten!"
+4. Knop verandert kleur naar groen = visuele bevestiging dat game is geopend
+5. Teams switchen naar game tab voor 20 minuten gameplay
+
+Spelregels (zichtbaar op slide):
+- Startbudget: €100 miljoen in jaar 1  
 - Budget volgende jaren hangt af van succes van gekozen innovatieportfolio
 - Doel: Maximale bedrijfswaarde na 5 jaar behalen
 - Drie projecttypen: Exploit (€20M - veilig), Sustain (€10M - verbeteren), Explore (€5M - risicovol)
 - Teams van 3-4 studenten per laptop/tablet
 
-Setup: Elk team opent de game en start direct
+Setup: Grote call-to-action knop → nieuwe tab → slides blijven beschikbaar
 ```
 
 **1:15 - 1:35: Actief Portfolio Management (20 min)** *(Game actief - geen specifieke slide)*
