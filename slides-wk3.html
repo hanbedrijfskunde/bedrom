@@ -1,0 +1,2943 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>College 3: Van Productie tot Innovatie</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			// Configure MathJax to process inline math using single dollar signs
+			window.MathJax = {
+				tex: {
+					inlineMath: [
+						["$", "$"],
+						["\\(", "\\)"],
+					],
+				},
+			};
+		</script>
+		<script
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Base styles and slide transitions */
+			body {
+				font-family: "Inter", sans-serif;
+				transition: background-color 0.5s ease;
+			}
+			.slide {
+				display: none;
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+				min-height: 100vh;
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: 0;
+				padding: 2rem 1.5rem; /* Mobile-first padding */
+			}
+			@media (min-width: 1024px) {
+				.slide {
+					padding: 2rem 5rem; /* Desktop padding */
+				}
+			}
+			.slide.active {
+				display: flex;
+				opacity: 1;
+				position: relative;
+			}
+			/* Custom styles for a professional look */
+			.slide-content {
+				max-width: 1100px;
+				width: 100%;
+				margin: auto;
+			}
+
+			/* Navigation styles */
+			.navigation {
+				position: fixed;
+				bottom: 1rem; /* Mobile position */
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: rgba(17, 24, 39, 0.8);
+				padding: 0.75rem 1.5rem;
+				border-radius: 9999px;
+				backdrop-filter: blur(10px);
+				z-index: 1000;
+				box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+					0 2px 4px -2px rgb(0 0 0 / 0.1);
+			}
+
+			@media (min-width: 768px) {
+				.navigation {
+					left: auto; /* Desktop position */
+					right: 2rem;
+					bottom: 2rem;
+					transform: none;
+				}
+			}
+
+			.nav-btn {
+				background: #3b82f6;
+				color: white;
+				border: none;
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				font-size: 1.5rem;
+			}
+
+			.nav-btn:hover:not(:disabled) {
+				background: #2563eb;
+				transform: scale(1.1);
+			}
+
+			.nav-btn:disabled {
+				background: #6b7280;
+				cursor: not-allowed;
+				transform: none;
+			}
+
+			.slide-counter {
+				color: white;
+				font-weight: 600;
+				font-size: 1rem;
+				min-width: 60px;
+				text-align: center;
+			}
+
+			/* Modal styles */
+			.modal {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2000;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+
+			.modal.show {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.modal-content {
+				background: white;
+				padding: 2rem;
+				border-radius: 0.75rem;
+				width: 90%;
+				max-width: 500px;
+				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+					0 4px 6px -4px rgb(0 0 0 / 0.1);
+				transform: scale(0.95);
+				transition: transform 0.3s ease;
+			}
+
+			.modal.show .modal-content {
+				transform: scale(1);
+			}
+
+			/* Elasticity simulator styles */
+			.demand-cart {
+				font-size: 1.5rem;
+				transition: opacity 0.3s ease;
+			}
+
+			/* Custom Tooltip styles */
+			.tooltip {
+				position: relative;
+				display: inline-block;
+				cursor: help;
+			}
+
+			.tooltip .tooltiptext {
+				visibility: hidden;
+				width: 220px;
+				background-color: #374151; /* gray-700 */
+				color: #fff;
+				text-align: center;
+				border-radius: 6px;
+				padding: 8px 12px;
+				position: absolute;
+				z-index: 1;
+				bottom: 125%;
+				left: 50%;
+				margin-left: -110px; /* Half of width */
+				opacity: 0;
+				transition: opacity 0.3s;
+				font-size: 0.875rem;
+				font-weight: 500;
+				pointer-events: none;
+			}
+
+			.tooltip .tooltiptext::after {
+				content: "";
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -5px;
+				border-width: 5px;
+				border-style: solid;
+				border-color: #374151 transparent transparent transparent;
+			}
+
+			.tooltip:hover .tooltiptext {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			/* Slow reveal for answer */
+			#brood-answer {
+				opacity: 0;
+				transition: opacity 180s ease-in; /* 3 minutes */
+			}
+			#brood-answer.visible {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden relative"
+	>
+		<div class="navigation">
+			<button id="prev-btn" class="nav-btn" title="Vorige slide">‹</button>
+			<span id="slide-counter" class="slide-counter">1 / 35</span>
+			<button id="next-btn" class="nav-btn" title="Volgende slide">›</button>
+		</div>
+
+		<main id="slide-deck" class="w-full h-full">
+			<section
+				class="slide active h-full flex-col items-center justify-center text-center"
+			>
+				<div class="slide-content">
+					<span class="text-lg md:text-xl text-blue-600 font-semibold"
+						>Algemene Economie (AEC) - Week 3</span
+					>
+					<h1
+						class="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mt-2"
+					>
+						Van Productie tot Innovatie
+					</h1>
+					<p class="mt-4 text-lg sm:text-xl md:text-2xl text-gray-600">
+						Technologische Keuzes in Bedrijfsvoering
+					</p>
+					<p class="mt-12 text-lg text-gray-500">Docent: Witek ten Hove</p>
+				</div>
+			</section>
+
+			<section
+				class="slide h-full flex-col items-center justify-center bg-gray-900 text-white"
+			>
+				<div class="slide-content text-center">
+					<span class="text-2xl">🧠 Systeem 2 Activatie</span>
+					<h2
+						class="text-4xl sm:text-6xl lg:text-7xl font-bold mt-4 leading-tight"
+					>
+						Netflix vs Blockbuster
+					</h2>
+					<p class="mt-8 text-xl sm:text-2xl text-gray-300">
+						Waarom won streaming?
+					</p>
+					<p class="mt-4 text-lg sm:text-xl text-gray-400">
+						Denk 3 minuten na. Focus op technologie, kosten, klantbeleving.
+					</p>
+					<div class="mt-8">
+						<button
+							id="open-modal-btn"
+							class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition text-lg"
+						>
+							Noteer Antwoorden
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						Agenda & Leerdoelen
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Wat gaan we vandaag doen en waarom?
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">De Agenda</h3>
+							<ol class="list-decimal list-inside mt-4 space-y-2">
+								<li><strong>Provocatie:</strong> Netflix vs Blockbuster</li>
+								<li>
+									<strong>Unit 2:</strong> Productiefuncties & technologiekeuzes
+								</li>
+								<li>
+									<strong>Unit 7:</strong> Van kosten naar isowinstcurves
+								</li>
+								<li><strong>Portfolio Spel:</strong> Innovatie-experimenten</li>
+								<li><strong>Unit 21:</strong> Multi-armed bandit strategieën</li>
+								<li>
+									<strong>Synthese:</strong> Sector-specifieke innovatie
+								</li>
+							</ol>
+						</div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">
+								Leerdoelen van Vandaag
+							</h3>
+							<ul class="list-disc list-inside mt-4 space-y-2">
+								<li>
+									<strong>Productiefuncties</strong> analyseren en technologiekeuzes maken
+								</li>
+								<li>
+									<strong>Kostenstructuren</strong> doorrekenen met isowinstcurves
+								</li>
+								<li>
+									<strong>Innovatiestrategieën</strong> ontwerpen (proces vs product)
+								</li>
+								<li>
+									<strong>Multi-armed bandit</strong> principes toepassen op sector-innovaties
+								</li>
+								<li>
+									<strong>Arbeidsmarktimpact</strong> van technologische keuzes evalueren
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						Slides & Materiaal
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Scan de QR-code voor toegang tot de presentatie en aanvullende
+						bronnen.
+					</p>
+					<div class="mt-8 flex flex-col items-center justify-center gap-4">
+						<img
+							src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://hanbedrijfskunde.github.io/bedrom/slides-wk3.html"
+							alt="QR Code"
+							class="rounded-lg shadow-lg w-48 h-48 sm:w-64 sm:h-64"
+						/>
+						<a
+							href="https://hanbedrijfskunde.github.io/bedrom/slides-wk3.html"
+							target="_blank"
+							class="text-sm font-mono text-gray-500 hover:text-blue-600 transition-colors break-all"
+						>
+							hanbedrijfskunde.github.io/bedrom/slides-wk3.html
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						🥐 Unit 2: Productiefuncties & Technologiekeuzes
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Hoe maken bedrijven productiekeuzes? Bakkerij voorbeeld.
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4">🔧 Optie A: Arbeidsintensief</h3>
+							<ul class="list-disc list-inside space-y-2 text-lg">
+								<li><strong>1 bakker</strong> + basis oven</li>
+								<li><strong>Output:</strong> 10 croissants/dag</li>
+								<li><strong>Voordeel:</strong> Flexibel, persoonlijk</li>
+								<li><strong>Nadeel:</strong> Beperkte schaal</li>
+							</ul>
+							<div class="mt-4 p-3 bg-blue-100 rounded">
+								<strong>Productiefunctie:</strong><br>
+								Output = f(Arbeid ↑, Kapitaal ↓)
+							</div>
+						</div>
+						<div class="bg-green-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4">🤖 Optie B: Kapitaalintensief</h3>
+							<ul class="list-disc list-inside space-y-2 text-lg">
+								<li><strong>Geautomatiseerde</strong> productielijn</li>
+								<li><strong>Output:</strong> 1000 croissants/dag</li>
+								<li><strong>Voordeel:</strong> Schaalvoordelen</li>
+								<li><strong>Nadeel:</strong> Hoge investeringen</li>
+							</ul>
+							<div class="mt-4 p-3 bg-green-100 rounded">
+								<strong>Productiefunctie:</strong><br>
+								Output = f(Arbeid ↓, Kapitaal ↑)
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						💰 Unit 7: Kostenberekening Setup
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						"Wat kost een croissant bij de bakker waar jullie komen?"
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4">🏭 Gegeven Kosten (schrijf op bord):</h3>
+							<ul class="list-disc list-inside space-y-2 text-lg">
+								<li><strong>Vaste kosten:</strong> €200/dag</li>
+								<li class="text-sm text-gray-600 ml-6">(huur, oven afschrijving)</li>
+								<li><strong>Variabele kosten per croissant:</strong> €0,80</li>
+								<li class="text-sm text-gray-600 ml-6">(meel, boter, arbeid)</li>
+							</ul>
+						</div>
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4">💬 Student Input:</h3>
+							<div class="space-y-3">
+								<p><strong>Vraag aan klas:</strong> "Wat kost een croissant bij de bakker waar jullie komen?"</p>
+								<div class="bg-white p-3 rounded border-l-4 border-blue-400">
+									<strong>Noteer antwoorden:</strong> meestal €1,50 - €3,00<br>
+									<strong>→ Kies gemiddelde als verkoop prijs</strong> (bijv. €2,50)
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						📊 Hands-on Berekening: Teams krijgen elk een schaal
+					</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div class="bg-red-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4">🏪 Team 1: KLEINE BAKKERIJ</h3>
+							<div class="text-lg space-y-2">
+								<p><strong>10 croissants/dag</strong></p>
+								<div class="bg-white p-3 rounded">
+									<p class="font-mono">Totale Kosten = €200 + (10 × €0,80) = €208</p>
+									<p class="font-mono">Gemiddelde Kosten = €208 ÷ 10 = <span class="text-red-600 font-bold">€20,80</span> per croissant 😱</p>
+								</div>
+							</div>
+						</div>
+						<div class="bg-yellow-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4">🏬 Team 2: MIDDELGROTE BAKKERIJ</h3>
+							<div class="text-lg space-y-2">
+								<p><strong>100 croissants/dag</strong></p>
+								<div class="bg-white p-3 rounded">
+									<p class="font-mono">Totale Kosten = €200 + (100 × €0,80) = €280</p>
+									<p class="font-mono">Gemiddelde Kosten = €280 ÷ 100 = <span class="text-yellow-600 font-bold">€2,80</span> per croissant ✅</p>
+								</div>
+							</div>
+						</div>
+						<div class="bg-green-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4">🏭 Team 3: GROTE BAKKERIJ</h3>
+							<div class="text-lg space-y-2">
+								<p><strong>1000 croissants/dag</strong></p>
+								<div class="bg-white p-3 rounded">
+									<p class="font-mono">Totale Kosten = €200 + (1000 × €0,80) = €1000</p>
+									<p class="font-mono">Gemiddelde Kosten = €1000 ÷ 1000 = <span class="text-green-600 font-bold">€1,00</span> per croissant 🚀</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						🤔 De Grote Vraag: Ontdekking Marginale Kosten
+					</h2>
+					<p class="mt-4 text-xl sm:text-2xl text-gray-600">
+						"Jullie maken nu 10/100/1000 croissants.<br>
+						Hoeveel kost het om er NOG ÉÉN EXTRA te maken?"
+					</p>
+					<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="bg-red-50 p-6 rounded-lg">
+							<h3 class="text-lg font-bold">Team 1 (10 → 11)</h3>
+							<div class="text-4xl font-bold text-red-600 mt-4">€0,80</div>
+						</div>
+						<div class="bg-yellow-50 p-6 rounded-lg">
+							<h3 class="text-lg font-bold">Team 2 (100 → 101)</h3>
+							<div class="text-4xl font-bold text-yellow-600 mt-4">€0,80</div>
+						</div>
+						<div class="bg-green-50 p-6 rounded-lg">
+							<h3 class="text-lg font-bold">Team 3 (1000 → 1001)</h3>
+							<div class="text-4xl font-bold text-green-600 mt-4">€0,80</div>
+						</div>
+					</div>
+					<div class="mt-8 bg-blue-100 p-6 rounded-lg">
+						<h3 class="text-xl font-bold mb-2">🎯 Aha-moment:</h3>
+						<p class="text-lg">"Hoe kan dat? Gemiddelde kosten zijn zo verschillend, maar marginale kosten zijn altijd hetzelfde?"</p>
+						<p class="text-sm mt-2 text-gray-700"><strong>Uitleg:</strong> Marginale kosten = alleen de variabele kosten van die ene extra</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						💰 Winstgevendheid & Visualisatie
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						"Bij welke schaal maken jullie winst?" (Verkoop prijs €2,50 - Gemiddelde kosten)
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="bg-red-50 p-6 rounded-lg shadow-lg text-center">
+							<h3 class="font-bold text-xl mb-4">🏪 Team 1</h3>
+							<div class="text-6xl font-bold text-red-600">VERLIES</div>
+							<p class="text-xl mt-2">€18,30 per croissant</p>
+							<p class="text-sm text-gray-600 mt-1">(€2,50 - €20,80)</p>
+						</div>
+						<div class="bg-yellow-50 p-6 rounded-lg shadow-lg text-center">
+							<h3 class="font-bold text-xl mb-4">🏬 Team 2</h3>
+							<div class="text-6xl font-bold text-yellow-600">VERLIES</div>
+							<p class="text-xl mt-2">€0,30 per croissant</p>
+							<p class="text-sm text-gray-600 mt-1">(€2,50 - €2,80)</p>
+						</div>
+						<div class="bg-green-50 p-6 rounded-lg shadow-lg text-center">
+							<h3 class="font-bold text-xl mb-4">🏭 Team 3</h3>
+							<div class="text-6xl font-bold text-green-600">WINST</div>
+							<p class="text-xl mt-2">€1,50 per croissant</p>
+							<p class="text-sm text-gray-600 mt-1">(€2,50 - €1,00)</p>
+						</div>
+					</div>
+					<div class="mt-8 bg-gray-100 p-6 rounded-lg text-center">
+						<p class="text-xl font-bold">📈 Flipchart tekenen: Curve van dalende gemiddelde kosten</p>
+						<p class="text-lg mt-2">→ "Dit zijn schaalvoordelen in actie!"</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Isowinstcurves Simulator Section Start -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						📱 Interactieve Isowinstcurves (Unit 7)
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						"Nu gaan we kijken hoe bedrijven hun optimale prijs bepalen"
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<canvas id="isoprofit-chart-slide-10" width="400" height="300"></canvas>
+						</div>
+						<div class="bg-gray-50 p-6 rounded-lg">
+							<div class="space-y-4">
+								<div>
+									<label for="price-slider-10" class="block text-sm font-medium text-gray-700 mb-2">Prijs per croissant: €<span id="price-value-10">2.5</span></label>
+									<input id="price-slider-10" type="range" min="1" max="5" step="0.1" value="2.5" 
+										class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+								</div>
+								<div>
+									<label for="quantity-slider-10" class="block text-sm font-medium text-gray-700 mb-2">Hoeveelheid: <span id="quantity-value-10">100</span></label>
+									<input id="quantity-slider-10" type="range" min="0" max="500" value="100"
+										class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+								</div>
+								<div class="mt-4 p-4 bg-blue-100 rounded-lg">
+									<div class="text-lg font-bold">Winst: €<span id="profit-value-10">0</span></div>
+									<div class="text-sm text-gray-600 mt-1">
+										Formule: (Prijs - €0,80) × Aantal - €200
+									</div>
+								</div>
+							</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						⚡ Het Winstmaximalisatie Moment
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Vraagcurve + Isowinstcurve = Optimale prijs/hoeveelheid combinatie
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<canvas id="isoprofit-demand-chart-slide-11" width="400" height="300"></canvas>
+						</div>
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="text-xl font-bold mb-4">🎯 Zoek het Optimale Punt!</h3>
+							<div class="space-y-4">
+								<div>
+									<label for="profit-slider-11" class="block text-sm font-medium text-gray-700 mb-2">
+										Winstniveau: €<span id="profit-value-11">50</span> per dag
+									</label>
+									<input id="profit-slider-11" type="range" min="0" max="800" step="1" value="50" 
+										class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+								</div>
+								<div class="bg-white p-4 rounded border-2" id="intersection-feedback-11">
+									<div class="text-lg font-bold mb-2">
+										📊 Snijpunten met vraagcurve: <span id="intersection-count-11" class="text-2xl">2</span>
+									</div>
+									<div id="intersection-points-11" class="text-sm mb-3 bg-gray-50 p-2 rounded">
+										<strong>📍 Snijpunt coördinaten:</strong>
+										<div id="intersection-coordinates-11" class="font-mono text-xs mt-1">
+											<!-- Coordinates will be populated by JavaScript -->
+										</div>
+									</div>
+									<div id="optimization-hint-11" class="text-sm">
+										<p>💡 <strong>Zoek het punt waar 2 wordt 1!</strong></p>
+										<p>Als de isowinstcurve de vraagcurve raakt (1 snijpunt) = maximale winst!</p>
+									</div>
+								</div>
+								<div class="text-xs space-y-1">
+									<p>🔵 <strong>Blauwe lijn:</strong> Isowinstcurve (beweegt met slider)</p>
+									<p>🔴 <strong>Rode lijn:</strong> Vraagcurve (marktbeperking, vast)</p>
+									<p>✨ <strong>Doel:</strong> Vind waar curves elkaar raken!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mt-6 text-center">
+						<p class="text-lg text-gray-600">Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						🎮 Het Innovatie Portfolio Spel (30 min)
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						"Jullie worden management team van een bedrijf!"
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4">🎯 Challenge Setup:</h3>
+							<div class="space-y-3 text-lg">
+								<p><strong>URL:</strong> <a href="https://businessdatasolutions.github.io/innovation-portfolio/" 
+									target="_blank" class="text-blue-600 underline break-all">
+									businessdatasolutions.github.io/innovation-portfolio/</a></p>
+								<p><strong>Startbudget:</strong> €100 miljoen in jaar 1</p>
+								<p><strong>Teams:</strong> 3-4 studenten per laptop/tablet</p>
+								<p><strong>Doel:</strong> Maximale bedrijfswaarde na 5 jaar</p>
+							</div>
+						</div>
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4">💰 Drie Projecttypen:</h3>
+							<div class="space-y-4">
+								<div class="bg-white p-3 rounded border-l-4 border-red-400">
+									<strong>EXPLOIT (€20M)</strong> - Cash Cow: Optimaliseer kernactiviteiten, veilige investering
+								</div>
+								<div class="bg-white p-3 rounded border-l-4 border-yellow-400">
+									<strong>SUSTAIN (€10M)</strong> - Better Faster: Verbeter processen, berekend risico
+								</div>
+								<div class="bg-white p-3 rounded border-l-4 border-green-400">
+									<strong>EXPLORE (€5M)</strong> - Moonshot: Radicale innovatie, hoog risico maar enorme potentie
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mt-6 bg-gray-100 p-4 rounded-lg text-center">
+						<p class="text-lg"><strong>Setup:</strong> Elk team opent de game en registreert teamnaam</p>
+						<p class="text-sm mt-1 text-gray-600">Budget volgende jaren hangt af van succes van gekozen innovatieportfolio</p>
+					</div>
+				</div>
+			</section>
+
+
+			<!-- Sector Pattern Bridge: Abstract Decision Reflection -->
+			<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white">
+				<div class="slide-content text-center">
+					<span class="text-2xl">🎯 Van Blinde Experimenten naar Sector Reality</span>
+					<h2 class="text-4xl sm:text-6xl lg:text-7xl font-bold mt-4 leading-tight">
+						Portfolio Game Reflectie
+					</h2>
+					<p class="mt-8 text-xl sm:text-2xl text-gray-300">
+						"Jullie kozen projecten zonder te weten wat ze precies waren"
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+						<div class="bg-white text-gray-900 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4 text-blue-600">🎲 Multi-Armed Bandit Reality</h3>
+							<ul class="list-disc list-inside space-y-2 text-left">
+								<li>Hoe besloten jullie tussen Exploit €20M vs Explore €5M?</li>
+								<li>Wat was jullie 'bandit strategie' - safe first of risk early?</li>
+								<li>Stopten jullie snel met slechte projecten of hielden jullie vol?</li>
+								<li>Hoe voelde het om miljoenen te investeren zonder te weten waarvoor?</li>
+							</ul>
+						</div>
+						<div class="bg-blue-600 text-white p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4">📊 Pattern Recognition</h3>
+							<ul class="list-disc list-inside space-y-2 text-left">
+								<li>Was er een patroon? (bepaalde risicoprofielen die beter presteerden)</li>
+								<li>Hoe leerden jullie welke 'arms' (projecttypen) het beste werkten?</li>
+								<li>Gingen jullie voor spreiding of focus?</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Sector Pattern Mapping with Altman/Bezos Frameworks -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						🎯 Van Abstract Game naar Sector Reality
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Teams analyseren hun onderzoeksbedrijven met Portfolio lens
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-xl mb-4 text-blue-600">💰 Pattern Translation</h3>
+							<div class="space-y-3">
+								<div class="bg-red-50 p-3 rounded">
+									<strong>EXPLOIT €20M</strong> in jullie sector = ?<br>
+									<span class="text-sm text-gray-600">(nieuwe vestiging, bestaand product uitbreiden)</span>
+								</div>
+								<div class="bg-yellow-50 p-3 rounded">
+									<strong>SUSTAIN €10M</strong> in jullie sector = ?<br>
+									<span class="text-sm text-gray-600">(proces verbeteren, systeem upgraden)</span>
+								</div>
+								<div class="bg-green-50 p-3 rounded">
+									<strong>EXPLORE €5M</strong> in jullie sector = ?<br>
+									<span class="text-sm text-gray-600">(nieuwe technologie testen, pilot programma)</span>
+								</div>
+							</div>
+						</div>
+						<div class="bg-blue-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4 text-blue-600">🔍 Real Sector Patterns</h3>
+							<ul class="list-disc list-inside space-y-2">
+								<li><strong>Welk percentage</strong> innovaties faalt in jullie sector?</li>
+								<li><strong>Hoe lang duurt het</strong> voordat bedrijven weten of iets werkt?</li>
+								<li><strong>Bedrijf A vs B:</strong> wie experimenteert meer? Wie leert sneller?</li>
+								<li><strong>Portfolio-patroon:</strong> Volgen jullie bedrijven soortgelijk patroon als in het spel?</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Altman's "Waarom Nu?" Timing Analysis -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						⏰ Altman's "Waarom Nu?" Timing Analysis
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Waarom is DIT het perfecte moment voor innovatie in jullie sector?
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div class="bg-red-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-lg mb-4 text-red-700">📅 2 Jaar Geleden</h3>
+							<p class="text-sm font-medium mb-2">"Wat was toen onmogelijk?"</p>
+							<div class="bg-white p-3 rounded text-xs">
+								<p><strong>Voorbeelden:</strong></p>
+								<ul class="list-disc list-inside mt-1 space-y-1">
+									<li>AI was te duur/onbetrouwbaar</li>
+									<li>5G netwerk bestond niet</li>
+									<li>Remote work was taboe</li>
+									<li>Regulatie blokkeerde innovatie</li>
+								</ul>
+							</div>
+						</div>
+						<div class="bg-green-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-lg mb-4 text-green-700">⚡ Vandaag</h3>
+							<p class="text-sm font-medium mb-2">"Welke 'tailwinds' helpen nu?"</p>
+							<div class="bg-white p-3 rounded text-xs">
+								<p><strong>Focus op:</strong></p>
+								<ul class="list-disc list-inside mt-1 space-y-1">
+									<li>Technologie werd betaalbaar</li>
+									<li>Regelgeving veranderde</li>
+									<li>Klantgedrag verschoof</li>
+									<li>Concurrentie dwingt innovatie</li>
+								</ul>
+							</div>
+						</div>
+						<div class="bg-yellow-50 p-6 rounded-lg shadow-lg">
+							<h3 class="font-bold text-lg mb-4 text-yellow-700">⏳ Over 2 Jaar</h3>
+							<p class="text-sm font-medium mb-2">"Wat wordt dan te laat?"</p>
+							<div class="bg-white p-3 rounded text-xs">
+								<p><strong>Risico's:</strong></p>
+								<ul class="list-disc list-inside mt-1 space-y-1">
+									<li>First-mover advantage weg</li>
+									<li>Markt wordt verzadigd</li>
+									<li>Competitie heeft opgeschaald</li>
+									<li>Window of opportunity sluit</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="mt-6 bg-gray-100 p-4 rounded-lg text-center">
+						<p class="text-lg font-semibold text-gray-800">💡 Voor jullie sector: Wat maakt DIT het perfecte moment?</p>
+					</div>
+					<div class="mt-4 flex justify-center">
+						<a href="https://youtu.be/CBYhVcO4WgI?si=um45VouSPMk65EHo" 
+							target="_blank" 
+							class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+							</svg>
+							<span class="text-sm">📺 Sam Altman over Innovation Timing</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Human Reality Check Setup with Two-Way Doors -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						⚖️ Van Game Consequences naar Real Stakes
+					</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-gray-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4 text-gray-700">🎮 In het Portfolio Spel:</h3>
+							<ul class="list-disc list-inside space-y-2">
+								<li><strong>Failure</strong> = minder budget volgende ronde</li>
+								<li><strong>Experimenten</strong> = abstracte projecten</li>
+								<li><strong>Klikken</strong> = gemakkelijk "probeer nog een project"</li>
+								<li><strong>Consequenties</strong> = alleen voor jullie team score</li>
+							</ul>
+						</div>
+						<div class="bg-red-50 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-4 text-red-700">🌍 In de Realiteit:</h3>
+							<ul class="list-disc list-inside space-y-2">
+								<li><strong>Failure</strong> = mensen verliezen banen, stress, onzekerheid</li>
+								<li><strong>Experimenten</strong> = echte levens beïnvloed</li>
+								<li><strong>Beslissingen</strong> = onomkeerbare gevolgen</li>
+								<li><strong>Consequenties</strong> = families, gemeenschappen</li>
+							</ul>
+						</div>
+					</div>
+					<div class="mt-8 bg-blue-100 p-6 rounded-lg">
+						<h3 class="font-bold text-xl mb-4 text-blue-700">🚪 Bezos' Two-Way vs One-Way Doors</h3>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div class="bg-white p-4 rounded">
+								<h4 class="font-bold text-green-600 mb-2">✅ Two-Way Doors (omkeerbaar)</h4>
+								<ul class="text-sm list-disc list-inside space-y-1">
+									<li>Bijscholing werknemers mogelijk</li>
+									<li>Pilot programma's</li>
+									<li>Tijdelijke functiewijzigingen</li>
+								</ul>
+							</div>
+							<div class="bg-white p-4 rounded">
+								<h4 class="font-bold text-red-600 mb-2">⛔ One-Way Doors (onomkeerbaar)</h4>
+								<ul class="text-sm list-disc list-inside space-y-1">
+									<li>Banen verdwijnen definitief</li>
+									<li>Volledige automatisering</li>
+									<li>Fabriekssluiting</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+									<span class="font-semibold w-10 shrink-0 text-right mr-2"
+										>5.</span
+									>
+									<span
+										><strong>Interne Rivaliteit</strong> → bepaald door o.a.
+										<span class="font-mono text-blue-600"
+											>concentratie aanbieders (S)</span
+										>.</span
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<p class="mt-8 text-center text-gray-600">
+						De blijvende populariteit van het Five Forces model toont de
+						fundamentele kracht van het SGR-denken:
+						<strong
+							>marktstructuur is cruciaal voor winstgevendheid en
+							concurrentiesucces.</strong
+						>
+					</p>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+						SGR in Actie: De Wet van Hotelling
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Waarom concurrenten naar elkaar toe trekken (en wat het resultaat
+						is).
+					</p>
+
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">
+								De IJscoman Analogie
+							</h3>
+							<p class="mt-2 text-gray-700">
+								Stel je een strand voor met twee ijsverkopers. Om elkaars
+								klanten af te snoepen, zullen beide verkopers naar het midden
+								van het strand bewegen.
+							</p>
+							<p class="mt-2 text-gray-700">
+								Dit fenomeen, waarbij concurrenten samenkomen, heet
+								<strong>clustering</strong>.
+							</p>
+							<div
+								class="mt-4 bg-yellow-50 border-2 border-dashed border-yellow-200 p-4 rounded-lg text-center font-mono text-sm text-yellow-800"
+							>
+								<div class="text-xs">Optimaal voor klanten:</div>
+								<div class="relative h-1 bg-blue-200 my-2">
+									<div class="absolute text-2xl -top-3" style="left: 25%">
+										🍦
+									</div>
+									<div class="absolute text-2xl -top-3" style="left: 72%">
+										🍦
+									</div>
+								</div>
+								<div class="text-xs mt-6">Evenwicht door concurrentie:</div>
+								<div class="relative h-1 bg-blue-200 my-2">
+									<div class="absolute text-2xl -top-3" style="left: 47%">
+										🍦
+									</div>
+									<div class="absolute text-2xl -top-3" style="left: 53%">
+										🍦
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">De Link met SGR</h3>
+							<p class="mt-2 text-gray-700">
+								Dit is een perfect voorbeeld van het SGR-model:
+							</p>
+							<ul class="mt-4 space-y-3 text-gray-700">
+								<li class="flex items-start">
+									<span class="font-semibold w-28 shrink-0">🏛️ Structuur:</span>
+									<span
+										>Een duopolie (2 verkopers) op een afgebakende markt (het
+										strand).</span
+									>
+								</li>
+								<li class="flex items-start">
+									<span class="font-semibold w-28 shrink-0">♟️ Gedrag:</span>
+									<span
+										>Strategisch verplaatsen om marktaandeel van de concurrent
+										te winnen.</span
+									>
+								</li>
+								<li class="flex items-start">
+									<span class="font-semibold w-28 shrink-0">🏆 Resultaat:</span>
+									<span
+										>Een evenwicht dat stabiel is, maar niet optimaal voor de
+										consument (ze moeten verder lopen).</span
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="mt-8">
+						<a
+							href="https://businessdatasolutions.github.io/business-economics-20/games/hotellingers-law/index-nl.html"
+							target="_blank"
+							class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-lg sm:text-xl"
+						>
+							Start de Simulatie
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold">
+						Andere Dimensies van de Markt
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Naast de 4 marktvormen zijn er meer manieren om een markt te duiden.
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600 mb-2">B2C vs. B2B</h3>
+							<p>
+								Voor wie produceer je? Nike verkoopt schoenen aan jou (B2C) en
+								aan Intersport (B2B).
+							</p>
+						</div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600 mb-2">
+								Soorten Goederen
+							</h3>
+							<p>
+								Is het melk (convenience), een laptop (shopping) of een Ferrari
+								(specialty)? Dit bepaalt het koopgedrag.
+							</p>
+						</div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600 mb-2">
+								Prijsgevoeligheid (Elasticiteit)
+							</h3>
+							<p>
+								Hoe sterk reageert de vraag op een prijsverandering? Dit gaan we
+								nu onderzoeken.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						De Vraagcurve als 'Orderboek'
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Laten we de vraagcurve bouwen op basis van de betalingsbereidheid in
+						de klas.
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">
+								Veiling: Wat is een kop koffie waard?
+							</h3>
+							<p class="text-gray-600 mt-2">
+								Voer hieronder de maximale prijs in die studenten willen
+								betalen.
+							</p>
+							<div class="flex gap-2 mt-4">
+								<input
+									type="number"
+									id="bid-input"
+									placeholder="Voer een bod in..."
+									step="0.1"
+									class="flex-grow p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+								/>
+								<button
+									id="add-bid-btn"
+									class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+								>
+									Bod Toevoegen
+								</button>
+							</div>
+							<div class="mt-4">
+								<h4 class="font-semibold">Ingevoerde Biedingen:</h4>
+								<div
+									id="bids-list"
+									class="mt-2 p-2 bg-gray-50 h-32 overflow-y-auto rounded-md flex flex-wrap gap-2 content-start"
+								></div>
+							</div>
+							<button
+								id="process-bids-btn"
+								class="mt-4 w-full py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition text-lg"
+							>
+								Verwerk Biedingen & Bouw Vraagcurve
+							</button>
+						</div>
+						<div
+							id="orderbook-output"
+							class="bg-gray-50 p-6 rounded-lg shadow-inner hidden"
+						>
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+								<div>
+									<h3 class="font-bold text-xl text-blue-600">Orderboek</h3>
+									<div
+										id="orderbook-table-container"
+										class="mt-2 h-[300px] overflow-y-auto"
+									></div>
+								</div>
+								<div class="h-full flex flex-col">
+									<h3 class="font-bold text-xl text-blue-600">Vraagcurve</h3>
+									<div class="flex-grow relative mt-2">
+										<canvas id="orderbook-chart"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						De Wiskunde: Prijselasticiteit (Elastisch)
+					</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">De Formule</h3>
+							<p class="mt-2 text-gray-700">
+								De prijselasticiteit ($E_p$) meet de procentuele verandering in
+								de gevraagde hoeveelheid ($Q_v$) als reactie op een procentuele
+								verandering in de prijs ($P$).
+							</p>
+							<div
+								class="mt-4 text-center text-lg sm:text-xl bg-gray-50 p-4 rounded"
+							>
+								$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} = \frac{\frac{\Delta
+								Q_v}{Q_{v1}}}{\frac{\Delta P}{P_1}} = \frac{\Delta Q_v}{\Delta
+								P} \cdot \frac{P_1}{Q_{v1}}$$
+							</div>
+							<p class="mt-2 text-sm text-center text-gray-600">
+								De formule laat zien hoe de procentuele veranderingen zijn
+								opgebouwd en dat de elasticiteit afhangt van het startpunt
+								($P_1, Q_{v1}$).
+							</p>
+							<div class="mt-4">
+								<canvas id="demand-curve-chart-horloge"></canvas>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+							<h3 class="font-bold text-xl text-center mb-4">
+								Rekenvoorbeeld: Luxe Horloge
+							</h3>
+							<p class="text-center text-gray-600">
+								We berekenen de elasticiteit bij een prijsdaling van 20%,
+								startend vanaf de prijs van € 5000.
+							</p>
+							<div class="mt-4 space-y-2 text-gray-800">
+								<p><strong>1. Oude situatie ($P_1, Q_1$):</strong></p>
+								<ul class="list-disc list-inside ml-4">
+									<li>Prijs ($P_1$): € 5000</li>
+									<li>Vraag ($Q_1$): 50 stuks</li>
+								</ul>
+								<p><strong>2. Nieuwe situatie ($P_2, Q_2$):</strong></p>
+								<ul class="list-disc list-inside ml-4">
+									<li>
+										Prijs ($P_2$): € 4000
+										<span class="text-sm text-red-600">(-20%)</span>
+									</li>
+									<li>
+										Vraag ($Q_2$): 75 stuks
+										<span class="text-sm text-green-600">(+50%)</span>
+									</li>
+								</ul>
+								<p><strong>3. Berekening (Boogelasticiteit):</strong></p>
+								<div class="text-center text-xl bg-white p-4 rounded shadow-sm">
+									$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
+									\frac{+50\%}{-20\%} = -2.5$$
+								</div>
+								<p class="mt-4 text-center font-semibold">
+									Omdat $E_p < -1$, is de vraag
+									<strong class="text-green-600">elastisch</strong>.
+								</p>
+								<p class="mt-2 text-center text-xs text-gray-500">
+									Let op: dit is de boogelasticiteit tussen deze twee punten. De
+									puntelasticiteit is op elk punt van de curve anders.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						Interactief: Puntelasticiteit Berekenen
+					</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<canvas id="point-elasticity-chart"></canvas>
+						</div>
+
+						<div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+							<h3 class="font-bold text-xl text-center mb-4">
+								Verken de Vraagcurve
+							</h3>
+
+							<div class="mb-6">
+								<label
+									for="slope-slider"
+									class="block font-semibold text-gray-700"
+									>1. Pas de helling aan (richtingscoëfficiënt)</label
+								>
+								<input
+									id="slope-slider"
+									type="range"
+									min="-100"
+									max="-5"
+									value="-40"
+									class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-2"
+								/>
+								<div class="flex justify-between text-xs text-gray-500">
+									<span>Stijl</span>
+									<span>Vlak</span>
+								</div>
+							</div>
+
+							<div class="mb-6">
+								<label
+									for="point-slider"
+									class="block font-semibold text-gray-700"
+									>2. Kies een punt op de curve (hoeveelheid)</label
+								>
+								<input
+									id="point-slider"
+									type="range"
+									min="10"
+									max="150"
+									value="75"
+									class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-2"
+								/>
+							</div>
+
+							<div class="bg-white p-4 rounded-md shadow-sm space-y-3">
+								<div>
+									<span class="font-semibold">Vraagfunctie:</span>
+									<span
+										id="demand-function-display"
+										class="font-mono text-blue-600 ml-2"
+									></span>
+								</div>
+								<hr />
+								<div class="grid grid-cols-2 gap-4">
+									<div>
+										<span class="font-semibold">Prijs (P):</span>
+										<span id="price-display"></span>
+									</div>
+									<div>
+										<span class="font-semibold">Hoeveelheid (Q):</span>
+										<span id="quantity-display"></span>
+									</div>
+								</div>
+								<div class="grid grid-cols-2 gap-4 text-sm mt-2 pt-2 border-t">
+									<div>
+										<span class="font-semibold">RC ($ΔP/ΔQ$):</span>
+										<span id="slope-display" class="font-mono"></span>
+									</div>
+									<div>
+										<span class="font-semibold">Positie ($P/Q$):</span>
+										<span id="pos-ratio-display" class="font-mono"></span>
+									</div>
+								</div>
+								<div class="text-center pt-2 mt-2 border-t">
+									<p class="text-lg font-semibold">
+										Puntelasticiteit ($E_p$) =
+										<strong
+											id="point-elasticity-display"
+											class="text-2xl ml-2"
+										></strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						Oefening: Prijselasticiteit (Inelastisch)
+					</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3 class="font-bold text-xl text-blue-600">
+								De Vraagcurve van Brood
+							</h3>
+							<p class="mt-2 text-gray-700">
+								De vraagcurve voor brood is veel steiler. Een prijsverandering
+								heeft minder effect op de gevraagde hoeveelheid.
+							</p>
+							<p class="mt-4 text-center text-lg bg-gray-50 p-4 rounded">
+								Vraagfunctie: $Q_v = 280 - 40P$
+							</p>
+							<div class="mt-4">
+								<canvas id="demand-curve-chart-brood"></canvas>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+							<h3 class="font-bold text-xl text-center mb-4">
+								Bereken het zelf!
+							</h3>
+							<p class="text-center text-gray-600">
+								Bereken de elasticiteit voor brood bij een prijsstijging van
+								20%, startend vanaf € 2,50.
+							</p>
+							<div class="mt-4 space-y-2 text-gray-800">
+								<p><strong>1. Oude situatie ($P_1, Q_1$):</strong></p>
+								<ul class="list-disc list-inside ml-4">
+									<li>Prijs ($P_1$): € 2,50</li>
+									<li>Vraag ($Q_1$): 180 stuks</li>
+								</ul>
+								<p><strong>2. Nieuwe situatie ($P_2, Q_2$):</strong></p>
+								<ul class="list-disc list-inside ml-4">
+									<li>
+										Prijs ($P_2$): € 3,00
+										<span class="text-sm text-green-600">(+20%)</span>
+									</li>
+									<li>
+										Vraag ($Q_2$): ?? stuks
+										<span class="text-sm text-gray-600"
+											>(Bereken met de vraagfunctie)</span
+										>
+									</li>
+								</ul>
+								<p><strong>3. Jouw Berekening:</strong></p>
+								<div
+									class="text-center text-xl bg-white p-4 rounded shadow-sm min-h-[68px] flex items-center justify-center"
+								>
+									$$E_p = \frac{\%\ \Delta Q_v}{\%\ \Delta P} =
+									\frac{??\%}{+20\%} = ??$$
+								</div>
+								<p class="mt-4 text-center font-semibold">
+									Is de vraag elastisch of inelastisch?
+								</p>
+								<p
+									id="brood-answer"
+									class="mt-2 text-center text-xs text-gray-500"
+								>
+									(Antwoord: $Q_2 = 160$, $\%\Delta Q_v \approx -11.1\%$, $E_p
+									\approx -0.56$ → Inelastisch)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						Prijselasticiteit: Verken het Zelf
+					</h2>
+					<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+						<div class="space-y-6">
+							<div class="bg-white p-6 rounded-lg shadow-md">
+								<h3 class="font-bold text-xl text-red-600">
+									🔴 Inelastische Vraag ($-1 < E_p < 0$)
+								</h3>
+								<p class="mt-2 text-gray-700">
+									De vraag verandert <strong>minder sterk</strong> dan de prijs.
+									Dit geldt vaak voor noodzakelijke goederen.
+								</p>
+								<p class="mt-2 text-gray-600">
+									<strong>Voorbeeld:</strong> Zelfs als de prijs van brood flink
+									stijgt, blijven de meeste mensen het kopen.
+								</p>
+							</div>
+							<div class="bg-white p-6 rounded-lg shadow-md">
+								<h3 class="font-bold text-xl text-green-600">
+									🟢 Elastische Vraag ($E_p < -1$)
+								</h3>
+								<p class="mt-2 text-gray-700">
+									De vraag verandert <strong>sterker</strong> dan de prijs. Dit
+									geldt vaak voor luxegoederen of producten met veel
+									alternatieven.
+								</p>
+								<p class="mt-2 text-gray-700">
+									<strong>Voorbeeld:</strong> Een kleine prijsstijging van een
+									luxe horloge kan ervoor zorgen dat veel klanten afhaken.
+								</p>
+							</div>
+						</div>
+
+						<div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+							<h3 class="font-bold text-xl text-center mb-4">De Simulator</h3>
+							<div class="flex justify-center gap-4 mb-4">
+								<button
+									id="elasticity-btn-brood"
+									class="px-4 py-2 rounded-md font-semibold transition"
+								>
+									🍞 Brood
+								</button>
+								<button
+									id="elasticity-btn-horloge"
+									class="px-4 py-2 rounded-md font-semibold transition"
+								>
+									⌚️ Luxe Horloge
+								</button>
+							</div>
+
+							<div class="mb-4">
+								<label
+									for="price-slider"
+									class="block text-center font-semibold text-gray-700"
+									>Pas de Prijs aan</label
+								>
+								<input
+									id="price-slider"
+									type="range"
+									min="50"
+									max="150"
+									value="100"
+									class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+								/>
+								<div class="flex justify-between text-xs text-gray-500">
+									<span>-50%</span>
+									<span>Basis</span>
+									<span>+50%</span>
+								</div>
+							</div>
+
+							<div class="text-center bg-white p-4 rounded-md shadow-sm">
+								<p>
+									Huidige Prijs:
+									<strong id="current-price" class="text-blue-600"></strong>
+								</p>
+								<p>
+									Vraag (hoeveelheid):
+									<strong id="current-quantity" class="text-blue-600"></strong>
+								</p>
+								<hr class="my-2" />
+								<p class="text-lg">
+									Prijselasticiteit ($E_p$) =
+									<strong id="elasticity-value" class="text-xl"></strong>
+								</p>
+							</div>
+
+							<div class="mt-4">
+								<h4 class="text-center font-semibold text-gray-700 mb-2">
+									Visuele Vraag:
+								</h4>
+								<div
+									id="demand-visualization"
+									class="flex flex-wrap justify-center gap-2 bg-white p-4 rounded-md min-h-[100px] items-center"
+								></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						Casus: Elasticiteit in het Wegtransport
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Hoe reageert de vraag naar vrachtvervoer op prijs- en
+						inkomensveranderingen?
+					</p>
+					<div
+						class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start"
+					>
+						<div class="bg-white p-6 rounded-lg shadow-md h-full">
+							<h3 class="font-bold text-xl text-red-600">
+								🔴 Prijselasticiteit (Inelastisch)
+							</h3>
+							<p class="mt-2 text-gray-700">
+								De directe vraag is sterk inelastisch. De economie moet blijven
+								draaien, ongeacht de dieselprijs.
+							</p>
+							<div class="mt-4 space-y-3">
+								<div class="flex items-start">
+									<div class="tooltip">
+										<span class="text-2xl mr-4 shrink-0">短期</span>
+										<span class="tooltiptext"
+											>短期 (duǎnqī): Korte termijn</span
+										>
+									</div>
+									<div>
+										<h4 class="font-semibold">
+											Korte Termijn ($E_p \approx -0.3$)
+										</h4>
+										<p class="text-gray-600">
+											Bedrijven reageren met operationele efficiëntie: slimmere
+											routes, vollere vrachtwagens.
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start">
+									<div class="tooltip">
+										<span class="text-2xl mr-4 shrink-0">長期</span>
+										<span class="tooltiptext"
+											>長期 (chángqī): Lange termijn</span
+										>
+									</div>
+									<div>
+										<h4 class="font-semibold">
+											Lange Termijn ($E_p \approx -0.8$)
+										</h4>
+										<p class="text-gray-600">
+											Bij aanhoudend hoge prijzen worden strategische keuzes
+											gemaakt: andere locaties, nieuwe vloot, etc.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-white p-6 rounded-lg shadow-md h-full">
+							<h3 class="font-bold text-xl text-green-600">
+								🟢 Kruislingse Elasticiteit (Soms Elastisch)
+							</h3>
+							<p class="mt-2 text-gray-700">
+								De aanwezigheid van substituten (alternatieven) maakt het
+								verschil.
+							</p>
+							<div class="mt-4 space-y-3">
+								<div class="flex items-start">
+									<span class="text-2xl mr-4 shrink-0">🚂/🚢</span>
+									<div>
+										<h4 class="font-semibold">
+											Elastisch voor Bulk & Lange Afstand
+										</h4>
+										<p class="text-gray-600">
+											Voor bulkgoederen (zand, graan) zijn spoor en binnenvaart
+											goede alternatieven. Een prijsverhoging in wegtransport
+											leidt hier sneller tot een overstap.
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start">
+									<span class="text-2xl mr-4 shrink-0">📦</span>
+									<div>
+										<h4 class="font-semibold">Inelastisch voor 'Last-Mile'</h4>
+										<p class="text-gray-600">
+											Voor pakketbezorging in de stad zijn snelheid en
+											flexibiliteit cruciaal. Hier zijn nauwelijks
+											alternatieven, dus de vraag is zeer inelastisch.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-white p-6 rounded-lg shadow-md h-full">
+							<h3 class="font-bold text-xl text-purple-600">
+								🔵 Inkomenselasticiteit (Conjunctureel)
+							</h3>
+							<p class="mt-2 text-gray-700">
+								Vrachtvervoer is een 'afgeleide vraag' en dus zeer gevoelig voor
+								de staat van de economie.
+							</p>
+							<div class="mt-4 space-y-3">
+								<div class="flex items-start">
+									<span class="text-2xl mr-4 shrink-0">📈</span>
+									<div>
+										<h4 class="font-semibold">Positief & Cyclisch</h4>
+										<p class="text-gray-600">
+											In tijden van economische groei (hoger nationaal inkomen)
+											stijgt de productie en consumptie, en daarmee de vraag
+											naar transport. Bij een recessie gebeurt het omgekeerde.
+										</p>
+									</div>
+								</div>
+								<div class="flex items-start">
+									<span class="text-2xl mr-4 shrink-0">🚚</span>
+									<div>
+										<h4 class="font-semibold">Normaal Goed</h4>
+										<p class="text-gray-600">
+											Vrachtvervoer is een 'normaal goed' met een positieve
+											inkomenselasticiteit ($E_i > 0$). De vraag beweegt mee met
+											de economie.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="mt-8 text-center text-lg font-semibold text-gray-800">
+						Conclusie: De vraag naar wegtransport hangt af van de prijs, de
+						prijs van alternatieven, én de staat van de economie.
+					</p>
+				</div>
+			</section>
+
+			<section
+				class="slide h-full flex-col items-center justify-center bg-gray-800 text-white"
+			>
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-center">
+						🚀 Van Spelvolger naar Spelveranderaar
+					</h2>
+					<p
+						class="mt-3 text-lg sm:text-xl text-gray-300 text-center max-w-4xl mx-auto"
+					>
+						De modellen die we leren zijn geen statische foto's, maar een
+						dynamisch speelbord. De bedrijfskundige van de toekomst verandert de
+						regels van het spel.
+					</p>
+					<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div
+							class="bg-gray-700 p-6 rounded-lg text-center border border-gray-600 h-full"
+						>
+							<h3 class="text-xl font-bold text-blue-400">
+								Verandert de
+								<span class="underline decoration-wavy decoration-blue-400"
+									>S</span
+								>tructuur
+							</h3>
+							<p class="mt-2 text-gray-300">
+								De <strong>Ecosysteem Architect</strong> neemt geen genoegen met
+								de bestaande markt, maar ontwerpt een compleet nieuw speelveld,
+								zoals Bol.com of de App Store.
+							</p>
+						</div>
+						<div
+							class="bg-gray-700 p-6 rounded-lg text-center border border-gray-600 h-full"
+						>
+							<h3 class="text-xl font-bold text-blue-400">
+								Optimaliseert het
+								<span class="underline decoration-wavy decoration-blue-400"
+									>G</span
+								>edrag
+							</h3>
+							<p class="mt-2 text-gray-300">
+								De <strong>AI Strategie Analist</strong> gebruikt nieuwe
+								technologie en wetgeving (zoals de DMA) om binnen de bestaande
+								structuur slimmer en sneller te handelen dan de concurrent.
+							</p>
+						</div>
+						<div
+							class="bg-gray-700 p-6 rounded-lg text-center border border-gray-600 h-full"
+						>
+							<h3 class="text-xl font-bold text-blue-400">
+								Herdefinieert het
+								<span class="underline decoration-wavy decoration-blue-400"
+									>R</span
+								>esultaat
+							</h3>
+							<p class="mt-2 text-gray-300">
+								De <strong>Chief True Pricing Officer</strong> verandert de
+								definitie van winst door maatschappelijke kosten mee te rekenen,
+								en dwingt zo de hele markt om anders te presteren.
+							</p>
+						</div>
+					</div>
+					<p class="mt-8 text-center text-lg text-gray-400">
+						Deze strategische blik is essentieel. Na de pauze duiken we in een
+						casus waar de spelregels live op het spel stonden.
+					</p>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<h2 class="text-5xl sm:text-6xl font-bold">☕ Pauze</h2>
+					<p class="mt-4 text-2xl sm:text-3xl text-gray-600">
+						We zien jullie over 10 minuten terug.
+					</p>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content text-center">
+					<span class="text-xl text-blue-600 font-semibold"
+						>Centrale Casus</span
+					>
+					<h2 class="text-4xl sm:text-5xl font-bold mt-2">
+						De Spelverdeler Grijpt In
+					</h2>
+					<p class="mt-4 text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto">
+						PostNL wil concurrent Sandd overnemen. De markt voor postbezorging
+						verandert van een duopolie naar een monopolie. Jullie zijn de
+						<strong>Autoriteit Consument & Markt (ACM)</strong>. Wat doen
+						jullie?
+					</p>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold">
+						Het Debat: Goedkeuren of Blokkeren?
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Vorm 3 groepen en bereid je voor (15 min).
+					</p>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+						<div class="bg-green-100 p-6 rounded-lg">
+							<h3 class="font-bold text-xl text-green-800">
+								Groep 1: Vóór de fusie
+							</h3>
+							<p class="mt-2">
+								Beredeneer met het SGR-model waarom deze fusie goed is voor de
+								efficiëntie, continuïteit en uiteindelijk de consument.
+							</p>
+						</div>
+						<div class="bg-red-100 p-6 rounded-lg">
+							<h3 class="font-bold text-xl text-red-800">
+								Groep 2: Tegen de fusie
+							</h3>
+							<p class="mt-2">
+								Beredeneer met het SGR-model waarom deze fusie leidt tot hogere
+								prijzen, minder innovatie en slechtere service.
+							</p>
+						</div>
+						<div class="bg-blue-100 p-6 rounded-lg">
+							<h3 class="font-bold text-xl text-blue-800">
+								Groep 3: De ACM-Commissie
+							</h3>
+							<p class="mt-2">
+								Jullie luisteren naar beide partijen, stellen kritische vragen
+								en vellen een oordeel. Met welke voorwaarden zou de fusie
+								eventueel wél door kunnen gaan?
+							</p>
+						</div>
+					</div>
+					<div class="mt-8 text-center">
+						<button
+							id="open-denmark-modal-btn"
+							class="bg-yellow-400 text-yellow-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition text-lg shadow"
+						>
+							💡 Lees over de Deense Aanpak
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold">
+						Aan de slag: Opdracht Week 2
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600">
+						Hoe pas je de theorie van vandaag toe op jullie sector?
+					</p>
+					<div class="bg-white p-6 sm:p-8 rounded-lg shadow-xl mt-8">
+						<div class="space-y-6 text-base sm:text-lg">
+							<div
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
+							>
+								<div
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
+								>
+									1. Marktvorm →
+								</div>
+								<div>
+									Beargumenteer de marktvorm in jullie sector. Gebruik de
+									kenmerken van <strong>slide 6</strong>.
+								</div>
+							</div>
+							<div
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
+							>
+								<div
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
+								>
+									2. SGR-Analyse →
+								</div>
+								<div>
+									Analyseer de S, G en R kenmerken. Gebruik het model van
+									<strong>slide 7 & 8</strong>.
+								</div>
+							</div>
+							<div
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
+							>
+								<div
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
+								>
+									3. Overheidsregulering →
+								</div>
+								<div>
+									Beschrijf de rol van de 'spelverdeler' (ACM, wetgeving). Denk
+									aan de casus op <strong>slide 19</strong>.
+								</div>
+							</div>
+							<div
+								class="grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6 items-start"
+							>
+								<div
+									class="text-blue-600 font-bold text-right whitespace-nowrap pt-1 sm:pt-0"
+								>
+									4. Marktkenmerken →
+								</div>
+								<div>
+									Beschrijf de B2B/B2C-mix, soort goederen en prijsgevoeligheid.
+									Zie <strong>slides 10 t/m 16</strong>.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section
+				class="slide h-full flex-col items-center justify-center text-center"
+			>
+				<div class="slide-content">
+					<h2 class="text-4xl sm:text-5xl font-bold">Wrap-up & Feedback</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+						<div class="bg-gray-200 p-6 rounded-lg">
+							<h3 class="font-bold text-xl mb-2">Belangrijkste Takeaways</h3>
+							<ul class="list-disc list-inside space-y-2">
+								<li>De marktstructuur bepaalt het gedrag van bedrijven.</li>
+								<li>
+									Het SGR-model is een krachtige tool om concurrentie te
+									analyseren (en de basis van Porter's 5 Forces).
+								</li>
+								<li>
+									De overheid is een actieve spelverdeler, geen passieve
+									toeschouwer.
+								</li>
+								<li>
+									Jullie rol als bedrijfskundige evolueert mee met de markt.
+								</li>
+							</ul>
+						</div>
+						<div
+							class="bg-gray-800 text-white p-6 rounded-lg flex flex-col items-center justify-center text-center"
+						>
+							<h3 class="font-bold text-xl mb-3">Feedback & Retrospective</h3>
+							<p class="text-gray-300 mb-4">
+								Jullie feedback is essentieel. Scan de code en laat ons weten
+								wat je van dit college vond.
+							</p>
+							<img
+								src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20C-cluster"
+								alt="Retrospective QR Code"
+								class="rounded-lg bg-white p-1"
+							/>
+							<a
+								href="https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20C-cluster"
+								target="_blank"
+								class="text-xs font-mono text-gray-400 hover:text-white mt-3 break-all"
+							>
+								hanbedrijfskunde.github.io/retrospective/...
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<div id="student-answers-modal" class="modal">
+			<div class="modal-content">
+				<h3 class="text-xl font-bold text-gray-800 mb-4">
+					Antwoorden Bewerken
+				</h3>
+				<p class="text-gray-600 mb-4">
+					Voer hier de antwoorden van de studenten in, één per regel.
+				</p>
+				<textarea
+					id="student-answers-textarea"
+					class="w-full h-48 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+					placeholder="bijv. Ze hebben veel winkels."
+				></textarea>
+				<div class="flex justify-end gap-4 mt-6">
+					<button
+						id="modal-cancel-btn"
+						class="px-6 py-2 bg-gray-200 text-gray-800 rounded-md font-semibold hover:bg-gray-300 transition"
+					>
+						Annuleren
+					</button>
+					<button
+						id="modal-save-btn"
+						class="px-6 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition"
+					>
+						Opslaan
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="denmark-case-modal" class="modal">
+			<div class="modal-content">
+				<h3 class="text-xl font-bold text-gray-800 mb-2">De Deense Aanpak</h3>
+				<p class="text-gray-600 mb-4">
+					In Denemarken koos de overheid voor een radicale andere oplossing voor
+					de krimpende postmarkt.
+				</p>
+				<div class="bg-gray-50 p-4 rounded-md text-gray-700 space-y-2">
+					<p>
+						<strong>De Kern:</strong> Het Deense staatspostbedrijf (PostNord)
+						stopt volledig met de landelijke brievenpost. De wettelijke plicht
+						om overal post te bezorgen is geschrapt.
+					</p>
+					<p>
+						<strong>Het Gevolg:</strong> De markt is nu volledig opengesteld
+						voor kleinere, commerciële partijen die zelf kunnen bepalen waar en
+						hoe ze bezorgen. De overheid trekt zich terug als 'spelverdeler'
+						voor de brievenpost.
+					</p>
+					<p>
+						<strong>SGR -> Structuur:</strong> In plaats van één monopolist te
+						creëren om de dienst in stand te houden, laat de Deense overheid de
+						markt het volledig zelf oplossen, met het risico dat postbezorging
+						in dunbevolkte gebieden verdwijnt of zeer duur wordt.
+					</p>
+				</div>
+				<div class="flex justify-between items-center mt-6">
+					<a
+						href="https://www.nu.nl/economie/6348228/deense-post-stopt-na-vierhonderd-jaar-met-bezorging-laatste-brief-eind-2025.html"
+						target="_blank"
+						class="text-sm text-blue-600 hover:underline"
+						>Lees het volledige artikel →</a
+					>
+					<button
+						id="denmark-modal-close-btn"
+						class="px-6 py-2 bg-gray-200 text-gray-800 rounded-md font-semibold hover:bg-gray-300 transition"
+					>
+						Sluiten
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				// Initialisatie
+				const slides = document.querySelectorAll(".slide");
+				const prevBtn = document.getElementById("prev-btn");
+				const nextBtn = document.getElementById("next-btn");
+				const slideCounter = document.getElementById("slide-counter");
+				let currentSlide = 0;
+				const totalSlides = slides.length;
+
+				// Modal elementen (Student Answers)
+				const modal = document.getElementById("student-answers-modal");
+				const openModalBtn = document.getElementById("open-modal-btn");
+				const modalSaveBtn = document.getElementById("modal-save-btn");
+				const modalCancelBtn = document.getElementById("modal-cancel-btn");
+				const modalTextarea = document.getElementById(
+					"student-answers-textarea"
+				);
+				const studentAnswersList = document.getElementById(
+					"student-answers-list"
+				);
+
+				// Modal elementen (Denmark Case)
+				const denmarkModal = document.getElementById("denmark-case-modal");
+				const openDenmarkModalBtn = document.getElementById(
+					"open-denmark-modal-btn"
+				);
+				const closeDenmarkModalBtn = document.getElementById(
+					"denmark-modal-close-btn"
+				);
+
+				// LocalStorage key
+				const STORAGE_KEY = "student_answers_ah_macht";
+
+				// Initialization flags
+				let orderBookBuilderInitialized = false;
+				let demandChartHorlogeInitialized = false;
+				let pointElasticityCalculatorInitialized = false;
+				let demandChartBroodInitialized = false;
+				let elasticitySimulatorInitialized = false;
+				let isoProfitSimulatorInitialized = false;
+				let demandIsoProfitSimulatorInitialized = false;
+
+				// IsoProfitCurveSimulator Class
+				class IsoProfitCurveSimulator {
+					constructor(slideNumber) {
+						this.slideNumber = slideNumber;
+						this.fixedCosts = 200;
+						this.variableCosts = 0.8;
+						this.chart = null;
+						this.priceSlider = document.getElementById(`price-slider-${slideNumber}`);
+						this.quantitySlider = document.getElementById(`quantity-slider-${slideNumber}`);
+						this.priceValue = document.getElementById(`price-value-${slideNumber}`);
+						this.quantityValue = document.getElementById(`quantity-value-${slideNumber}`);
+						this.profitValue = document.getElementById(`profit-value-${slideNumber}`);
+						this.canvas = document.getElementById(`isoprofit-chart-slide-${slideNumber}`);
+						
+						this.initializeChart();
+						this.bindEvents();
+						this.updateAll();
+					}
+
+					calculateProfit(price, quantity) {
+						return (price - this.variableCosts) * quantity - this.fixedCosts;
+					}
+
+					initializeChart() {
+						const ctx = this.canvas.getContext('2d');
+						this.chart = new Chart(ctx, {
+							type: 'line',
+							data: {
+								datasets: [{
+									label: 'Isowinstcurve',
+									data: [],
+									borderColor: 'rgb(59, 130, 246)',
+									backgroundColor: 'rgba(59, 130, 246, 0.1)',
+									fill: false,
+									tension: 0,
+									pointRadius: 0,
+									pointHoverRadius: 3,
+									borderWidth: 2
+								}]
+							},
+							options: {
+								responsive: true,
+								interaction: {
+									intersect: false,
+									mode: 'index'
+								},
+								scales: {
+									x: {
+										title: { display: true, text: 'Hoeveelheid croissants' },
+										min: 0,
+										max: 500,
+										type: 'linear'
+									},
+									y: {
+										title: { display: true, text: 'Prijs (€)' },
+										min: 0,
+										max: 6,
+										type: 'linear'
+									}
+								},
+								plugins: {
+									legend: { display: true }
+								}
+							}
+						});
+					}
+
+					bindEvents() {
+						this.priceSlider.addEventListener('input', () => this.updateAll());
+						this.quantitySlider.addEventListener('input', () => this.updateAll());
+					}
+
+					updateAll() {
+						const price = parseFloat(this.priceSlider.value);
+						const quantity = parseInt(this.quantitySlider.value);
+						
+						// Update display values
+						this.priceValue.textContent = price.toFixed(2);
+						this.quantityValue.textContent = quantity;
+						
+						// Calculate and display profit
+						const profit = this.calculateProfit(price, quantity);
+						this.profitValue.textContent = profit.toFixed(0);
+						
+						// Update chart with isoprofit curve
+						this.updateChart(profit);
+					}
+
+					updateChart(currentProfit) {
+						// Generate isoprofit curve data points
+						const curveData = [];
+						
+						// For isoprofit curve: Profit = (Price - VariableCost) * Quantity - FixedCost
+						// Rearranged: Price = (Profit + FixedCost) / Quantity + VariableCost
+						
+						// Find minimum quantity where price becomes reasonable (≤ 6)
+						const maxPrice = 6;
+						const minQuantity = Math.max(1, Math.ceil((currentProfit + this.fixedCosts) / (maxPrice - this.variableCosts)));
+						
+						// Generate curve points
+						if (currentProfit > -this.fixedCosts) {
+							for (let q = Math.max(minQuantity, 10); q <= 500; q += 5) {
+								const requiredPrice = (currentProfit + this.fixedCosts) / q + this.variableCosts;
+								if (requiredPrice >= this.variableCosts && requiredPrice <= maxPrice) {
+									curveData.push({x: q, y: requiredPrice});
+								}
+							}
+						}
+						
+						// Sort by x to ensure proper line drawing
+						curveData.sort((a, b) => a.x - b.x);
+						
+						this.chart.data.datasets[0].data = curveData;
+						this.chart.data.datasets[0].label = `Isowinstcurve (€${currentProfit.toFixed(0)} winst)`;
+						
+						// Force a complete redraw
+						this.chart.update('active');
+					}
+				}
+
+				// DemandIsoProfitSimulator Class - Interactive optimization discovery tool
+				class DemandIsoProfitSimulator {
+					constructor(slideNumber) {
+						this.slideNumber = slideNumber;
+						this.fixedCosts = 200;
+						this.variableCosts = 0.8;
+						this.chart = null;
+						this.canvas = document.getElementById(`isoprofit-demand-chart-slide-${slideNumber}`);
+						this.profitSlider = document.getElementById(`profit-slider-${slideNumber}`);
+						this.profitValue = document.getElementById(`profit-value-${slideNumber}`);
+						this.intersectionCount = document.getElementById(`intersection-count-${slideNumber}`);
+						this.intersectionFeedback = document.getElementById(`intersection-feedback-${slideNumber}`);
+						this.optimizationHint = document.getElementById(`optimization-hint-${slideNumber}`);
+						this.intersectionCoordinates = document.getElementById(`intersection-coordinates-${slideNumber}`);
+						
+						this.demandCurveParams = { a: 4, b: 0.006 }; // P = 4 - 0.006*Q
+						
+						this.initializeChart();
+						this.bindEvents();
+						this.updateOptimization();
+					}
+
+					initializeChart() {
+						const ctx = this.canvas.getContext('2d');
+						
+						// Create labels array (x-axis: quantities)
+						const labels = [];
+						for (let q = 0; q <= 500; q += 5) {
+							labels.push(q);
+						}
+						
+						// Generate demand curve data: P = 4 - 0.006*Q
+						const demandPrices = labels.map(q => {
+							const price = this.demandCurveParams.a - this.demandCurveParams.b * q;
+							return Math.max(0, price);
+						});
+
+						this.chart = new Chart(ctx, {
+							type: 'line',
+							data: {
+								labels: labels,
+								datasets: [
+									{
+										label: 'Vraagcurve (marktbeperking)',
+										data: demandPrices,
+										borderColor: 'rgb(220, 38, 127)',
+										backgroundColor: 'rgba(220, 38, 127, 0.1)',
+										fill: false,
+										tension: 0.1,
+										borderWidth: 3,
+										pointRadius: 0
+									},
+									{
+										label: 'Isowinstcurve',
+										data: [], // Will be populated by updateOptimization
+										borderColor: 'rgb(59, 130, 246)',
+										backgroundColor: 'rgba(59, 130, 246, 0.1)',
+										fill: false,
+										tension: 0.1,
+										borderWidth: 2,
+										pointRadius: 0,
+										spanGaps: true
+									}
+								]
+							},
+							options: {
+								responsive: true,
+								scales: {
+									x: {
+										title: { display: true, text: 'Hoeveelheid croissants' },
+										min: 0,
+										max: 500
+									},
+									y: {
+										title: { display: true, text: 'Prijs (€)' },
+										min: 0,
+										max: 6
+									}
+								},
+								plugins: {
+									legend: { display: true },
+									tooltip: {
+										callbacks: {
+											label: function(context) {
+												if (context.datasetIndex === 2) {
+													return `Optimaal: €${context.parsed.y.toFixed(2)} bij ${context.parsed.x} stuks`;
+												}
+												return `${context.dataset.label}: €${context.parsed.y.toFixed(2)}`;
+											}
+										}
+									}
+								}
+							}
+						});
+					}
+
+					bindEvents() {
+						this.profitSlider.addEventListener('input', () => this.updateOptimization());
+					}
+
+					updateOptimization() {
+						const targetProfit = parseInt(this.profitSlider.value);
+						this.profitValue.textContent = targetProfit;
+
+						// Generate isoprofit curve data for current profit level
+						const isoProfitPrices = this.chart.data.labels.map(q => {
+							if (q === 0) return null; // Skip division by zero
+							
+							// AC = FC/Q + VC, then P = Profit/Q + AC
+							const averageCost = this.fixedCosts / q + this.variableCosts;
+							const requiredPrice = targetProfit / q + averageCost;
+							
+							// Only return valid prices (expanded range for high profit exploration)
+							return (requiredPrice >= 0 && requiredPrice <= 10) ? requiredPrice : null;
+						});
+
+						// Update isoprofit curve
+						this.chart.data.datasets[1].data = isoProfitPrices;
+						this.chart.data.datasets[1].label = `Isowinstcurve (€${targetProfit} winst)`;
+
+						// Count intersections with demand curve and get coordinates
+						const intersectionData = this.findIntersections(isoProfitPrices);
+						this.updateFeedback(intersectionData.count, targetProfit, intersectionData.points);
+
+						this.chart.update('none');
+					}
+
+					findIntersections(isoProfitPrices) {
+						let intersectionCount = 0;
+						const intersectionPoints = [];
+						const demandPrices = this.chart.data.datasets[0].data;
+
+						for (let i = 0; i < isoProfitPrices.length - 1; i++) {
+							const q1 = this.chart.data.labels[i];
+							const q2 = this.chart.data.labels[i + 1];
+							
+							const isoProfitP1 = isoProfitPrices[i];
+							const isoProfitP2 = isoProfitPrices[i + 1];
+							const demandP1 = demandPrices[i];
+							const demandP2 = demandPrices[i + 1];
+
+							// Skip if any values are null
+							if (isoProfitP1 === null || isoProfitP2 === null || 
+								demandP1 === null || demandP2 === null) continue;
+
+							// Check if lines cross between these two points
+							const isoCrossesAbove = (isoProfitP1 > demandP1) !== (isoProfitP2 > demandP2);
+							if (isoCrossesAbove) {
+								intersectionCount++;
+								
+								// Calculate precise intersection point using linear interpolation
+								const intersectionQ = this.calculateIntersectionQ(
+									q1, q2, isoProfitP1, isoProfitP2, demandP1, demandP2
+								);
+								const intersectionP = this.demandCurveParams.a - this.demandCurveParams.b * intersectionQ;
+								
+								intersectionPoints.push({
+									q: Math.round(intersectionQ),
+									p: intersectionP.toFixed(2)
+								});
+							}
+						}
+
+						return { count: intersectionCount, points: intersectionPoints };
+					}
+
+					calculateIntersectionQ(q1, q2, isoP1, isoP2, demandP1, demandP2) {
+						// Linear interpolation to find precise intersection point
+						// Lines: isoprofit from (q1,isoP1) to (q2,isoP2)
+						//        demand from (q1,demandP1) to (q2,demandP2)
+						
+						const isoSlope = (isoP2 - isoP1) / (q2 - q1);
+						const demandSlope = (demandP2 - demandP1) / (q2 - q1);
+						
+						// Solve: isoP1 + isoSlope*(q-q1) = demandP1 + demandSlope*(q-q1)
+						const deltaSlope = isoSlope - demandSlope;
+						if (Math.abs(deltaSlope) < 0.0001) return (q1 + q2) / 2; // Parallel lines
+						
+						const intersectionQ = q1 + (demandP1 - isoP1) / deltaSlope;
+						return Math.max(q1, Math.min(q2, intersectionQ)); // Clamp to segment
+					}
+
+					updateFeedback(intersectionCount, currentProfit, intersectionPoints) {
+						this.intersectionCount.textContent = intersectionCount;
+						
+						// Display intersection coordinates
+						if (intersectionPoints && intersectionPoints.length > 0) {
+							const coordsHTML = intersectionPoints.map((point, index) => 
+								`Punt ${index + 1}: (${point.q} stuks, €${point.p})`
+							).join('<br>');
+							this.intersectionCoordinates.innerHTML = coordsHTML;
+						} else {
+							this.intersectionCoordinates.innerHTML = 'Geen snijpunten gevonden';
+						}
+
+						// Update visual feedback based on intersection count
+						const feedbackEl = this.intersectionFeedback;
+						feedbackEl.className = 'bg-white p-4 rounded border-2'; // Reset classes
+
+						if (intersectionCount === 0) {
+							feedbackEl.classList.add('border-red-400');
+							this.optimizationHint.innerHTML = `
+								<p>❌ <strong>Te hoog winstniveau!</strong></p>
+								<p>Isowinstcurve ligt volledig boven vraagcurve - onhaalbaar. Probeer lager.</p>
+							`;
+							// Reset isoprofit curve color to blue
+							this.chart.data.datasets[1].borderColor = 'rgb(59, 130, 246)';
+						} else if (intersectionCount === 1) {
+							feedbackEl.classList.add('border-green-400');
+							this.optimizationHint.innerHTML = `
+								<p>🎯 <strong>OPTIMAAL GEVONDEN!</strong></p>
+								<p>De curves raken elkaar perfect - dit is winstmaximalisatie!</p>
+								<p class="mt-2 font-bold">⚡ Optimale strategie: ${intersectionPoints[0].q} croissants à €${intersectionPoints[0].p}</p>
+							`;
+							// Change isoprofit curve color to green when optimal
+							this.chart.data.datasets[1].borderColor = 'rgb(34, 197, 94)';
+						} else {
+							feedbackEl.classList.add('border-orange-400');
+							this.optimizationHint.innerHTML = `
+								<p>📈 <strong>${intersectionCount} snijpunten - probeer hoger!</strong></p>
+								<p>Te laag winstniveau. Beweeg slider omhoog tot je 1 snijpunt hebt.</p>
+								<p class="mt-2 text-xs">💡 Tip: Het optimale punt ligt tussen de huidige snijpunten in!</p>
+							`;
+							// Reset isoprofit curve color to blue
+							this.chart.data.datasets[1].borderColor = 'rgb(59, 130, 246)';
+						}
+					}
+				}
+
+				// [REMOVED] AdvancedIsoProfitSimulator Class - saved to advanced-isocurve-backup.js
+				
+			// [REMOVED] Duplicate showSlide function and orphaned AdvancedIsoProfitSimulator method fragments
+				// Functie om de slides te tonen/verbergen
+				function showSlide(index) {
+					slides.forEach((slide, i) => {
+						slide.classList.toggle("active", i === index);
+					});
+
+					slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+					prevBtn.disabled = index === 0;
+					nextBtn.disabled = index === totalSlides - 1;
+
+					// Initialize charts, simulators and animations when their slides become active
+					if (index === 9 && !isoProfitSimulatorInitialized) {
+						new IsoProfitCurveSimulator(10);
+						isoProfitSimulatorInitialized = true;
+					}
+					if (index === 10 && !demandIsoProfitSimulatorInitialized) {
+						new DemandIsoProfitSimulator(11);
+						demandIsoProfitSimulatorInitialized = true;
+					}
+					// [REMOVED] AdvancedIsoProfitSimulator initialization - slide 13 removed
+					if (index === 10 && !orderBookBuilderInitialized) {
+						initOrderBookBuilder();
+						orderBookBuilderInitialized = true;
+					}
+					if (index === 11 && !demandChartHorlogeInitialized) {
+						initDemandCurveChart_Horloge();
+						demandChartHorlogeInitialized = true;
+					}
+					if (index === 12 && !pointElasticityCalculatorInitialized) {
+						initPointElasticityCalculator();
+						pointElasticityCalculatorInitialized = true;
+					}
+
+					// Logic for the slow reveal on slide 14 (index 13)
+					const answerEl = document.getElementById("brood-answer");
+					if (answerEl) {
+						if (index === 13) {
+							// Using a timeout to ensure the transition starts after the slide is displayed
+							setTimeout(() => {
+								answerEl.classList.add("visible");
+							}, 100);
+						} else {
+							answerEl.classList.remove("visible");
+						}
+					}
+
+					if (index === 13 && !demandChartBroodInitialized) {
+						initDemandCurveChart_Brood();
+						demandChartBroodInitialized = true;
+					}
+					if (index === 14 && !elasticitySimulatorInitialized) {
+						initElasticitySimulator();
+						elasticitySimulatorInitialized = true;
+					}
+				}
+
+				// Event listeners voor de knoppen
+				nextBtn.addEventListener("click", () => {
+					if (currentSlide < totalSlides - 1) {
+						currentSlide++;
+						showSlide(currentSlide);
+					}
+				});
+
+				prevBtn.addEventListener("click", () => {
+					if (currentSlide > 0) {
+						currentSlide--;
+						showSlide(currentSlide);
+					}
+				});
+
+				// Navigatie met pijltoetsen
+				document.addEventListener("keydown", (e) => {
+					if (
+						modal.classList.contains("show") ||
+						denmarkModal.classList.contains("show")
+					) {
+						if (e.key === "Escape") {
+							closeModal();
+							closeDenmarkModal();
+						}
+						return; // Stop verdere keyboard events als een modal open is
+					}
+
+					if (e.key === "ArrowRight") {
+						nextBtn.click();
+					} else if (e.key === "ArrowLeft") {
+						prevBtn.click();
+					}
+				});
+
+				// Modal functionaliteit (Student Answers)
+				function openModal() {
+					if (!modal || !modalTextarea) return;
+					const savedAnswers = localStorage.getItem(STORAGE_KEY);
+					modalTextarea.value = savedAnswers ? savedAnswers : "";
+					modal.classList.add("show");
+					modalTextarea.focus();
+				}
+
+				function closeModal() {
+					if (modal) modal.classList.remove("show");
+				}
+
+				function saveAnswers() {
+					if (!modalTextarea) return;
+					const answers = modalTextarea.value.trim();
+					localStorage.setItem(STORAGE_KEY, answers);
+					updateStudentAnswersList();
+					closeModal();
+					showSaveConfirmation();
+				}
+
+				function updateStudentAnswersList() {
+					if (!studentAnswersList) return;
+
+					const savedAnswers = localStorage.getItem(STORAGE_KEY);
+					studentAnswersList.innerHTML = "";
+
+					let answersToShow = [];
+					if (savedAnswers && savedAnswers.trim() !== "") {
+						answersToShow = savedAnswers
+							.split("\n")
+							.map((answer) => answer.trim())
+							.filter((answer) => answer.length > 0);
+					} else {
+						// Fallback naar standaard antwoorden
+						answersToShow = [
+							"Ze hebben veel winkels.",
+							"Ze bepalen zelf de prijzen.",
+							"Lastig om te concurreren.",
+							"Ze hebben een eigen merk.",
+							"Weinig echte alternatieven.",
+						];
+					}
+
+					answersToShow.forEach((answer) => {
+						const li = document.createElement("li");
+						li.textContent = answer;
+						studentAnswersList.appendChild(li);
+					});
+				}
+
+				function showSaveConfirmation() {
+					if (!modalSaveBtn) return;
+
+					const originalText = modalSaveBtn.textContent;
+					modalSaveBtn.textContent = "✓ Opgeslagen!";
+					modalSaveBtn.classList.remove("bg-blue-600", "hover:bg-blue-700");
+					modalSaveBtn.classList.add("bg-green-500");
+					modalSaveBtn.disabled = true;
+
+					setTimeout(() => {
+						modalSaveBtn.textContent = originalText;
+						modalSaveBtn.classList.remove("bg-green-500");
+						modalSaveBtn.classList.add("bg-blue-600", "hover:bg-blue-700");
+						modalSaveBtn.disabled = false;
+					}, 2000);
+				}
+
+				// Modal functionaliteit (Denmark Case)
+				function openDenmarkModal() {
+					if (denmarkModal) denmarkModal.classList.add("show");
+				}
+				function closeDenmarkModal() {
+					if (denmarkModal) denmarkModal.classList.remove("show");
+				}
+
+				if (openDenmarkModalBtn)
+					openDenmarkModalBtn.addEventListener("click", openDenmarkModal);
+				if (closeDenmarkModalBtn)
+					closeDenmarkModalBtn.addEventListener("click", closeDenmarkModal);
+				if (denmarkModal)
+					denmarkModal.addEventListener("click", (e) => {
+						if (e.target === denmarkModal) closeDenmarkModal();
+					});
+
+				// Order Book Builder Logic
+				function initOrderBookBuilder() {
+					const bidInput = document.getElementById("bid-input");
+					const addBidBtn = document.getElementById("add-bid-btn");
+					const bidsListEl = document.getElementById("bids-list");
+					const processBtn = document.getElementById("process-bids-btn");
+					const outputEl = document.getElementById("orderbook-output");
+					const tableContainer = document.getElementById(
+						"orderbook-table-container"
+					);
+					const ctx = document
+						.getElementById("orderbook-chart")
+						.getContext("2d");
+
+					let bids = [];
+					let chart = null;
+
+					function renderBids() {
+						bidsListEl.innerHTML = "";
+						bids.forEach((bid) => {
+							const span = document.createElement("span");
+							span.className =
+								"bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-sm font-medium";
+							span.textContent = `€ ${bid.toFixed(2)}`;
+							bidsListEl.appendChild(span);
+						});
+					}
+
+					addBidBtn.addEventListener("click", () => {
+						const value = parseFloat(bidInput.value);
+						if (!isNaN(value) && value > 0) {
+							bids.push(value);
+							renderBids();
+							bidInput.value = "";
+							bidInput.focus();
+						}
+					});
+
+					bidInput.addEventListener("keydown", (e) => {
+						if (e.key === "Enter") {
+							addBidBtn.click();
+						}
+					});
+
+					processBtn.addEventListener("click", () => {
+						if (bids.length === 0) return;
+
+						bids.sort((a, b) => b - a);
+
+						const orderBookData = [];
+						let cumulativeQuantity = 0;
+						const priceLevels = [...new Set(bids)].sort((a, b) => b - a);
+
+						priceLevels.forEach((price) => {
+							const quantityAtPrice = bids.filter((b) => b === price).length;
+							cumulativeQuantity += quantityAtPrice;
+							orderBookData.push({
+								price: price,
+								quantity: cumulativeQuantity,
+							});
+						});
+
+						let tableHTML = `<table class="w-full text-sm text-left text-gray-500">
+							<thead class="text-xs text-gray-700 uppercase bg-gray-100">
+								<tr><th scope="col" class="px-4 py-2">Prijs (of hoger)</th><th scope="col" class="px-4 py-2">Totale Vraag (Q)</th></tr>
+							</thead><tbody>`;
+						orderBookData.forEach((row) => {
+							tableHTML += `<tr class="bg-white border-b"><td class="px-4 py-2 font-medium text-gray-900">€ ${row.price.toFixed(
+								2
+							)}</td><td class="px-4 py-2">${row.quantity}</td></tr>`;
+						});
+						tableHTML += "</tbody></table>";
+						tableContainer.innerHTML = tableHTML;
+
+						if (chart) {
+							chart.destroy();
+						}
+
+						const chartDataPoints = [{ x: 0, y: orderBookData[0].price }];
+						orderBookData.forEach((point) => {
+							chartDataPoints.push({ x: point.quantity, y: point.price });
+						});
+
+						chart = new Chart(ctx, {
+							type: "line",
+							data: {
+								datasets: [
+									{
+										label: "Vraagcurve",
+										data: chartDataPoints,
+										borderColor: "#ef4444",
+										backgroundColor: "rgba(239, 68, 68, 0.1)",
+										stepped: true,
+										pointRadius: 5,
+										pointBackgroundColor: "#ef4444",
+									},
+								],
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: { legend: { display: false } },
+								scales: {
+									x: {
+										type: "linear",
+										title: { display: true, text: "Hoeveelheid (Q)" },
+										beginAtZero: true,
+										ticks: {
+											stepSize: 1,
+										},
+										suggestedMax: cumulativeQuantity + 1,
+									},
+									y: {
+										title: { display: true, text: "Prijs (P) in €" },
+										beginAtZero: true,
+										suggestedMax: orderBookData[0].price * 1.1,
+									},
+								},
+							},
+						});
+
+						outputEl.classList.remove("hidden");
+					});
+				}
+
+				// Point Elasticity Calculator Logic
+				function initPointElasticityCalculator() {
+					const slopeSlider = document.getElementById("slope-slider");
+					const pointSlider = document.getElementById("point-slider");
+					const demandFuncDisplay = document.getElementById(
+						"demand-function-display"
+					);
+					const priceDisplay = document.getElementById("price-display");
+					const quantityDisplay = document.getElementById("quantity-display");
+					const elasticityDisplay = document.getElementById(
+						"point-elasticity-display"
+					);
+					const slopeDisplay = document.getElementById("slope-display");
+					const posRatioDisplay = document.getElementById("pos-ratio-display");
+					const ctx = document
+						.getElementById("point-elasticity-chart")
+						.getContext("2d");
+
+					let slope = parseFloat(slopeSlider.value);
+					let yIntercept = 7000;
+					let currentQuantity = parseFloat(pointSlider.value);
+					let currentPrice = yIntercept + slope * currentQuantity;
+
+					const chart = new Chart(ctx, {
+						type: "line",
+						data: {
+							datasets: [
+								{
+									label: "Vraagcurve",
+									data: [],
+									borderColor: "#3b82f6",
+									fill: false,
+									pointRadius: 0,
+								},
+								{
+									label: "Gekozen Punt",
+									data: [],
+									borderColor: "#ef4444",
+									backgroundColor: "#ef4444",
+									pointRadius: 7,
+									pointHoverRadius: 9,
+									showLine: false,
+									type: "scatter",
+								},
+							],
+						},
+						options: {
+							responsive: true,
+							plugins: { legend: { display: false } },
+							scales: {
+								x: {
+									type: "linear",
+									title: { display: true, text: "Hoeveelheid (Q)" },
+									min: 0,
+								},
+								y: { title: { display: true, text: "Prijs (P)" }, min: 0 },
+							},
+						},
+					});
+
+					function updateDisplayAndChart() {
+						const maxQuantity = -yIntercept / slope;
+
+						pointSlider.max = Math.floor(maxQuantity);
+						if (currentQuantity > pointSlider.max) {
+							currentQuantity = pointSlider.max;
+							pointSlider.value = currentQuantity;
+							currentPrice = yIntercept + slope * currentQuantity;
+						}
+
+						let elasticity =
+							currentQuantity > 0
+								? (1 / slope) * (currentPrice / currentQuantity)
+								: Infinity;
+						let posRatio =
+							currentQuantity > 0 ? currentPrice / currentQuantity : Infinity;
+
+						demandFuncDisplay.textContent = `P = ${yIntercept.toFixed(
+							0
+						)} - ${Math.abs(slope).toFixed(2)}Q`;
+						priceDisplay.textContent = `€ ${currentPrice.toFixed(0)}`;
+						quantityDisplay.textContent = `${currentQuantity.toFixed(0)}`;
+						slopeDisplay.textContent = slope.toFixed(2);
+						posRatioDisplay.textContent = posRatio.toFixed(2);
+						elasticityDisplay.textContent = elasticity.toFixed(2);
+
+						if (elasticity < -1)
+							elasticityDisplay.className =
+								"text-2xl ml-2 font-bold text-green-600";
+						else if (elasticity < 0)
+							elasticityDisplay.className =
+								"text-2xl ml-2 font-bold text-red-600";
+						else
+							elasticityDisplay.className =
+								"text-2xl ml-2 font-bold text-gray-700";
+
+						const chartData = [];
+						for (let q = 0; q <= maxQuantity; q += 5)
+							chartData.push({ x: q, y: yIntercept + slope * q });
+
+						chart.data.datasets[0].data = chartData;
+						chart.data.datasets[1].data = [
+							{ x: currentQuantity, y: currentPrice },
+						];
+						chart.options.scales.x.max = Math.ceil(maxQuantity / 10) * 10;
+						chart.update();
+					}
+
+					slopeSlider.addEventListener("input", () => {
+						slope = parseFloat(slopeSlider.value);
+						yIntercept = currentPrice - slope * currentQuantity;
+						updateDisplayAndChart();
+					});
+
+					pointSlider.addEventListener("input", () => {
+						currentQuantity = parseFloat(pointSlider.value);
+						currentPrice = yIntercept + slope * currentQuantity;
+						updateDisplayAndChart();
+					});
+
+					updateDisplayAndChart();
+				}
+
+				// Elasticity Simulator Logic
+				function initElasticitySimulator() {
+					const products = {
+						brood: {
+							name: "Brood",
+							basePrice: 2.5,
+							baseQuantity: 180,
+							factor: -0.56,
+							currency: "€",
+						},
+						horloge: {
+							name: "Luxe Horloge",
+							basePrice: 5000,
+							baseQuantity: 50,
+							factor: -2.5,
+							currency: "€",
+						},
+					};
+					let currentProduct = products.brood;
+
+					const btnBrood = document.getElementById("elasticity-btn-brood");
+					const btnHorloge = document.getElementById("elasticity-btn-horloge");
+					const slider = document.getElementById("price-slider");
+					const priceEl = document.getElementById("current-price");
+					const quantityEl = document.getElementById("current-quantity");
+					const elasticityEl = document.getElementById("elasticity-value");
+					const demandVizEl = document.getElementById("demand-visualization");
+					const elasticityValueContainer =
+						document.getElementById("elasticity-value");
+
+					function updateSimulator() {
+						const sliderValue = parseInt(slider.value);
+						const pricePercentageChange = (sliderValue - 100) / 100;
+
+						const newPrice =
+							currentProduct.basePrice * (1 + pricePercentageChange);
+						const quantityPercentageChange =
+							pricePercentageChange * currentProduct.factor;
+						const newQuantity = Math.round(
+							currentProduct.baseQuantity * (1 + quantityPercentageChange)
+						);
+
+						let elasticity =
+							pricePercentageChange !== 0
+								? quantityPercentageChange / pricePercentageChange
+								: 0;
+
+						priceEl.textContent = `${
+							currentProduct.currency
+						} ${newPrice.toFixed(2)}`;
+						quantityEl.textContent = `${newQuantity} stuks`;
+						elasticityEl.textContent = elasticity.toFixed(2);
+
+						if (elasticity < -1)
+							elasticityValueContainer.className =
+								"text-xl font-bold text-green-600";
+						else if (elasticity < 0)
+							elasticityValueContainer.className =
+								"text-xl font-bold text-red-600";
+						else
+							elasticityValueContainer.className =
+								"text-xl font-bold text-gray-700";
+
+						demandVizEl.innerHTML = "";
+						const numCarts = Math.max(
+							0,
+							Math.ceil(
+								newQuantity / (currentProduct.name === "Brood" ? 15 : 3)
+							)
+						);
+						for (let i = 0; i < numCarts; i++) {
+							const cart = document.createElement("span");
+							cart.className = "demand-cart";
+							cart.textContent = "🛒";
+							demandVizEl.appendChild(cart);
+						}
+					}
+
+					function selectProduct(productKey) {
+						currentProduct = products[productKey];
+						slider.value = 100; // Reset slider
+
+						if (productKey === "brood") {
+							btnBrood.classList.add("bg-blue-600", "text-white");
+							btnBrood.classList.remove("bg-gray-200");
+							btnHorloge.classList.add("bg-gray-200");
+							btnHorloge.classList.remove("bg-blue-600", "text-white");
+						} else {
+							btnHorloge.classList.add("bg-blue-600", "text-white");
+							btnHorloge.classList.remove("bg-gray-200");
+							btnBrood.classList.add("bg-gray-200");
+							btnBrood.classList.remove("bg-blue-600", "text-white");
+						}
+						updateSimulator();
+					}
+
+					slider.addEventListener("input", updateSimulator);
+					btnBrood.addEventListener("click", () => selectProduct("brood"));
+					btnHorloge.addEventListener("click", () => selectProduct("horloge"));
+
+					selectProduct("brood");
+				}
+
+				// Demand Curve Chart Logic for HORLOGE
+				function initDemandCurveChart_Horloge() {
+					const ctx = document
+						.getElementById("demand-curve-chart-horloge")
+						.getContext("2d");
+					new Chart(ctx, {
+						type: "line",
+						data: {
+							labels: [0, 25, 50, 75, 100, 125],
+							datasets: [
+								{
+									label: "Vraagcurve Horloge",
+									data: [7000, 6000, 5000, 4000, 3000, 2000],
+									borderColor: "#3b82f6",
+									tension: 0,
+									fill: false,
+									pointRadius: 0,
+								},
+								{
+									label: "Punten uit voorbeeld",
+									data: [
+										{ x: 50, y: 5000 },
+										{ x: 75, y: 4000 },
+									],
+									borderColor: "#ef4444",
+									backgroundColor: "#ef4444",
+									pointRadius: 5,
+									pointHoverRadius: 7,
+									showLine: false,
+									type: "scatter",
+								},
+							],
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false },
+								title: { display: true, text: "Vraagcurve Luxe Horloge" },
+							},
+							scales: {
+								x: {
+									title: { display: true, text: "Hoeveelheid (Q)" },
+									min: 0,
+									max: 150,
+								},
+								y: {
+									title: { display: true, text: "Prijs (P) in €" },
+									beginAtZero: true,
+								},
+							},
+						},
+					});
+				}
+
+				// Demand Curve Chart Logic for BROOD
+				function initDemandCurveChart_Brood() {
+					const ctx = document
+						.getElementById("demand-curve-chart-brood")
+						.getContext("2d");
+					const dataPoints = Array.from({ length: 8 }, (_, i) => ({
+						x: i * 40,
+						y: 7 - 0.025 * (i * 40),
+					}));
+
+					new Chart(ctx, {
+						type: "line",
+						data: {
+							datasets: [
+								{
+									label: "Vraagcurve Brood",
+									data: dataPoints,
+									borderColor: "#3b82f6",
+									tension: 0,
+									fill: false,
+									pointRadius: 0,
+								},
+								{
+									label: "Punten uit oefening",
+									data: [
+										{ x: 180, y: 2.5 },
+										{ x: 160, y: 3.0 },
+									],
+									borderColor: "#ef4444",
+									backgroundColor: "#ef4444",
+									pointRadius: 5,
+									pointHoverRadius: 7,
+									showLine: false,
+									type: "scatter",
+								},
+							],
+						},
+						options: {
+							responsive: true,
+							plugins: {
+								legend: { display: false },
+								title: { display: true, text: "Vraagcurve Brood" },
+							},
+							scales: {
+								x: {
+									title: { display: true, text: "Hoeveelheid (Q)" },
+									type: "linear",
+									min: 0,
+									max: 280,
+								},
+								y: {
+									title: { display: true, text: "Prijs (P) in €" },
+									beginAtZero: true,
+									max: 7,
+								},
+							},
+						},
+					});
+				}
+
+				// Event listeners voor modal (Student Answers)
+				if (openModalBtn) openModalBtn.addEventListener("click", openModal);
+				if (modalSaveBtn) modalSaveBtn.addEventListener("click", saveAnswers);
+				if (modalCancelBtn)
+					modalCancelBtn.addEventListener("click", closeModal);
+
+				if (modal) {
+					modal.addEventListener("click", (e) => {
+						if (e.target === modal) {
+							closeModal();
+						}
+					});
+				}
+
+				// Initialiseer de eerste slide en laad bestaande antwoorden
+				showSlide(currentSlide);
+				updateStudentAnswersList();
+			});
+		</script>
+	</body>
+</html>
