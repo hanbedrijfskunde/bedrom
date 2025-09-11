@@ -1441,12 +1441,7 @@
 				// LocalStorage key
 				const STORAGE_KEY = "student_answers_ah_macht";
 
-				// Initialization flags
-				let orderBookBuilderInitialized = false;
-				let demandChartHorlogeInitialized = false;
-				let pointElasticityCalculatorInitialized = false;
-				let demandChartBroodInitialized = false;
-				let elasticitySimulatorInitialized = false;
+				// Initialization flags (Week 3 components only)
 				let isoProfitSimulatorInitialized = false;
 				let demandIsoProfitSimulatorInitialized = false;
 				let pitchTimerInitialized = false;
@@ -1910,41 +1905,7 @@
 						new PitchTimer();
 						pitchTimerInitialized = true;
 					}
-					// [REMOVED] AdvancedIsoProfitSimulator initialization - slide 13 removed
-					if (index === 10 && !orderBookBuilderInitialized) {
-						initOrderBookBuilder();
-						orderBookBuilderInitialized = true;
-					}
-					if (index === 11 && !demandChartHorlogeInitialized) {
-						initDemandCurveChart_Horloge();
-						demandChartHorlogeInitialized = true;
-					}
-					if (index === 12 && !pointElasticityCalculatorInitialized) {
-						initPointElasticityCalculator();
-						pointElasticityCalculatorInitialized = true;
-					}
-
-					// Logic for the slow reveal on slide 14 (index 13)
-					const answerEl = document.getElementById("brood-answer");
-					if (answerEl) {
-						if (index === 13) {
-							// Using a timeout to ensure the transition starts after the slide is displayed
-							setTimeout(() => {
-								answerEl.classList.add("visible");
-							}, 100);
-						} else {
-							answerEl.classList.remove("visible");
-						}
-					}
-
-					if (index === 13 && !demandChartBroodInitialized) {
-						initDemandCurveChart_Brood();
-						demandChartBroodInitialized = true;
-					}
-					if (index === 14 && !elasticitySimulatorInitialized) {
-						initElasticitySimulator();
-						elasticitySimulatorInitialized = true;
-					}
+					// [REMOVED] Old Week 2 initialization calls - HTML elements no longer exist
 				}
 
 				// Event listeners voor de knoppen
@@ -2048,130 +2009,6 @@
 				}
 
 
-				// Order Book Builder Logic
-				function initOrderBookBuilder() {
-					const bidInput = document.getElementById("bid-input");
-					const addBidBtn = document.getElementById("add-bid-btn");
-					const bidsListEl = document.getElementById("bids-list");
-					const processBtn = document.getElementById("process-bids-btn");
-					const outputEl = document.getElementById("orderbook-output");
-					const tableContainer = document.getElementById(
-						"orderbook-table-container"
-					);
-					const ctx = document
-						.getElementById("orderbook-chart")
-						.getContext("2d");
-
-					let bids = [];
-					let chart = null;
-
-					function renderBids() {
-						bidsListEl.innerHTML = "";
-						bids.forEach((bid) => {
-							const span = document.createElement("span");
-							span.className =
-								"bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-sm font-medium";
-							span.textContent = `€ ${bid.toFixed(2)}`;
-							bidsListEl.appendChild(span);
-						});
-					}
-
-					addBidBtn.addEventListener("click", () => {
-						const value = parseFloat(bidInput.value);
-						if (!isNaN(value) && value > 0) {
-							bids.push(value);
-							renderBids();
-							bidInput.value = "";
-							bidInput.focus();
-						}
-					});
-
-					bidInput.addEventListener("keydown", (e) => {
-						if (e.key === "Enter") {
-							addBidBtn.click();
-						}
-					});
-
-					processBtn.addEventListener("click", () => {
-						if (bids.length === 0) return;
-
-						bids.sort((a, b) => b - a);
-
-						const orderBookData = [];
-						let cumulativeQuantity = 0;
-						const priceLevels = [...new Set(bids)].sort((a, b) => b - a);
-
-						priceLevels.forEach((price) => {
-							const quantityAtPrice = bids.filter((b) => b === price).length;
-							cumulativeQuantity += quantityAtPrice;
-							orderBookData.push({
-								price: price,
-								quantity: cumulativeQuantity,
-							});
-						});
-
-						let tableHTML = `<table class="w-full text-sm text-left text-gray-500">
-							<thead class="text-xs text-gray-700 uppercase bg-gray-100">
-								<tr><th scope="col" class="px-4 py-2">Prijs (of hoger)</th><th scope="col" class="px-4 py-2">Totale Vraag (Q)</th></tr>
-							</thead><tbody>`;
-						orderBookData.forEach((row) => {
-							tableHTML += `<tr class="bg-white border-b"><td class="px-4 py-2 font-medium text-gray-900">€ ${row.price.toFixed(
-								2
-							)}</td><td class="px-4 py-2">${row.quantity}</td></tr>`;
-						});
-						tableHTML += "</tbody></table>";
-						tableContainer.innerHTML = tableHTML;
-
-						if (chart) {
-							chart.destroy();
-						}
-
-						const chartDataPoints = [{ x: 0, y: orderBookData[0].price }];
-						orderBookData.forEach((point) => {
-							chartDataPoints.push({ x: point.quantity, y: point.price });
-						});
-
-						chart = new Chart(ctx, {
-							type: "line",
-							data: {
-								datasets: [
-									{
-										label: "Vraagcurve",
-										data: chartDataPoints,
-										borderColor: "#ef4444",
-										backgroundColor: "rgba(239, 68, 68, 0.1)",
-										stepped: true,
-										pointRadius: 5,
-										pointBackgroundColor: "#ef4444",
-									},
-								],
-							},
-							options: {
-								responsive: true,
-								maintainAspectRatio: false,
-								plugins: { legend: { display: false } },
-								scales: {
-									x: {
-										type: "linear",
-										title: { display: true, text: "Hoeveelheid (Q)" },
-										beginAtZero: true,
-										ticks: {
-											stepSize: 1,
-										},
-										suggestedMax: cumulativeQuantity + 1,
-									},
-									y: {
-										title: { display: true, text: "Prijs (P) in €" },
-										beginAtZero: true,
-										suggestedMax: orderBookData[0].price * 1.1,
-									},
-								},
-							},
-						});
-
-						outputEl.classList.remove("hidden");
-					});
-				}
 
 				// Point Elasticity Calculator Logic
 				function initPointElasticityCalculator() {

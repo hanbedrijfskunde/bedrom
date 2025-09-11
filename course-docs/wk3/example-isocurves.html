@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Isoprofit Curve Generator</title>
+
+		<!-- Include Chart.js library for plotting -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+		<style>
+			/* --- CSS STYLING --- */
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+					Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+				background-color: #f4f7f9;
+				color: #333;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 20px;
+			}
+
+			.container {
+				background-color: #ffffff;
+				padding: 30px;
+				border-radius: 10px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+				width: 100%;
+				max-width: 800px;
+			}
+
+			h1,
+			h2 {
+				text-align: center;
+				color: #2c3e50;
+			}
+
+			p {
+				text-align: center;
+				margin-bottom: 25px;
+				color: #555;
+			}
+
+			.controls {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				gap: 15px;
+				margin-bottom: 30px;
+			}
+
+			.input-group {
+				display: flex;
+				flex-direction: column;
+			}
+
+			label {
+				margin-bottom: 5px;
+				font-size: 0.9em;
+				color: #666;
+			}
+
+			input[type="number"] {
+				padding: 8px 12px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				width: 150px;
+			}
+
+			button {
+				padding: 10px 20px;
+				border: none;
+				background-color: #3498db;
+				color: white;
+				font-size: 1em;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+				align-self: flex-end; /* Aligns with bottom of input boxes */
+			}
+
+			button:hover {
+				background-color: #2980b9;
+			}
+
+			.chart-container {
+				position: relative;
+				width: 100%;
+				margin-bottom: 20px;
+			}
+
+			pre {
+				background-color: #ecf0f1;
+				border: 1px solid #bdc3c7;
+				border-radius: 5px;
+				padding: 15px;
+				max-height: 200px;
+				overflow-y: auto;
+				white-space: pre-wrap;
+				word-wrap: break-word;
+				font-family: "Courier New", Courier, monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- --- HTML STRUCTURE --- -->
+		<div class="container">
+			<h1>Isoprofit Curve Generator</h1>
+			<p>Based on Figure 7.10 from 'The Firm and Its Customers'.</p>
+
+			<div class="controls">
+				<div class="input-group">
+					<label for="profitLevel">Enter Profit Level ($):</label>
+					<input type="number" id="profitLevel" value="70000" step="1000" />
+				</div>
+				<div class="input-group">
+					<label for="minQuantity">Min Quantity (Q):</label>
+					<input type="number" id="minQuantity" value="10" min="1" />
+				</div>
+				<div class="input-group">
+					<label for="maxQuantity">Max Quantity (Q):</label>
+					<input type="number" id="maxQuantity" value="90" min="1" />
+				</div>
+				<button id="generateBtn">Generate and Plot Curve</button>
+			</div>
+
+			<div class="chart-container">
+				<canvas id="isoprofitChart"></canvas>
+			</div>
+
+			<h2>Generated Data Points</h2>
+			<pre id="output"></pre>
+		</div>
+
+		<script>
+			// --- JAVASCRIPT LOGIC ---
+			document.addEventListener("DOMContentLoaded", () => {
+				// --- DOM ELEMENT REFERENCES ---
+				const generateBtn = document.getElementById("generateBtn");
+				const profitInput = document.getElementById("profitLevel");
+				const minQtyInput = document.getElementById("minQuantity");
+				const maxQtyInput = document.getElementById("maxQuantity");
+				const outputEl = document.getElementById("output");
+				const ctx = document.getElementById("isoprofitChart").getContext("2d");
+				let chart;
+
+				// --- CORE LOGIC ---
+
+				/**
+				 * Approximates the Average Cost (AC) for a given quantity (Q) based on
+				 * a quadratic model of the curve in Figure 7.10.
+				 * @param {number} quantity The quantity of cars (Q).
+				 * @returns {number} The calculated average cost for the given quantity.
+				 */
+				function averageCost(quantity) {
+					const a = 1.5; // Controls the steepness of the curve
+					const h = 40; // The quantity at which the minimum cost occurs
+					const k = 3400; // The minimum average cost
+					return a * Math.pow(quantity - h, 2) + k;
+				}
+
+				/**
+				 * Generates the data points for an isoprofit curve for a specific profit level.
+				 * @param {number} profitLevel The desired profit level.
+				 * @param {number} minQuantity The minimum quantity to start from.
+				 * @param {number} maxQuantity The maximum quantity to generate up to.
+				 * @returns {Array<Object>} An array of objects {q, p}.
+				 */
+				function generateIsoprofitCurve(profitLevel, minQuantity, maxQuantity) {
+					const isoprofitPoints = [];
+					for (let q = minQuantity; q <= maxQuantity; q++) {
+						if (q === 0) continue;
+						const ac = averageCost(q);
+						const p = profitLevel / q + ac;
+						isoprofitPoints.push({ q, p });
+					}
+					return isoprofitPoints;
+				}
+
+				// --- UI AND CHARTING ---
+
+				/**
+				 * Updates the text output and the chart with new data.
+				 */
+				function updateDisplay() {
+					const profitLevel = parseFloat(profitInput.value);
+					const minQty = parseInt(minQtyInput.value);
+					const maxQty = parseInt(maxQtyInput.value);
+
+					if (
+						isNaN(profitLevel) ||
+						isNaN(minQty) ||
+						isNaN(maxQty) ||
+						minQty <= 0
+					) {
+						alert(
+							"Please enter valid numbers. Minimum quantity must be greater than 0."
+						);
+						return;
+					}
+
+					const isoprofitData = generateIsoprofitCurve(
+						profitLevel,
+						minQty,
+						maxQty
+					);
+					const zeroProfitData = generateIsoprofitCurve(0, minQty, maxQty); // This is the AC curve
+
+					// Update the raw data output
+					outputEl.textContent = isoprofitData
+						.map(
+							(point) =>
+								`Quantity (Q): ${point.q}, Price (P): $${point.p.toFixed(2)}`
+						)
+						.join("\n");
+
+					// Update the chart
+					drawChart(isoprofitData, zeroProfitData, profitLevel);
+				}
+
+				/**
+				 * Draws or updates the chart on the canvas.
+				 * @param {Array<Object>} isoprofitData Data for the target isoprofit curve.
+				 * @param {Array<Object>} zeroProfitData Data for the average cost curve.
+				 * @param {number} profitLevel The current profit level for the chart label.
+				 */
+				function drawChart(isoprofitData, zeroProfitData, profitLevel) {
+					if (chart) {
+						chart.destroy(); // Destroy the old chart instance before creating a new one
+					}
+
+					chart = new Chart(ctx, {
+						type: "line",
+						data: {
+							labels: isoprofitData.map((d) => d.q), // Use quantity for x-axis labels
+							datasets: [
+								{
+									label: `Isoprofit Curve ($${profitLevel.toLocaleString()})`,
+									data: isoprofitData.map((d) => d.p),
+									borderColor: "#3498db",
+									backgroundColor: "rgba(52, 152, 219, 0.1)",
+									borderWidth: 2,
+									tension: 0.1,
+									pointRadius: 0,
+								},
+								{
+									label: "Average Cost (Zero-Profit Curve)",
+									data: zeroProfitData.map((d) => d.p),
+									borderColor: "#e74c3c",
+									backgroundColor: "rgba(231, 76, 60, 0.1)",
+									borderWidth: 2,
+									borderDash: [5, 5], // Dashed line for reference curve
+									tension: 0.1,
+									pointRadius: 0,
+								},
+							],
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: true,
+							scales: {
+								x: {
+									title: {
+										display: true,
+										text: "Quantity of Cars, Q",
+									},
+								},
+								y: {
+									beginAtZero: false, // Start y-axis based on data for better visibility
+									title: {
+										display: true,
+										text: "Price, P ($)",
+									},
+								},
+							},
+							plugins: {
+								tooltip: {
+									callbacks: {
+										title: function (context) {
+											return `Quantity: ${context[0].label}`;
+										},
+										label: function (context) {
+											let label = context.dataset.label || "";
+											if (label) {
+												label += ": ";
+											}
+											label += `$${parseFloat(context.raw).toFixed(2)}`;
+											return label;
+										},
+									},
+								},
+							},
+						},
+					});
+				}
+
+				// --- EVENT LISTENERS ---
+				generateBtn.addEventListener("click", updateDisplay);
+
+				// Initial generation on page load
+				updateDisplay();
+			});
+		</script>
+	</body>
+</html>
