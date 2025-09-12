@@ -477,9 +477,9 @@
 							<h3 class="font-bold text-xl mb-4">🏪 Team 1: KLEINE BAKKERIJ</h3>
 							<div class="text-lg space-y-2">
 								<p><strong>10 croissants/dag</strong></p>
-								<div class="bg-white p-3 rounded">
-									<p class="font-mono">Totale Kosten = €200 + (10 × €0,80) = €208</p>
-									<p class="font-mono">Gemiddelde Kosten = €208 ÷ 10 = <span class="text-red-600 font-bold">€20,80</span> per croissant 😱</p>
+								<div class="bg-gray-100 p-3 rounded border-2 border-dashed border-gray-300 text-center">
+									<p class="text-gray-500">💭 Bereken zelf eerst...</p>
+									<p class="text-sm text-gray-400">Formule: (Vaste + Variabele kosten) ÷ Aantal</p>
 								</div>
 							</div>
 						</div>
@@ -487,9 +487,9 @@
 							<h3 class="font-bold text-xl mb-4">🏬 Team 2: MIDDELGROTE BAKKERIJ</h3>
 							<div class="text-lg space-y-2">
 								<p><strong>100 croissants/dag</strong></p>
-								<div class="bg-white p-3 rounded">
-									<p class="font-mono">Totale Kosten = €200 + (100 × €0,80) = €280</p>
-									<p class="font-mono">Gemiddelde Kosten = €280 ÷ 100 = <span class="text-yellow-600 font-bold">€2,80</span> per croissant ✅</p>
+								<div class="bg-gray-100 p-3 rounded border-2 border-dashed border-gray-300 text-center">
+									<p class="text-gray-500">💭 Bereken zelf eerst...</p>
+									<p class="text-sm text-gray-400">Formule: (Vaste + Variabele kosten) ÷ Aantal</p>
 								</div>
 							</div>
 						</div>
@@ -497,12 +497,19 @@
 							<h3 class="font-bold text-xl mb-4">🏭 Team 3: GROTE BAKKERIJ</h3>
 							<div class="text-lg space-y-2">
 								<p><strong>1000 croissants/dag</strong></p>
-								<div class="bg-white p-3 rounded">
-									<p class="font-mono">Totale Kosten = €200 + (1000 × €0,80) = €1000</p>
-									<p class="font-mono">Gemiddelde Kosten = €1000 ÷ 1000 = <span class="text-green-600 font-bold">€1,00</span> per croissant 🚀</p>
+								<div class="bg-gray-100 p-3 rounded border-2 border-dashed border-gray-300 text-center">
+									<p class="text-gray-500">💭 Bereken zelf eerst...</p>
+									<p class="text-sm text-gray-400">Formule: (Vaste + Variabele kosten) ÷ Aantal</p>
 								</div>
 							</div>
 						</div>
+					</div>
+					
+					<div class="mt-6 text-center">
+						<button class="show-calculations-btn bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition" 
+							data-slide="8">
+							👨‍🏫 Toon Uitwerkingen (Gemiddelde Kosten)
+						</button>
 					</div>
 				</div>
 			</section>
@@ -519,67 +526,84 @@
 					<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
 						<div class="bg-red-50 p-6 rounded-lg">
 							<h3 class="text-lg font-bold">Team 1 (10 → 11)</h3>
-							<div class="text-4xl font-bold text-red-600 mt-4">€0,80</div>
+							<div class="bg-gray-100 p-2 rounded border-2 border-dashed border-gray-300 text-center mt-4">
+								<p class="text-gray-500 text-sm">🤔 Denk na...</p>
+							</div>
 						</div>
 						<div class="bg-yellow-50 p-6 rounded-lg">
 							<h3 class="text-lg font-bold">Team 2 (100 → 101)</h3>
-							<div class="text-4xl font-bold text-yellow-600 mt-4">€0,80</div>
+							<div class="bg-gray-100 p-2 rounded border-2 border-dashed border-gray-300 text-center mt-4">
+								<p class="text-gray-500 text-sm">🤔 Denk na...</p>
+							</div>
 						</div>
 						<div class="bg-green-50 p-6 rounded-lg">
 							<h3 class="text-lg font-bold">Team 3 (1000 → 1001)</h3>
-							<div class="text-4xl font-bold text-green-600 mt-4">€0,80</div>
+							<div class="bg-gray-100 p-2 rounded border-2 border-dashed border-gray-300 text-center mt-4">
+								<p class="text-gray-500 text-sm">🤔 Denk na...</p>
+							</div>
 						</div>
 					</div>
-					<div class="mt-8 bg-blue-100 p-6 rounded-lg">
-						<h3 class="text-xl font-bold mb-2">🎯 Aha-moment:</h3>
-						<p class="text-lg">"Hoe kan dat? Gemiddelde kosten zijn zo verschillend, maar marginale kosten zijn altijd hetzelfde?"</p>
-						<p class="text-sm mt-2 text-gray-700"><strong>Uitleg:</strong> Marginale kosten = alleen de variabele kosten van die ene extra</p>
-					</div>
 					
-					<div class="mt-8">
-						<h3 class="text-xl font-bold mb-4 text-center">🚀 Maar in de moderne platform economie...</h3>
-						<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+					<div class="mt-8 text-center">
+						<button class="show-calculations-btn bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition" 
+							data-slide="9">
+							👨‍🏫 Toon Uitwerkingen (Marginale Kosten)
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 10: Platform Economics Vergelijking -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						🚀 Platform Economics: Marginale Kosten Vergelijking
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						Van Traditioneel naar Platform Economics
+					</p>
+					<div class="mt-8 space-y-6">
+						<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 							<div class="bg-gray-50 p-4 rounded-lg text-center">
-								<div class="text-2xl mb-2">🥐</div>
-								<h4 class="font-bold text-sm">Bakkerij</h4>
+								<div class="text-3xl mb-2">🥐</div>
+								<h5 class="font-bold">Bakkerij</h5>
 								<div class="text-2xl font-bold text-gray-600 mt-2">€0,80</div>
 								<p class="text-xs mt-1">traditioneel fysiek</p>
 							</div>
 							<div class="bg-blue-50 p-4 rounded-lg text-center">
-								<div class="text-2xl mb-2">🏠</div>
-								<h4 class="font-bold text-sm">Airbnb</h4>
+								<div class="text-3xl mb-2">🏠</div>
+								<h5 class="font-bold">Airbnb</h5>
 								<div class="text-2xl font-bold text-blue-600 mt-2">€1-5</div>
-								<p class="text-xs mt-1">per booking (platform)</p>
+								<p class="text-xs mt-1">per booking</p>
 							</div>
 							<div class="bg-purple-50 p-4 rounded-lg text-center">
-								<div class="text-2xl mb-2">☁️</div>
-								<h4 class="font-bold text-sm">AWS</h4>
-								<div class="text-2xl font-bold text-purple-600 mt-2"><€0,01</div>
+								<div class="text-3xl mb-2">☁️</div>
+								<h5 class="font-bold">AWS</h5>
+								<div class="text-2xl font-bold text-purple-600 mt-2">&lt;€0,01</div>
 								<p class="text-xs mt-1">per compute hour</p>
 							</div>
 							<div class="bg-green-50 p-4 rounded-lg text-center">
-								<div class="text-2xl mb-2">🤖</div>
-								<h4 class="font-bold text-sm">OpenAI</h4>
+								<div class="text-3xl mb-2">🤖</div>
+								<h5 class="font-bold">OpenAI</h5>
 								<div class="text-2xl font-bold text-green-600 mt-2">€0,05-0,10</div>
-								<p class="text-xs mt-1">per prompt + data asset!</p>
+								<p class="text-xs mt-1">+ data asset!</p>
 							</div>
 						</div>
-					</div>
-					
-					<div class="mt-6 bg-yellow-100 p-4 rounded-lg text-center">
-						<h4 class="font-bold text-lg mb-2">💡 Verschillende Digitale Business Modellen</h4>
-						<div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs mt-3">
-							<div class="bg-white p-2 rounded">
-								<strong>Platform Model:</strong><br>
-								Airbnb (€1-5) veel lager dan hotels
-							</div>
-							<div class="bg-white p-2 rounded">
-								<strong>Scale Model:</strong><br>
-								AWS (<€0,01) extreme efficiency
-							</div>
-							<div class="bg-white p-2 rounded">
-								<strong>Data Asset Model:</strong><br>
-								OpenAI: duur per prompt, maar elke use bouwt strategic data asset
+						<div class="bg-yellow-100 p-6 rounded-lg">
+							<h4 class="font-bold text-lg mb-3">💡 Verschillende Digitale Business Modellen</h4>
+							<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+								<div class="bg-white p-4 rounded">
+									<strong>Platform Model:</strong><br>
+									<span class="text-sm">Airbnb (€1-5) veel lager dan hotels door asset-light model</span>
+								</div>
+								<div class="bg-white p-4 rounded">
+									<strong>Scale Model:</strong><br>
+									<span class="text-sm">AWS (&lt;€0,01) extreme efficiency door massive infrastructure</span>
+								</div>
+								<div class="bg-white p-4 rounded">
+									<strong>Data Asset Model:</strong><br>
+									<span class="text-sm">OpenAI: hoge marginale kosten maar elke use bouwt strategic data asset</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -703,6 +727,116 @@
 					</div>
 					<div class="mt-6 text-center">
 						<p class="text-lg text-gray-600">Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"</p>
+					</div>
+					<div class="mt-8 text-center">
+						<button class="show-calculations-btn bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition" 
+							data-slide="9">
+							👨‍🏫 Toon Uitwerkingen (Marginale Kosten)
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- Bridge Slide: Van Optimalisatie naar Innovatie -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+						🌉 Van Optimalisatie naar Innovatie
+					</h2>
+					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
+						De brug tussen statische winstmaximalisatie en dynamische groei
+					</p>
+					<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+						<!-- Linkerkant: Het "probleem" van normale winst -->
+						<div class="bg-white rounded-xl shadow-lg p-6">
+							<h3 class="text-2xl font-bold text-blue-800 mb-4">🎯 Het Optimalisatie "Dilemma"</h3>
+							
+							<div class="space-y-4">
+								<div class="bg-blue-50 p-4 rounded-lg">
+									<h4 class="font-bold text-blue-800">Wat we net geleerd hebben:</h4>
+									<p class="text-blue-700">Het optimale punt op isowinstcurves geeft <em>normale winst</em></p>
+								</div>
+
+								<div class="bg-yellow-50 p-4 rounded-lg">
+									<h4 class="font-bold text-yellow-800">De realiteit:</h4>
+									<ul class="text-yellow-700 space-y-1 text-sm">
+										<li>• Normale winst = "break-even" op economische basis</li>
+										<li>• Alle kosten gedekt, maar geen extra return</li>
+										<li>• Perfect voor overleven, niet voor groeien</li>
+									</ul>
+								</div>
+
+								<div class="bg-red-50 p-4 rounded-lg">
+									<h4 class="font-bold text-red-800">Het probleem voor ondernemers:</h4>
+									<p class="text-red-700 font-semibold">Hoe verdien je <strong>meer</strong> dan normale winst?</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Rechterkant: De oplossing door innovatie -->
+						<div class="bg-white rounded-xl shadow-lg p-6">
+							<h3 class="text-2xl font-bold text-green-800 mb-4">💡 De Innovatie Oplossing</h3>
+							
+							<div class="space-y-4">
+								<div class="bg-green-50 p-4 rounded-lg">
+									<h4 class="font-bold text-green-800">Innovation Rent (Schumpeter):</h4>
+									<p class="text-green-700">Extra winst door <em>tijdelijke</em> concurrentievoordelen</p>
+								</div>
+
+								<div class="space-y-3">
+									<div class="border-l-4 border-green-400 pl-4">
+										<h5 class="font-semibold text-gray-800">Hoe werkt het?</h5>
+										<p class="text-sm text-gray-600">Innovatie verlaagt kosten → nieuwe isowinstcurves dichter bij vraagcurve → meer ruimte voor winst</p>
+									</div>
+
+									<div class="border-l-4 border-blue-400 pl-4">
+										<h5 class="font-semibold text-gray-800">Voorbeeld Croissant Bakkerij:</h5>
+										<p class="text-sm text-gray-600">Kosten dalen van €1,00 naar €0,80 → bij zelfde prijs €2,50 nu €1,70 winst i.p.v. €1,50</p>
+									</div>
+
+									<div class="border-l-4 border-purple-400 pl-4">
+										<h5 class="font-semibold text-gray-800">Waarom tijdelijk?</h5>
+										<p class="text-sm text-gray-600">Concurrenten kopiëren → voordeel verdwijnt</p>
+									</div>
+								</div>
+
+								<div class="bg-purple-50 p-4 rounded-lg">
+									<h4 class="font-bold text-purple-800">De cyclus:</h4>
+									<p class="text-purple-700">Innoveer → Extra winst → Concurrentie → Opnieuw innoveren</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Onderste sectie: Overgang naar Portfolio Spel -->
+					<div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+						<div class="text-center">
+							<h3 class="text-2xl font-bold text-gray-800 mb-4">🎲 Nu gaan jullie het zelf ervaren</h3>
+							<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+								<div class="text-center">
+									<div class="text-3xl mb-2">🎯</div>
+									<h4 class="font-bold text-gray-800">Stap 1: Optimaliseren</h4>
+									<p class="text-sm text-gray-600">Vind je optimale mix van investeringen</p>
+								</div>
+								<div class="text-center">
+									<div class="text-3xl mb-2">🚀</div>
+									<h4 class="font-bold text-gray-800">Stap 2: Innoveren</h4>
+									<p class="text-sm text-gray-600">Experimenteer met nieuwe technologieën</p>
+								</div>
+								<div class="text-center">
+									<div class="text-3xl mb-2">💰</div>
+									<h4 class="font-bold text-gray-800">Stap 3: Innovation Rent</h4>
+									<p class="text-sm text-gray-600">Oogst de vruchten van succesvolle innovatie</p>
+								</div>
+							</div>
+							
+							<div class="mt-6 text-center">
+								<p class="text-lg text-gray-700 font-semibold">
+									Klaar voor het <span class="text-blue-600">Portfolio Spel</span>? 
+									Laten we zien wie de beste innovatie-strategie heeft! 🏆
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -1407,6 +1541,24 @@
 			</div>
 		</div>
 
+		<!-- Calculation Modal voor Uitwerkingen -->
+		<div id="calculation-modal" class="modal">
+			<div class="modal-content max-w-4xl">
+				<h3 class="text-2xl font-bold text-gray-800 mb-4" id="modal-calculation-title">
+					Uitwerkingen
+				</h3>
+				<div id="modal-calculation-content" class="space-y-6">
+					<!-- Dynamic content based on slide -->
+				</div>
+				<div class="flex justify-center mt-6">
+					<button id="calculation-modal-close-btn" 
+						class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+						Sluiten
+					</button>
+				</div>
+			</div>
+		</div>
+
 	<script>
 			document.addEventListener("DOMContentLoaded", () => {
 				// Initialisatie
@@ -1437,6 +1589,12 @@
 				let isoProfitSimulatorInitialized = false;
 				let demandIsoProfitSimulatorInitialized = false;
 				let pitchTimerInitialized = false;
+				
+				// Bridge slide component flags
+				let competitiveThreatInitialized = false;
+				let teslaCurveInitialized = false;
+				let coolblueTimelineInitialized = false;
+				let portfolioPreviewInitialized = false;
 
 				// IsoProfitCurveSimulator Class
 				class IsoProfitCurveSimulator {
@@ -1791,6 +1949,149 @@
 
 				// [REMOVED] AdvancedIsoProfitSimulator Class - saved to advanced-isocurve-backup.js
 				
+				// Bridge Slide JavaScript Components
+				
+				// CompetitiveThreatVisualizer Class for slide 12.5
+				class CompetitiveThreatVisualizer {
+					constructor() {
+						this.canvas = document.getElementById('competitive-threat-chart');
+						this.threatSlider = document.getElementById('threat-level-slider');
+						this.threatValue = document.getElementById('threat-level-value');
+						this.profitErosion = document.getElementById('profit-erosion');
+						this.threatExplanation = document.getElementById('threat-explanation');
+						this.threatFeedback = document.getElementById('threat-feedback');
+						this.chart = null;
+						
+						if (this.canvas) {
+							this.initializeChart();
+							this.bindEvents();
+						}
+					}
+					
+					initializeChart() {
+						const ctx = this.canvas.getContext('2d');
+						
+						// Create labels array
+						const labels = [];
+						for (let q = 0; q <= 500; q += 10) {
+							labels.push(q);
+						}
+						
+						// Generate original isowinstcurve (from student's optimization)
+						const originalCurve = labels.map(q => {
+							if (q === 0) return null;
+							const averageCost = 200 / q + 0.8;
+							const requiredPrice = 267 / q + averageCost; // Optimal profit from slide 12
+							return (requiredPrice >= 0 && requiredPrice <= 6) ? requiredPrice : null;
+						});
+						
+						this.chart = new Chart(ctx, {
+							type: 'line',
+							data: {
+								labels: labels,
+								datasets: [
+									{
+										label: 'Jouw Optimale Curve',
+										data: originalCurve,
+										borderColor: 'rgb(59, 130, 246)',
+										backgroundColor: 'rgba(59, 130, 246, 0.1)',
+										borderWidth: 3,
+										pointRadius: 0,
+										tension: 0.1
+									}
+								]
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								scales: {
+									x: { title: { display: true, text: 'Hoeveelheid croissants' }, min: 0, max: 500 },
+									y: { title: { display: true, text: 'Prijs (€)' }, min: 0, max: 6 }
+								},
+								plugins: {
+									legend: { display: true },
+									title: { display: true, text: 'Impact van Concurrentie op Jouw Winstcurves' }
+								},
+								animation: { duration: 1000, easing: 'easeInOutCubic' }
+							}
+						});
+					}
+					
+					bindEvents() {
+						if (this.threatSlider) {
+							this.threatSlider.addEventListener('input', () => this.updateThreat());
+						}
+					}
+					
+					updateThreat() {
+						const threatLevel = parseInt(this.threatSlider.value);
+						this.threatValue.textContent = threatLevel;
+						
+						const erosion = Math.min(95, threatLevel * 0.8);
+						this.profitErosion.textContent = Math.round(erosion);
+						
+						this.updateCompetitorCurves(threatLevel);
+						this.updateFeedback(threatLevel, erosion);
+					}
+					
+					updateCompetitorCurves(threatLevel) {
+						this.chart.data.datasets = this.chart.data.datasets.slice(0, 1);
+						
+						if (threatLevel > 20) {
+							const competitor1Curve = this.chart.data.labels.map(q => {
+								if (q === 0) return null;
+								const averageCost = 200 / q + 0.8;
+								const requiredPrice = (267 * 0.9) / q + averageCost;
+								return (requiredPrice >= 0 && requiredPrice <= 6) ? requiredPrice : null;
+							});
+							
+							this.chart.data.datasets.push({
+								label: 'Concurrent A (10% lagere winst)',
+								data: competitor1Curve,
+								borderColor: 'rgb(239, 68, 68)',
+								borderWidth: 2,
+								pointRadius: 0,
+								borderDash: [5, 5]
+							});
+						}
+						
+						if (threatLevel > 50) {
+							const competitor2Curve = this.chart.data.labels.map(q => {
+								if (q === 0) return null;
+								const averageCost = 200 / q + 0.8;
+								const requiredPrice = (267 * 0.7) / q + averageCost;
+								return (requiredPrice >= 0 && requiredPrice <= 6) ? requiredPrice : null;
+							});
+							
+							this.chart.data.datasets.push({
+								label: 'Concurrent B (30% lagere winst)',
+								data: competitor2Curve,
+								borderColor: 'rgb(220, 38, 38)',
+								borderWidth: 2,
+								pointRadius: 0,
+								borderDash: [2, 2]
+							});
+						}
+						
+						this.chart.update('active');
+					}
+					
+					updateFeedback(threatLevel, erosion) {
+						this.threatFeedback.className = 'bg-white p-4 rounded border-2';
+						
+						if (threatLevel < 25) {
+							this.threatFeedback.classList.add('border-green-400');
+							this.threatExplanation.innerHTML = `<p>✅ <strong>Jouw optimale punt is nog veilig</strong></p><p>Weinig concurrentiedruk - je kunt genieten van de gevonden winstoptimalisatie.</p>`;
+						} else if (threatLevel < 60) {
+							this.threatFeedback.classList.add('border-yellow-400');
+							this.threatExplanation.innerHTML = `<p>⚠️ <strong>Concurrenten beginnen jouw strategie te kopiëren</strong></p><p>Je winsten komen onder druk. Tijd om na te denken over innovatie...</p>`;
+						} else {
+							this.threatFeedback.classList.add('border-red-400');
+							this.threatExplanation.innerHTML = `<p>🚨 <strong>Prijzenoorlog! Winsten verdwijnen snel</strong></p><p>Statische optimalisatie werkt niet meer. Je MOET innoveren om te overleven!</p>`;
+						}
+					}
+				}
+
 				// PitchTimer Class for 90-second presentations
 				class PitchTimer {
 					constructor() {
@@ -1897,6 +2198,25 @@
 						new PitchTimer();
 						pitchTimerInitialized = true;
 					}
+					
+					// Bridge slide component initialization
+					if (index === 12 && !competitiveThreatInitialized) {
+						new CompetitiveThreatVisualizer();
+						competitiveThreatInitialized = true;
+					}
+					if (index === 13 && !teslaCurveInitialized) {
+						// Tesla component will be initialized when we add the class
+						teslaCurveInitialized = true;
+					}
+					if (index === 14 && !coolblueTimelineInitialized) {
+						// Coolblue component will be initialized when we add the class
+						coolblueTimelineInitialized = true;
+					}
+					if (index === 15 && !portfolioPreviewInitialized) {
+						// Portfolio component will be initialized when we add the class
+						portfolioPreviewInitialized = true;
+					}
+					
 					// [REMOVED] Old Week 2 initialization calls - HTML elements no longer exist
 				}
 
@@ -2016,6 +2336,165 @@
 					modal.addEventListener("click", (e) => {
 						if (e.target === modal) {
 							closeModal();
+						}
+					});
+				}
+
+				// Calculation Modal Logic
+				const calculationModal = document.getElementById("calculation-modal");
+				const calculationModalCloseBtn = document.getElementById("calculation-modal-close-btn");
+				const modalCalculationTitle = document.getElementById("modal-calculation-title");
+				const modalCalculationContent = document.getElementById("modal-calculation-content");
+
+				// Event listeners for calculation buttons
+				document.querySelectorAll('.show-calculations-btn').forEach(btn => {
+					btn.addEventListener('click', (e) => {
+						const slideNumber = e.target.dataset.slide;
+						showCalculationModal(slideNumber);
+					});
+				});
+
+				function showCalculationModal(slideNumber) {
+					const modalData = getModalContentForSlide(slideNumber);
+					modalCalculationTitle.textContent = modalData.title;
+					modalCalculationContent.innerHTML = modalData.content;
+					
+					if (calculationModal) calculationModal.classList.add('show');
+				}
+
+				function closeCalculationModal() {
+					if (calculationModal) calculationModal.classList.remove('show');
+				}
+
+				function getModalContentForSlide(slideNumber) {
+					const modalContents = {
+						'8': {
+							title: 'Uitwerkingen: Gemiddelde Kosten',
+							content: `
+								<div class="space-y-6">
+									<div class="bg-red-50 p-4 rounded-lg">
+										<h4 class="font-bold text-xl mb-2">🏪 Team 1: Kleine Bakkerij (10 croissants)</h4>
+										<div class="bg-white p-3 rounded font-mono space-y-1">
+											<p>Totale Kosten = €200 + (10 × €0,80) = <strong>€208</strong></p>
+											<p>Gemiddelde Kosten = €208 ÷ 10 = <span class="text-red-600 text-2xl font-bold">€20,80</span> per croissant 😱</p>
+										</div>
+									</div>
+									<div class="bg-yellow-50 p-4 rounded-lg">
+										<h4 class="font-bold text-xl mb-2">🏬 Team 2: Middelgrote Bakkerij (100 croissants)</h4>
+										<div class="bg-white p-3 rounded font-mono space-y-1">
+											<p>Totale Kosten = €200 + (100 × €0,80) = <strong>€280</strong></p>
+											<p>Gemiddelde Kosten = €280 ÷ 100 = <span class="text-yellow-600 text-2xl font-bold">€2,80</span> per croissant ✅</p>
+										</div>
+									</div>
+									<div class="bg-green-50 p-4 rounded-lg">
+										<h4 class="font-bold text-xl mb-2">🏭 Team 3: Grote Bakkerij (1000 croissants)</h4>
+										<div class="bg-white p-3 rounded font-mono space-y-1">
+											<p>Totale Kosten = €200 + (1000 × €0,80) = <strong>€1000</strong></p>
+											<p>Gemiddelde Kosten = €1000 ÷ 1000 = <span class="text-green-600 text-2xl font-bold">€1,00</span> per croissant 🚀</p>
+										</div>
+									</div>
+									<div class="mt-6 bg-blue-100 p-4 rounded-lg">
+										<h4 class="font-bold text-xl">📊 Conclusie:</h4>
+										<p class="text-lg">Hoe groter de schaal, hoe lager de gemiddelde kosten per croissant!</p>
+										<p class="text-sm text-gray-700 mt-2">Dit zijn schaalvoordelen in actie - vaste kosten worden verdeeld over meer eenheden.</p>
+									</div>
+								</div>
+							`
+						},
+						'9': {
+							title: 'Uitwerkingen: Marginale Kosten Discovery',
+							content: `
+								<div class="space-y-6">
+									<div class="text-center">
+										<h4 class="text-xl font-bold mb-4">🤔 Het Antwoord voor alle teams:</h4>
+										<div class="grid grid-cols-3 gap-6">
+											<div class="bg-red-50 p-6 rounded-lg">
+												<h5 class="font-bold">Team 1</h5>
+												<div class="text-4xl font-bold text-red-600 mt-2">€0,80</div>
+											</div>
+											<div class="bg-yellow-50 p-6 rounded-lg">
+												<h5 class="font-bold">Team 2</h5>
+												<div class="text-4xl font-bold text-yellow-600 mt-2">€0,80</div>
+											</div>
+											<div class="bg-green-50 p-6 rounded-lg">
+												<h5 class="font-bold">Team 3</h5>
+												<div class="text-4xl font-bold text-green-600 mt-2">€0,80</div>
+											</div>
+										</div>
+									</div>
+									<div class="bg-blue-100 p-6 rounded-lg">
+										<h4 class="text-xl font-bold mb-2">🎯 Aha-moment:</h4>
+										<p class="text-lg">"Hoe kan dat? Gemiddelde kosten zijn zo verschillend, maar marginale kosten zijn altijd hetzelfde?"</p>
+										<p class="text-sm mt-2 text-gray-700"><strong>Uitleg:</strong> Marginale kosten = alleen de variabele kosten van die ene extra (€0,80)</p>
+									</div>
+								</div>
+							`
+						},
+						'10': {
+							title: 'Platform Economics: Marginale Kosten Vergelijking',
+							content: `
+								<div class="space-y-6">
+									<h4 class="text-xl font-bold text-center mb-4">🚀 Van Traditioneel naar Platform Economics</h4>
+									<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+										<div class="bg-gray-50 p-4 rounded-lg text-center">
+											<div class="text-3xl mb-2">🥐</div>
+											<h5 class="font-bold">Bakkerij</h5>
+											<div class="text-2xl font-bold text-gray-600 mt-2">€0,80</div>
+											<p class="text-xs mt-1">traditioneel fysiek</p>
+										</div>
+										<div class="bg-blue-50 p-4 rounded-lg text-center">
+											<div class="text-3xl mb-2">🏠</div>
+											<h5 class="font-bold">Airbnb</h5>
+											<div class="text-2xl font-bold text-blue-600 mt-2">€1-5</div>
+											<p class="text-xs mt-1">per booking</p>
+										</div>
+										<div class="bg-purple-50 p-4 rounded-lg text-center">
+											<div class="text-3xl mb-2">☁️</div>
+											<h5 class="font-bold">AWS</h5>
+											<div class="text-2xl font-bold text-purple-600 mt-2">&lt;€0,01</div>
+											<p class="text-xs mt-1">per compute hour</p>
+										</div>
+										<div class="bg-green-50 p-4 rounded-lg text-center">
+											<div class="text-3xl mb-2">🤖</div>
+											<h5 class="font-bold">OpenAI</h5>
+											<div class="text-2xl font-bold text-green-600 mt-2">€0,05-0,10</div>
+											<p class="text-xs mt-1">+ data asset!</p>
+										</div>
+									</div>
+									<div class="bg-yellow-100 p-6 rounded-lg">
+										<h4 class="font-bold text-lg mb-3">💡 Verschillende Digitale Business Modellen</h4>
+										<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+											<div class="bg-white p-4 rounded">
+												<strong>Platform Model:</strong><br>
+												<span class="text-sm">Airbnb (€1-5) veel lager dan hotels door asset-light model</span>
+											</div>
+											<div class="bg-white p-4 rounded">
+												<strong>Scale Model:</strong><br>
+												<span class="text-sm">AWS (&lt;€0,01) extreme efficiency door massive infrastructure</span>
+											</div>
+											<div class="bg-white p-4 rounded">
+												<strong>Data Asset Model:</strong><br>
+												<span class="text-sm">OpenAI: hoge marginale kosten maar elke use bouwt strategic data asset</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							`
+						}
+					};
+					
+					return modalContents[slideNumber] || { title: 'Uitwerkingen', content: '<p>Geen content beschikbaar</p>' };
+				}
+
+				// Calculation modal event listeners
+				if (calculationModalCloseBtn) {
+					calculationModalCloseBtn.addEventListener('click', closeCalculationModal);
+				}
+
+				if (calculationModal) {
+					calculationModal.addEventListener('click', (e) => {
+						if (e.target === calculationModal) {
+							closeCalculationModal();
 						}
 					});
 				}
