@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Economics Cursus - HBO Bedrijfskunde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .week-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .week-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .week-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        .week-image-fallback {
+            display: none;
+        }
+        .week-image:not([src]) + .week-image-fallback,
+        .week-image[src=""] + .week-image-fallback {
+            display: block;
+        }
+        .docent-only {
+            display: none;
+        }
+        .docent-mode .docent-only {
+            display: inline-flex;
+        }
+        .docent-only.material-link {
+            pointer-events: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .docent-mode .docent-only.material-link {
+            pointer-events: auto;
+            opacity: 1;
+            cursor: pointer;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .material-link {
+            transition: all 0.2s ease;
+        }
+        .material-link:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Business Economics</h1>
+                <p class="text-xl md:text-2xl opacity-90 mb-2">HBO Bedrijfskunde - Jaar 2</p>
+                <p class="text-lg opacity-75">Docent: Witek ten Hove</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Week Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Week 1 -->
+            <div class="week-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <img src="images/week1-macro-economics.png" alt="Macro-economische omgeving" class="week-image mx-auto mb-2">
+                            <div class="week-image-fallback text-6xl mb-2">📊</div>
+                            <p class="text-sm opacity-80">Macro-economische omgeving</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">Week 1</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">De Macro-Economische Omgeving</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Positionering van sectoren en macro-indicatoren</p>
+                    
+                    <div class="space-y-3">
+                        <a href="slides.html" class="material-link flex items-center justify-between bg-blue-50 hover:bg-blue-100 px-4 py-3 rounded-lg text-blue-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                Slides
+                            </span>
+                            <span class="text-xs">→</span>
+                        </a>
+                        
+                        <a href="simulatie-wk1.html" class="material-link flex items-center justify-between bg-green-50 hover:bg-green-100 px-4 py-3 rounded-lg text-green-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                Macro Masters
+                            </span>
+                            <span class="text-xs">🎮</span>
+                        </a>
+                        
+                        <a href="draaiboek-wk1.md" class="docent-only material-link flex items-center justify-between bg-purple-50 hover:bg-purple-100 px-4 py-3 rounded-lg text-purple-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                                Draaiboek
+                            </span>
+                            <span class="text-xs">🔒</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="week-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-teal-400 to-teal-600 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <img src="images/week2-market-forms.png" alt="Marktvormen & concurrentie" class="week-image mx-auto mb-2">
+                            <div class="week-image-fallback text-6xl mb-2">🏢</div>
+                            <p class="text-sm opacity-80">Marktvormen & concurrentie</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">Week 2</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Marktvormen & De Rol van de Spelverdeler</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Concurrentieanalyse en marktpositionering</p>
+                    
+                    <div class="space-y-3">
+                        <a href="slides-wk2.html" class="material-link flex items-center justify-between bg-blue-50 hover:bg-blue-100 px-4 py-3 rounded-lg text-blue-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                Slides
+                            </span>
+                            <span class="text-xs">→</span>
+                        </a>
+                        
+                        <a href="https://businessdatasolutions.github.io/business-economics-20/games/hotellingers-law/index-nl.html" target="_blank" class="material-link flex items-center justify-between bg-green-50 hover:bg-green-100 px-4 py-3 rounded-lg text-green-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                Hotelling's Law Simulatie
+                            </span>
+                            <span class="text-xs">📊</span>
+                        </a>
+                        
+                        <a href="draaiboek-wk2.md" class="docent-only material-link flex items-center justify-between bg-purple-50 hover:bg-purple-100 px-4 py-3 rounded-lg text-purple-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                                Draaiboek
+                            </span>
+                            <span class="text-xs">🔒</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="week-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <img src="images/week3-innovation.png" alt="Productie tot innovatie" class="week-image mx-auto mb-2">
+                            <div class="week-image-fallback text-6xl mb-2">⚙️</div>
+                            <p class="text-sm opacity-80">Productie tot innovatie</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm font-medium">Week 3</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Van Productie tot Innovatie</h3>
+                    <p class="text-gray-600 mb-6 text-sm">Kostenstructuren en innovatiestrategieën</p>
+                    
+                    <div class="space-y-3">
+                        <a href="slides-wk3.html" class="material-link flex items-center justify-between bg-blue-50 hover:bg-blue-100 px-4 py-3 rounded-lg text-blue-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                                Slides
+                            </span>
+                            <span class="text-xs">→</span>
+                        </a>
+                        
+                        <a href="https://businessdatasolutions.github.io/innovation-portfolio/" target="_blank" class="material-link flex items-center justify-between bg-green-50 hover:bg-green-100 px-4 py-3 rounded-lg text-green-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                                Innovatie Portfolio Spel
+                            </span>
+                            <span class="text-xs">🎮</span>
+                        </a>
+                        
+                        <a href="draaiboek-wk3.md" class="docent-only material-link flex items-center justify-between bg-purple-50 hover:bg-purple-100 px-4 py-3 rounded-lg text-purple-700 font-medium">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                                Draaiboek
+                            </span>
+                            <span class="text-xs">🔒</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Aanvullende Materialen</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="notes.html" class="material-link flex items-center justify-between bg-orange-50 hover:bg-orange-100 p-6 rounded-xl">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl">📝</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Cursusnotities</h3>
+                            <p class="text-sm text-gray-600">Uitgebreide aantekeningen</p>
+                        </div>
+                    </div>
+                    <span class="text-orange-600">→</span>
+                </a>
+                
+                <div class="docent-only flex items-center justify-between bg-gray-50 hover:bg-gray-100 p-6 rounded-xl opacity-50">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Docentenmateriaal</h3>
+                            <p class="text-sm text-gray-600">Extra hulpmiddelen</p>
+                        </div>
+                    </div>
+                    <span class="text-gray-400">🔒</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">Business Economics Cursus - HBO Bedrijfskunde</p>
+            <p class="text-sm text-gray-500 mt-2">Docent: Witek ten Hove</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check for docent parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('docent') === 'true') {
+            document.body.classList.add('docent-mode');
+        }
+
+        // Add some interactive feedback and protect docent links
+        document.querySelectorAll('.material-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Block access to docent-only links if not in docent mode
+                if (this.classList.contains('docent-only') && !document.body.classList.contains('docent-mode')) {
+                    e.preventDefault();
+                    alert('🔒 Dit materiaal is alleen toegankelijk voor docenten. Voeg ?docent=true toe aan de URL.');
+                    return false;
+                }
+                
+                // Add a subtle animation for allowed links
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 100);
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        // Show docent mode indicator if active
+        if (document.body.classList.contains('docent-mode')) {
+            const indicator = document.createElement('div');
+            indicator.innerHTML = '🔓 Docentenmodus actief';
+            indicator.className = 'fixed top-4 right-4 bg-purple-600 text-white px-3 py-2 rounded-lg text-sm font-medium z-50 shadow-lg';
+            document.body.appendChild(indicator);
+        }
+    </script>
+</body>
+</html>
