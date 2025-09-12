@@ -441,25 +441,23 @@
 						💰 Kosten & Winst (CORE Econ): Setup
 					</h2>
 					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
-						"Wat kost een croissant bij de bakker waar jullie komen?"
+						Gegeven: Verkoopprijs €2,50 per croissant
 					</p>
-					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="mt-8 max-w-2xl mx-auto">
 						<div class="bg-white p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4">🏭 Gegeven Kosten (schrijf op bord):</h3>
-							<ul class="list-disc list-inside space-y-2 text-lg">
-								<li><strong>Vaste kosten:</strong> €200/dag</li>
-								<li class="text-sm text-gray-600 ml-6">(huur, oven afschrijving)</li>
-								<li><strong>Variabele kosten per croissant:</strong> €0,80</li>
-								<li class="text-sm text-gray-600 ml-6">(meel, boter, arbeid)</li>
-							</ul>
-						</div>
-						<div class="bg-blue-50 p-6 rounded-lg">
-							<h3 class="font-bold text-xl mb-4">💬 Student Input:</h3>
+							<h3 class="font-bold text-xl mb-4 text-center">🏭 Kostenstructuur Croissant Bakkerij:</h3>
 							<div class="space-y-3">
-								<p><strong>Vraag aan klas:</strong> "Wat kost een croissant bij de bakker waar jullie komen?"</p>
-								<div class="bg-white p-3 rounded border-l-4 border-blue-400">
-									<strong>Noteer antwoorden:</strong> meestal €1,50 - €3,00<br>
-									<strong>→ Kies gemiddelde als verkoop prijs</strong> (bijv. €2,50)
+								<div class="bg-red-50 p-4 rounded-lg">
+									<p class="text-lg"><strong>Vaste kosten:</strong> €200/dag</p>
+									<p class="text-sm text-gray-600">(huur, oven afschrijving)</p>
+								</div>
+								<div class="bg-blue-50 p-4 rounded-lg">
+									<p class="text-lg"><strong>Variabele kosten:</strong> €0,80 per croissant</p>
+									<p class="text-sm text-gray-600">(meel, boter, arbeid)</p>
+								</div>
+								<div class="bg-green-50 p-4 rounded-lg">
+									<p class="text-lg"><strong>Verkoopprijs:</strong> €2,50 per croissant</p>
+									<p class="text-sm text-gray-600">(marktprijs)</p>
 								</div>
 							</div>
 						</div>
@@ -472,6 +470,16 @@
 					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
 						📊 Hands-on Berekening: Teams krijgen elk een schaal
 					</h2>
+					<div class="mt-6 bg-blue-50 p-4 rounded-lg max-w-4xl mx-auto">
+						<h3 class="font-bold text-lg text-blue-800 mb-2">🎯 Opdracht voor elk team:</h3>
+						<p class="text-blue-700">
+							Bereken de <strong>gemiddelde kosten per croissant</strong> voor jullie bakkerij. 
+							Gebruik de formule: <span class="font-mono bg-white px-2 py-1 rounded">(Vaste kosten + Variabele kosten) ÷ Aantal croissants</span>
+						</p>
+						<p class="text-blue-600 text-sm mt-2">
+							💡 <strong>Tip:</strong> Vergeet niet dat de variabele kosten = aantal × €0,80 per croissant
+						</p>
+					</div>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
 						<div class="bg-red-50 p-6 rounded-lg shadow-lg">
 							<h3 class="font-bold text-xl mb-4">🏪 Team 1: KLEINE BAKKERIJ</h3>
@@ -654,6 +662,13 @@
 					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
 						"Nu gaan we kijken hoe bedrijven hun optimale prijs bepalen"
 					</p>
+					<div class="mt-6 bg-orange-50 p-4 rounded-lg max-w-4xl mx-auto">
+						<h3 class="font-bold text-lg text-orange-800 mb-2">🎯 Opdracht:</h3>
+						<p class="text-orange-700">
+							Vind de <strong>drie breakeven punten</strong> op de isowinstcurve waar jullie precies €0 winst maken.
+							Experimenteer met prijs en hoeveelheid sliders!
+						</p>
+					</div>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
 						<div class="bg-white p-4 rounded-lg shadow-md">
 							<canvas id="isoprofit-chart-slide-10" class="w-full h-96"></canvas>
@@ -820,8 +835,8 @@
 								</div>
 								<div class="text-center">
 									<div class="text-3xl mb-2">🚀</div>
-									<h4 class="font-bold text-gray-800">Stap 2: Innoveren</h4>
-									<p class="text-sm text-gray-600">Experimenteer met nieuwe technologieën</p>
+									<h4 class="font-bold text-gray-800">Stap 2: Explore vs Exploit</h4>
+									<p class="text-sm text-gray-600">Balanceer tussen veilige en risicovolle investeringen</p>
 								</div>
 								<div class="text-center">
 									<div class="text-3xl mb-2">💰</div>
@@ -865,13 +880,13 @@
 							<h3 class="font-bold text-xl mb-4">💰 Drie Projecttypen:</h3>
 							<div class="space-y-4">
 								<div class="bg-white p-3 rounded border-l-4 border-red-400">
-									<strong>EXPLOIT (€20M)</strong> - Cash Cow: Optimaliseer kernactiviteiten, veilige investering
+									<strong>EXPLOIT</strong> - Cash Cow: Optimaliseer kernactiviteiten, veilige investering
 								</div>
 								<div class="bg-white p-3 rounded border-l-4 border-yellow-400">
-									<strong>SUSTAIN (€10M)</strong> - Better Faster: Verbeter processen, berekend risico
+									<strong>SUSTAIN</strong> - Better Faster: Verbeter processen, berekend risico
 								</div>
 								<div class="bg-white p-3 rounded border-l-4 border-green-400">
-									<strong>EXPLORE (€5M)</strong> - Moonshot: Radicale innovatie, hoog risico maar enorme potentie
+									<strong>EXPLORE</strong> - Moonshot: Radicale innovatie, hoog risico maar enorme potentie
 								</div>
 							</div>
 						</div>
@@ -950,15 +965,15 @@
 							<h3 class="font-bold text-xl mb-4 text-blue-600">💰 Pattern Translation</h3>
 							<div class="space-y-3">
 								<div class="bg-red-50 p-3 rounded">
-									<strong>EXPLOIT €20M</strong> in jullie sector = ?<br>
+									<strong>EXPLOIT</strong> in jullie sector = ?<br>
 									<span class="text-sm text-gray-600">(nieuwe vestiging, bestaand product uitbreiden)</span>
 								</div>
 								<div class="bg-yellow-50 p-3 rounded">
-									<strong>SUSTAIN €10M</strong> in jullie sector = ?<br>
+									<strong>SUSTAIN</strong> in jullie sector = ?<br>
 									<span class="text-sm text-gray-600">(proces verbeteren, systeem upgraden)</span>
 								</div>
 								<div class="bg-green-50 p-3 rounded">
-									<strong>EXPLORE €5M</strong> in jullie sector = ?<br>
+									<strong>EXPLORE</strong> in jullie sector = ?<br>
 									<span class="text-sm text-gray-600">(nieuwe technologie testen, pilot programma)</span>
 								</div>
 							</div>
@@ -1316,8 +1331,8 @@
 					</p>
 					<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
 						<div class="bg-red-50 p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4 text-red-700">🏦 EXPLOIT Projecten (€20M)</h3>
-							<p class="text-sm mb-3">Welke "twee-way door" optimalisaties in jullie sector?</p>
+							<h3 class="font-bold text-xl mb-4 text-red-700">🏦 EXPLOIT Projecten</h3>
+							<p class="text-sm mb-3">Welke two-way door optimalisaties in jullie sector?</p>
 							<div class="bg-white p-3 rounded text-xs space-y-1">
 								<p><strong>Retail:</strong> Nieuwe vestigingen, inventory optimization</p>
 								<p><strong>Zorg:</strong> Efficiency verbeteringen, digitalisering</p>
@@ -1329,7 +1344,7 @@
 							</div>
 						</div>
 						<div class="bg-yellow-50 p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4 text-yellow-700">⚡ SUSTAIN Projecten (€10M)</h3>
+							<h3 class="font-bold text-xl mb-4 text-yellow-700">⚡ SUSTAIN Projecten</h3>
 							<p class="text-sm mb-3">Welke processen verbeteren met snelle leer-cycli?</p>
 							<div class="bg-white p-3 rounded text-xs space-y-1">
 								<p><strong>Retail:</strong> Omnichannel integratie, customer analytics</p>
@@ -1342,7 +1357,7 @@
 							</div>
 						</div>
 						<div class="bg-green-50 p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4 text-green-700">🚀 EXPLORE Projecten (€5M)</h3>
+							<h3 class="font-bold text-xl mb-4 text-green-700">🚀 EXPLORE Projecten</h3>
 							<p class="text-sm mb-3">Welke "slechte ideeën" hebben groot potentieel?</p>
 							<div class="bg-white p-3 rounded text-xs space-y-1">
 								<p><strong>Retail:</strong> VR shopping, drone delivery</p>
@@ -1358,62 +1373,7 @@
 				</div>
 			</section>
 
-			<!-- Lightning Pitches Template -->
-			<section class="slide h-full flex-col items-center justify-center">
-				<div class="slide-content">
-					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">
-						🚀 Lightning Pitches per Sector
-					</h2>
-					<p class="mt-2 text-lg sm:text-xl text-gray-600 text-center">
-						90 seconden om jullie 5-jaar innovatiestrategie te verkopen
-					</p>
-					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-						<div class="bg-blue-50 p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4 text-blue-700">📋 Pitch Template (90 sec)</h3>
-							<div class="space-y-3 text-sm">
-								<div class="bg-white p-3 rounded border-l-4 border-blue-400">
-									<strong>1. Sector "Waarom Nu?" moment (20 sec)</strong><br>
-									<span class="text-xs text-gray-600">Welke tailwinds maken innovatie urgent?</span>
-								</div>
-								<div class="bg-white p-3 rounded border-l-4 border-green-400">
-									<strong>2. Portfolio verdeling + reversibiliteit (30 sec)</strong><br>
-									<span class="text-xs text-gray-600">Exploit/Sustain/Explore % + two-way doors?</span>
-								</div>
-								<div class="bg-white p-3 rounded border-l-4 border-purple-400">
-									<strong>3. "Slechte idee" met groot potentieel (25 sec)</strong><br>
-									<span class="text-xs text-gray-600">Welke moonshot zou jullie durven?</span>
-								</div>
-								<div class="bg-white p-3 rounded border-l-4 border-red-400">
-									<strong>4. Workforce impact (15 sec)</strong><br>
-									<span class="text-xs text-gray-600">Two-way vs one-way doors voor werknemers</span>
-								</div>
-							</div>
-						</div>
-						<div class="bg-green-50 p-6 rounded-lg shadow-lg">
-							<h3 class="font-bold text-xl mb-4 text-green-700">🎯 Peer Feedback Vragen</h3>
-							<ul class="list-disc list-inside space-y-2 text-sm">
-								<li><strong>Altman/Bezos check:</strong> "Welke principes mist jullie strategie?"</li>
-								<li><strong>Reversibiliteit:</strong> "Zijn jullie experimenten wel echt omkeerbaar voor werknemers?"</li>
-								<li><strong>Timing kritiek:</strong> "Waarom niet 2 jaar eerder of later?"</li>
-								<li><strong>Sector vergelijking:</strong> "Hoe verschilt dit van innovaties in onze sector?"</li>
-							</ul>
-							<div class="mt-4 bg-white p-4 rounded">
-								<div class="text-center mb-2">
-									<div class="text-4xl font-bold text-green-600" id="pitch-timer-display">90</div>
-									<div class="text-xs text-gray-600">seconden</div>
-								</div>
-								<div class="flex justify-center space-x-2">
-									<button id="timer-start" class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700">Start</button>
-									<button id="timer-pause" class="bg-yellow-600 text-white px-3 py-1 rounded text-xs hover:bg-yellow-700">Pause</button>
-									<button id="timer-reset" class="bg-red-600 text-white px-3 py-1 rounded text-xs hover:bg-red-700">Reset</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Afsluiting: Van Multi-Armed Bandits naar Strategische Besluitvorming -->
+<!-- Afsluiting: Van Multi-Armed Bandits naar Strategische Besluitvorming -->
 			<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white">
 				<div class="slide-content text-center">
 					<h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 leading-tight">
@@ -1632,7 +1592,7 @@
 									fill: false,
 									tension: 0,
 									pointRadius: 0,
-									pointHoverRadius: 3,
+									pointHoverRadius: 0,
 									borderWidth: 2
 								}]
 							},

@@ -15,7 +15,7 @@ Na deze les kunnen studenten:
 ### Materialen
 - Flipcharts + stiften voor teamwerk
 - Laptops/tablets voor berekeningen en Portfolio Game
-- Slides-wk3.html op beamer (23 slides totaal)
+- Slides-wk3.html op beamer (25 slides totaal)
 - CORE Econ referentiesheets (Chapters 2, 7 & 21)
 - Calculator voor kostenberekeningen
 
@@ -24,14 +24,14 @@ Na deze les kunnen studenten:
 |--------|--------|--------|
 | 1-2 | Opening & Netflix provocatie | 0:00-0:05 |
 | 3-5 | Agenda, CORE Econ intro, QR codes | 0:05-0:20 |
-| 6-10 | Productie & kostenberekening pipeline | 0:20-0:40 |
+| 6-11 | Productie & kostenberekening pipeline | 0:20-0:40 |
 | PAUZE | 15 minuten break | 0:40-0:55 |
-| 11-12 | **Interactieve isowinstcurves** (hands-on!) | 0:55-1:10 |
-| 13 | Portfolio spel introductie | 1:10-1:15 |
-| 14-16 | Sector pattern bridge + frameworks | 1:40-1:55 |
-| 17-18 | Arbeidsmarkt reality check | 1:55-2:10 |
-| 19-21 | Synthese & strategische cases | 2:10-2:30 |
-| 22-23 | Afsluiting & feedback | 2:30+ |
+| 12-13 | **Interactieve isowinstcurves** (hands-on!) | 0:55-1:10 |
+| 14 | **Bridge slide**: Van optimalisatie naar innovatie | 1:10-1:15 |
+| 15 | Portfolio spel (30 min gameplay) | 1:15-1:45 |
+| 16-20 | Sector pattern bridge + frameworks | 1:45-2:10 |
+| 21-23 | Arbeidsmarkt reality check & synthese | 2:10-2:30 |
+| 24-25 | Afsluiting & feedback | 2:30+ |
 
 ---
 
@@ -89,9 +89,8 @@ Gegeven kosten (schrijf op bord):
 - Vaste kosten: €200/dag (huur, oven afschrijving)
 - Variabele kosten per croissant: €0,80 (meel, boter, arbeid)
 
-Vraag aan klas: "Wat kost een croissant bij de bakker waar jullie komen?"
-→ Noteer antwoorden: meestal €1,50 - €3,00
-→ Kies gemiddelde als verkoop prijs (bijv. €2,50)
+Gegeven: Verkoopprijs €2,50 per croissant
+(Geen student input meer nodig - vaste prijs)
 ```
 
 **0:32 - 0:37: Ontdekking Gemiddelde Kosten (5 min)** *(Slide 8)*
@@ -102,7 +101,8 @@ Team 1: KLEINE BAKKERIJ - 10 croissants/dag
 Team 2: MIDDELGROTE BAKKERIJ - 100 croissants/dag  
 Team 3: GROTE BAKKERIJ - 1000 croissants/dag
 
-Opdracht: "Bereken de gemiddelde kosten per croissant"
+🎯 Opdracht: "Bereken de gemiddelde kosten per croissant voor jullie bakkerij"
+Formule getoond: (Vaste kosten + Variabele kosten) ÷ Aantal croissants
 Werkblad geeft formule: 
 Totale Kosten = Vaste Kosten + (Aantal × Variabele Kosten per stuk)
 Gemiddelde Kosten = Totale Kosten ÷ Aantal
@@ -125,21 +125,26 @@ Laat teams bedenken en antwoorden...
 Aha-moment: "Hoe kan dat? Gemiddelde kosten zijn zo verschillend, 
 maar marginale kosten zijn altijd hetzelfde?"
 
-🚀 Platform Economics Spectrum:
-"Maar in de moderne digitale economie zien we verschillende kostenstructuren..."
-- Airbnb: €1-5 per booking (platform overhead, maar veel lager dan hotels)
-- AWS: <€0,01 per compute hour (extreme schaal = minimale kosten)
-- OpenAI: €0,05-0,10 per prompt (GPU intensief, MAAR elke use bouwt data asset)
+**0:37 - 0:40: Platform Economics Vergelijking (3 min)** *(Slide 10)*
+```
+🚀 Van Traditioneel naar Platform Economics:
 
-💡 "Verschillende digitale modellen, verschillende kostenstructuren!"
+Kostenvergelijking verschillende business modellen:
+- 🥐 Bakkerij: €0,80 (traditioneel fysiek)
+- 🏠 Airbnb: €1-5 per booking 
+- ☁️ AWS: <€0,01 per compute hour
+- 🤖 OpenAI: €0,05-0,10 + data asset building
 
-Uitleg: 
-- AWS = extreme schaal efficiency (best platform example)
-- Airbnb = platform vs traditional hospitality efficiency  
-- OpenAI = "betaal nu, investeer in data voor later" model
+💡 Verschillende Digitale Business Modellen:
+- Platform Model: Airbnb veel lager dan hotels door asset-light
+- Scale Model: AWS extreme efficiency door massive infrastructure  
+- Data Asset Model: OpenAI hoge kosten maar strategische data opbouw
+
+Verbinding: "Jullie sector heeft waarschijnlijk ook digitale transformatie mogelijkheden!"
+```
 ```
 
-**Winstgevendheid & Visualisatie** *(Slide 10 - optioneel, of na pauze)*
+**Winstgevendheid & Visualisatie** *(Slide 11 - optioneel, of na pauze)*
 ```
 💰 "Bij welke schaal maken jullie winst?"
 (Verkoop prijs €2,50 - Gemiddelde kosten)
@@ -174,7 +179,7 @@ Flipchart tekenen: Curve van dalende gemiddelde kosten
 
 ### 📱 Blok 2: Interactieve Isowinstcurves Discovery (15 min) - 0:55-1:10
 
-**0:55 - 1:00: Introductie Isowinstcurves (5 min)** *(Slide 11)*
+**0:55 - 1:00: Introductie Isowinstcurves (5 min)** *(Slide 12)*
 ```
 📱 Interactieve Demonstratie op Slides:
 "Nu gaan we kijken hoe bedrijven hun optimale prijs bepalen"
@@ -219,7 +224,7 @@ Dit toont een belangrijk principe: optimalisatie is vaak zoeken binnen constrain
 Benadruk dat het BEREIK vinden al heel waardevol is voor echte bedrijfsbeslissingen.
 ```
 
-**1:05 - 1:10: Winstmaximalisatie Moment (5 min)** *(Slide 12)*
+**1:05 - 1:10: Winstmaximalisatie Moment (5 min)** *(Slide 13)*
 ```
 ⚡ Het Discovery Moment:
 Wanneer studenten 1 snijpunt bereiken:
@@ -229,6 +234,27 @@ Wanneer studenten 1 snijpunt bereiken:
 - Studenten noteren de exacte optimale strategie
 
 Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"
+```
+
+**1:10 - 1:15: Bridge - Van Optimalisatie naar Innovatie (5 min)** *(Slide 14)*
+```
+🌉 Conceptuele Overgang:
+"Jullie hebben geleerd hoe je optimale punten vindt op isowinstcurves. 
+Maar nu komt de belangrijke vraag: wat levert dat optimale punt eigenlijk op?"
+
+Het Optimalisatie "Dilemma":
+- Optimale punt geeft 'normale winst' (alle kosten gedekt, redelijk rendement)
+- Perfect voor overleven, maar niet voor groeien
+- "Hoe verdien je MEER dan normale winst?"
+
+💡 De Innovatie Oplossing (Schumpeter):
+- Innovation Rent = extra winst door tijdelijke concurrentievoordelen
+- Innovatie verlaagt kosten → nieuwe isowinstcurves dichter bij vraagcurve
+- Croissant voorbeeld: €1,00 → €0,80 kosten = €0,20 extra winst per croissant
+- Waarom tijdelijk? Concurrenten kopiëren → voordeel verdwijnt
+
+Overgang naar Portfolio Spel:
+"Nu gaan jullie deze cyclus zelf ervaren: Optimaliseren → Innoveren → Innovation Rent oogsten"
 ```
 
 **CORE Econ Ch.7 Concepten via Interactie:**
@@ -241,7 +267,7 @@ Verbinding: "Straks gebruiken jullie dit denken voor innovatie-investeringen"
 
 ### 🎮 Het Innovatie Portfolio Spel (30 min)
 
-**1:10 - 1:15: Spelintroductie & Setup (5 min)** *(Slide 13)*
+**1:15 - 1:20: Spelintroductie & Setup (5 min)** *(Slide 15)*
 ```
 💼 "Jullie worden management team van een bedrijf!"
 
@@ -262,7 +288,7 @@ Spelregels (zichtbaar op slide):
 Setup: Grote call-to-action knop → nieuwe tab → slides blijven beschikbaar
 ```
 
-**1:15 - 1:35: Actief Portfolio Management (20 min)** *(Game actief - geen specifieke slide)*
+**1:20 - 1:40: Actief Portfolio Management (20 min)** *(Game actief - geen specifieke slide)*
 ```
 🎯 Strategische Beslissingen per Ronde:
 
@@ -288,7 +314,7 @@ Docent circuleert met vragen:
 "Wat zijn de risico's van jullie strategie?"
 ```
 
-**1:35 - 1:40: Resultaten & Strategische Reflectie (5 min)** *(Klassikaal - geen slide)*
+**1:40 - 1:45: Resultaten & Strategische Reflectie (5 min)** *(Klassikaal - geen slide)*
 ```
 📊 Resultaten Vergelijken:
 - Welk team behaalde hoogste bedrijfswaarde?
@@ -464,15 +490,15 @@ Strategic Framework Integration:
 - Reversibiliteit - Welke experimenten zijn omkeerbaar?
 - Love vs Like - Impact op workforce engagement
 
-🚀 Lightning Pitches (90 seconden per team):
-1. Sector "Waarom Nu?" moment
-2. Portfolio verdeling met reversibiliteit-analyse
-3. "Slechte idee" met groot potentieel in jullie sector
-4. Two-way vs One-way door impact op werknemers
+📝 Portfolio Strategie Ontwikkeling:
+Teams documenteren hun 5-jaar innovatiestrategie voor hun eindverslag:
+1. Sector "Waarom Nu?" moment met concrete timing
+2. Portfolio verdeling (EXPLOIT/SUSTAIN/EXPLORE) met bedragen per sector
+3. "Slechte idee" met groot potentieel in hun specifieke sector
+4. Two-way vs One-way door impact analyse op hun sector werknemers
 
-Peer Feedback Vragen:
-- "Welke Altman/Bezos principes mist jullie strategie?"
-- "Zijn jullie experimenten wel echt reversibel voor werknemers?"
+✅ Eindproduct: Strategisch document dat onderdeel wordt van hun eindpresentatie
+(Geen Lightning Pitches meer - dit wordt onderdeel van hun eindverslag)
 
 Afsluiting: "Van multi-armed bandits naar strategische besluitvorming - 
 jullie combineren nu economische theorie met moderne innovatie-frameworks!"
