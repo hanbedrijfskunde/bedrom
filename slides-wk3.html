@@ -210,10 +210,34 @@
 				opacity: 1;
 			}
 
+			/* Mobile scroll support */
+			@media (max-width: 768px) {
+				body {
+					overflow-y: auto !important;
+					overflow-x: hidden;
+				}
+				.slide {
+					height: auto;
+					min-height: 100vh;
+					position: relative !important;
+				}
+				.slide-content {
+					padding-bottom: 6rem; /* Space for navigation */
+				}
+				/* Smooth scrolling */
+				html {
+					scroll-behavior: smooth;
+				}
+				/* Ensure navigation stays on top */
+				.navigation {
+					z-index: 9999;
+				}
+			}
+
 		</style>
 	</head>
 	<body
-		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden relative"
+		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden md:overflow-hidden relative"
 	>
 		<div class="navigation">
 			<button id="prev-btn" class="nav-btn" title="Vorige slide">‹</button>
@@ -2139,6 +2163,11 @@
 					prevBtn.disabled = index === 0;
 					nextBtn.disabled = index === totalSlides - 1;
 
+					// Mobile scroll reset: scroll to top when changing slides
+					if (window.innerWidth <= 768) {
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+					}
+
 					// Initialize charts, simulators and animations when their slides become active
 					if (index === 9 && !isoProfitSimulatorInitialized) {
 						new IsoProfitCurveSimulator(10);
@@ -2204,6 +2233,40 @@
 						prevBtn.click();
 					}
 				});
+
+				// Touch gesture optimization for mobile devices
+				let touchStartY = null;
+				let touchStartX = null;
+
+				document.addEventListener('touchstart', (e) => {
+					touchStartY = e.touches[0].clientY;
+					touchStartX = e.touches[0].clientX;
+				}, { passive: true });
+
+				document.addEventListener('touchend', (e) => {
+					if (!touchStartY || !touchStartX) return;
+					
+					const touchEndY = e.changedTouches[0].clientY;
+					const touchEndX = e.changedTouches[0].clientX;
+					const diffY = touchStartY - touchEndY;
+					const diffX = touchStartX - touchEndX;
+					
+					// Only handle horizontal swipes (ignore vertical scrolling)
+					if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+						if (diffX > 0 && currentSlide < totalSlides - 1) {
+							// Swipe left (next slide)
+							currentSlide++;
+							showSlide(currentSlide);
+						} else if (diffX < 0 && currentSlide > 0) {
+							// Swipe right (previous slide)
+							currentSlide--;
+							showSlide(currentSlide);
+						}
+					}
+					
+					touchStartY = null;
+					touchStartX = null;
+				}, { passive: true });
 
 				// Modal functionaliteit (Student Answers)
 				function openModal() {
