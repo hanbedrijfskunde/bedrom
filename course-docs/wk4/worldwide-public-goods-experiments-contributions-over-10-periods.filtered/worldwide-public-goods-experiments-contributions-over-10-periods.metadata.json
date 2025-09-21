@@ -1,0 +1,45 @@
+{
+  "chart": {
+    "title": "Worldwide public goods experiments: Contributions over 10 periods",
+    "subtitle": "Unit 4 'Strategic interactions and social dilemmas’ in The CORE Team, The Economy 2.0\nMicroeconomics. Available at: https://tinyco.re/2389545 [Figure 4.14b]",
+    "note": "CC-BY-ND-NC",
+    "xAxisLabel": "Period",
+    "citation": "Herrmann, Thöni and Gächter (2008)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/worldwide-public-goods-experiments-contributions-over-10-periods?overlay=download-data&v=1&csvType=filtered&useColumnShortNames=false",
+    "selection": [
+      "Boston",
+      "Istanbul",
+      "Athens",
+      "Chengdu",
+      "Bonn",
+      "Copenhagen",
+      "Melbourne",
+      "Minsk",
+      "Muscat",
+      "Nottingham",
+      "Riyadh",
+      "Samara",
+      "Seoul",
+      "St. Gallen",
+      "Zurich",
+      "Dnipropetrovs'k"
+    ]
+  },
+  "columns": {
+    "Contribution": {
+      "titleShort": "Contribution",
+      "titleLong": "Contribution",
+      "unit": "$",
+      "timespan": "1-10",
+      "type": "Numeric",
+      "owidVariableId": 98082,
+      "citationShort": " – processed by Our World in Data",
+      "citationLong": " – processed by Our World in Data. “Contribution” [dataset]. Herrmann, Thöni and Gächter (2008) [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/98082.metadata.json"
+    }
+  },
+  "dateDownloaded": "2025-09-21",
+  "activeFilters": {
+    "overlay": "download-data"
+  }
+}

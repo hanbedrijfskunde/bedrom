@@ -171,7 +171,7 @@ Flipchart tekenen: Curve van dalende gemiddelde kosten
 
 **Timing**: 
 - **0:40-0:55**: 15 minuten pauze
-- **Optioneel**: Slide 10 (Winstgevendheid visualisatie) vlak voor pauze als samenvatting
+- **Optioneel**: Slide 11 (Winstgevendheid visualisatie) vlak voor pauze als samenvatting
 
 > **🎯 Onderwijstip**: Gebruik de pauze om te checken of studenten de basis kostenconcepten begrijpen. Na pauze komt de meest interactieve en uitdagende activiteit.
 
@@ -184,7 +184,7 @@ Flipchart tekenen: Curve van dalende gemiddelde kosten
 📱 Interactieve Demonstratie op Slides:
 "Nu gaan we kijken hoe bedrijven hun optimale prijs bepalen"
 
-Slide 11 toont:
+Slide 12 toont:
 - Y-as: Prijs per croissant (€0 - €6)
 - X-as: Aantal verkochte croissants (0 - 500)
 - Studenten kunnen prijs en hoeveelheid aanpassen via sliders
@@ -339,7 +339,7 @@ Sector Verbinding:
 
 ### 🔍 Sector Pattern Bridge (15 min)
 
-**1:40 - 1:45: Abstract Decision Reflection (5 min)** *(Slide 14)*
+**1:40 - 1:45: Abstract Decision Reflection (5 min)** *(Slide 16)*
 ```
 🎯 Van Blinde Experimenten naar Sector Reality
 
@@ -355,7 +355,7 @@ Pattern Recognition:
 - "Hoe leerden jullie welke 'arms' (projecttypen) het beste werkten?"
 ```
 
-**1:45 - 1:50: Concrete Sector Pattern Mapping (5 min)** *(Slide 15)*
+**1:45 - 1:50: Concrete Sector Pattern Mapping (5 min)** *(Slide 17)*
 ```
 🎯 Van Abstract Game naar Sector Reality
 
@@ -388,7 +388,7 @@ Multi-Armed Bandit Reality:
 - "Schaalvoordelen: Linear traditioneel of exponential platform growth?"
 ```
 
-**1:50 - 1:55: Human Reality Check Setup (5 min)** *(Slide 16)*
+**1:50 - 1:55: Human Reality Check Setup (5 min)** *(Slide 18)*
 ```
 ⚖️ Van Game Consequences naar Real Stakes
 
@@ -416,7 +416,7 @@ Bridge naar Reality Check:
 
 ### ⚖️ Arbeidsmarkt Reality Check (15 min)
 
-**1:55 - 2:05: Technologische Impact op Werk** *(Slide 17)*
+**1:55 - 2:05: Technologische Impact op Werk** *(Slide 19)*
 ```
 🤔 Ethische Reflectie:
 - Hoeveel banen verdwijnen door jullie innovatie?
@@ -430,7 +430,7 @@ Bridge naar Reality Check:
 - Human capital en skills mismatch
 - Looneffecten van automatisering
 
-**2:05 - 2:10: Stakeholder Afweging** *(Slide 18)*
+**2:05 - 2:10: Stakeholder Afweging** *(Slide 20)*
 ```
 ⚡ Snelle ronde per team:
 - Werknemers: winnaars vs verliezers
@@ -447,7 +447,7 @@ Bridge naar Reality Check:
 
 **2:10 - 2:30: Van Theorie naar Praktijk - Compacte Sectortoepassing**
 
-**2:10 - 2:20: Sector Innovatie Cases met Altman/Bezos Lens (10 min)** *(Slide 19)*
+**2:10 - 2:20: Sector Innovatie Cases met Altman/Bezos Lens (10 min)** *(Slide 21)*
 ```
 📚 Real-World Verbindingen met Strategische Frameworks:
 
@@ -473,7 +473,7 @@ Opdracht per team - Integreerde Analyse:
 - CORE Econ Ch.21: Innovatiestrategie + "Love vs Like" impact
 ```
 
-**2:20 - 2:30: Portfolio Strategie met Strategische Frameworks (10 min)** *(Slides 20-21)*
+**2:20 - 2:30: Portfolio Strategie met Strategische Frameworks (10 min)** *(Slides 22-23)*
 ```
 🎯 Van Spel naar Sector-Specifieke Innovatiestrategie:
 

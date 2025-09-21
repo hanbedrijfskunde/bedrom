@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>College 4: Sociale Interacties & Dilemma's</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			// Configure MathJax to process inline math using single dollar signs
+			window.MathJax = {
+				tex: {
+					inlineMath: [
+						["$", "$"],
+						["\\(", "\\)"],
+					],
+				},
+			};
+		</script>
+		<script
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Base styles and slide transitions */
+			body {
+				font-family: "Inter", sans-serif;
+				transition: background-color 0.5s ease;
+			}
+			.slide {
+				display: none;
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+				min-height: 100vh;
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: 0;
+				padding: 1rem 1.5rem; /* Mobile-first padding */
+			}
+			@media (min-width: 1024px) {
+				.slide {
+					padding: 1rem 2rem; /* Desktop padding - optimized for space */
+				}
+			}
+			.slide.active {
+				display: flex;
+				opacity: 1;
+				position: relative;
+			}
+			/* Custom styles for a professional look */
+			.slide-content {
+				max-width: 95%;
+				width: 100%;
+				margin: auto;
+			}
+
+			/* Navigation styles */
+			.navigation {
+				position: fixed;
+				bottom: 1rem; /* Mobile position */
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: rgba(17, 24, 39, 0.8);
+				padding: 0.75rem 1.5rem;
+				border-radius: 9999px;
+				backdrop-filter: blur(10px);
+				z-index: 1000;
+				box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+					0 2px 4px -2px rgb(0 0 0 / 0.1);
+			}
+
+			@media (min-width: 768px) {
+				.navigation {
+					left: auto; /* Desktop position */
+					right: 2rem;
+					bottom: 2rem;
+					transform: none;
+				}
+			}
+
+			.nav-btn {
+				background: #3b82f6;
+				color: white;
+				border: none;
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				font-size: 1.5rem;
+			}
+
+			.nav-btn:hover:not(:disabled) {
+				background: #2563eb;
+				transform: scale(1.1);
+			}
+
+			.nav-btn:disabled {
+				background: #6b7280;
+				cursor: not-allowed;
+				transform: none;
+			}
+
+			.slide-counter {
+				color: white;
+				font-weight: 600;
+				font-size: 1rem;
+				min-width: 60px;
+				text-align: center;
+			}
+
+			/* Mobile scroll support */
+			@media (max-width: 768px) {
+				body {
+					overflow-y: auto !important;
+					overflow-x: hidden;
+				}
+				.slide {
+					height: auto;
+					min-height: 100vh;
+					position: relative !important;
+				}
+				.slide-content {
+					padding-bottom: 6rem; /* Space for navigation */
+				}
+				/* Smooth scrolling */
+				html {
+					scroll-behavior: smooth;
+				}
+				/* Ensure navigation stays on top */
+				.navigation {
+					z-index: 9999;
+				}
+			}
+
+			/* P5.js Matrix Container Styles */
+			#pdMatrixStaticContainer,
+			#pdAnalysisMatrixContainer {
+				border: 2px solid #10b981; /* green-500 */
+				border-radius: 8px;
+				box-sizing: border-box;
+				background: white;
+			}
+			#pdMatrixStaticContainer {
+				width: 90%;
+				max-width: 800px;
+				height: 450px;
+				margin: 20px auto;
+			}
+			#pdAnalysisMatrixContainer {
+				width: 90%;
+				max-width: 600px;
+				height: 450px;
+				margin: 0 auto;
+			}
+
+			/* Fragment animation styles */
+			.fragment {
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+			.fragment.visible {
+				opacity: 1;
+			}
+
+			/* Example cards styles */
+			.example-container {
+				display: flex;
+				justify-content: space-around;
+				align-items: stretch;
+				gap: 20px;
+				margin-top: 20px;
+				flex-wrap: wrap;
+			}
+			.example-item {
+				flex: 1;
+				min-width: 250px;
+				text-align: center;
+				padding: 18px;
+				background-color: #dbeafe; /* blue-100 */
+				border-radius: 10px;
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+				display: flex;
+				flex-direction: column;
+			}
+			.example-item img {
+				width: 100%;
+				max-width: 320px;
+				height: 180px;
+				object-fit: cover;
+				border-radius: 6px;
+				margin-bottom: 10px;
+			}
+
+			/* Title slide with background */
+			.title-slide-bg {
+				background-image: url('course-docs/wk4/old-presentation/cezanne.jpg');
+				background-size: cover;
+				background-position: center;
+				position: relative;
+			}
+			.title-slide-bg::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(255, 255, 255, 0.85);
+			}
+			.title-slide-content {
+				position: relative;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen overflow-hidden md:overflow-hidden relative"
+	>
+		<div class="navigation">
+			<button id="prev-btn" class="nav-btn" title="Vorige slide">‹</button>
+			<span id="slide-counter" class="slide-counter">1 / 18</span>
+			<button id="next-btn" class="nav-btn" title="Volgende slide">›</button>
+		</div>
+
+		<main id="slide-deck" class="w-full h-full">
+			<!-- Slide 1: Title Slide -->
+			<section
+				class="slide active h-full flex-col items-center justify-center text-center title-slide-bg"
+			>
+				<div class="slide-content title-slide-content">
+					<span class="text-xl md:text-2xl text-blue-600 font-semibold"
+						>Algemene Economie (AEC) - Week 4</span
+					>
+					<h1
+						class="text-5xl sm:text-6xl lg:text-8xl font-bold text-gray-900 mt-2"
+					>
+						SOCIALE INTERACTIES
+					</h1>
+					<h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-700 mt-4">
+						Dilemma's en Samenwerking
+					</h2>
+					<p class="mt-6 text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">
+						Hoe eigenbelang, respect voor anderen en instituties onze wereld vormen
+					</p>
+					<p class="mt-12 text-lg text-gray-500">
+						Achtergrond: Paul Cézanne's "Les Joueurs de Carte" (De Kaartspelers)
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 2: Het Maatschappelijk Fundament -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Het Maatschappelijk Fundament: Sociale Interacties
+					</h2>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div>
+							<p class="text-2xl font-semibold text-gray-700 mb-8">
+								Jouw keuze heeft invloed op iedereen.
+							</p>
+							<ul class="space-y-6 text-xl md:text-2xl">
+								<li class="flex items-start fragment">
+									<span class="text-green-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Strategische Interacties:</strong> Bewustzijn van
+										wederzijdse impact van acties.
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-green-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Speltheorie:</strong> Modellen voor interactieve
+										beslissingen. Kernelementen:
+										<ul class="ml-6 mt-3 space-y-2 text-gray-600">
+											<li class="fragment">🧑‍🤝‍🧑 Spelers</li>
+											<li class="fragment">🀄 Strategieën</li>
+											<li class="fragment">📊 Informatie</li>
+											<li class="fragment">🏆 Opbrengsten</li>
+										</ul>
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-green-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Conflict:</strong> Individueel gewin vs. collectief
+										welzijn.
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="flex flex-col items-center justify-center">
+							<img
+								src="images/wk4-people-collaborating.png"
+								alt="Mensen die samenwerken aan een project"
+								class="rounded-lg shadow-lg w-full max-w-md"
+							/>
+							<p class="text-base text-gray-500 mt-3 text-center">
+								Van markttransacties tot wereldwijd klimaatbeleid
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 3: Sociale Dilemma's -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						De Kern van de Zaak: Sociale Dilemma's
+					</h2>
+					<p class="text-2xl text-center mb-8 fragment">
+						<strong>Sociaal dilemma</strong>: Eigenbelang leidt tot
+						<strong>collectief inferieure resultaten</strong>.
+					</p>
+
+					<div class="example-container">
+						<div class="example-item fragment">
+							<img src="images/wk4-traffic-jam.jpg" alt="Luchtfoto van een file" />
+							<p class="mt-auto">
+								<strong>Files:</strong> Mijn gemak vs. collectieve stagnatie.
+							</p>
+						</div>
+						<div class="example-item fragment">
+							<img
+								src="images/wk4-climate-change.jpg"
+								alt="Rookpluimen die de lucht vervuilen"
+							/>
+							<p class="mt-auto">
+								<strong>Klimaatverandering:</strong> Mijn kleine impact vs.
+								wereldwijde gevolgen.
+							</p>
+						</div>
+						<div class="example-item fragment">
+							<img
+								src="images/wk4-deep-sea-mining.jpg"
+								alt="Visnetten, symbool voor overbevissing"
+							/>
+							<p class="mt-auto">
+								<strong>Tragedie van de Meent:</strong> Individueel gewin vs.
+								uitputting van middelen.
+							</p>
+						</div>
+					</div>
+					<p class="text-2xl text-center mt-8 font-semibold text-gray-700 fragment">
+						<strong>Uitdaging:</strong> Individuele prikkels & collectief
+						welzijn op één lijn brengen.
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 4: CORE Economy Referenties -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 mb-6">
+						📚 CORE Econ: Het Tekstboek
+					</h2>
+					<p class="text-xl text-center text-gray-600 mb-8">
+						Gratis online economics textbook - student-centred, contemporary issues
+					</p>
+
+					<div class="grid md:grid-cols-2 gap-8 mb-8">
+						<!-- Waarom CORE Econ? -->
+						<div class="bg-blue-50 rounded-lg p-6">
+							<h3 class="text-2xl font-bold text-blue-800 mb-4">🌐 Waarom CORE Econ?</h3>
+							<ul class="space-y-3 text-lg">
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Student-centred:</strong> Gebaseerd op vragen die jullie belangrijk vinden</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Contemporary:</strong> Actuele issues zoals innovatie, netwerken, klimaat</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Free access:</strong> Volledig gratis beschikbaar online</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Internationaal:</strong> Gebruikt door 40+ universiteiten wereldwijd</span>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Vandaag Gebruiken We -->
+						<div class="bg-green-50 rounded-lg p-6">
+							<h3 class="text-2xl font-bold text-green-800 mb-4">📖 Vandaag Gebruiken We:</h3>
+							<div class="space-y-4">
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<strong>Chapter 4: Social Interactions</strong><br>
+									<a href="course-docs/wk4/the-economy-unit-4-pdf.pdf" target="_blank"
+										class="text-blue-600 underline text-sm">📄 PDF Download</a>
+								</div>
+								<div class="bg-white p-4 rounded-lg shadow-sm">
+									<strong>Onderwerpen:</strong>
+									<ul class="text-sm mt-2 space-y-1 ml-4">
+										<li>• Game theory & strategic interactions</li>
+										<li>• Public goods & free-riding</li>
+										<li>• Prisoner's dilemma</li>
+										<li>• Social preferences & fairness</li>
+										<li>• Solutions to social dilemmas</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<a href="https://www.core-econ.org/project/core-the-economy/"
+							target="_blank"
+							class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg">
+							<span>🌐 Volledig Textbook Online</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 5: Publieke Goederenspel -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Experiment: Het Publieke Goederenspel
+					</h2>
+
+					<div class="grid md:grid-cols-2 gap-10">
+						<div class="space-y-4">
+							<ul class="space-y-6 text-xl md:text-2xl">
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Groep & Rondes:</strong> 4 studenten, 10 rondes, anoniem.
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Startkapitaal:</strong> 20 tokens per ronde.
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Keuze:</strong> Bijdrage aan project (0-20 tokens).
+										Rest voor jezelf.
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="space-y-4">
+							<ul class="space-y-3">
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Projectopbrengst:</strong>
+										<ul class="ml-6 mt-3 space-y-2 text-gray-600">
+											<li>Input: 1 token → Output project: 1.6 tokens</li>
+											<li>Jouw aandeel: 0.4 token per bijgedragen token (door iedereen)</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 6: Spelregels -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Spelregels
+					</h2>
+					<div class="grid md:grid-cols-2 gap-8 items-center">
+						<div class="space-y-4">
+							<ul class="space-y-6 text-xl md:text-2xl">
+								<li class="flex items-start">
+									<span class="text-green-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Doel:</strong> Maximaal totaal inkomen na 10 rondes.
+									</div>
+								</li>
+								<li class="flex items-start text-orange-500 font-semibold mt-4">
+									<span class="mr-3 text-xl">⚠️</span>
+									<div>
+										<strong>Regel:</strong> Beslissingen privé! Niet overleggen.
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<img
+								src="images/wk4-game-rules.png"
+								alt="People playing a game"
+								class="rounded-lg shadow-lg w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 7: Begripvragen -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Publieke Goederenspel: Begripvragen
+					</h2>
+
+					<div class="bg-gray-200 p-4 rounded-lg mb-6 inline-block">
+						<strong>Inkomsten per Ronde:</strong>
+						<code class="ml-2 bg-white px-3 py-1 rounded">Tokens gehouden + (0.4 × Totaal project)</code>
+					</div>
+
+					<p class="text-2xl mb-6">Test je begrip van de regels:</p>
+
+					<ol class="space-y-8 text-xl md:text-2xl">
+						<li class="fragment">
+							<strong>1.</strong> Elk groepslid heeft 20 tokens. Stel, de andere drie dragen
+							<strong>niets</strong> bij.
+							<ul class="ml-6 mt-2 space-y-1 text-gray-600">
+								<li>(a) Wat zijn jouw inkomsten als jij <strong>niets</strong> bijdraagt?</li>
+								<li>(b) Wat zijn jouw inkomsten als jij <strong>20 tokens</strong> bijdraagt?</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							<strong>2.</strong> Elk groepslid heeft 20 tokens. Stel, de andere drie dragen samen
+							<strong>12 tokens</strong> bij (exclusief jouw bijdrage).
+							<ul class="ml-6 mt-2 space-y-1 text-gray-600">
+								<li>(a) Wat zijn jouw inkomsten als jij <strong>20 tokens</strong> bijdraagt?</li>
+								<li>(b) Wat zijn jouw inkomsten als jij <strong>0 tokens</strong> bijdraagt?</li>
+							</ul>
+						</li>
+					</ol>
+
+					<p class="mt-8 text-2xl italic text-gray-600 fragment">
+						Denk na over wat jouw optimale strategie zou zijn in deze scenario's!
+					</p>
+
+					<div class="mt-10 fragment">
+						<a href="https://starfish-app-a4m9z.ondigitalocean.app/"
+						   target="_blank"
+						   class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 text-2xl shadow-lg">
+							<span class="text-2xl">🎮</span>
+							<span>Speel het Publieke Goederenspel</span>
+							<span class="text-lg">→</span>
+						</a>
+						<p class="text-sm text-gray-600 mt-3">
+							Test je strategie in een interactief spel
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 8: Wereldwijde Experimenten - Bijdragen over tijd -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+						Wereldwijde Publieke Goederen Experimenten
+					</h2>
+					<p class="text-xl md:text-2xl text-gray-600 mb-6">Bijdragen over 10 perioden zonder straf</p>
+
+					<div class="flex justify-center items-center">
+						<img src="images/worldwide-public-goods-experiments-contributions-over-10-periods.png"
+						     alt="Worldwide public goods experiments: Contributions over 10 periods"
+						     class="w-full max-w-3xl max-h-[60vh] object-contain">
+					</div>
+
+					<div class="mt-6 text-lg md:text-xl text-gray-700">
+						<p class="fragment"><strong>Observatie:</strong> Bijdragen dalen consistent over tijd in alle steden</p>
+						<p class="fragment mt-2"><strong>Patroon:</strong> Start rond \$10-14, eindigt rond \$2-8</p>
+						<p class="fragment mt-2 text-blue-600"><strong>Conclusie:</strong> Zonder handhaving eroderen bijdragen - het sociale dilemma!</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 9: Wereldwijde Experimenten - Met peer punishment -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+						Effect van Peer Punishment
+					</h2>
+					<p class="text-xl md:text-2xl text-gray-600 mb-6">Bijdragen met mogelijkheid tot sancties</p>
+
+					<div class="flex justify-center items-center">
+						<img src="images/worldwide-public-goods-experiments-with-opportunities-for-peer-punishment.png"
+						     alt="Worldwide public goods experiments with opportunities for peer punishment"
+						     class="w-full max-w-3xl max-h-[60vh] object-contain">
+					</div>
+
+					<div class="mt-6 text-lg md:text-xl text-gray-700">
+						<p class="fragment"><strong>Effect:</strong> Bijdragen blijven hoger met peer punishment</p>
+						<p class="fragment mt-2"><strong>Variantie:</strong> Grote verschillen tussen culturen (Copenhagen vs Athens)</p>
+						<p class="fragment mt-2 text-green-600"><strong>Oplossing:</strong> Sociale sancties kunnen samenwerking ondersteunen!</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 10: Gevangenendilemma Intro -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Het Gevangenendilemma: De Klassieker
+					</h2>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div class="space-y-4">
+							<ul class="space-y-6 text-xl md:text-2xl">
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										<strong>Scenario:</strong> Twee verdachten (gevangenen) worden
+										apart verhoord.
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										Ze kunnen niet communiceren.
+									</div>
+								</li>
+								<li class="flex items-start fragment">
+									<span class="text-blue-500 mr-3 text-xl">•</span>
+									<div>
+										Elk heeft twee keuzes:
+										<ul class="ml-6 mt-3 space-y-2 text-gray-600">
+											<li><strong>Bekennen</strong> (de ander verraden)</li>
+											<li><strong>Zwijgen</strong> (samenwerken met de ander)</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="flex flex-col items-center justify-center fragment">
+							<img
+								src="images/wk4-prisoner-dilemma.png"
+								alt="Twee gestileerde figuren achter tralies"
+								class="rounded-lg shadow-lg w-full max-w-md"
+							/>
+							<p class="text-sm text-gray-500 mt-3 text-center">
+								Individuele rationaliteit vs. collectief resultaat
+							</p>
+						</div>
+					</div>
+					<p class="text-xl text-center mt-6 fragment">
+						Twee <strong>logisch denkende</strong> personen kiezen soms tegen
+						samenwerking, zelfs als samenwerken voor beiden voordeliger is.
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 11: Prisoner's Dilemma Matrix Static -->
+			<section class="slide h-full flex-col items-center justify-center" data-state="prisoner-dilemma-matrix-slide">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Gevangenendilemma: Uitbetalingsmatrix
+					</h2>
+					<p class="text-2xl text-center mb-8">
+						De uitkomsten (jaren straf) hangen af van de keuzes van beide gevangenen.
+					</p>
+					<div id="pdMatrixStaticContainer">
+						<!-- p5.js sketch will be inserted here -->
+					</div>
+					<p class="text-xl text-center mt-6 fragment">
+						Laten we de logica van elke gevangene analyseren.
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 12: Prisoner's Dilemma Matrix Analysis -->
+			<section class="slide h-full flex-col items-center justify-center" data-state="prisoner-dilemma-analysis-slide">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Analyse van het Dilemma
+					</h2>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div class="space-y-4">
+							<p class="font-semibold text-lg">Stel je bent Gevangene A:</p>
+							<ul class="space-y-6 text-xl md:text-2xl">
+								<li class="fragment" data-analysis-step="B_Zwijgt_Header">
+									Als B <strong>Zwijgt</strong>:
+									<ul class="ml-6 mt-3 space-y-2 text-gray-600">
+										<li class="fragment" data-analysis-step="B_Zwijgt_A_Beken">
+											A Bekent: 0 jaar
+											<span class="text-blue-500 font-bold">(Beste Keuze)</span>
+										</li>
+										<li class="fragment" data-analysis-step="B_Zwijgt_A_Zwijg">
+											A Zwijgt: 1 jaar
+										</li>
+									</ul>
+								</li>
+								<li class="fragment mt-4" data-analysis-step="B_Bekent_Header">
+									Als B <strong>Bekent</strong>:
+									<ul class="ml-6 mt-3 space-y-2 text-gray-600">
+										<li class="fragment" data-analysis-step="B_Bekent_A_Beken">
+											A Bekent: 5 jaar
+											<span class="text-blue-500 font-bold">(Beste Keuze)</span>
+										</li>
+										<li class="fragment" data-analysis-step="B_Bekent_A_Zwijg">
+											A Zwijgt: 10 jaar
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="flex items-center justify-center">
+							<div id="pdAnalysisMatrixContainer">
+								<!-- p5.js matrix sketch will be updated here -->
+							</div>
+						</div>
+					</div>
+					<p class="text-xl text-center mt-6 font-bold text-gray-700 fragment" data-analysis-step="A_Dominant">
+						Voor Gevangene A is <strong>Bekennen</strong> dus altijd de beste
+						keuze. Dit is A's <strong>dominante strategie</strong>.
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 13: Het Resultaat - Tragedie -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Resultaat & De "Tragedie"
+					</h2>
+					<ul class="space-y-6 text-2xl">
+						<li class="flex items-start fragment">
+							<span class="text-blue-500 mr-3 text-xl">•</span>
+							<div>
+								Beide gevangenen kiezen hun dominante strategie:
+								<strong>Bekennen</strong>.
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-blue-500 mr-3 text-xl">•</span>
+							<div>
+								Het resultaat (evenwicht): Beide krijgen
+								<strong>5 jaar</strong> celstraf.
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-orange-500 mr-3 text-xl">⚠️</span>
+							<div>
+								<strong>MAAR:</strong> Als ze beiden hadden
+								<strong>gezwegen</strong>, hadden ze elk maar
+								<strong>1 jaar</strong> gekregen!
+							</div>
+						</li>
+						<li class="flex items-start fragment mt-6 font-bold text-gray-700">
+							<span class="text-green-500 mr-2">→</span>
+							<div>
+								Dit is het dilemma: individueel rationeel gedrag leidt tot een
+								collectief suboptimaal resultaat.
+							</div>
+						</li>
+					</ul>
+					<p class="text-xl mt-8 fragment">
+						<strong>Toepassingen:</strong> wapenwedlopen, prijsconcurrentie, milieuvervuiling,
+						en... het publieke goederenspel!
+					</p>
+				</div>
+			</section>
+
+			<!-- Slide 14: Ultimatum Game - Plot Twist! -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Het Ultimatum Game: Plot Twist! 💰
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Left column: Het Experiment -->
+						<div class="bg-blue-50 rounded-lg p-6">
+							<h3 class="text-2xl font-bold mb-4 text-blue-900">Het Experiment</h3>
+							<ul class="space-y-3 text-lg">
+								<li class="fragment">• <strong>€10</strong> te verdelen tussen 2 spelers</li>
+								<li class="fragment">• <strong>Proposer:</strong> stelt verdeling voor</li>
+								<li class="fragment">• <strong>Responder:</strong> accepteert of weigert</li>
+								<li class="fragment">• Bij weigering: <span class="text-red-600 font-bold">beiden €0</span></li>
+							</ul>
+
+							<div class="mt-6 p-4 bg-yellow-100 rounded-lg fragment">
+								<p class="font-semibold text-yellow-900">Economische Voorspelling:</p>
+								<p class="text-yellow-800">Proposer biedt €0,01<br>Responder accepteert alles > €0</p>
+							</div>
+						</div>
+
+						<!-- Right column: De Werkelijkheid -->
+						<div class="bg-green-50 rounded-lg p-6">
+							<h3 class="text-2xl font-bold mb-4 text-green-900">De Werkelijkheid</h3>
+							<div class="space-y-4 text-lg">
+								<div class="fragment">
+									<p class="font-semibold">📊 Wereldwijde Resultaten:</p>
+									<ul class="ml-4 mt-2 space-y-2">
+										<li>• Gemiddeld aanbod: <strong>40-50%</strong></li>
+										<li>• Aanbiedingen < 20% vaak <strong class="text-red-600">geweigerd</strong></li>
+										<li>• Mensen offeren geld voor <strong>rechtvaardigheid</strong></li>
+									</ul>
+								</div>
+
+								<div class="p-4 bg-purple-100 rounded-lg fragment">
+									<p class="font-bold text-purple-900 text-xl">
+										🤯 Mensen zijn NIET puur rationeel!
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="mt-8 bg-gradient-to-r from-blue-100 to-green-100 rounded-lg p-6 fragment">
+						<h3 class="text-xl font-bold mb-3">Wat dit betekent: Sociale Preferenties</h3>
+						<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">⚖️</span>
+								<p class="font-semibold">Fairness</p>
+								<p class="text-sm text-gray-600">We waarderen eerlijke verdeling</p>
+							</div>
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">🤝</span>
+								<p class="font-semibold">Reciprociteit</p>
+								<p class="text-sm text-gray-600">Ik werk mee als jij fair bent</p>
+							</div>
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">❤️</span>
+								<p class="font-semibold">Altruïsme</p>
+								<p class="text-sm text-gray-600">We geven om anderen</p>
+							</div>
+						</div>
+						<p class="text-center mt-4 text-lg font-semibold text-green-700">
+							Dit is GOED nieuws: het maakt samenwerking mogelijk! 🎯
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 15: Oplossingsmechanismen -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10">
+						Sociale Dilemma's Oplossen
+					</h2>
+					<p class="text-2xl mb-6">
+						Verschillende mechanismen kunnen sociale dilemma's helpen verminderen:
+					</p>
+					<ul class="space-y-5 text-lg">
+						<li class="flex items-start fragment">
+							<span class="text-green-500 mr-3 text-xl">•</span>
+							<div>
+								<strong>Altruïsme & Sociale Voorkeuren:</strong> Individuen die
+								geven om de uitkomsten van anderen.
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-green-500 mr-3 text-xl">•</span>
+							<div>
+								<strong>Herhaalde Interacties & Reputatie:</strong> "Schaduw van
+								de toekomst" moedigt samenwerking aan.
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-green-500 mr-3 text-xl">•</span>
+							<div>
+								<strong>Sociale Normen:</strong> Gedeeld begrip van gepast gedrag.
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-green-500 mr-3 text-xl">•</span>
+							<div>
+								<strong>Instituties & Handhaving:</strong> Regels, wetten en
+								straffen die opbrengsten veranderen.
+								<ul class="ml-6 mt-2 space-y-1 text-gray-600">
+									<li class="fragment">Voorbeeld: Belastingen op vervuiling</li>
+									<li class="fragment">Voorbeeld: Visquota</li>
+								</ul>
+							</div>
+						</li>
+						<li class="flex items-start fragment">
+							<span class="text-green-500 mr-3 text-xl">•</span>
+							<div>
+								<strong>Communicatie & Overeenkomsten:</strong> Spelers in staat
+								stellen te coördineren.
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Slide 16: Van Sociale Dilemma's naar Strategische Oplossingen -->
+			<section class="slide h-full flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+				<div class="slide-content">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
+						Van Sociale Dilemma's naar<br>Strategische Oplossingen
+					</h2>
+					<p class="text-xl text-center text-gray-300 mb-10">
+						Jullie combineren nu economische theorie met praktische toepassingen!
+					</p>
+
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+						<!-- CORE Econ Basis -->
+						<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+							<h3 class="text-xl font-bold mb-4 text-blue-400">📚 CORE Econ Basis</h3>
+							<ul class="space-y-3 text-sm">
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Ch.4 Social Interactions:</strong> Game theory & strategic thinking</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Prisoner's Dilemma:</strong> Wanneer rationaliteit faalt</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Public Goods:</strong> Free-riding probleem</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Social Preferences:</strong> Fairness & reciprociteit</span>
+								</li>
+							</ul>
+							<div class="mt-4 text-xs text-blue-300">
+								🔗 CORE-Econ.org Unit 4
+							</div>
+						</div>
+
+						<!-- Kernlessen Vandaag -->
+						<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+							<h3 class="text-xl font-bold mb-4 text-green-400">🎯 Kernlessen Vandaag</h3>
+							<ul class="space-y-3 text-sm">
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Invisible Fist:</strong> Eigenbelang ≠ collectief welzijn</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Nash vs Pareto:</strong> Suboptimale evenwichten</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Ultimatum Game:</strong> Mensen zijn sociaal!</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Oplossingen bestaan:</strong> Instituties, normen, reputatie</span>
+								</li>
+							</ul>
+							<div class="mt-4 text-xs text-green-300">
+								Experimenteel bewijs uit Unit 4.3-4.10
+							</div>
+						</div>
+
+						<!-- Praktische Tools -->
+						<div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+							<h3 class="text-xl font-bold mb-4 text-purple-400">🚀 Praktische Tools</h3>
+							<ul class="space-y-3 text-sm">
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Herhaalde Interactie:</strong> Tit-for-tat strategieën</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Reputatiesystemen:</strong> Reviews & ratings</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Pigouviaanse belasting:</strong> CO2-heffing</span>
+								</li>
+								<li class="flex items-start">
+									<span class="mr-2">•</span>
+									<span><strong>Sociale normen:</strong> Peer pressure & shaming</span>
+								</li>
+							</ul>
+							<div class="mt-4 text-xs text-purple-300">
+								Unit 4.11-4.13: Solutions framework
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-4 text-center">
+						<p class="text-lg font-bold text-yellow-300">
+							Volgende week: True Pricing & ESG - Environmental, Social & Governance
+						</p>
+						<p class="text-sm text-yellow-200 mt-2">
+							Van sociale dilemma's naar maatschappelijke kosten en duurzame oplossingen
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 17: Opdracht Week 4 -->
+			<section class="slide h-full flex-col items-center justify-center">
+				<div class="slide-content">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+						📝 Opdracht Week 4: Maatschappelijke Kosten & True Pricing
+					</h2>
+
+					<div class="grid md:grid-cols-2 gap-8">
+						<!-- Opdracht 1: Maatschappelijke kosten -->
+						<div class="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
+							<h3 class="text-xl font-bold text-blue-900 mb-4">
+								🌍 Opdracht 1: Maatschappelijke Kosten
+							</h3>
+							<ul class="space-y-3 text-base">
+								<li class="flex items-start">
+									<span class="text-blue-500 mr-2">1.</span>
+									<span>Analyseer jullie sector op <strong>brede welvaart dimensies</strong></span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-blue-500 mr-2">2.</span>
+									<span>Kies de <strong>4 belangrijkste</strong> onderdelen (uit 10)</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-blue-500 mr-2">3.</span>
+									<span>Werk uit met sub-onderdelen</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-blue-500 mr-2">4.</span>
+									<span>Bepaal of dit een <strong>bedreiging</strong> vormt voor de sector</span>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Opdracht 2: True Pricing -->
+						<div class="bg-green-50 rounded-lg p-6 border-2 border-green-200">
+							<h3 class="text-xl font-bold text-green-900 mb-4">
+								💰 Opdracht 2: True Pricing
+							</h3>
+							<ul class="space-y-3 text-base">
+								<li class="flex items-start">
+									<span class="text-green-500 mr-2">•</span>
+									<span>Onderzoek <strong>verborgen kosten</strong> via desk research</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-green-500 mr-2">•</span>
+									<span>Splits uit naar:</span>
+								</li>
+								<li class="ml-6">
+									<div class="bg-white p-3 rounded">
+										<strong>🌱 Ecologische kosten</strong> (8 milieu-dimensies)<br>
+										<strong>👥 Sociale kosten</strong> (9 sociale dimensies)
+									</div>
+								</li>
+								<li class="flex items-start">
+									<span class="text-green-500 mr-2">•</span>
+									<span>Referentie: <strong>ABN AMRO rapport</strong><br>
+									<em>"De verborgen kosten van een spijkerbroek"</em></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Deliverables -->
+					<div class="mt-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6">
+						<h3 class="text-xl font-bold text-purple-900 mb-3">📋 Deliverables</h3>
+						<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">📄</span>
+								<p class="font-semibold">Max 2 A4</p>
+								<p class="text-sm text-gray-600">Voor analyse</p>
+							</div>
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">🎯</span>
+								<p class="font-semibold">Conclusie</p>
+								<p class="text-sm text-gray-600">Kansen & bedreigingen</p>
+							</div>
+							<div class="bg-white rounded p-3">
+								<span class="text-2xl">🏢</span>
+								<p class="font-semibold">Focus</p>
+								<p class="text-sm text-gray-600">Jullie sector & 2 bedrijven</p>
+							</div>
+						</div>
+						<p class="text-center mt-4 text-base font-semibold text-purple-700">
+							💡 Gebruik deze analyse om sociale dilemma's in jullie sector te identificeren!
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Slide 18: Wrap-up & Feedback -->
+			<section class="slide h-full flex-col items-center justify-center text-center">
+				<div class="slide-content">
+					<h2 class="text-4xl md:text-5xl font-bold mb-8">Wrap-up & Feedback</h2>
+					<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+						<div class="bg-gray-200 p-6 rounded-lg">
+							<h3 class="font-bold text-2xl mb-6">Belangrijkste Takeaways</h3>
+							<ul class="list-disc list-inside space-y-4 text-xl md:text-2xl">
+								<li>Sociale dilemma's ontstaan wanneer eigenbelang botst met collectief welzijn</li>
+								<li>Het gevangenendilemma illustreert waarom samenwerking moeilijk is zonder communicatie</li>
+								<li>Publieke goederen vereisen collectieve actie ondanks individuele prikkels om mee te liften</li>
+								<li>Speltheorie helpt strategische interacties te analyseren en voorspellen</li>
+								<li>Instituties, normen en herhaalde interacties kunnen samenwerking bevorderen</li>
+							</ul>
+						</div>
+						<div class="bg-gray-800 text-white p-6 rounded-lg flex flex-col items-center justify-center text-center">
+							<h3 class="font-bold text-2xl mb-6">Feedback & Retrospective</h3>
+							<p class="text-gray-300 mb-6 text-base">
+								Jullie feedback is essentieel. Scan de code en laat ons weten
+								wat je van dit college vond.
+							</p>
+							<img
+								src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20Week4"
+								alt="Retrospective QR Code"
+								class="rounded-lg bg-white p-2"
+							/>
+							<a href="https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20Week4"
+							   target="_blank"
+							   class="text-blue-300 underline text-sm mt-3 hover:text-blue-200">
+								Direct link
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- P5.js sketches script -->
+		<script src="course-docs/wk4/old-presentation/sketches.js"></script>
+
+		<!-- Navigation and slide management script -->
+		<script>
+			let currentSlide = 0;
+			const slides = document.querySelectorAll(".slide");
+			const totalSlides = slides.length;
+			const prevBtn = document.getElementById("prev-btn");
+			const nextBtn = document.getElementById("next-btn");
+			const slideCounter = document.getElementById("slide-counter");
+
+			// P5.js instances
+			let pdMatrixStaticInstance = null;
+			let pdAnalysisMatrixInstance = null;
+
+			function updateSlideCounter() {
+				slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+			}
+
+			function showSlide(index) {
+				// Clean up P5.js instances when leaving slides
+				const currentSlideElement = slides[currentSlide];
+				if (currentSlideElement.dataset.state === "prisoner-dilemma-matrix-slide" && pdMatrixStaticInstance) {
+					pdMatrixStaticInstance.remove();
+					pdMatrixStaticInstance = null;
+				}
+				if (currentSlideElement.dataset.state === "prisoner-dilemma-analysis-slide" && pdAnalysisMatrixInstance) {
+					pdAnalysisMatrixInstance.remove();
+					pdAnalysisMatrixInstance = null;
+				}
+
+				slides[currentSlide].classList.remove("active");
+				currentSlide = index;
+				slides[currentSlide].classList.add("active");
+
+				// Initialize P5.js instances for matrix slides
+				const newSlideElement = slides[currentSlide];
+				if (newSlideElement.dataset.state === "prisoner-dilemma-matrix-slide") {
+					setTimeout(() => {
+						pdMatrixStaticInstance = new p5(
+							pdMatrixStaticSketch("pdMatrixStaticContainer"),
+							"pdMatrixStaticContainer"
+						);
+					}, 100);
+				}
+				if (newSlideElement.dataset.state === "prisoner-dilemma-analysis-slide") {
+					setTimeout(() => {
+						pdAnalysisMatrixInstance = new p5(
+							pdMatrixAnalysisSketch("pdAnalysisMatrixContainer"),
+							"pdAnalysisMatrixContainer"
+						);
+						if (pdAnalysisMatrixInstance) {
+							pdAnalysisMatrixInstance.updateAnalysisStep(null);
+						}
+					}, 100);
+				}
+
+				updateSlideCounter();
+				prevBtn.disabled = currentSlide === 0;
+				nextBtn.disabled = currentSlide === totalSlides - 1;
+
+				// Handle fragments
+				handleFragments();
+
+				// Scroll to top on mobile
+				if (window.innerWidth <= 768) {
+					window.scrollTo({ top: 0, behavior: "smooth" });
+				}
+			}
+
+			function nextSlide() {
+				const fragments = slides[currentSlide].querySelectorAll('.fragment:not(.visible)');
+				if (fragments.length > 0) {
+					fragments[0].classList.add('visible');
+					handleFragmentShown(fragments[0]);
+				} else if (currentSlide < totalSlides - 1) {
+					showSlide(currentSlide + 1);
+				}
+			}
+
+			function prevSlide() {
+				const visibleFragments = slides[currentSlide].querySelectorAll('.fragment.visible');
+				if (visibleFragments.length > 0) {
+					const lastFragment = visibleFragments[visibleFragments.length - 1];
+					lastFragment.classList.remove('visible');
+					handleFragmentHidden(lastFragment);
+				} else if (currentSlide > 0) {
+					showSlide(currentSlide - 1);
+				}
+			}
+
+			function handleFragments() {
+				// Reset all fragments on current slide
+				const fragments = slides[currentSlide].querySelectorAll('.fragment');
+				fragments.forEach(fragment => {
+					fragment.classList.remove('visible');
+				});
+			}
+
+			function handleFragmentShown(fragment) {
+				if (pdAnalysisMatrixInstance && slides[currentSlide].dataset.state === "prisoner-dilemma-analysis-slide") {
+					const analysisStep = fragment.dataset.analysisStep;
+					if (analysisStep) {
+						pdAnalysisMatrixInstance.updateAnalysisStep(analysisStep);
+					}
+				}
+			}
+
+			function handleFragmentHidden(fragment) {
+				if (pdAnalysisMatrixInstance && slides[currentSlide].dataset.state === "prisoner-dilemma-analysis-slide") {
+					const visibleFragments = slides[currentSlide].querySelectorAll('.fragment.visible[data-analysis-step]');
+					let lastVisibleStep = null;
+					if (visibleFragments.length > 0) {
+						lastVisibleStep = visibleFragments[visibleFragments.length - 1].dataset.analysisStep;
+					}
+					pdAnalysisMatrixInstance.updateAnalysisStep(lastVisibleStep);
+				}
+			}
+
+			// Event listeners
+			prevBtn.addEventListener("click", prevSlide);
+			nextBtn.addEventListener("click", nextSlide);
+
+			// Keyboard navigation
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "ArrowLeft") {
+					prevSlide();
+				} else if (e.key === "ArrowRight") {
+					nextSlide();
+				}
+			});
+
+			// Touch gesture support
+			let touchStartX = 0;
+			let touchEndX = 0;
+
+			document.addEventListener("touchstart", (e) => {
+				touchStartX = e.changedTouches[0].screenX;
+			}, { passive: true });
+
+			document.addEventListener("touchend", (e) => {
+				touchEndX = e.changedTouches[0].screenX;
+				handleGesture();
+			}, { passive: true });
+
+			function handleGesture() {
+				const swipeThreshold = 50;
+				if (touchEndX < touchStartX - swipeThreshold) {
+					nextSlide();
+				}
+				if (touchEndX > touchStartX + swipeThreshold) {
+					prevSlide();
+				}
+			}
+
+			// Initialize
+			showSlide(0);
+		</script>
+	</body>
+</html>

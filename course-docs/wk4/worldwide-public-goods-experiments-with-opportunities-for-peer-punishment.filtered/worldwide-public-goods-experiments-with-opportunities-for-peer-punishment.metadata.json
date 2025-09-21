@@ -1,0 +1,45 @@
+{
+  "chart": {
+    "title": "Worldwide public goods experiments with opportunities for peer punishment",
+    "subtitle": "Unit 4 'Strategic interactions and social dilemmas’ in The CORE Team, The Economy 2.0\nMicroeconomics. Available at: https://tinyco.re/1056789 [Figure 4.14c]",
+    "note": "CC-BY-ND-NC",
+    "xAxisLabel": "Period",
+    "citation": "Herrmann, Thöni and Gächter (2008)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/worldwide-public-goods-experiments-with-opportunities-for-peer-punishment?overlay=download-data&v=1&csvType=filtered&useColumnShortNames=false",
+    "selection": [
+      "Riyadh",
+      "Athens",
+      "Istanbul",
+      "Bonn",
+      "Boston",
+      "Chengdu",
+      "Copenhagen",
+      "Dnipropetrovs'k",
+      "Melbourne",
+      "Minsk",
+      "Muscat",
+      "Nottingham",
+      "Samara",
+      "Seoul",
+      "St. Gallen",
+      "Zurich"
+    ]
+  },
+  "columns": {
+    "Contribution": {
+      "titleShort": "Contribution",
+      "titleLong": "Contribution",
+      "unit": "$",
+      "timespan": "1-10",
+      "type": "Numeric",
+      "owidVariableId": 98085,
+      "citationShort": " – processed by Our World in Data",
+      "citationLong": " – processed by Our World in Data. “Contribution” [dataset]. Herrmann, Thöni and Gächter (2008) [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/98085.metadata.json"
+    }
+  },
+  "dateDownloaded": "2025-09-21",
+  "activeFilters": {
+    "overlay": "download-data"
+  }
+}
