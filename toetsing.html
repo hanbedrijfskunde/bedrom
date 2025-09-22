@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl" class="h-full">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="De Strategische Arena - Bereid je voor op je assessment met interactieve tools en materialen">
+    <meta name="keywords" content="assessment, boardroom simulatie, business economics, HBO">
+    <meta name="author" content="Business Economics Department">
+
+    <!-- Page Title -->
+    <title>De Strategische Arena - Assessment Voorbereiding</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Ensure Inter font is applied */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica', 'Arial', sans-serif;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-full bg-gray-50 font-sans antialiased">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-primary-600 text-white p-2 m-2 rounded">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Hoofdnavigatie">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Title -->
+                <div class="flex items-center">
+                    <h1 class="text-xl font-semibold text-gray-900">
+                        De Strategische Arena
+                    </h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#voorbereiding" class="text-gray-700 hover:text-primary-600 transition-colors">
+                        Voorbereiding
+                    </a>
+                    <a href="#rollen" class="text-gray-700 hover:text-primary-600 transition-colors">
+                        Rollen
+                    </a>
+                    <a href="#team" class="text-gray-700 hover:text-primary-600 transition-colors">
+                        Team
+                    </a>
+                    <a href="#materialen" class="text-gray-700 hover:text-primary-600 transition-colors">
+                        Materialen
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" aria-expanded="false" aria-label="Open menu">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Section -->
+        <section class="text-center py-12 md:py-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Bereid je voor op De Strategische Arena
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Een authentieke boardroom simulatie waar je als Raad van Bestuur je economische analyse presenteert en verdedigt tegenover kritische stakeholders.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors">
+                    Start Voorbereiding
+                </button>
+                <button class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                    Bekijk Handleiding
+                </button>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section id="rollen" class="py-12">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Kies je Rol</h3>
+                <p class="text-gray-600">Selecteer de rol die je tijdens de assessment zult vervullen</p>
+            </div>
+
+            <!-- Role Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Role Card Example -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M12 3h.01M12 7h.01M12 11h.01M12 15h.01M8 3h.01M8 7h.01M8 11h.01M8 15h.01M16 3h.01M16 7h.01M16 11h.01M16 15h.01"></path>
+                            </svg>
+                        </div>
+                        <h4 class="ml-3 text-lg font-semibold text-gray-900">Raad van Bestuur</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        Presenteer en verdedig je economische analyse als CEO, CFO, COO of CSO.
+                    </p>
+                </div>
+
+                <!-- More role cards would go here -->
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="py-12">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Je Voortgang</h3>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-primary-600 h-3 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="mt-2 text-sm text-gray-600">0% voltooid</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <p class="text-sm">
+                    &copy; 2024 Business Economics - De Strategische Arena
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation (hidden by default) -->
+    <div class="hidden fixed inset-0 z-50 md:hidden" id="mobile-menu">
+        <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
+        <nav class="fixed top-0 right-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-l overflow-y-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-semibold">Menu</h2>
+                <button type="button" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100" aria-label="Close menu">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <a href="#voorbereiding" class="text-gray-700 hover:text-primary-600 text-lg">Voorbereiding</a>
+                <a href="#rollen" class="text-gray-700 hover:text-primary-600 text-lg">Rollen</a>
+                <a href="#team" class="text-gray-700 hover:text-primary-600 text-lg">Team</a>
+                <a href="#materialen" class="text-gray-700 hover:text-primary-600 text-lg">Materialen</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Placeholder JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button[aria-label="Open menu"]');
+            const closeButton = document.querySelector('button[aria-label="Close menu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuButton) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    menuButton.setAttribute('aria-expanded', 'true');
+                });
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        // Test console log to verify JavaScript is working
+        console.log('De Strategische Arena - Assessment Voorbereiding loaded successfully');
+    </script>
+</body>
+</html>

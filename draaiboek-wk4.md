@@ -309,6 +309,46 @@ van veel maatschappelijke problemen."
 - **Inequity aversion**: We haten ongelijkheid (vooral nadelige)
 - Dit verklaart waarom in het Public Goods Game mensen beginnen met bijdragen!
 
+### 💡 Innovation Rent als Ultimatum Spel in de Praktijk
+**Link met Week 3 - Schumpeteriaanse Rents**
+
+**Het Praktijkvoorbeeld uit CORE Economy:**
+```
+💼 Een werkgever heeft dankzij innovatie €100.000 extra winst (innovation rent)
+De vraag: Hoeveel delen met de werknemers die het mogelijk maakten?
+
+Dit is een ULTIMATUM SPEL in de praktijk:
+- Werkgever (Proposer): Bepaalt verdeling innovation rent
+- Werknemers (Responders): Kunnen accepteren of weigeren (staken/vertrekken)
+```
+
+**Herinnering Week 3 - Innovation Rent:**
+- **Schumpeteriaanse rent**: Tijdelijke extra winst door innovatie
+- Innovator heeft first-mover advantage
+- Concurrenten kopiëren uiteindelijk → rent verdwijnt
+- MAAR: Hoe verdeel je deze tijdelijke windfall?
+
+**De Verdeling Dilemma:**
+```
+📊 Economische theorie voorspelt:
+- Werkgever houdt bijna alles (minimaal delen)
+- Werknemers accepteren elk klein extraatje
+
+📊 Werkelijkheid (net als Ultimatum Game):
+- In praktijk delen werkgevers vaak substantieel deel (vergelijkbaar met ultimatum game patronen)
+- Te weinig delen → talent vertrekt, motivatie daalt
+- Fair delen → loyaliteit, extra innovatie, reputatie
+```
+
+**Concrete Praktijkvoorbeelden:**
+1. **Tech-sector**: Stock options voor alle medewerkers (Google, Microsoft)
+2. **Productie**: Winstdeling na succesvolle procesverbetering (Toyota)
+3. **Consultancy**: Bonussen gekoppeld aan innovatieprojecten
+4. **Scale-ups**: Equity participation voor early employees
+
+**De Les voor Studenten:**
+"Innovation rent uit Week 3 is niet alleen een economisch concept - het is een sociaal dilemma! De verdeling bepaalt of innovatie blijft gebeuren. Fair delen stimuleert toekomstige innovatie, te weinig delen doodt creativiteit."
+
 **Link naar Oplossingen:**
 "Dit is GOED nieuws! Het betekent dat:"
 - Reputatiesystemen werken (mensen waarderen fairness)
@@ -316,7 +356,7 @@ van veel maatschappelijke problemen."
 - Normen kunnen gedrag sturen zonder dwang
 - De invisible hand kan werken ALS we rekening houden met sociale preferenties
 
-**Instructie:** "Het Prisoner's Dilemma toonde aan dat rationele keuzes tot slechte uitkomsten leiden. Het Ultimatum Game toont aan dat mensen NIET puur rationeel zijn - en dat is onze redding! Sociale preferenties maken samenwerking mogelijk."
+**Instructie:** "Het Prisoner's Dilemma toonde aan dat rationele keuzes tot slechte uitkomsten leiden. Het Ultimatum Game toont aan dat mensen NIET puur rationeel zijn - en dat is onze redding! Sociale preferenties maken samenwerking mogelijk. En dit zien we dagelijks in bedrijven - denk aan de innovation rent uit Week 3! Werkgevers die fair delen met werknemers krijgen meer innovatie, meer loyaliteit. Het ultimatum spel speelt zich dus elke dag af in jullie toekomstige werkplek."
 
 ---
 
@@ -333,6 +373,7 @@ van veel maatschappelijke problemen."
 3. **Herhaalde interactie** (Unit 4.11): "Waarom werkt de bakker eerlijk?"
 4. **Normen** (Unit 4.13): "Waarom ruimen Japanners afval op bij WK voetbal?"
 5. **Instituties** (Unit 4.13): "Waarom hebben we CO2-belasting?"
+6. **Fair verdeling** (Innovation Rent): "Waarom delen tech-bedrijven winst via stock options?"
 
 **Snelle sectorcheck:** "Denk na: welke sociale dilemma's zie je in jouw sector?"
 

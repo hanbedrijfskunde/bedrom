@@ -27,7 +27,8 @@ Na deze les kunnen studenten:
 | Slides | Inhoud | Timing |
 |--------|--------|--------|
 | 1 | Opening: Een Tropisch Eiland Dilemma | 0:00-0:05 |
-| 2-3 | De "Fictieve" Casus: Bananen vs Vissen | 0:05-0:15 |
+| - | Brug vanuit Week 4: Van Sociale Dilemma's naar Marktfalen | 0:05-0:08 |
+| 2-3 | De "Fictieve" Casus: Bananen vs Vissen | 0:08-0:15 |
 | 4-5 | Externe Effecten Theorie (12.1) | 0:15-0:25 |
 | 6-7 | MPC vs MSC - Grafiek 12.1 & 12.2 | 0:25-0:40 |
 | 8 | Berekening Deadweight Loss | 0:40-0:50 |
@@ -46,7 +47,8 @@ Na deze les kunnen studenten:
 | Tijd | Onderdeel | Duur |
 |------|-----------|------|
 | 0:00-0:05 | Opening & Systeem 2 Activatie | 5 min |
-| 0:05-0:15 | De "Fictieve" Eiland Casus | 10 min |
+| 0:05-0:08 | Brug vanuit Week 4 | 3 min |
+| 0:08-0:15 | De "Fictieve" Eiland Casus | 7 min |
 | 0:15-0:25 | Theorie: Externe Effecten (12.1) | 10 min |
 | 0:25-0:40 | MPC vs MSC Analyse (12.2) | 15 min |
 | 0:40-0:50 | Deadweight Loss Berekeningen | 10 min |
@@ -96,7 +98,85 @@ Wat zou JIJ doen als minister van dit eiland?"
 
 ---
 
-### 🌴 De "Fictieve" Casus Uitwerken (0:05-0:15)
+### 🔗 Brug vanuit Week 4: Van Sociale Dilemma's naar Marktfalen (0:05-0:08)
+
+**Doel:** Connectie leggen tussen Week 4 (sociale interacties) en Week 5 (marktfalen)
+
+#### Terugblik & Verbinding (3 min)
+
+**Opening:**
+"Vorige week hebben we gezien hoe individuele rationaliteit tot collectief slechte uitkomsten leidt..."
+
+**De Reis van Week 4 naar Week 5:**
+```
+📊 Week 4 - Sociale Dilemma's:
+- Gevangenendilemma: Beiden zwijgen is optimaal, maar beiden bekennen
+- Public Goods Game: Free-riding ondermijnt collectieve welvaart
+- Ultimatum Game: Mensen offeren geld op voor fairness
+- Innovation Rent: Verdeling van innovatiewinsten (Schumpeter)
+
+⬇️ DE BRUG ⬇️
+
+📊 Week 5 - Wanneer deze dilemma's de markt verstoren:
+- Gevangenendilemma → Externe effecten (mijn vervuiling, jouw probleem)
+- Public Goods → Tragedy of the Commons (overbevissing, klimaat)
+- Fairness → Acceptatie van marktuitkomsten (true pricing)
+- Innovation Rent → Wie draagt de maatschappelijke kosten?
+```
+
+**Kerninsight voor studenten:**
+"Het gevangenendilemma van vorige week? Dat speelt zich ELKE DAG af wanneer bedrijven vervuilen!"
+- Bedrijf A: "Als ik niet vervuil en concurrent wel → ik verlies"
+- Bedrijf B: "Als ik niet vervuil en concurrent wel → ik verlies"
+- Resultaat: Beiden vervuilen → collectief verlies (klimaatcrisis)
+
+**Innovation Rent Connectie - Het AI Voorbeeld:**
+"Remember de innovation rent discussie? Een bedrijf innoveert, maakt €100.000 extra winst. Vorige week vroegen we: hoeveel deel je met werknemers? Deze week vragen we: wat als die innovatie €200.000 aan maatschappelijke schade veroorzaakt?"
+
+**🤖 Actueel Voorbeeld - AI Revolution:**
+```
+💰 Innovation Rent (wie wint?):
+- OpenAI/Microsoft: €50 miljard marktwaarde stijging
+- Google/Meta: Miljarden aan efficiëntiewinsten
+- Early adopters: 70% kostenbesparing op taken
+
+💔 Sociale Kosten (wie betaalt?):
+- 1.4 miljoen Nederlandse banen in gevaar
+- Werklozen: inkomen, identiteit, mentale gezondheid
+- Overheid: €20 miljard extra WW/bijstand
+- Gemeenschappen: lokale economie krimpt
+- Families: intergenerationele effecten
+```
+
+**Het Nieuwe Ultimatum Game:**
+"Tech-gigant zegt: 'Wij maken €100 miljard winst met AI, nemen 90%, jullie krijgen 10% voor omscholing'"
+"Samenleving: Maar wij dragen €200 miljard aan sociale kosten!"
+- Moet er een "robot-tax" komen?
+- Universeel basisinkomen uit AI-winsten?
+- Verplichte omscholingsfondsen door tech-bedrijven?
+
+"Dit is het ultimatum game op mega-schaal: accepteren we deze verdeling, of eisen we fairness?"
+
+**Van Micro naar Macro:**
+- Week 4: Interactie tussen INDIVIDUEN (prisoners, spelers, werkgever-werknemer)
+- Week 5: Interactie tussen BEDRIJF en SAMENLEVING (vervuiler-slachtoffers)
+- Zelfde mechanismen, grotere schaal!
+
+**De Hoop uit Week 4:**
+"Maar wacht! Week 4 leerde ons ook dat mensen NIET puur rationeel zijn:"
+- Ultimatum Game: mensen offeren geld voor fairness
+- Public Goods: mensen dragen bij ondanks free-riding mogelijkheid
+- Dit verklaart waarom sommige bedrijven WEL duurzaam worden
+- Social shaming, reputatie, en normen kunnen markten corrigeren
+
+**Transitie naar de casus:**
+"Laten we dit concreet maken met een 'fictief' eiland waar deze dilemma's samenkomen..."
+
+> **🎯 Docenttip**: Gebruik concrete Week 4 voorbeelden. Vraag: "Wie herinnert zich het bedrag dat mensen opgaven in het ultimatum game voor fairness? Straks zien we wat mensen opgeven voor schoon milieu..."
+
+---
+
+### 🌴 De "Fictieve" Casus Uitwerken (0:08-0:15)
 
 **Doel:** Casus opbouwen als theoretisch voorbeeld
 

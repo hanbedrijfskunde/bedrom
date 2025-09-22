@@ -13,12 +13,18 @@ This is a Business Economics course project repository ("bedrom") containing HTM
   - `simulatie-wk1.html`: Week 1 simulation
   - `notes.html`: Course notes
   - `index.html`: Course landing page with week-based navigation
+  - `toetsing.html`: Assessment preparation page (in development)
 
 - **Course Documentation**: Markdown files containing course materials
-  - `draaiboek-wk1.md`, `draaiboek-wk2.md`, `draaiboek-wk3.md`, `draaiboek-wk4.md`: Weekly course guides
+  - `draaiboek-wk1.md`, `draaiboek-wk2.md`, `draaiboek-wk3.md`, `draaiboek-wk4.md`, `draaiboek-wk5.md`: Weekly course guides
   - `casus-postnl.md`: PostNL case study
-  - `course-docs/`: Additional course documentation (wk3/, wk4/ subdirectories)
-    - `wk4/`: CORE Economy Unit 4 & 12 PDFs, innovation storyline
+  - `course-docs/`: Additional course documentation
+    - `wk3/`, `wk4/`, `wk5/`: Weekly materials with CORE Economy PDFs
+    - `toetsing/`: Assessment documentation
+      - `toetsprogramma-de-strategische-arena.md`: Assessment program details
+      - `PRD-toetspagina.md`: Product Requirements Document for assessment page
+      - `TDD-toetspagina.md`: Technical Design Document (2140 lines)
+      - `implementation-tasks.md`: Development task list (17 tasks for junior developers)
   - `issues/`: Feature requests and implementation issues
 
 - **Assets**:
@@ -103,7 +109,7 @@ The course follows a weekly structure with consistent components:
 ### Week 4 Specifics
 **Theme**: Social Interactions & Dilemmas (based on CORE Economy Unit 4)
 - **Slides**: 17 slides including CORE Economy reference slide
-- **Key concepts**: Game theory, prisoner's dilemma, public goods, ultimatum game
+- **Key concepts**: Game theory, prisoner's dilemma, public goods, ultimatum game, innovation rent
 - **Interactive elements**:
   - Public Goods Game (external link)
   - P5.js prisoner's dilemma matrices
@@ -111,3 +117,41 @@ The course follows a weekly structure with consistent components:
   - Slide 4: CORE Economy reference with PDF downloads
   - Slide 14: Ultimatum Game experiment results
   - Slide 16: Three-column synthesis (theory, lessons, tools)
+- **Brightspace integration**: Direct links to materials in assignment descriptions
+
+### Week 5 Specifics
+**Theme**: Market Failures & External Effects (based on CORE Economy Unit 12)
+- **Key concepts**: External effects, MPC vs MSC, deadweight loss, Coase theorem, true pricing
+- **Bridge from Week 4**:
+  - Connects social dilemmas to market failures
+  - Innovation rent expanded to include social costs (AI example)
+  - Ultimatum game applied to societal cost distribution
+- **Case study**: Martinique banana/fishing dilemma (chlordecone pollution)
+- **Focus areas**:
+  - True pricing methodology
+  - ESG frameworks and broad prosperity (brede welvaart)
+  - Policy interventions for market failures
+
+### Assessment (Toetsing) Specifics
+**Theme**: De Strategische Arena - Boardroom simulation assessment
+- **Documentation**:
+  - PRD: Complete product requirements with UX focus
+  - TDD: 2140-line technical design document
+  - Implementation tasks: 17 main tasks for junior developers
+- **Key Components** (planned):
+  - Role selection system (5 roles)
+  - Presentation timer (40 minutes, 7 phases)
+  - Q&A simulator with adaptive questioning
+  - Team coordination features
+  - PDF generation for materials
+  - Offline functionality with Service Worker
+- **Technical Stack**:
+  - Vanilla JavaScript (ES6+)
+  - Tailwind CSS via CDN
+  - State management with LocalStorage
+  - Progressive Web App capabilities
+- **Testing Requirements**:
+  - Each task must pass specific tests before proceeding
+  - WCAG 2.1 AA accessibility compliance
+  - Lighthouse score >90
+  - Mobile-first responsive design
