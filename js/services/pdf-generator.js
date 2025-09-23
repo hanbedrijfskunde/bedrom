@@ -1186,8 +1186,87 @@ export class PDFGenerator {
             </div>
         `;
         document.body.appendChild(message);
-        
+
         setTimeout(() => message.remove(), 5000);
+    }
+
+    /**
+     * Generate presence list for docent
+     */
+    async generatePresenceList() {
+        try {
+            await this.loadJsPDF();
+            const doc = new this.jsPDF();
+
+            // Header
+            doc.setFontSize(20);
+            doc.text('Presentielijst - De Strategische Arena', 20, 20);
+
+            doc.setFontSize(12);
+            doc.text(`Datum: ${new Date().toLocaleDateString('nl-NL')}`, 20, 30);
+            doc.text('Sessie: __________ (Week 6 / Week 7)', 20, 38);
+
+            // Teams table
+            const teams = ['A', 'B', 'C', 'D', 'E', 'F'];
+            const startY = 55;
+
+            doc.setFontSize(14);
+            doc.text('Teams Aanwezigheid', 20, startY);
+
+            // Table headers
+            doc.setFontSize(11);
+            doc.setFillColor(240, 240, 240);
+            doc.rect(20, startY + 5, 170, 10, 'F');
+            doc.text('Team', 25, startY + 11);
+            doc.text('Aantal leden', 65, startY + 11);
+            doc.text('Teamleider', 105, startY + 11);
+            doc.text('Handtekening', 145, startY + 11);
+
+            // Table rows
+            let currentY = startY + 20;
+            teams.forEach((team, index) => {
+                if (index % 2 === 0) {
+                    doc.setFillColor(250, 250, 250);
+                    doc.rect(20, currentY - 5, 170, 12, 'F');
+                }
+
+                doc.text(`Team ${team}`, 25, currentY);
+                doc.text('_____', 65, currentY);
+                doc.text('________________', 105, currentY);
+                doc.text('________________', 145, currentY);
+                currentY += 12;
+            });
+
+            // Notes section
+            currentY += 15;
+            doc.setFontSize(12);
+            doc.text('Bijzonderheden:', 20, currentY);
+
+            // Draw lines for notes
+            for (let i = 0; i < 5; i++) {
+                currentY += 8;
+                doc.line(20, currentY, 190, currentY);
+            }
+
+            // Footer with instructions
+            currentY += 20;
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text('Instructies voor docent:', 20, currentY);
+            doc.text('1. Laat teamleiders tekenen bij aanvang van de sessie', 25, currentY + 6);
+            doc.text('2. Noteer het aantal aanwezige teamleden', 25, currentY + 12);
+            doc.text('3. Bewaar dit formulier in het assessmentdossier', 25, currentY + 18);
+
+            // Save the PDF
+            doc.save('presentielijst-strategische-arena.pdf');
+
+            this.showSuccessMessage('Presentielijst gegenereerd');
+            return true;
+        } catch (error) {
+            console.error('Error generating presence list:', error);
+            this.showErrorMessage('Kon presentielijst niet genereren');
+            throw error;
+        }
     }
 }
 

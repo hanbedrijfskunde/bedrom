@@ -3,8 +3,8 @@
  * Enables offline functionality and caching
  */
 
-const CACHE_NAME = 'strategische-arena-v6';
-const RUNTIME_CACHE = 'runtime-cache-v6';
+const CACHE_NAME = 'strategische-arena-v7';
+const RUNTIME_CACHE = 'runtime-cache-v7';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -18,8 +18,8 @@ const STATIC_ASSETS = [
     '/js/core/router.js',
     '/js/components/role-selection.js',
     '/js/components/timer.js',
-    '/js/components/progress-tracker.js',
     '/js/components/preparation-materials.js',
+    '/js/components/progress-tracker.js',
     '/js/components/qa-simulator.js',
     '/js/components/team-coordination.js',
     '/js/components/mobile-navigation.js',

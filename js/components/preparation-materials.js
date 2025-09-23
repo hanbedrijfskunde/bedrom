@@ -206,6 +206,7 @@ class PreparationMaterials {
      */
     render() {
         const progress = this.calculateProgress();
+        const isDocent = new URLSearchParams(window.location.search).get('docent') === 'true';
 
         return `
             <div class="preparation-materials">
@@ -215,6 +216,8 @@ class PreparationMaterials {
                         Alle materialen die je nodig hebt voor een succesvolle assessment voorbereiding.
                     </p>
                 </div>
+
+                ${isDocent ? this.renderDocentSection() : ''}
 
                 <!-- Progress Overview -->
                 <div class="bg-white rounded-lg shadow p-6 mb-8">
@@ -1015,6 +1018,147 @@ class PreparationMaterials {
         if (window.app && window.app.showNotification) {
             window.app.showNotification(message, type);
         }
+    }
+
+    /**
+     * Render docent preparation section
+     */
+    renderDocentSection() {
+        return `
+            <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-6 mb-8">
+                <div class="flex items-start gap-3 mb-4">
+                    <span class="text-3xl">👨‍🏫</span>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-amber-900 mb-2">Docenten Voorbereiding - Assessment Checklist</h3>
+                        <p class="text-amber-800 text-sm">Deze sectie is alleen zichtbaar voor docenten. Zorg dat alle items afgevinkt zijn vóór aanvang van het assessment.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <!-- Sessie Voorbereiding -->
+                    <div class="bg-white rounded-lg p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="text-lg">📋</span>
+                            Sessie Voorbereiding
+                        </h4>
+                        <div class="space-y-3">
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="plastic-hoezen">
+                                <div class="flex-1">
+                                    <div class="font-medium">Plastic hoezen</div>
+                                    <div class="text-sm text-gray-600">6 stuks per sessie van 2 uur (1 per team)</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="nietmachine">
+                                <div class="flex-1">
+                                    <div class="font-medium">Nietmachine of perforator</div>
+                                    <div class="text-sm text-gray-600">Voor het bundelen van documenten</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="verzameldoos">
+                                <div class="flex-1">
+                                    <div class="font-medium">Verzameldoos</div>
+                                    <div class="text-sm text-gray-600">Voor ingeleverde dossiers (1 per sessie)</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="presentielijst">
+                                <div class="flex-1">
+                                    <div class="font-medium">Presentielijst</div>
+                                    <div class="text-sm text-gray-600">Voor aftekenen aanwezigheid teams</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Documentatie & Beoordeling -->
+                    <div class="bg-white rounded-lg p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="text-lg">📝</span>
+                            Documentatie & Beoordeling
+                        </h4>
+                        <div class="space-y-3">
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="beoordelingsformulieren">
+                                <div class="flex-1">
+                                    <div class="font-medium">Beoordelingsformulieren</div>
+                                    <div class="text-sm text-gray-600">1 set per team (digitaal of print)</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="rotatieschema">
+                                <div class="flex-1">
+                                    <div class="font-medium">Rotatieschema geprint</div>
+                                    <div class="text-sm text-gray-600">Voor overzicht tijdens sessie</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="timer">
+                                <div class="flex-1">
+                                    <div class="font-medium">Timer/klok</div>
+                                    <div class="text-sm text-gray-600">Zichtbaar voor alle teams (40 min per ronde)</div>
+                                </div>
+                            </label>
+                            <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
+                                <input type="checkbox" class="mt-1 docent-checklist-item" data-item="eindkwalificaties">
+                                <div class="flex-1">
+                                    <div class="font-medium">Eindkwalificaties lijst</div>
+                                    <div class="text-sm text-gray-600">Voor referentie tijdens beoordeling</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions voor Docenten -->
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <button class="btn btn-secondary" onclick="preparationMaterials.printRotationSchedule()">
+                        <span>🖨️</span> Print Rotatieschema
+                    </button>
+                    <button class="btn btn-secondary" onclick="preparationMaterials.downloadAssessmentForms()">
+                        <span>📄</span> Download Beoordelingsformulieren
+                    </button>
+                    <button class="btn btn-secondary" onclick="preparationMaterials.generatePresenceList()">
+                        <span>✅</span> Genereer Presentielijst
+                    </button>
+                </div>
+
+                <div class="mt-6 p-4 bg-amber-100 rounded-lg">
+                    <h5 class="font-semibold text-amber-900 mb-2">💡 Pro Tip voor Docenten</h5>
+                    <p class="text-sm text-amber-800">
+                        Start 15 minuten vóór de eerste ronde met het uitdelen van materialen en het instrueren van de teamleiders.
+                        Zorg dat elk team hun rotatieschema kent en weet welke rol zij in elke ronde vervullen.
+                    </p>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Print rotation schedule
+     */
+    printRotationSchedule() {
+        window.open('/toetsing.html#/schema?print=true', '_blank');
+    }
+
+    /**
+     * Download assessment forms
+     */
+    downloadAssessmentForms() {
+        // Trigger download of all assessment forms
+        const roles = ['RvB', 'RvC', 'Investeerders', 'Toezichthouder', 'Observer', 'Teamleader'];
+        roles.forEach(role => {
+            pdfGenerator.generateAssessmentForms(role);
+        });
+    }
+
+    /**
+     * Generate presence list
+     */
+    generatePresenceList() {
+        pdfGenerator.generatePresenceList();
     }
 }
 
