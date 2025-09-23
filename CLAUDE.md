@@ -138,20 +138,91 @@ The course follows a weekly structure with consistent components:
   - PRD: Complete product requirements with UX focus
   - TDD: 2140-line technical design document
   - Implementation tasks: 17 main tasks for junior developers
-- **Key Components** (planned):
-  - Role selection system (5 roles)
-  - Presentation timer (40 minutes, 7 phases)
-  - Q&A simulator with adaptive questioning
-  - Team coordination features
-  - PDF generation for materials
-  - Offline functionality with Service Worker
+- **Key Components** (implemented):
+  - ✅ Role selection system (5 roles with sub-roles)
+  - ✅ Presentation timer (40 minutes, 7 phases)
+  - ⚠️ Q&A simulator with adaptive questioning (partial)
+  - ✅ Team coordination features (team creation, invite codes)
+  - ✅ PDF generation for materials
+  - ✅ Offline functionality with Service Worker
+  - ✅ Settings with data export/import
+  - ✅ Progress tracking (automatic calculation)
 - **Technical Stack**:
-  - Vanilla JavaScript (ES6+)
+  - Vanilla JavaScript (ES6+ modules)
   - Tailwind CSS via CDN
   - State management with LocalStorage
   - Progressive Web App capabilities
+  - Service Worker (cache version: v6)
 - **Testing Requirements**:
   - Each task must pass specific tests before proceeding
   - WCAG 2.1 AA accessibility compliance
   - Lighthouse score >90
   - Mobile-first responsive design
+
+### Recent Fixes & Improvements (2024-01-09)
+
+#### Fixed Issues
+1. **Duplicate Notifications** (test-001)
+   - Fixed duplicate event handlers in role selection
+   - Added debounce mechanism for notifications
+   - Files: `/js/components/role-selection.js`
+
+2. **Materials Page 404** (test-003)
+   - Added missing route handler for materials page
+   - Connected preparation-materials component to routing
+   - Files: `/js/core/app.js`
+
+3. **Team Modal Not Closing** (test-002)
+   - Issue identified, fix pending
+
+4. **Timer Button Label** (test-004)
+   - Minor UI issue, fix pending
+
+#### Component Status
+- **Working**: Homepage, Role Selection, Team Creation, Timer, Settings, Export/Import
+- **Partial**: Preparation page (empty content), Q&A Simulator
+- **Testing**: Materials page (just fixed)
+
+#### Known Issues in `/issues/`
+- Active bugs and feature requests documented
+- Test reports with comprehensive findings
+- Priority fixes marked as HIGH/MEDIUM/LOW
+
+### Development Best Practices
+
+#### Service Worker Cache Management
+- **Current version**: v6 (update when making JS/CSS changes)
+- **Location**: `/sw.js` lines 6-7
+- **When to update**: After any JavaScript or CSS modifications
+- **Format**: `strategische-arena-v{N}` and `runtime-cache-v{N}`
+
+#### Testing Workflow
+1. **Clear browser cache** or use incognito mode for testing
+2. **Unregister service worker** in DevTools > Application when debugging
+3. **Check console** for state management logs and errors
+4. **Use Playwright MCP** for automated testing
+
+#### Common Pitfalls to Avoid
+- **Don't add duplicate event listeners** - check if handlers already exist
+- **Always update cache version** when modifying JS files
+- **Use data-navigate attributes** instead of onclick for navigation
+- **Debounce notifications** to prevent spam
+- **Check for existing components** before creating new ones
+
+#### Debug Commands
+```javascript
+// In browser console:
+app.debug()  // Shows app state
+stateManager.debug()  // Shows state manager info
+stateManager.get('user')  // Get user state
+stateManager.reset()  // Clear all data
+```
+
+#### Local Testing
+```bash
+# Start local server
+python3 -m http.server 5502
+
+# Or use VS Code Live Server on port 5502
+# Access at: http://localhost:5502/toetsing.html
+```

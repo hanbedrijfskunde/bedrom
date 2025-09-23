@@ -1,0 +1,523 @@
+/**
+ * Mobile Responsiveness Enhancements
+ * Optimized for touch devices and small screens
+ */
+
+/* =========================
+   MOBILE BREAKPOINTS
+   ========================= */
+:root {
+  --mobile-xs: 375px;  /* iPhone SE */
+  --mobile-sm: 414px;  /* iPhone Plus */
+  --mobile-md: 768px;  /* iPad */
+  --mobile-lg: 1024px; /* iPad Pro */
+}
+
+/* =========================
+   MOBILE BASE STYLES
+   ========================= */
+
+/* Ensure minimum touch target size (44px) */
+@media (max-width: 768px) {
+  button,
+  a,
+  .btn,
+  .clickable,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Increase tap area for checkboxes and radios */
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: relative;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]::before,
+  input[type="radio"]::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
+
+/* =========================
+   MOBILE NAVIGATION
+   ========================= */
+
+/* Bottom Navigation Bar */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 40;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
+
+.mobile-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 0.75rem;
+  transition: color 0.2s;
+}
+
+.mobile-nav-item.active {
+  color: #3b82f6;
+}
+
+.mobile-nav-item:active {
+  background-color: #f3f4f6;
+}
+
+.mobile-nav-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Adjust main content for bottom nav */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 80px; /* Account for bottom nav */
+  }
+}
+
+/* =========================
+   MOBILE CARDS & GRIDS
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Stack cards vertically on mobile */
+  .grid,
+  .materials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Role cards full width on mobile */
+  .role-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Reduce padding on mobile */
+  .card {
+    padding: 1rem;
+  }
+
+  /* Smaller text on mobile */
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  p { font-size: 0.9rem; }
+}
+
+/* =========================
+   MOBILE MODALS
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Full screen modals on mobile */
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 60px; /* Space for action buttons */
+  }
+
+  .modal-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem;
+  }
+}
+
+/* =========================
+   MOBILE TIMER
+   ========================= */
+
+@media (max-width: 768px) {
+  .timer-display {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem;
+    z-index: 30;
+  }
+
+  .timer-controls {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
+
+  .timer-controls button {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* =========================
+   MOBILE FORMS
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Full width inputs on mobile */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  /* Stack form labels above inputs */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Larger touch targets for form controls */
+  .form-control {
+    padding: 0.75rem;
+    min-height: 44px;
+  }
+}
+
+/* =========================
+   MOBILE PROGRESS BAR
+   ========================= */
+
+@media (max-width: 768px) {
+  .progress-container {
+    margin: 1rem 0;
+  }
+
+  .progress {
+    height: 8px;
+    border-radius: 4px;
+  }
+
+  .progress-label {
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Floating progress indicator */
+  .progress-floating {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e5e7eb;
+    z-index: 50;
+  }
+
+  .progress-floating-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transition: width 0.3s ease;
+  }
+}
+
+/* =========================
+   MOBILE Q&A SIMULATOR
+   ========================= */
+
+@media (max-width: 768px) {
+  .qa-question {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .qa-timer {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .qa-answer-input {
+    min-height: 100px;
+    font-size: 16px; /* Prevent zoom */
+  }
+
+  .qa-feedback {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* =========================
+   MOBILE TEAM VIEW
+   ========================= */
+
+@media (max-width: 768px) {
+  .team-members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .team-member-card {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-member-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+  }
+
+  .invite-code-display {
+    font-size: 1.5rem;
+    letter-spacing: 0.25rem;
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* =========================
+   MOBILE MATERIALS VIEW
+   ========================= */
+
+@media (max-width: 768px) {
+  .materials-filters {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .materials-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-chip {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .filter-chip.active {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .material-item {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .material-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* =========================
+   TOUCH INTERACTIONS
+   ========================= */
+
+/* Swipe gestures support */
+.swipeable {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Horizontal swipe for navigation */
+.swipe-nav {
+  touch-action: pan-x;
+}
+
+/* Disable pull-to-refresh on certain elements */
+.no-pull-refresh {
+  overscroll-behavior-y: contain;
+}
+
+/* Smooth momentum scrolling on iOS */
+.momentum-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* =========================
+   MOBILE UTILITIES
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Hide on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Show only on mobile */
+  .show-mobile {
+    display: block !important;
+  }
+
+  /* Text alignment */
+  .mobile-text-center {
+    text-align: center;
+  }
+
+  /* Spacing adjustments */
+  .mobile-p-2 { padding: 0.5rem; }
+  .mobile-p-4 { padding: 1rem; }
+  .mobile-m-2 { margin: 0.5rem; }
+  .mobile-m-4 { margin: 1rem; }
+
+  /* Font size adjustments */
+  .mobile-text-sm { font-size: 0.875rem; }
+  .mobile-text-base { font-size: 1rem; }
+  .mobile-text-lg { font-size: 1.125rem; }
+}
+
+/* =========================
+   LANDSCAPE MODE
+   ========================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical spacing in landscape */
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .timer-display {
+    position: relative;
+    top: auto;
+  }
+
+  /* Hide less important elements */
+  .decorative,
+  .breadcrumb {
+    display: none;
+  }
+
+  /* Compact headers */
+  header {
+    padding: 0.25rem 0;
+  }
+
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.125rem; }
+}
+
+/* =========================
+   ACCESSIBILITY ON MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Larger focus indicators on mobile */
+  :focus {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn {
+      border: 2px solid currentColor;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* =========================
+   PERFORMANCE OPTIMIZATIONS
+   ========================= */
+
+@media (max-width: 768px) {
+  /* Use GPU acceleration for animations */
+  .animate {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Optimize scrolling performance */
+  .scroll-container {
+    will-change: scroll-position;
+  }
+
+  /* Reduce repaints */
+  .fixed-element {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}

@@ -1,0 +1,195 @@
+/**
+ * Rotation Schedule Component Styles
+ */
+
+/* Tab Navigation */
+.tab-button {
+    @apply px-4 py-2 font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 transition-colors;
+}
+
+.tab-button.active {
+    @apply text-blue-600 border-blue-600;
+}
+
+.tab-panel {
+    @apply hidden;
+}
+
+.tab-panel.active {
+    @apply block;
+}
+
+/* Schedule Table */
+.rotation-schedule table {
+    @apply min-w-full divide-y divide-gray-200;
+}
+
+.rotation-schedule thead {
+    @apply bg-gray-50;
+}
+
+.rotation-schedule th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.rotation-schedule tbody {
+    @apply bg-white divide-y divide-gray-200;
+}
+
+.rotation-schedule td {
+    @apply px-6 py-4 whitespace-nowrap text-sm;
+}
+
+/* Team Cells */
+.team-cell {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.team-cell.highlight {
+    @apply ring-2 ring-offset-1 ring-blue-500;
+}
+
+/* Role Colors */
+.role-rvb {
+    @apply bg-blue-100 text-blue-800;
+}
+
+.role-rvc {
+    @apply bg-purple-100 text-purple-800;
+}
+
+.role-investeerders {
+    @apply bg-green-100 text-green-800;
+}
+
+.role-toezichthouder {
+    @apply bg-orange-100 text-orange-800;
+}
+
+.role-observer {
+    @apply bg-gray-100 text-gray-800;
+}
+
+/* Current Round Highlight */
+.current-round {
+    @apply bg-yellow-50;
+}
+
+.current-round td {
+    @apply font-semibold;
+}
+
+/* Round Cards */
+.round-card {
+    @apply border rounded-lg p-6 transition-all hover:shadow-md;
+}
+
+.round-card.active {
+    @apply border-blue-500 bg-blue-50;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .rotation-schedule table {
+        @apply text-xs;
+    }
+
+    .rotation-schedule th,
+    .rotation-schedule td {
+        @apply px-3 py-2;
+    }
+
+    .team-cell {
+        @apply px-1.5 py-0.5 text-xs;
+    }
+
+    .tab-button {
+        @apply px-2 py-1 text-sm;
+    }
+
+    /* Stack round cards on mobile */
+    .round-card {
+        @apply mb-4;
+    }
+
+    /* Hide observer column on very small screens */
+    @media (max-width: 480px) {
+        .rotation-schedule th:last-child,
+        .rotation-schedule td:last-child {
+            @apply hidden;
+        }
+    }
+}
+
+/* Print Styles */
+@media print {
+    .rotation-schedule {
+        @apply text-black;
+    }
+
+    .tab-button:not(.active) {
+        @apply hidden;
+    }
+
+    .tab-panel:not(.active) {
+        @apply hidden;
+    }
+
+    .btn {
+        @apply hidden;
+    }
+
+    .team-cell {
+        @apply border border-gray-400;
+    }
+
+    .current-round {
+        @apply border-2 border-black;
+    }
+
+    /* Page break handling */
+    .rotation-schedule table {
+        page-break-inside: avoid;
+    }
+
+    .round-card {
+        page-break-inside: avoid;
+    }
+}
+
+/* Animation for round changes */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.round-changing {
+    animation: pulse 1s ease-in-out;
+}
+
+/* Accessibility */
+.rotation-schedule:focus-within {
+    @apply outline-none;
+}
+
+.rotation-schedule *:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .team-cell {
+        @apply border-2 border-current;
+    }
+
+    .current-round {
+        @apply bg-yellow-200 border-2 border-black;
+    }
+}

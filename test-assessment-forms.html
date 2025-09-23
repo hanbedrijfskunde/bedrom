@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Assessment Formulieren - De Strategische Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn {
+            @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 cursor-pointer inline-flex items-center justify-center;
+        }
+        .btn-primary {
+            @apply bg-blue-600 text-white hover:bg-blue-700;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto py-8 px-4">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Test Assessment Formulieren</h1>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">📋 Download Assessment Formulieren per Rol</h2>
+            <p class="text-gray-600 mb-6">Test de PDF generatie voor elke rol:</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">👔 RvB (Raad van Bestuur)</h3>
+                    <p class="text-sm text-gray-600 mb-3">Presentatieteam - Alle 13 criteria</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('rvb')">
+                        📥 Download RvB Forms
+                    </button>
+                </div>
+
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">🏛️ RvC (Commissarissen)</h3>
+                    <p class="text-sm text-gray-600 mb-3">Focus: 1, 2, 4, 9, 13</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('rvc')">
+                        📥 Download RvC Form
+                    </button>
+                </div>
+
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">💰 Investeerders</h3>
+                    <p class="text-sm text-gray-600 mb-3">Focus: 6, 7, 8, 9</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('invest')">
+                        📥 Download Investor Form
+                    </button>
+                </div>
+
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">⚖️ Toezichthouder</h3>
+                    <p class="text-sm text-gray-600 mb-3">Focus: 10, 11, 12, 13</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('toezicht')">
+                        📥 Download Toezicht Form
+                    </button>
+                </div>
+
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">👀 Observator</h3>
+                    <p class="text-sm text-gray-600 mb-3">Alle 13 criteria scorecard</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('observer')">
+                        📥 Download Observer Form
+                    </button>
+                </div>
+
+                <div class="border rounded-lg p-4 border-red-500 bg-red-50">
+                    <h3 class="font-semibold text-gray-900 mb-2">📁 Teamleider</h3>
+                    <p class="text-sm text-red-600 mb-3">VERPLICHT verzamelformulier</p>
+                    <button class="btn btn-primary btn-sm" onclick="generateForm('teamlead')">
+                        📥 Download Teamleider Form
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+            <h3 class="text-lg font-semibold text-amber-800 mb-2">⚠️ Inleverinstructies</h3>
+            <ol class="list-decimal list-inside text-amber-700 space-y-1">
+                <li>Print alle formulieren voor jouw rol VÓÓR de sessie</li>
+                <li>Vul formulieren volledig in tijdens jouw ronde</li>
+                <li>Geef formulieren aan teamleider direct na de presentatie</li>
+                <li>Teamleider verzamelt alle documenten in plastic hoes</li>
+                <li>Teamleider levert complete set in bij docent</li>
+            </ol>
+        </div>
+
+        <div class="bg-gray-100 rounded-lg p-4">
+            <h3 class="font-semibold text-gray-900 mb-2">📌 Voor Docenten - Benodigdheden:</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+                <li>✓ Plastic hoezen (6 per sessie van 2 uur)</li>
+                <li>✓ Nietmachine of perforator</li>
+                <li>✓ Verzameldoos voor ingeleverde dossiers</li>
+                <li>✓ Presentielijst voor aftekenen</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Import the PDF generator module -->
+    <script type="module">
+        import { pdfGenerator } from './js/services/pdf-generator.js';
+
+        // Make function available globally
+        window.generateForm = async function(role) {
+            try {
+                console.log(`Generating assessment form for role: ${role}`);
+
+                const result = await pdfGenerator.generateAssessmentForms(role, {
+                    role: role,
+                    date: new Date().toLocaleDateString('nl-NL'),
+                    team: 'Test Team',
+                    round: '1'
+                });
+
+                console.log('Form generated successfully:', result);
+                alert(`Formulier voor ${role} succesvol gegenereerd!`);
+            } catch (error) {
+                console.error('Error generating form:', error);
+                alert(`Fout bij genereren formulier: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

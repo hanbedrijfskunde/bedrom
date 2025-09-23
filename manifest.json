@@ -1,0 +1,97 @@
+{
+  "name": "De Strategische Arena",
+  "short_name": "Arena",
+  "description": "Bereid je voor op je assessment met interactieve tools en materialen",
+  "start_url": "/toetsing.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "nl-NL",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Start Voorbereiding",
+      "short_name": "Start",
+      "description": "Begin met je assessment voorbereiding",
+      "url": "/toetsing.html#preparation",
+      "icons": [{
+        "src": "/images/icon-96.png",
+        "sizes": "96x96"
+      }]
+    },
+    {
+      "name": "Q&A Simulator",
+      "short_name": "Q&A",
+      "description": "Oefen met de Q&A simulator",
+      "url": "/toetsing.html#qa-simulator",
+      "icons": [{
+        "src": "/images/icon-96.png",
+        "sizes": "96x96"
+      }]
+    },
+    {
+      "name": "Timer",
+      "short_name": "Timer",
+      "description": "Start de presentatie timer",
+      "url": "/toetsing.html#timer",
+      "icons": [{
+        "src": "/images/icon-96.png",
+        "sizes": "96x96"
+      }]
+    }
+  ]
+}

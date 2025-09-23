@@ -1,0 +1,24 @@
+{
+  "name": "bedrom",
+  "version": "1.0.0",
+  "description": "Een interactieve webapplicatie voor HBO Business Economics studenten om zich voor te bereiden op de boardroom simulatie assessment.",
+  "main": "advanced-isocurve-backup.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanbedrijfskunde/bedrom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hanbedrijfskunde/bedrom/issues"
+  },
+  "homepage": "https://github.com/hanbedrijfskunde/bedrom#readme"
+}

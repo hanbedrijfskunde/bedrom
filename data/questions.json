@@ -1,0 +1,292 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "economic-analysis",
+      "difficulty": "medium",
+      "role": ["rvb", "all"],
+      "question": "Hoe beïnvloedt de huidige inflatie jullie prijsstrategie?",
+      "suggestedAnswer": "We monitoren de inflatie nauwlettend en passen onze prijzen gefaseerd aan. We balanceren tussen kostendekkendheid en marktacceptatie, waarbij we kritische producten beschermen tegen te sterke prijsstijgingen.",
+      "timeLimit": 60,
+      "keywords": ["inflatie", "prijsstrategie", "kosten", "markt"]
+    },
+    {
+      "id": 2,
+      "category": "market-structure",
+      "difficulty": "hard",
+      "role": ["rvb", "all"],
+      "question": "Wat is jullie strategie om marktmacht te vergroten zonder mededingingsregels te overtreden?",
+      "suggestedAnswer": "We focussen op innovatie en kwaliteitsverbetering om natuurlijke differentiatie te creëren. Door superieure klantwaarde te leveren bouwen we marktpositie op basis van merit, niet marktmanipulatie.",
+      "timeLimit": 90,
+      "keywords": ["marktmacht", "mededinging", "innovatie", "differentiatie"]
+    },
+    {
+      "id": 3,
+      "category": "financial",
+      "difficulty": "medium",
+      "role": ["rvb", "invest"],
+      "question": "Wat is de verwachte ROI van dit project en hoe is deze berekend?",
+      "suggestedAnswer": "We verwachten een ROI van 18% over 5 jaar, gebaseerd op conservatieve groeiscenario's. De berekening includeert alle CAPEX, OPEX, en een risico-opslag van 3%.",
+      "timeLimit": 75,
+      "keywords": ["ROI", "investering", "rendement", "risico"]
+    },
+    {
+      "id": 4,
+      "category": "risk-management",
+      "difficulty": "hard",
+      "role": ["rvc", "all"],
+      "question": "Hoe mitigeren jullie het risico van supply chain verstoringen?",
+      "suggestedAnswer": "We hanteren een multi-supplier strategie met minimaal 3 leveranciers per kritisch component, geografisch gediversifieerd. Daarnaast hebben we strategische voorraden voor 3 maanden continuïteit.",
+      "timeLimit": 90,
+      "keywords": ["supply chain", "risico", "leveranciers", "continuïteit"]
+    },
+    {
+      "id": 5,
+      "category": "esg",
+      "difficulty": "medium",
+      "role": ["toezicht", "all"],
+      "question": "Hoe integreren jullie ESG-factoren in jullie businessmodel?",
+      "suggestedAnswer": "ESG is geïntegreerd in onze strategie via concrete KPI's: 30% CO2-reductie in 2025, 40% vrouwen in management, en governance via onafhankelijke board commissies.",
+      "timeLimit": 60,
+      "keywords": ["ESG", "duurzaamheid", "governance", "KPI"]
+    },
+    {
+      "id": 6,
+      "category": "competitive",
+      "difficulty": "easy",
+      "role": ["rvb", "invest"],
+      "question": "Wie zijn jullie belangrijkste concurrenten en hoe differentiëren jullie je?",
+      "suggestedAnswer": "Onze top-3 concurrenten zijn X, Y, en Z. We differentiëren via superieure technologie, lokale marktkennis, en 24/7 klantenservice wat resulteert in 15% hogere klanttevredenheid.",
+      "timeLimit": 45,
+      "keywords": ["concurrentie", "differentiatie", "USP", "marktpositie"]
+    },
+    {
+      "id": 7,
+      "category": "regulatory",
+      "difficulty": "hard",
+      "role": ["toezicht", "rvc"],
+      "question": "Hoe zorgen jullie voor compliance met de nieuwe EU Digital Services Act?",
+      "suggestedAnswer": "We hebben een dedicated compliance team, geautomatiseerde content monitoring, transparante rapportage processen, en een gebruikersklachten systeem conform DSA vereisten.",
+      "timeLimit": 90,
+      "keywords": ["compliance", "DSA", "regelgeving", "monitoring"]
+    },
+    {
+      "id": 8,
+      "category": "innovation",
+      "difficulty": "medium",
+      "role": ["rvb", "invest"],
+      "question": "Wat is jullie innovatiestrategie voor de komende 3 jaar?",
+      "suggestedAnswer": "We investeren 8% van omzet in R&D, focus op AI-integratie en circulaire economie. Drie innovatie labs wereldwijd met 50+ partnerships met startups en universiteiten.",
+      "timeLimit": 60,
+      "keywords": ["innovatie", "R&D", "AI", "partnerships"]
+    },
+    {
+      "id": 9,
+      "category": "financial",
+      "difficulty": "easy",
+      "role": ["rvb", "invest"],
+      "question": "Wat is jullie break-even point voor dit project?",
+      "suggestedAnswer": "Break-even wordt bereikt in maand 18 bij 10.000 units per maand. Dit is gebaseerd op €50 contributie marge per unit en totale vaste kosten van €500.000.",
+      "timeLimit": 45,
+      "keywords": ["break-even", "marge", "kosten", "units"]
+    },
+    {
+      "id": 10,
+      "category": "market-analysis",
+      "difficulty": "medium",
+      "role": ["rvb", "all"],
+      "question": "Hoe groot is de totale adresseerbare markt (TAM) en jullie verwachte marktaandeel?",
+      "suggestedAnswer": "De TAM is €2,5 miljard in Nederland, groeiend met 7% per jaar. We targeten 12% marktaandeel in jaar 5, via organische groei en strategische acquisities.",
+      "timeLimit": 60,
+      "keywords": ["TAM", "marktaandeel", "groei", "acquisitie"]
+    },
+    {
+      "id": 11,
+      "category": "stakeholder",
+      "difficulty": "hard",
+      "role": ["rvc", "all"],
+      "question": "Hoe balanceren jullie de belangen van verschillende stakeholders bij conflicterende prioriteiten?",
+      "suggestedAnswer": "We hanteren een stakeholder matrix met gewogen prioriteiten. Bij conflicten zoeken we win-win oplossingen via dialoog, met lange-termijn waardecreatie als leidend principe.",
+      "timeLimit": 90,
+      "keywords": ["stakeholders", "belangenafweging", "dialoog", "waardecreatie"]
+    },
+    {
+      "id": 12,
+      "category": "sustainability",
+      "difficulty": "medium",
+      "role": ["toezicht", "all"],
+      "question": "Wat zijn jullie concrete circulaire economie initiatieven?",
+      "suggestedAnswer": "We implementeren product-as-a-service modellen, 80% recycleerbare materialen in 2025, retour-logistiek systeem, en partnerships voor materiaal hergebruik.",
+      "timeLimit": 60,
+      "keywords": ["circulair", "recycling", "duurzaamheid", "hergebruik"]
+    },
+    {
+      "id": 13,
+      "category": "technology",
+      "difficulty": "easy",
+      "role": ["rvb", "invest"],
+      "question": "Hoe gebruiken jullie data analytics voor besluitvorming?",
+      "suggestedAnswer": "We hebben een centraal data platform met real-time dashboards. Predictive analytics voor demand forecasting, customer churn, en operationele optimalisatie.",
+      "timeLimit": 45,
+      "keywords": ["data", "analytics", "predictive", "dashboards"]
+    },
+    {
+      "id": 14,
+      "category": "hr",
+      "difficulty": "medium",
+      "role": ["rvc", "all"],
+      "question": "Hoe gaan jullie om met de huidige krappe arbeidsmarkt?",
+      "suggestedAnswer": "Focus op employer branding, competitieve arbeidsvoorwaarden, hybride werken, ontwikkeltrajecten, en strategische partnerships met onderwijsinstellingen.",
+      "timeLimit": 60,
+      "keywords": ["arbeidsmarkt", "talent", "employer branding", "ontwikkeling"]
+    },
+    {
+      "id": 15,
+      "category": "crisis",
+      "difficulty": "hard",
+      "role": ["rvb", "rvc"],
+      "question": "Wat is jullie crisis management protocol bij een major data breach?",
+      "suggestedAnswer": "Direct crisis team activeren, binnen 72u melden bij AP, forensisch onderzoek, transparante klantcommunicatie, en preventieve maatregelen implementeren.",
+      "timeLimit": 90,
+      "keywords": ["crisis", "data breach", "protocol", "communicatie"]
+    },
+    {
+      "id": 16,
+      "category": "customer",
+      "difficulty": "easy",
+      "role": ["rvb", "all"],
+      "question": "Hoe meten en verbeteren jullie klanttevredenheid?",
+      "suggestedAnswer": "Maandelijkse NPS metingen (score: 45), customer journey mapping, feedback loops, en dedicated customer success teams voor continue verbetering.",
+      "timeLimit": 45,
+      "keywords": ["NPS", "klanttevredenheid", "feedback", "customer journey"]
+    },
+    {
+      "id": 17,
+      "category": "expansion",
+      "difficulty": "medium",
+      "role": ["rvb", "invest"],
+      "question": "Wat is jullie internationale expansiestrategie?",
+      "suggestedAnswer": "Gefaseerde uitrol: eerst DACH-regio via partnerships, daarna Scandinavië met eigen operaties. Focus op markten met vergelijkbare regelgeving en cultuur.",
+      "timeLimit": 60,
+      "keywords": ["expansie", "internationaal", "partnerships", "strategie"]
+    },
+    {
+      "id": 18,
+      "category": "pricing",
+      "difficulty": "medium",
+      "role": ["rvb", "invest"],
+      "question": "Hoe rechtvaardigen jullie premium pricing in een competitieve markt?",
+      "suggestedAnswer": "Premium pricing is gerechtvaardigd door superieure kwaliteit, 5 jaar garantie, 24/7 support, en totale cost of ownership die 20% lager ligt over product levensduur.",
+      "timeLimit": 60,
+      "keywords": ["pricing", "premium", "waarde", "TCO"]
+    },
+    {
+      "id": 19,
+      "category": "partnerships",
+      "difficulty": "easy",
+      "role": ["rvb", "all"],
+      "question": "Welke strategische partnerships hebben jullie en waarom?",
+      "suggestedAnswer": "Technologie partnership met Microsoft voor cloud, distributie via Bol.com voor bereik, en universiteiten voor R&D. Elk partnership adresseert specifieke capability gaps.",
+      "timeLimit": 45,
+      "keywords": ["partnerships", "samenwerking", "strategie", "capabilities"]
+    },
+    {
+      "id": 20,
+      "category": "digital",
+      "difficulty": "hard",
+      "role": ["rvb", "invest"],
+      "question": "Hoe ver zijn jullie met digitale transformatie en wat zijn de grootste uitdagingen?",
+      "suggestedAnswer": "60% digitalisatiegraad bereikt. Cloud migratie compleet, AI pilots lopen. Uitdagingen: legacy systemen integratie, change management, en cybersecurity.",
+      "timeLimit": 90,
+      "keywords": ["digitalisatie", "transformatie", "cloud", "AI"]
+    },
+    {
+      "id": 21,
+      "category": "macro",
+      "difficulty": "medium",
+      "role": ["rvb", "rvc"],
+      "question": "Hoe anticiperen jullie op mogelijke recessie scenario's?",
+      "suggestedAnswer": "Scenario planning met 3 cases. Cost flexibility via 40% variabele kosten, gediversifieerde revenue streams, en liquidity buffer van 6 maanden operationele kosten.",
+      "timeLimit": 75,
+      "keywords": ["recessie", "scenario", "flexibiliteit", "liquiditeit"]
+    },
+    {
+      "id": 22,
+      "category": "governance",
+      "difficulty": "hard",
+      "role": ["rvc", "toezicht"],
+      "question": "Hoe waarborgen jullie onafhankelijk toezicht met huidige board samenstelling?",
+      "suggestedAnswer": "60% onafhankelijke commissarissen, strenge onafhankelijkheidscriteria, jaarlijkse evaluatie, en separate audit/risk/remuneration committees met onafhankelijke voorzitters.",
+      "timeLimit": 90,
+      "keywords": ["governance", "onafhankelijkheid", "toezicht", "commissarissen"]
+    },
+    {
+      "id": 23,
+      "category": "supply",
+      "difficulty": "medium",
+      "role": ["rvb", "all"],
+      "question": "Hoe verduurzamen jullie de supply chain?",
+      "suggestedAnswer": "Supplier code of conduct, audits op sociale en milieu standaarden, local-for-local sourcing waar mogelijk, en collaborative programs voor CO2 reductie.",
+      "timeLimit": 60,
+      "keywords": ["supply chain", "duurzaamheid", "audits", "CO2"]
+    },
+    {
+      "id": 24,
+      "category": "investment",
+      "difficulty": "easy",
+      "role": ["invest", "rvb"],
+      "question": "Wat is de payback periode van deze investering?",
+      "suggestedAnswer": "Payback periode is 2,5 jaar. Initial investment van €5 miljoen, met jaarlijkse cash flows van €2 miljoen vanaf jaar 1.",
+      "timeLimit": 45,
+      "keywords": ["payback", "investering", "cash flow", "terugverdientijd"]
+    },
+    {
+      "id": 25,
+      "category": "competitive",
+      "difficulty": "hard",
+      "role": ["rvb", "invest"],
+      "question": "Hoe beschermen jullie je tegen disruption van nieuwe toetreders?",
+      "suggestedAnswer": "Continue innovatie, sterke klantrelaties met switching costs, schaalvoordelen, en corporate venturing programma om zelf te investeren in disruptieve startups.",
+      "timeLimit": 90,
+      "keywords": ["disruption", "innovatie", "switching costs", "venturing"]
+    }
+  ],
+  "categories": {
+    "economic-analysis": "Economische Analyse",
+    "market-structure": "Marktstructuur",
+    "financial": "Financieel",
+    "risk-management": "Risicobeheer",
+    "esg": "ESG & Duurzaamheid",
+    "competitive": "Concurrentie",
+    "regulatory": "Regelgeving",
+    "innovation": "Innovatie",
+    "stakeholder": "Stakeholder Management",
+    "sustainability": "Duurzaamheid",
+    "technology": "Technologie",
+    "hr": "Human Resources",
+    "crisis": "Crisis Management",
+    "customer": "Klanten",
+    "expansion": "Expansie",
+    "pricing": "Prijsstrategie",
+    "partnerships": "Partnerships",
+    "digital": "Digitalisering",
+    "macro": "Macro-economie",
+    "governance": "Governance",
+    "supply": "Supply Chain",
+    "investment": "Investeringen"
+  },
+  "difficulty_levels": {
+    "easy": {
+      "time_multiplier": 1,
+      "points": 10
+    },
+    "medium": {
+      "time_multiplier": 1.5,
+      "points": 20
+    },
+    "hard": {
+      "time_multiplier": 2,
+      "points": 30
+    }
+  }
+}

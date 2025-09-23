@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rotation Schedule - De Strategische Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn {
+            @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 cursor-pointer inline-flex items-center justify-center;
+        }
+        .btn-primary {
+            @apply bg-blue-600 text-white hover:bg-blue-700;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+        }
+        .tab-button {
+            @apply px-4 py-2 font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 transition-colors;
+        }
+        .tab-button.active {
+            @apply text-blue-600 border-blue-600;
+        }
+        .tab-panel {
+            @apply hidden;
+        }
+        .tab-panel.active {
+            @apply block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto py-8 px-4">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Test Rotation Schedule Component</h1>
+
+        <!-- Test Controls -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Test Controls</h2>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Set User Team:</label>
+                    <select id="team-selector" class="w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="">No team</option>
+                        <option value="A">Team A</option>
+                        <option value="B">Team B</option>
+                        <option value="C">Team C</option>
+                        <option value="D">Team D</option>
+                        <option value="E">Team E</option>
+                        <option value="F">Team F</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Set Current Round:</label>
+                    <select id="round-selector" class="w-full border-gray-300 rounded-md shadow-sm">
+                        <option value="">No active round</option>
+                        <option value="1">Round 1 (Session 1)</option>
+                        <option value="2">Round 2 (Session 1)</option>
+                        <option value="3">Round 3 (Session 1)</option>
+                        <option value="4">Round 4 (Session 2)</option>
+                        <option value="5">Round 5 (Session 2)</option>
+                        <option value="6">Round 6 (Session 2)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <button class="btn btn-primary" onclick="applySettings()">Apply Settings</button>
+                <button class="btn btn-secondary" onclick="testTeamRoles()">Test Team Roles</button>
+                <button class="btn btn-secondary" onclick="testObservers()">Test Observers</button>
+                <button class="btn btn-secondary" onclick="showCurrentRoles()">Show Current Roles</button>
+            </div>
+        </div>
+
+        <!-- Test Results -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Test Results</h2>
+            <div id="test-results" class="space-y-2 font-mono text-sm">
+                <p class="text-gray-500">No tests run yet</p>
+            </div>
+        </div>
+
+        <!-- Schedule Display -->
+        <div id="schedule-container" class="bg-white rounded-lg shadow-lg p-6">
+            <!-- Schedule will be rendered here -->
+        </div>
+    </div>
+
+    <!-- Import modules -->
+    <script type="module">
+        import stateManager from './js/core/state-manager.js';
+        import rotationSchedule from './js/components/rotation-schedule.js';
+
+        // Make functions available globally for buttons
+        window.applySettings = function() {
+            const team = document.getElementById('team-selector').value;
+            const round = document.getElementById('round-selector').value;
+
+            if (team) {
+                stateManager.set('team', { id: team });
+                rotationSchedule.userTeam = team;
+            }
+
+            if (round) {
+                const session = round <= 3 ? 1 : 2;
+                rotationSchedule.setCurrentRound(parseInt(round), session);
+            }
+
+            renderSchedule();
+            addResult(`Settings applied - Team: ${team || 'none'}, Round: ${round || 'none'}`);
+        };
+
+        window.testTeamRoles = function() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '<h3 class="font-bold mb-2">Team Roles Test:</h3>';
+
+            // Test each team in each round
+            const teams = ['A', 'B', 'C', 'D', 'E', 'F'];
+            const testResults = [];
+
+            teams.forEach(team => {
+                const roles = [];
+                for (let round = 1; round <= 6; round++) {
+                    const role = rotationSchedule.getTeamRoles(team, round);
+                    if (role) {
+                        roles.push(`R${round}: ${role.role}`);
+                    }
+                }
+                testResults.push(`Team ${team}: ${roles.join(', ')}`);
+            });
+
+            results.innerHTML += testResults.map(r => `<div class="text-green-600">✓ ${r}</div>`).join('');
+        };
+
+        window.testObservers = function() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '<h3 class="font-bold mb-2">Observers Test:</h3>';
+
+            for (let round = 1; round <= 6; round++) {
+                const observers = rotationSchedule.getObservers(round);
+                const result = `Round ${round}: Teams ${observers.join(' & ')} observe`;
+                results.innerHTML += `<div class="text-blue-600">✓ ${result}</div>`;
+            }
+        };
+
+        window.showCurrentRoles = function() {
+            if (!rotationSchedule.currentRound) {
+                addResult('No current round set');
+                return;
+            }
+
+            const roles = rotationSchedule.getCurrentRoles();
+            const results = document.getElementById('test-results');
+            results.innerHTML = `<h3 class="font-bold mb-2">Current Roles (Round ${rotationSchedule.currentRound}):</h3>`;
+
+            results.innerHTML += `
+                <div class="text-green-600">✓ RvB: Team ${roles.rvb}</div>
+                <div class="text-green-600">✓ RvC: Team ${roles.rvc}</div>
+                <div class="text-green-600">✓ Investeerders: Team ${roles.investeerders}</div>
+                <div class="text-green-600">✓ Toezichthouder: Team ${roles.toezichthouder}</div>
+                <div class="text-green-600">✓ Observers: Teams ${roles.observers.join(' & ')}</div>
+            `;
+        };
+
+        function addResult(message) {
+            const results = document.getElementById('test-results');
+            if (results.querySelector('.text-gray-500')) {
+                results.innerHTML = '';
+            }
+            results.innerHTML += `<div class="text-gray-700">• ${message}</div>`;
+        }
+
+        function renderSchedule() {
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = rotationSchedule.render();
+            rotationSchedule.attachEventListeners();
+        }
+
+        // Initial render
+        renderSchedule();
+
+        // Test data verification
+        console.log('=== Rotation Schedule Test Suite ===');
+
+        // Test 1: Verify schedule structure
+        console.assert(
+            rotationSchedule.schedule.session1.rounds.length === 3,
+            'Session 1 should have 3 rounds'
+        );
+        console.assert(
+            rotationSchedule.schedule.session2.rounds.length === 3,
+            'Session 2 should have 3 rounds'
+        );
+        console.log('✓ Schedule structure verified');
+
+        // Test 2: Verify team rotations
+        const teamA_round1 = rotationSchedule.getTeamRoles('A', 1);
+        console.assert(
+            teamA_round1.role === 'RvB',
+            'Team A should be RvB in round 1'
+        );
+
+        const teamB_round2 = rotationSchedule.getTeamRoles('B', 2);
+        console.assert(
+            teamB_round2.role === 'RvB',
+            'Team B should be RvB in round 2'
+        );
+        console.log('✓ Team rotations verified');
+
+        // Test 3: Verify observers
+        const round1Observers = rotationSchedule.getObservers(1);
+        console.assert(
+            JSON.stringify(round1Observers) === JSON.stringify(['E', 'F']),
+            'Round 1 observers should be teams E and F'
+        );
+        console.log('✓ Observer assignments verified');
+
+        // Test 4: Verify complete rotation
+        const teams = ['A', 'B', 'C', 'D', 'E', 'F'];
+        teams.forEach(team => {
+            const schedule = rotationSchedule.getTeamSchedule(team);
+            const roleCount = {
+                'RvB': 0,
+                'RvC': 0,
+                'Investeerders': 0,
+                'Toezichthouder': 0,
+                'Observer': 0
+            };
+
+            schedule.forEach(item => {
+                roleCount[item.role]++;
+            });
+
+            console.assert(
+                roleCount['RvB'] === 1,
+                `Team ${team} should present exactly once`
+            );
+            console.assert(
+                roleCount['Observer'] === 2,
+                `Team ${team} should observe exactly twice`
+            );
+        });
+        console.log('✓ Complete rotation cycle verified');
+
+        console.log('=== All tests passed ===');
+    </script>
+</body>
+</html>

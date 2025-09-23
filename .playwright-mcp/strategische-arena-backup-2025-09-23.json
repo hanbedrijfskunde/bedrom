@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "timestamp": "2025-09-23T08:27:56.854Z",
+  "data": {
+    "user": {
+      "name": "Jan de Tester",
+      "studentNumber": "12345678",
+      "email": "jan.tester@student.nl",
+      "team": "Test Team Alpha",
+      "role": "rvb",
+      "subRole": "CEO"
+    },
+    "progress": {
+      "overall": 0,
+      "modules": {
+        "roleSelection": true,
+        "caseAnalysis": false,
+        "preparationMaterials": false,
+        "teamCoordination": true,
+        "practiceSession": false,
+        "qaSimulator": false,
+        "finalChecklist": false
+      },
+      "lastActivity": "2025-09-23T08:27:09.108Z",
+      "lastMilestone": 25
+    },
+    "timer": {
+      "totalTime": 2400,
+      "remainingTime": 2400,
+      "currentPhase": 0,
+      "isPaused": true,
+      "phases": [
+        {
+          "name": "Introductie",
+          "duration": 120
+        },
+        {
+          "name": "Presentatie RvB",
+          "duration": 480
+        },
+        {
+          "name": "Q&A Sessie",
+          "duration": 600
+        },
+        {
+          "name": "Discussie",
+          "duration": 480
+        },
+        {
+          "name": "Stemming",
+          "duration": 300
+        },
+        {
+          "name": "Reflectie",
+          "duration": 300
+        },
+        {
+          "name": "Afsluiting",
+          "duration": 120
+        }
+      ]
+    },
+    "team": {
+      "members": [
+        {
+          "name": "Jan de Tester",
+          "studentNumber": "12345678",
+          "email": "jan.tester@student.nl",
+          "role": "rvb",
+          "progress": 0,
+          "lastActivity": "2025-09-23T08:26:54.450Z",
+          "isLeader": true
+        }
+      ],
+      "inviteCode": "WOAO5O",
+      "messages": [],
+      "name": "Test Team Alpha",
+      "createdAt": "2025-09-23T08:26:54.450Z"
+    },
+    "practice": {
+      "questionsAnswered": 0,
+      "correctAnswers": 0,
+      "sessionHistory": []
+    },
+    "settings": {
+      "theme": "light",
+      "language": "nl",
+      "notifications": true,
+      "autoSave": true
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Reset Functie - De Strategische Arena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .test-passed { background-color: #10b981; }
+        .test-failed { background-color: #ef4444; }
+        .test-pending { background-color: #f59e0b; }
+    </style>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Test Reset Functie</h1>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Test Resultaten</h2>
+            <div id="test-results" class="space-y-2"></div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Manual Test Steps</h2>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>Open de hoofdpagina: <a href="/toetsing.html" target="_blank" class="text-blue-600 underline">toetsing.html</a></li>
+                <li>Klik op de Settings knop (⚙️) linksonder</li>
+                <li>Controleer of de Settings modal verschijnt</li>
+                <li>Controleer of de "Reset Geheugen" knop zichtbaar is</li>
+                <li>Test de reset functionaliteit</li>
+            </ol>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Automated Tests</h2>
+            <button id="run-tests" class="btn btn-primary bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Run Automated Tests
+            </button>
+            <div id="test-output" class="mt-4 p-4 bg-gray-100 rounded font-mono text-sm hidden"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        const testResults = document.getElementById('test-results');
+        const testOutput = document.getElementById('test-output');
+        const runTestsBtn = document.getElementById('run-tests');
+
+        function addTestResult(name, passed, details = '') {
+            const div = document.createElement('div');
+            div.className = `p-3 rounded text-white ${passed ? 'test-passed' : 'test-failed'}`;
+            div.innerHTML = `
+                <div class="font-semibold">${passed ? '✅' : '❌'} ${name}</div>
+                ${details ? `<div class="text-sm mt-1">${details}</div>` : ''}
+            `;
+            testResults.appendChild(div);
+        }
+
+        function log(message) {
+            testOutput.classList.remove('hidden');
+            testOutput.textContent += message + '\n';
+        }
+
+        async function runTests() {
+            testResults.innerHTML = '';
+            testOutput.textContent = '';
+            log('Starting automated tests...\n');
+
+            // Test 1: Check if toetsing.html loads
+            try {
+                log('Test 1: Loading toetsing.html...');
+                const response = await fetch('/toetsing.html');
+                const html = await response.text();
+                addTestResult('Page loads successfully', response.ok, `Status: ${response.status}`);
+
+                // Test 2: Check if settings button exists
+                log('Test 2: Checking for settings button...');
+                const hasSettingsButton = html.includes('settings-button') || html.includes('⚙️');
+                addTestResult('Settings button exists in HTML', hasSettingsButton);
+
+                // Test 3: Check if settings.js is imported
+                log('Test 3: Checking settings.js import...');
+                const hasSettingsImport = html.includes('settings.js') || html.includes("import('../components/settings.js')");
+                addTestResult('Settings component imported', hasSettingsImport);
+
+                // Test 4: Check localStorage functionality
+                log('Test 4: Testing localStorage...');
+                const testKey = 'test-reset-function';
+                localStorage.setItem(testKey, 'test-value');
+                const retrieved = localStorage.getItem(testKey);
+                const localStorageWorks = retrieved === 'test-value';
+                localStorage.removeItem(testKey);
+                addTestResult('LocalStorage works', localStorageWorks);
+
+                // Test 5: Check if settings.js exists
+                log('Test 5: Checking settings.js file...');
+                const settingsResponse = await fetch('/js/components/settings.js');
+                const settingsExists = settingsResponse.ok;
+                addTestResult('settings.js file exists', settingsExists, `Status: ${settingsResponse.status}`);
+
+                if (settingsExists) {
+                    const settingsCode = await settingsResponse.text();
+
+                    // Test 6: Check reset function
+                    log('Test 6: Checking reset function...');
+                    const hasResetFunction = settingsCode.includes('handleReset') && settingsCode.includes('localStorage.clear()');
+                    addTestResult('Reset function implemented', hasResetFunction);
+
+                    // Test 7: Check confirmation dialogs
+                    log('Test 7: Checking confirmation dialogs...');
+                    const hasConfirmations = settingsCode.includes('confirm(') && settingsCode.includes('WAARSCHUWING');
+                    addTestResult('Confirmation dialogs present', hasConfirmations);
+
+                    // Test 8: Check export/import functionality
+                    log('Test 8: Checking export/import...');
+                    const hasExportImport = settingsCode.includes('exportProgress') && settingsCode.includes('importProgress');
+                    addTestResult('Export/Import functionality present', hasExportImport);
+                }
+
+                // Test 9: Simulate state management
+                log('Test 9: Testing state management simulation...');
+                const testState = {
+                    user: { name: 'Test User', role: 'rvb' },
+                    progress: { overall: 50 },
+                    timestamp: Date.now()
+                };
+                localStorage.setItem('strategische-arena-state', JSON.stringify(testState));
+                const savedState = JSON.parse(localStorage.getItem('strategische-arena-state'));
+                const stateManagementWorks = savedState && savedState.user.name === 'Test User';
+                addTestResult('State management simulation works', stateManagementWorks);
+
+                // Clean up test data
+                localStorage.removeItem('strategische-arena-state');
+
+                log('\n✅ All automated tests completed!');
+
+            } catch (error) {
+                log(`\n❌ Error during tests: ${error.message}`);
+                addTestResult('Test execution', false, error.message);
+            }
+        }
+
+        runTestsBtn.addEventListener('click', runTests);
+
+        // Auto-run tests on page load
+        setTimeout(runTests, 1000);
+    </script>
+</body>
+</html>

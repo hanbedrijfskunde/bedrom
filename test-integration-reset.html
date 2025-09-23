@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Test - Reset Button</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Integration Test - Reset Button</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Test Frame -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Test Application</h2>
+                <iframe id="test-frame" src="/toetsing.html" class="w-full h-96 border rounded"></iframe>
+            </div>
+
+            <!-- Test Controls -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Test Controls</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <button id="test-visibility" class="btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+                            Test 1: Check Settings Button Visibility
+                        </button>
+                        <div id="result-visibility" class="mt-2 text-sm"></div>
+                    </div>
+
+                    <div>
+                        <button id="test-modal" class="btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+                            Test 2: Open Settings Modal
+                        </button>
+                        <div id="result-modal" class="mt-2 text-sm"></div>
+                    </div>
+
+                    <div>
+                        <button id="test-reset-button" class="btn bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+                            Test 3: Check Reset Button Exists
+                        </button>
+                        <div id="result-reset-button" class="mt-2 text-sm"></div>
+                    </div>
+
+                    <div>
+                        <button id="test-state" class="btn bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">
+                            Test 4: Add Test Data to State
+                        </button>
+                        <div id="result-state" class="mt-2 text-sm"></div>
+                    </div>
+
+                    <div>
+                        <button id="test-reset-function" class="btn bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 w-full">
+                            Test 5: Test Reset Function (Manual Confirm)
+                        </button>
+                        <div id="result-reset-function" class="mt-2 text-sm"></div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-gray-100 rounded">
+                    <h3 class="font-semibold mb-2">Current State:</h3>
+                    <pre id="current-state" class="text-xs overflow-x-auto"></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Test Results Summary</h2>
+            <div id="test-summary" class="space-y-2"></div>
+        </div>
+    </div>
+
+    <script>
+        const frame = document.getElementById('test-frame');
+        let frameWindow, frameDocument;
+
+        // Wait for iframe to load
+        frame.addEventListener('load', () => {
+            frameWindow = frame.contentWindow;
+            frameDocument = frame.contentDocument;
+            updateStateDisplay();
+            console.log('✅ iframe loaded successfully');
+        });
+
+        function updateStateDisplay() {
+            const state = localStorage.getItem('strategische-arena-state');
+            document.getElementById('current-state').textContent = state ? JSON.stringify(JSON.parse(state), null, 2) : 'No state found';
+        }
+
+        function showResult(elementId, success, message) {
+            const element = document.getElementById(elementId);
+            element.className = `mt-2 text-sm p-2 rounded ${success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+            element.textContent = `${success ? '✅' : '❌'} ${message}`;
+
+            // Update summary
+            const summary = document.getElementById('test-summary');
+            const testName = elementId.replace('result-', '');
+            const existing = document.getElementById(`summary-${testName}`);
+            if (existing) {
+                existing.remove();
+            }
+            const div = document.createElement('div');
+            div.id = `summary-${testName}`;
+            div.className = `p-2 rounded ${success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+            div.textContent = `${success ? '✅' : '❌'} ${testName.replace('-', ' ').toUpperCase()}: ${message}`;
+            summary.appendChild(div);
+        }
+
+        // Test 1: Check Settings Button Visibility
+        document.getElementById('test-visibility').addEventListener('click', () => {
+            try {
+                const settingsButton = frameDocument.querySelector('#settings-button, [id*="settings"], button[title*="Settings"], button[title*="Instellingen"]');
+                if (settingsButton) {
+                    const isVisible = settingsButton.offsetParent !== null;
+                    showResult('result-visibility', isVisible, isVisible ? 'Settings button is visible' : 'Settings button found but not visible');
+                    // Highlight the button
+                    settingsButton.style.border = '3px solid red';
+                    setTimeout(() => {
+                        settingsButton.style.border = '';
+                    }, 2000);
+                } else {
+                    showResult('result-visibility', false, 'Settings button not found in DOM');
+                }
+            } catch (error) {
+                showResult('result-visibility', false, `Error: ${error.message}`);
+            }
+        });
+
+        // Test 2: Open Settings Modal
+        document.getElementById('test-modal').addEventListener('click', () => {
+            try {
+                const settingsButton = frameDocument.querySelector('#settings-button, [id*="settings"], button[title*="Settings"], button[title*="Instellingen"]');
+                if (settingsButton) {
+                    settingsButton.click();
+                    setTimeout(() => {
+                        const modal = frameDocument.querySelector('.modal, [class*="modal"], #settings-modal, [id*="settings-modal"]');
+                        if (modal) {
+                            showResult('result-modal', true, 'Settings modal opened successfully');
+                        } else {
+                            showResult('result-modal', false, 'Modal not found after clicking settings button');
+                        }
+                    }, 500);
+                } else {
+                    showResult('result-modal', false, 'Settings button not found');
+                }
+            } catch (error) {
+                showResult('result-modal', false, `Error: ${error.message}`);
+            }
+        });
+
+        // Test 3: Check Reset Button Exists
+        document.getElementById('test-reset-button').addEventListener('click', () => {
+            try {
+                // First open the modal
+                const settingsButton = frameDocument.querySelector('#settings-button, [id*="settings"], button[title*="Settings"], button[title*="Instellingen"]');
+                if (settingsButton) {
+                    settingsButton.click();
+                    setTimeout(() => {
+                        const resetButton = frameDocument.querySelector('button[class*="danger"], button:contains("Reset"), [onclick*="reset"], button[title*="Reset"]');
+                        const hasResetText = Array.from(frameDocument.querySelectorAll('button')).find(btn =>
+                            btn.textContent.includes('Reset') || btn.textContent.includes('Geheugen')
+                        );
+
+                        if (resetButton || hasResetText) {
+                            showResult('result-reset-button', true, 'Reset button found in modal');
+                            if (hasResetText) {
+                                hasResetText.style.border = '3px solid green';
+                                setTimeout(() => {
+                                    hasResetText.style.border = '';
+                                }, 2000);
+                            }
+                        } else {
+                            showResult('result-reset-button', false, 'Reset button not found in modal');
+                        }
+                    }, 500);
+                } else {
+                    showResult('result-reset-button', false, 'Settings button not found');
+                }
+            } catch (error) {
+                showResult('result-reset-button', false, `Error: ${error.message}`);
+            }
+        });
+
+        // Test 4: Add Test Data
+        document.getElementById('test-state').addEventListener('click', () => {
+            try {
+                const testState = {
+                    user: {
+                        name: 'Test User',
+                        role: 'rvb',
+                        subRole: 'CEO'
+                    },
+                    progress: {
+                        overall: 85,
+                        modules: {
+                            roleSelection: true,
+                            materials: true,
+                            economicAnalysis: true,
+                            marketStructure: false,
+                            esgFactors: false,
+                            qaSimulator: true
+                        },
+                        lastActivity: new Date().toISOString()
+                    },
+                    team: {
+                        name: 'Test Team',
+                        members: ['Alice', 'Bob', 'Charlie']
+                    }
+                };
+
+                localStorage.setItem('strategische-arena-state', JSON.stringify(testState));
+                updateStateDisplay();
+                showResult('result-state', true, 'Test data added to state (85% progress)');
+
+                // Reload iframe to show new state
+                frame.src = frame.src;
+            } catch (error) {
+                showResult('result-state', false, `Error: ${error.message}`);
+            }
+        });
+
+        // Test 5: Test Reset Function
+        document.getElementById('test-reset-function').addEventListener('click', () => {
+            showResult('result-reset-function', true, 'Please manually click Reset in the modal and confirm the dialog. Then check if state is cleared.');
+            alert('Please:\n1. Click the Settings button in the iframe\n2. Click "Reset Geheugen"\n3. Confirm the dialog(s)\n4. Check if the state is cleared below');
+
+            // Monitor for state changes
+            setInterval(updateStateDisplay, 1000);
+        });
+
+        // Auto-update state display
+        setInterval(updateStateDisplay, 5000);
+    </script>
+</body>
+</html>

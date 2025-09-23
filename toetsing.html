@@ -11,6 +11,19 @@
     <!-- Page Title -->
     <title>De Strategische Arena - Assessment Voorbereiding</title>
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Arena">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -18,6 +31,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/rotation-schedule.css">
 
     <!-- Tailwind Configuration -->
     <script>
@@ -92,6 +112,9 @@
                     <a href="#voorbereiding" class="text-gray-700 hover:text-primary-600 transition-colors">
                         Voorbereiding
                     </a>
+                    <a href="#schema" class="text-gray-700 hover:text-primary-600 transition-colors">
+                        Schema
+                    </a>
                     <a href="#rollen" class="text-gray-700 hover:text-primary-600 transition-colors">
                         Rollen
                     </a>
@@ -115,60 +138,35 @@
 
     <!-- Main Content -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Hero Section -->
-        <section class="text-center py-12 md:py-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Bereid je voor op De Strategische Arena
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Een authentieke boardroom simulatie waar je als Raad van Bestuur je economische analyse presenteert en verdedigt tegenover kritische stakeholders.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors">
-                    Start Voorbereiding
-                </button>
-                <button class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                    Bekijk Handleiding
-                </button>
-            </div>
-        </section>
-
-        <!-- Content Sections -->
-        <section id="rollen" class="py-12">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Kies je Rol</h3>
-                <p class="text-gray-600">Selecteer de rol die je tijdens de assessment zult vervullen</p>
-            </div>
-
-            <!-- Role Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Role Card Example -->
-                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 cursor-pointer">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M12 3h.01M12 7h.01M12 11h.01M12 15h.01M8 3h.01M8 7h.01M8 11h.01M8 15h.01M16 3h.01M16 7h.01M16 11h.01M16 15h.01"></path>
-                            </svg>
-                        </div>
-                        <h4 class="ml-3 text-lg font-semibold text-gray-900">Raad van Bestuur</h4>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        Presenteer en verdedig je economische analyse als CEO, CFO, COO of CSO.
-                    </p>
+        <!-- View Container - Dynamic content loaded here -->
+        <div id="view-container">
+            <!-- Hero Section (Default Home View) -->
+            <section class="text-center py-12 md:py-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Bereid je voor op De Strategische Arena
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Een authentieke boardroom simulatie waar je als Raad van Bestuur je economische analyse presenteert en verdedigt tegenover kritische stakeholders.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn btn-primary">
+                        Start Voorbereiding
+                    </button>
+                    <button class="btn btn-secondary">
+                        Bekijk Handleiding
+                    </button>
                 </div>
+            </section>
+        </div>
 
-                <!-- More role cards would go here -->
-            </div>
-        </section>
-
-        <!-- Progress Section -->
+        <!-- Progress Section (Always visible) -->
         <section class="py-12">
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Je Voortgang</h3>
-                <div class="w-full bg-gray-200 rounded-full h-3">
-                    <div class="bg-primary-600 h-3 rounded-full" style="width: 0%"></div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
-                <p class="mt-2 text-sm text-gray-600">0% voltooid</p>
+                <p class="mt-2 text-sm text-gray-600 progress-text">0% voltooid</p>
             </div>
         </section>
     </main>
@@ -184,6 +182,14 @@
         </div>
     </footer>
 
+    <!-- Settings Button -->
+    <button id="settings-button" class="fixed bottom-4 left-4 z-50 bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full shadow-lg transition-all" title="Settings / Instellingen" aria-label="Open settings">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+    </button>
+
     <!-- Mobile Navigation (hidden by default) -->
     <div class="hidden fixed inset-0 z-50 md:hidden" id="mobile-menu">
         <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
@@ -198,6 +204,7 @@
             </div>
             <div class="flex flex-col space-y-4">
                 <a href="#voorbereiding" class="text-gray-700 hover:text-primary-600 text-lg">Voorbereiding</a>
+                <a href="#schema" class="text-gray-700 hover:text-primary-600 text-lg">Schema</a>
                 <a href="#rollen" class="text-gray-700 hover:text-primary-600 text-lg">Rollen</a>
                 <a href="#team" class="text-gray-700 hover:text-primary-600 text-lg">Team</a>
                 <a href="#materialen" class="text-gray-700 hover:text-primary-600 text-lg">Materialen</a>
@@ -205,31 +212,13 @@
         </nav>
     </div>
 
-    <!-- Placeholder JavaScript -->
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuButton = document.querySelector('button[aria-label="Open menu"]');
-            const closeButton = document.querySelector('button[aria-label="Close menu"]');
-            const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Application JavaScript -->
+    <script type="module">
+        // Import main app module
+        import app from './js/core/app.js';
 
-            if (menuButton) {
-                menuButton.addEventListener('click', function() {
-                    mobileMenu.classList.remove('hidden');
-                    menuButton.setAttribute('aria-expanded', 'true');
-                });
-            }
-
-            if (closeButton) {
-                closeButton.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                    menuButton.setAttribute('aria-expanded', 'false');
-                });
-            }
-        });
-
-        // Test console log to verify JavaScript is working
-        console.log('De Strategische Arena - Assessment Voorbereiding loaded successfully');
+        // App will auto-initialize when DOM is ready
+        console.log('De Strategische Arena - Modules loading...');
     </script>
 </body>
 </html>
