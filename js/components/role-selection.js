@@ -27,7 +27,7 @@ class RoleSelection {
                 description: 'Toets de plannen op haalbaarheid, risico\'s en lange termijn visie.',
                 icon: '👔',
                 color: 'purple',
-                subRoles: ['Voorzitter RvC', 'Lid RvC - Finance', 'Lid RvC - Strategie', 'Lid RvC - HR'],
+                subRoles: ['Strategie & Innovatie', 'ESG & Duurzaamheid', 'Digital & Technology', 'Audit Committee', 'Remuneratie', 'Governance'],
                 tips: [
                     'Focus op strategische risico\'s en kansen',
                     'Stel kritische maar constructieve vragen',
@@ -41,7 +41,7 @@ class RoleSelection {
                 description: 'Beoordeel de business case op rendement, risico en investeringspotentieel.',
                 icon: '💼',
                 color: 'green',
-                subRoles: ['Lead Investor', 'Financial Analyst', 'Risk Analyst', 'Market Expert'],
+                subRoles: ['Pensioenfonds', 'Vreemd Vermogen', 'Value Investor', 'Hedge Fund', 'Activist Investor'],
                 tips: [
                     'Bereken ROI en payback periode',
                     'Analyseer marktpotentieel en concurrentie',
@@ -55,7 +55,7 @@ class RoleSelection {
                 description: 'Toets op regelgeving, maatschappelijke impact en duurzaamheid.',
                 icon: '⚖️',
                 color: 'orange',
-                subRoles: ['DNB Vertegenwoordiger', 'AFM Vertegenwoordiger', 'ACM Expert', 'Compliance Officer'],
+                subRoles: ['AFM', 'ACM', 'AP', 'FNV', 'Milieudefensie', 'RVO/EIC'],
                 tips: [
                     'Ken relevante wet- en regelgeving',
                     'Focus op ESG factoren',

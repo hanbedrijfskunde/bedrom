@@ -165,12 +165,12 @@ class StrategischeArenaApp {
                     content = this.getPreparationView();
                     break;
                 case 'roles':
-                    const RoleSelection = await this.getModule('role-selection');
-                    content = RoleSelection ? RoleSelection.render() : this.getErrorView('Module niet gevonden');
+                    const RoleFunctionSelector = await this.getModule('role-function-selector');
+                    content = RoleFunctionSelector ? RoleFunctionSelector.render() : this.getErrorView('Module niet gevonden');
                     break;
                 case 'team':
-                    const TeamCoordination = await this.getModule('team-coordination');
-                    content = TeamCoordination ? TeamCoordination.render() : this.getErrorView('Module niet gevonden');
+                    const TeamManager = await this.getModule('team-manager');
+                    content = TeamManager ? TeamManager.render() : this.getErrorView('Module niet gevonden');
                     break;
                 case 'timer':
                     const Timer = await this.getModule('timer');
@@ -208,9 +208,12 @@ class StrategischeArenaApp {
     async loadComponents() {
         const components = [
             'role-selection',
+            'role-function-selector',
             'progress-tracker',
             'timer',
             'team-coordination',
+            'team-manager',
+            'invitation-manager',
             'qa-simulator'
         ];
 
@@ -339,13 +342,13 @@ class StrategischeArenaApp {
         // Initialize based on route
         switch(route) {
             case 'roles':
-                this.initializeRoleSelection();
+                this.initializeRoleFunctionSelector();
                 break;
             case 'timer':
                 this.initializeTimer();
                 break;
             case 'team':
-                this.initializeTeamCoordination();
+                this.initializeTeamManager();
                 break;
             case 'schedule':
                 this.initializeRotationSchedule();
@@ -357,12 +360,23 @@ class StrategischeArenaApp {
     }
 
     /**
-     * Initialize role selection component
+     * Initialize role selection component (legacy)
      */
     async initializeRoleSelection() {
         const RoleSelection = await this.getModule('role-selection');
         if (RoleSelection) {
             RoleSelection.init();
+        }
+    }
+
+    /**
+     * Initialize role function selector component
+     */
+    async initializeRoleFunctionSelector() {
+        const RoleFunctionSelector = await this.getModule('role-function-selector');
+        if (RoleFunctionSelector) {
+            await RoleFunctionSelector.init();
+            RoleFunctionSelector.attachEventListeners();
         }
     }
 
@@ -377,12 +391,22 @@ class StrategischeArenaApp {
     }
 
     /**
-     * Initialize team coordination
+     * Initialize team coordination (legacy)
      */
     async initializeTeamCoordination() {
         const TeamCoordination = await this.getModule('team-coordination');
         if (TeamCoordination) {
             TeamCoordination.init();
+        }
+    }
+
+    /**
+     * Initialize team manager
+     */
+    async initializeTeamManager() {
+        const TeamManager = await this.getModule('team-manager');
+        if (TeamManager) {
+            await TeamManager.init();
         }
     }
 

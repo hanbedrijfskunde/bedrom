@@ -296,12 +296,6 @@ class RotationSchedule {
                     <button class="tab-button active" data-tab="overview">
                         Volledig Schema
                     </button>
-                    <button class="tab-button" data-tab="session1">
-                        Sessie 1 (Week 6)
-                    </button>
-                    <button class="tab-button" data-tab="session2">
-                        Sessie 2 (Week 7)
-                    </button>
                     ${this.userTeam ? `
                         <button class="tab-button" data-tab="myteam">
                             Mijn Team
@@ -314,16 +308,6 @@ class RotationSchedule {
                     <!-- Overview Tab -->
                     <div id="overview-tab" class="tab-panel active">
                         ${this.renderOverviewTable()}
-                    </div>
-
-                    <!-- Session 1 Tab -->
-                    <div id="session1-tab" class="tab-panel">
-                        ${this.renderSessionTable('session1')}
-                    </div>
-
-                    <!-- Session 2 Tab -->
-                    <div id="session2-tab" class="tab-panel">
-                        ${this.renderSessionTable('session2')}
                     </div>
 
                     <!-- My Team Tab -->
