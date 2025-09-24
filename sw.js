@@ -3,8 +3,8 @@
  * Enables offline functionality and caching
  */
 
-const CACHE_NAME = 'strategische-arena-v9';
-const RUNTIME_CACHE = 'runtime-cache-v9';
+const CACHE_NAME = 'strategische-arena-v10';
+const RUNTIME_CACHE = 'runtime-cache-v10';
 
 // Assets to cache on install
 const STATIC_ASSETS = [

@@ -60,6 +60,7 @@ js/components/role-function-selector.js
 js/components/team-manager.js
 js/services/team-api.js
 js/services/websocket-client.js
+js/services/pdf-generator.js
 middleware/
 
 # Issue tracking (local)

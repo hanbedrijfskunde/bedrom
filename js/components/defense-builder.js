@@ -50,8 +50,14 @@ class DefenseBuilder {
 
     async loadVragenbank() {
         try {
-            console.log('Fetching vragenbank from /course-docs/toetsing/toetsing-vragenbank-uitgebreid.json...');
-            const response = await fetch('/course-docs/toetsing/toetsing-vragenbank-uitgebreid.json');
+            // Use relative path that works both locally and on GitHub Pages
+            const basePath = window.location.pathname.includes('toetsing.html')
+                ? window.location.pathname.replace('toetsing.html', '')
+                : '/';
+            const vraagbankPath = `${basePath}course-docs/toetsing/toetsing-vragenbank-uitgebreid.json`;
+
+            console.log('Fetching vragenbank from', vraagbankPath);
+            const response = await fetch(vraagbankPath);
 
             if (!response.ok) {
                 throw new Error(`Failed to load vragenbank: ${response.status} ${response.statusText}`);
