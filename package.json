@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/hanbedrijfskunde/bedrom/issues"
   },
-  "homepage": "https://github.com/hanbedrijfskunde/bedrom#readme"
+  "homepage": "https://github.com/hanbedrijfskunde/bedrom#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.1"
+  }
 }

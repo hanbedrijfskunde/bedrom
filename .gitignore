@@ -45,3 +45,67 @@ tmp/
 temp/
 *.tmp
 *.temp
+/tmp/
+
+# Test and development files
+*.test.js
+playwright.config.js
+tests/README.md
+.playwright-mcp/
+
+# Work in progress / Not working yet
+js/components/docent-overview.js
+js/components/invitation-manager.js
+js/components/role-function-selector.js
+js/components/team-manager.js
+js/services/team-api.js
+js/services/websocket-client.js
+middleware/
+
+# Issue tracking (local)
+issues/*.md
+
+# Claude AI specific
+.claude/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Backup files
+*.backup
+*-backup-*
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# PDF files (except specific ones)
+*.pdf
+!course-docs/toetsing/assessment-formulieren-observer-voorbeeld.pdf
+!course-docs/toetsing/baserow-api-docs.pdf
+
+# Enhanced/temporary JSON files
+course-docs/toetsing/toetsing-vragenbank-backup-*.json
+course-docs/toetsing/toetsing-vragenbank-enhanced.json
+course-docs/toetsing/vragenbank-uitbreiding-voorbeeld.json
+
+# Python scripts (development only)
+course-docs/toetsing/*.py
+
+# Documentation drafts
+course-docs/toetsing/TDD-*.md
+course-docs/toetsing/implementation-tasks-*.md
+course-docs/toetsing/baserow-*.md
+course-docs/toetsing/destep-*.md
+course-docs/toetsing/toets-flow.md
+
+# Team management (not implemented)
+course-docs/toetsing/PRD-team-management-system.md
+course-docs/toetsing/TDD-team-management-system.md
+
+# Server logs
+server.log
+*.log
