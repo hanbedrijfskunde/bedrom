@@ -975,7 +975,7 @@
 					// Slight upward curve for MPC
 					const getPrivateCost = (quantity) => {
 						// Curve that passes through (0, 200) and (80000, 400), with slight upward curve
-						return 200 + (200 / 80000) * quantity + (0.0000000015 * quantity * quantity);
+						return 200 + 0.002404 * quantity + (0.0000000012 * quantity * quantity);
 					};
 					// Much stronger upward curve for MSC
 					const getSocialCost = (quantity) => {
