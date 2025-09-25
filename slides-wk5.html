@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>College 5: Marktfalen & Externe Effecten</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			// Configure MathJax to process inline math using single dollar signs
+			window.MathJax = {
+				tex: {
+					inlineMath: [
+						["$", "$"],
+						["\\(", "\\)"],
+					],
+				},
+			};
+		</script>
+		<script
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
+		<script src="https://cdn.plot.ly/plotly-3.1.0.min.js" charset="utf-8"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Base styles and slide transitions */
+			body {
+				font-family: "Inter", sans-serif;
+				transition: background-color 0.5s ease;
+			}
+			.slide {
+				display: none;
+				opacity: 0;
+				transition: opacity 0.6s ease-in-out;
+				min-height: 100vh;
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: 0;
+				padding: 2rem 1.5rem; /* Mobile-first padding */
+			}
+			@media (min-width: 1024px) {
+				.slide {
+					padding: 2rem 5rem; /* Desktop padding */
+				}
+			}
+			.slide.active {
+				display: flex;
+				opacity: 1;
+				position: relative;
+			}
+			/* Custom styles for a professional look */
+			.slide-content {
+				max-width: 1100px;
+				width: 100%;
+				margin: auto;
+			}
+
+			/* Navigation styles */
+			.navigation {
+				position: fixed;
+				bottom: 1rem; /* Mobile position */
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: rgba(17, 24, 39, 0.8);
+				padding: 0.75rem 1.5rem;
+				border-radius: 9999px;
+				backdrop-filter: blur(10px);
+				z-index: 1000;
+				box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+					0 2px 4px -2px rgb(0 0 0 / 0.1);
+			}
+
+			@media (min-width: 768px) {
+				.navigation {
+					left: auto; /* Desktop position */
+					right: 2rem;
+					bottom: 2rem;
+					transform: none;
+				}
+			}
+
+			.nav-btn {
+				background: #3b82f6;
+				color: white;
+				border: none;
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				font-size: 1.5rem;
+			}
+
+			.nav-btn:hover:not(:disabled) {
+				background: #2563eb;
+				transform: scale(1.1);
+			}
+
+			.nav-btn:disabled {
+				background: #6b7280;
+				cursor: not-allowed;
+				transform: none;
+			}
+
+			.slide-counter {
+				color: white;
+				font-weight: 600;
+				font-size: 1rem;
+				min-width: 60px;
+				text-align: center;
+			}
+
+			/* Mobile-specific layout */
+			@media (max-width: 767px) {
+				.slide {
+					position: static;
+					min-height: auto;
+					height: auto;
+					display: block !important;
+					opacity: 1 !important;
+					padding: 2rem 1rem;
+					border-bottom: 1px solid #e5e5e5;
+				}
+				.navigation {
+					display: none;
+				}
+			}
+
+			/* Voting system styles */
+			.vote-option {
+				transition: all 0.3s ease;
+				cursor: pointer;
+			}
+			.vote-option:hover {
+				transform: translateX(10px);
+				background: rgba(59, 130, 246, 0.1);
+			}
+			.vote-result {
+				height: 30px;
+				transition: width 1s ease-out;
+			}
+
+			/* Speed dating timer */
+			.timer-circle {
+				width: 120px;
+				height: 120px;
+				border-radius: 50%;
+				background: conic-gradient(#3b82f6 var(--progress), #e5e7eb var(--progress));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2rem;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-100">
+		<!-- Slide 1: Titel -->
+		<section
+			class="slide active h-full flex-col items-center justify-center bg-gray-900 text-white"
+		>
+			<div class="slide-content text-center">
+				<h1 class="text-5xl sm:text-7xl font-bold mb-6">Marktfalen & Externe Effecten</h1>
+				<p class="text-xl sm:text-2xl text-gray-300 mb-8">De verborgen kosten van onze economie</p>
+				<div class="bg-gray-800 rounded-lg px-8 py-4 inline-block">
+					<p class="text-lg">College 5 - Bedrijfseconomie</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 2: Paradijs in Gevaar (Opening) -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Twee Paradijzen in de Caraïben 🏝️</h2>
+				<div class="bg-blue-50 rounded-xl p-8">
+					<p class="text-xl mb-6">Guadeloupe & Martinique - 800.000 inwoners, twee eilanden met vitale traditionele sectoren:</p>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div class="bg-white rounded-lg p-6 shadow-md">
+							<h3 class="text-2xl font-bold text-yellow-600 mb-3">🍌 Bananen Export</h3>
+							<ul class="space-y-2 text-gray-700">
+								<li>• 50% van alle landbouwexport</li>
+								<li>• ~8.500 directe en indirecte banen</li>
+								<li>• 290.000 ton jaarlijkse export naar EU</li>
+								<li>• €100-170 miljoen exportwaarde</li>
+							</ul>
+						</div>
+						<div class="bg-white rounded-lg p-6 shadow-md">
+							<h3 class="text-2xl font-bold text-blue-600 mb-3">🎣 Visserij</h3>
+							<ul class="space-y-2 text-gray-700">
+								<li>• ~2.500 actieve vissers (beide eilanden)</li>
+								<li>• <1% van GDP maar cultureel cruciaal</li>
+								<li>• Lokale voedselvoorziening</li>
+								<li>• Kwetsbaar door milieuvervuiling</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<p class="text-center text-lg text-gray-600 mt-6 italic">"Twee sectoren die het culturele hart vormen van eilanden waar 80% van de economie uit diensten bestaat..."</p>
+			</div>
+		</section>
+
+		<!-- Slide 3: Poll - Dilemma -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Het Dilemma</h2>
+				<div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+					<p class="text-xl mb-4">De bananenindustrie wordt bedreigd door insectenplagen.</p>
+					<p class="text-lg">Er is een wondermiddel: <strong>Chlordecone</strong> - zeer effectief tegen insecten.</p>
+					<p class="text-lg mt-2 text-yellow-700">⚠️ Mogelijk schadelijk voor het milieu, maar wetenschappelijk bewijs is nog onduidelijk.</p>
+				</div>
+
+				<div class="bg-white rounded-xl shadow-lg p-8">
+					<h3 class="text-2xl font-bold mb-6">Wat zou jij doen als beleidsmaker?</h3>
+					<div id="vote-options" class="space-y-4 min-h-[320px]">
+						<div class="vote-option bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors" onclick="vote('A')">
+							<div class="flex items-center justify-between">
+								<div class="flex items-start">
+									<span class="text-lg mr-3"><strong class="text-green-600">A.</strong></span>
+									<div>
+										<p class="font-semibold">Toestaan - economie eerst</p>
+										<p class="text-sm text-gray-600 mt-1">"8.500 banen en €170 miljoen export staan op het spel"</p>
+									</div>
+								</div>
+								<span class="text-gray-500 font-bold" id="voteA-count">0%</span>
+							</div>
+							<div class="bg-gray-200 rounded-full h-2 mt-3 overflow-hidden">
+								<div class="vote-result bg-green-500 rounded-full h-2 transition-all duration-500" style="width: 0%" id="voteA"></div>
+							</div>
+						</div>
+						<div class="vote-option bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors" onclick="vote('B')">
+							<div class="flex items-center justify-between">
+								<div class="flex items-start">
+									<span class="text-lg mr-3"><strong class="text-yellow-600">B.</strong></span>
+									<div>
+										<p class="font-semibold">Beperkt toestaan met strenge regels</p>
+										<p class="text-sm text-gray-600 mt-1">"Balans tussen economie en milieubescherming"</p>
+									</div>
+								</div>
+								<span class="text-gray-500 font-bold" id="voteB-count">0%</span>
+							</div>
+							<div class="bg-gray-200 rounded-full h-2 mt-3 overflow-hidden">
+								<div class="vote-result bg-yellow-500 rounded-full h-2 transition-all duration-500" style="width: 0%" id="voteB"></div>
+							</div>
+						</div>
+						<div class="vote-option bg-gray-50 p-4 rounded-lg hover:bg-gray-100 cursor-pointer transition-colors" onclick="vote('C')">
+							<div class="flex items-center justify-between">
+								<div class="flex items-start">
+									<span class="text-lg mr-3"><strong class="text-red-600">C.</strong></span>
+									<div>
+										<p class="font-semibold">Verbieden - voorzorgsprincipe</p>
+										<p class="text-sm text-gray-600 mt-1">"Bij twijfel, niet doen - gezondheid boven alles"</p>
+									</div>
+								</div>
+								<span class="text-gray-500 font-bold" id="voteC-count">0%</span>
+							</div>
+							<div class="bg-gray-200 rounded-full h-2 mt-3 overflow-hidden">
+								<div class="vote-result bg-red-500 rounded-full h-2 transition-all duration-500" style="width: 0%" id="voteC"></div>
+							</div>
+						</div>
+					</div>
+					<p class="text-center mt-6 text-gray-600 font-semibold" id="voteCount">0 stemmen</p>
+					<div class="mt-4 text-center">
+						<button onclick="resetVotes()" class="text-sm text-blue-600 hover:text-blue-800 underline">Reset stemmen</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 4: CORE Economy Referentie -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">Theoretisch Kader 📚</h2>
+				<div class="bg-blue-50 rounded-xl p-8">
+					<div class="flex items-center mb-6">
+						<h3 class="text-2xl font-bold">CORE Economy - Unit 12</h3>
+						<span class="ml-auto text-gray-600">Markets, Efficiency, and Public Policy</span>
+					</div>
+					<div class="grid md:grid-cols-2 gap-6">
+						<div class="bg-white rounded-lg p-6">
+							<h4 class="font-bold text-lg mb-3 text-blue-900">Kernconcepten:</h4>
+							<ul class="space-y-2 text-gray-700">
+								<li>• Externe effecten (externalities)</li>
+								<li>• Marginal Private Cost (MPC)</li>
+								<li>• Marginal Social Cost (MSC)</li>
+								<li>• Deadweight loss</li>
+								<li>• Pigouviaanse belasting</li>
+							</ul>
+						</div>
+						<div class="bg-white rounded-lg p-6">
+							<h4 class="font-bold text-lg mb-3 text-blue-900">Relevante figuren:</h4>
+							<ul class="space-y-2 text-gray-700">
+								<li>📊 Figure 12.1: Market with negative externality</li>
+								<li>📈 Figure 12.3: MPC vs MSC curves</li>
+								<li>📉 Figure 12.4: Deadweight loss</li>
+								<li>🎯 Figure 12.5: Policy interventions</li>
+							</ul>
+						</div>
+					</div>
+					<div class="mt-6 text-center">
+						<a href="course-docs/wk5/the-economy-unit-12-pdf.pdf" target="_blank" class="text-blue-600 underline">📥 Download The Economy Unit 12 PDF</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 5: Theorie - Externe Effecten -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">Externe Effecten: De Theorie</h2>
+				<div class="grid md:grid-cols-12 gap-6">
+					<div class="md:col-span-4">
+						<div class="bg-blue-50 rounded-lg p-4 mb-3">
+							<h3 class="text-lg font-bold text-blue-900 mb-2">MPC</h3>
+							<p class="text-sm text-gray-700">Marginal Private Cost</p>
+							<p class="text-xs text-gray-600 mt-1">Kosten voor producent</p>
+						</div>
+						<div class="bg-red-50 rounded-lg p-4">
+							<h3 class="text-lg font-bold text-red-900 mb-2">MSC</h3>
+							<p class="text-sm text-gray-700">Marginal Social Cost</p>
+							<p class="text-xs text-gray-600 mt-1">$MSC = MPC + MEC$</p>
+						</div>
+					</div>
+					<div class="md:col-span-8 bg-white rounded-xl shadow-lg p-6 min-h-[400px]">
+						<h3 class="text-xl font-bold mb-4">Figure 12.4: Onderhandeling & Compensatie</h3>
+						<div id="plotlyChart" style="height: 360px;"></div>
+						<p class="text-xs text-gray-500 mt-2 text-center">Bron: CORE Economy Unit 12</p>
+					</div>
+				</div>
+				<div class="mt-6 bg-amber-50 border-l-4 border-amber-400 p-4">
+					<p class="text-lg"><strong>🎯 Coase Theorema:</strong> Bij onderhandeling tussen bananenproducenten en vissers kan de productie van 80.000 ton (punt A) naar 38.000 ton (Pareto-efficiënt) gaan. De <span class="text-green-600 font-bold">netto sociale winst</span> is groter dan het <span class="text-purple-600 font-bold">verlies aan winst</span> - daarom is compensatie mogelijk!</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 6: Externe Kosten Nederland -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">Externe Kosten: Nederlands Perspectief</h2>
+				<div class="bg-red-50 rounded-xl p-8 text-center">
+					<p class="text-6xl font-bold text-red-600 mb-4">€20+ miljard</p>
+					<p class="text-xl text-gray-700">Jaarlijkse externe kosten verkeer & milieu in Nederland</p>
+					<p class="text-sm text-gray-500 mt-2">(CE Delft, PBL onderzoek)</p>
+				</div>
+				<div class="grid md:grid-cols-3 gap-6 mt-8">
+					<div class="bg-white rounded-lg p-6 text-center shadow-md">
+						<span class="text-4xl mb-3 block">🚗</span>
+						<p class="font-bold text-lg">Verkeer & Transport</p>
+						<p class="text-3xl text-red-600 mt-2">€18.1 mld</p>
+						<p class="text-sm text-gray-500">Luchtvervuiling, ongevallen, geluid</p>
+					</div>
+					<div class="bg-white rounded-lg p-6 text-center shadow-md">
+						<span class="text-4xl mb-3 block">✈️</span>
+						<p class="font-bold text-lg">Luchtvaart</p>
+						<p class="text-3xl text-orange-600 mt-2">€4+ mld</p>
+						<p class="text-sm text-gray-500">Ongedekte maatschappelijke kosten</p>
+					</div>
+					<div class="bg-white rounded-lg p-6 text-center shadow-md">
+						<span class="text-4xl mb-3 block">🏭</span>
+						<p class="font-bold text-lg">Klimaatbeleid</p>
+						<p class="text-3xl text-yellow-600 mt-2">€2-3 mld/jr</p>
+						<p class="text-sm text-gray-500">Transitiekosten (0.3% BBP)</p>
+					</div>
+				</div>
+				<div class="mt-8 bg-blue-50 rounded-lg p-6">
+					<h4 class="font-bold text-lg mb-3">Context:</h4>
+					<p class="text-sm">CO₂-belasting Nederland: €88/ton (2023) • Huishoudens betalen 2.5x meer dan bedrijven • €1.13 miljard opbrengst emissierechten</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 7: De Onthulling -->
+		<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white">
+			<div class="slide-content text-center">
+				<h2 class="text-5xl font-bold mb-8">De Waarheid over Martinique & Guadeloupe</h2>
+				<p class="text-2xl mb-8 text-gray-300">Chlordecone werd gebruikt van 1972 tot 1993...</p>
+
+				<div class="grid md:grid-cols-2 gap-8 text-left">
+					<div class="bg-red-800 rounded-lg p-6">
+						<h3 class="text-2xl font-bold mb-4">🚨 De Gevolgen</h3>
+						<ul class="space-y-2 text-lg">
+							<li>• 92-95% van de bevolking besmet</li>
+							<li>• 18.000 hectare vervuild (25% van landbouwgrond)</li>
+							<li>• 1/3 van kustwateren gesloten voor visserij</li>
+							<li>• Hoogste percentage prostaatkanker ter wereld</li>
+						</ul>
+					</div>
+					<div class="bg-orange-800 rounded-lg p-6">
+						<h3 class="text-2xl font-bold mb-4">💰 De Impact</h3>
+						<ul class="space-y-2 text-lg">
+							<li>• Werkloosheid: 16% Guadeloupe, 13% Martinique</li>
+							<li>• 80% voedsel moet geïmporteerd worden</li>
+							<li>• 300-700 jaar bodemvervuiling</li>
+							<li>• Grootste milieuramp Franse geschiedenis</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-10">
+					<p class="text-xl text-gray-400">Verboden in VS sinds 1976, maar Frankrijk gaf uitzonderingen tot 1993...</p>
+					<p class="text-3xl font-bold mt-4 text-yellow-400">Voor bananen ter waarde van miljoenen, een paradijs voor eeuwen vergiftigd</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 8: CSRD Framework Introductie -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">Van Theorie naar Praktijk: CSRD 🇪🇺</h2>
+				<div class="bg-green-50 rounded-xl p-8">
+					<h3 class="text-2xl font-bold mb-4">Corporate Sustainability Reporting Directive</h3>
+					<p class="text-lg text-gray-700 mb-6">Europese richtlijn die bedrijven verplicht om transparant te rapporteren over hun duurzaamheidsbeleid en impact op mens, milieu en maatschappij</p>
+
+					<div class="grid md:grid-cols-2 gap-6">
+						<div class="bg-white rounded-lg p-6">
+							<h4 class="font-bold text-lg mb-3 text-green-900">Wat is CSRD?</h4>
+							<ul class="space-y-2 text-gray-700">
+								<li>✓ Onderdeel van European Green Deal</li>
+								<li>✓ Rapportage volgens ESRS-standaarden</li>
+								<li>✓ Inclusief waardeketen</li>
+								<li>✓ In bestuursverslag verplicht</li>
+							</ul>
+						</div>
+						<div class="bg-white rounded-lg p-6">
+							<h4 class="font-bold text-lg mb-3 text-blue-900">Dubbele Materialiteit</h4>
+							<div class="space-y-3">
+								<div class="flex items-center">
+									<span class="text-2xl mr-3">🏭→🌍</span>
+									<p>Impact materialiteit (inside-out)</p>
+								</div>
+								<div class="flex items-center">
+									<span class="text-2xl mr-3">🌍→💰</span>
+									<p>Financiële materialiteit (outside-in)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+					<p><strong>💡 Kernboodschap:</strong> Externe kosten worden eindelijk zichtbaar en meetbaar gemaakt!</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 9: ESRS Standaarden Overzicht -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">ESRS: De 12 Rapportagestandaarden</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-green-50 rounded-xl p-6">
+						<h3 class="text-xl font-bold mb-4 text-green-900">🌍 Environment</h3>
+						<ul class="space-y-2">
+							<li class="bg-white rounded p-2"><strong>E1</strong> - Klimaatverandering</li>
+							<li class="bg-white rounded p-2"><strong>E2</strong> - Vervuiling</li>
+							<li class="bg-white rounded p-2"><strong>E3</strong> - Water & mariene hulpbronnen</li>
+							<li class="bg-white rounded p-2"><strong>E4</strong> - Biodiversiteit</li>
+							<li class="bg-white rounded p-2"><strong>E5</strong> - Circulaire economie</li>
+						</ul>
+					</div>
+					<div class="bg-blue-50 rounded-xl p-6">
+						<h3 class="text-xl font-bold mb-4 text-blue-900">👥 Social</h3>
+						<ul class="space-y-2">
+							<li class="bg-white rounded p-2"><strong>S1</strong> - Eigen personeel</li>
+							<li class="bg-white rounded p-2"><strong>S2</strong> - Werknemers in keten</li>
+							<li class="bg-white rounded p-2"><strong>S3</strong> - Getroffen gemeenschappen</li>
+							<li class="bg-white rounded p-2"><strong>S4</strong> - Consumenten</li>
+						</ul>
+					</div>
+					<div class="bg-purple-50 rounded-xl p-6">
+						<h3 class="text-xl font-bold mb-4 text-purple-900">⚖️ Governance</h3>
+						<ul class="space-y-2">
+							<li class="bg-white rounded p-2"><strong>G1</strong> - Bedrijfsvoering</li>
+							<li class="bg-gray-100 rounded p-2 mt-4 text-sm">+ ESRS 1 & 2: Algemene vereisten</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mt-8 bg-gradient-to-r from-blue-100 to-green-100 rounded-xl p-6 text-center">
+					<p class="text-xl font-bold">📊 1.178 datapunten totaal (waarvan 265 vrijwillig)</p>
+					<p class="text-sm text-gray-600 mt-1">Welke datapunten verplicht zijn hangt af van materialiteitsanalyse</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 10: Praktijkopdracht -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Jouw Opdracht: Verborgen Kosten Analyse</h2>
+				<div class="bg-indigo-50 rounded-xl p-8">
+					<p class="text-xl text-center mb-8">Analyseer de verborgen ecologische en sociale kosten van jouw gekozen bedrijf</p>
+
+					<div class="grid md:grid-cols-3 gap-6 mb-8">
+						<div class="bg-white rounded-lg p-6 text-center">
+							<span class="text-4xl mb-3 block">🔍</span>
+							<h4 class="font-bold text-lg mb-2">Stap 1</h4>
+							<p>Identificeer de Say-Do Gap</p>
+						</div>
+						<div class="bg-white rounded-lg p-6 text-center">
+							<span class="text-4xl mb-3 block">💰</span>
+							<h4 class="font-bold text-lg mb-2">Stap 2</h4>
+							<p>Kwantificeer externe kosten</p>
+						</div>
+						<div class="bg-white rounded-lg p-6 text-center">
+							<span class="text-4xl mb-3 block">📊</span>
+							<h4 class="font-bold text-lg mb-2">Stap 3</h4>
+							<p>Vergelijk met nettowinst</p>
+						</div>
+					</div>
+
+					<div class="bg-yellow-100 rounded-lg p-4 text-center">
+						<p class="font-bold">Tool: Verborgen Kosten Calculator</p>
+						<p class="text-sm mt-1">Social Cost of Carbon: $190/ton CO₂e</p>
+						<a href="https://hanbedrijfskunde.github.io/hidden-costs/" target="_blank" class="inline-block mt-3 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+							🔗 Open de Analyse Tool
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 11: Onderzoekstips -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-3xl font-bold mb-8 text-center">Tips voor je Verborgen Kosten Onderzoek 🔍</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-blue-50 rounded-xl p-6">
+						<h3 class="text-xl font-bold mb-4 text-blue-900">📊 Waar vind je de data?</h3>
+						<ul class="space-y-2 text-gray-700">
+							<li>• <strong>Jaarverslag:</strong> Zoek "Sustainability" sectie</li>
+							<li>• <strong>CDP scores:</strong> Carbon Disclosure Project database</li>
+							<li>• <strong>NGO rapporten:</strong> Greenpeace, Milieudefensie</li>
+							<li>• <strong>Nieuws:</strong> Zoek "[bedrijf] controversy environment"</li>
+							<li>• <strong>CSRD rapportage:</strong> Vanaf 2024 voor grote bedrijven</li>
+						</ul>
+					</div>
+					<div class="bg-green-50 rounded-xl p-6">
+						<h3 class="text-xl font-bold mb-4 text-green-900">💡 Bereken de Say-Do Gap</h3>
+						<ul class="space-y-2 text-gray-700">
+							<li>• <strong>Stap 1:</strong> Noteer de claims uit het jaarverslag</li>
+							<li>• <strong>Stap 2:</strong> Zoek tegenstrijdig bewijs</li>
+							<li>• <strong>Stap 3:</strong> Bereken CO₂ × $190/ton</li>
+							<li>• <strong>Stap 4:</strong> Vergelijk met nettowinst</li>
+							<li>• <strong>Stap 5:</strong> Wat is het percentage?</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mt-6 bg-yellow-50 rounded-xl p-6">
+					<h3 class="text-lg font-bold mb-3 text-yellow-900">⚠️ Let op deze Red Flags:</h3>
+					<div class="grid md:grid-cols-3 gap-4 text-sm">
+						<div class="bg-white rounded-lg p-3">
+							<p class="font-semibold text-red-600">Vage taalgebruik</p>
+							<p>"Streven naar", "Ambitie om", zonder concrete targets</p>
+						</div>
+						<div class="bg-white rounded-lg p-3">
+							<p class="font-semibold text-red-600">Cherry-picking</p>
+							<p>Alleen positieve jaren tonen, scope 3 negeren</p>
+						</div>
+						<div class="bg-white rounded-lg p-3">
+							<p class="font-semibold text-red-600">Offsetting focus</p>
+							<p>CO₂-compensatie i.p.v. daadwerkelijke reductie</p>
+						</div>
+					</div>
+				</div>
+				<div class="mt-6 text-center bg-purple-100 rounded-lg p-4">
+					<p class="text-lg font-semibold text-purple-900">⏱️ Je hebt 30 minuten - focus op de grootste discrepanties!</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 12: Speed Dating Timer -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content text-center">
+				<h2 class="text-4xl font-bold mb-8">Speed Dating: Deel je Ontdekking!</h2>
+				<div class="bg-pink-50 rounded-xl p-8">
+					<div class="timer-circle mx-auto mb-6" style="--progress: 0%">
+						<span id="timerDisplay">30</span>
+					</div>
+
+					<h3 class="text-2xl font-bold mb-4">Instructies:</h3>
+					<ol class="text-left max-w-md mx-auto space-y-2 text-lg">
+						<li>1. Vorm twee rijen tegenover elkaar</li>
+						<li>2. 30 seconden per persoon</li>
+						<li>3. Deel je grootste "shock" ontdekking</li>
+						<li>4. Schuif door bij het signaal</li>
+					</ol>
+
+					<button onclick="startTimer()" class="mt-6 bg-purple-600 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-purple-700">
+						Start Timer
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 13: Oplossingen -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Van Probleem naar Oplossing</h2>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="bg-blue-50 rounded-xl p-6">
+						<h3 class="text-2xl font-bold mb-4 text-blue-900">🏛️ Overheidsinterventies</h3>
+						<ul class="space-y-3">
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">💶</span>
+								<div>
+									<p class="font-bold">Pigouviaanse belasting</p>
+									<p class="text-sm text-gray-600">€190/ton CO₂</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">📜</span>
+								<div>
+									<p class="font-bold">Regulering</p>
+									<p class="text-sm text-gray-600">CSRD, emissienormen</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">🏷️</span>
+								<div>
+									<p class="font-bold">Cap & Trade</p>
+									<p class="text-sm text-gray-600">EU ETS systeem</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="bg-green-50 rounded-xl p-6">
+						<h3 class="text-2xl font-bold mb-4 text-green-900">🏪 Marktoplossingen</h3>
+						<ul class="space-y-3">
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">💰</span>
+								<div>
+									<p class="font-bold">True Pricing</p>
+									<p class="text-sm text-gray-600">Echte kosten in de prijs</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">🤝</span>
+								<div>
+									<p class="font-bold">Coase onderhandeling</p>
+									<p class="text-sm text-gray-600">Private afspraken</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<span class="mr-3 text-2xl">📊</span>
+								<div>
+									<p class="font-bold">ESG investing</p>
+									<p class="text-sm text-gray-600">€35 biljoen wereldwijd</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-8 bg-gray-100 rounded-xl p-6 text-center">
+					<p class="text-xl font-bold mb-2">De Coase Voorwaarde:</p>
+					<p class="text-lg italic">"Als eigendomsrechten duidelijk zijn en transactiekosten laag, lost de markt externe effecten zelf op"</p>
+					<p class="text-sm text-gray-600 mt-3">
+						📚 Zie ook: <a href="course-docs/wk5/the-economy-unit-12-pdf.pdf" target="_blank" class="text-blue-600 underline">CORE Economy Unit 12 - Sections 12.4-12.7</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 14: Call to Action -->
+		<section class="slide h-full flex-col items-center justify-center">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Wat Kunnen Wij Doen?</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-yellow-50 rounded-xl p-6 text-center">
+						<span class="text-5xl mb-4 block">🎓</span>
+						<h3 class="text-xl font-bold mb-3">Als Student</h3>
+						<ul class="text-left text-sm space-y-1">
+							<li>• Kritisch analyseren</li>
+							<li>• Say-Do Gap ontmaskeren</li>
+							<li>• Kennis delen</li>
+						</ul>
+					</div>
+
+					<div class="bg-blue-50 rounded-xl p-6 text-center">
+						<span class="text-5xl mb-4 block">💼</span>
+						<h3 class="text-xl font-bold mb-3">Als Professional</h3>
+						<ul class="text-left text-sm space-y-1">
+							<li>• True pricing toepassen</li>
+							<li>• Impact meten & rapporteren</li>
+							<li>• Duurzame keuzes maken</li>
+						</ul>
+					</div>
+
+					<div class="bg-green-50 rounded-xl p-6 text-center">
+						<span class="text-5xl mb-4 block">🌍</span>
+						<h3 class="text-xl font-bold mb-3">Als Burger</h3>
+						<ul class="text-left text-sm space-y-1">
+							<li>• Bewust consumeren</li>
+							<li>• Stemmen met je portemonnee</li>
+							<li>• Transparantie eisen</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-10 text-center bg-gray-100 rounded-xl p-6">
+					<p class="text-2xl font-bold mb-3">De toekomst begint vandaag</p>
+					<p class="text-lg italic">"De werkelijke prijs van alles is de hoeveelheid leven die je ervoor ruilt"</p>
+					<p class="text-sm mt-2 text-gray-600">- Henry David Thoreau</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 15: Synthese -->
+		<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white">
+			<div class="slide-content">
+				<h2 class="text-4xl font-bold mb-8 text-center">Synthese: Van Martinique tot Morgen</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-red-600 text-white p-6 rounded-lg">
+						<h3 class="text-xl font-bold mb-3">🔍 Wat We Leerden</h3>
+						<ul class="space-y-2 text-sm">
+							<li>• Externe kosten zijn reëel</li>
+							<li>• Marktfalen heeft catastrofale gevolgen</li>
+							<li>• Private winst ≠ maatschappelijke welvaart</li>
+							<li>• Transparantie is essentieel</li>
+						</ul>
+					</div>
+
+					<div class="bg-blue-600 text-white p-6 rounded-lg">
+						<h3 class="text-xl font-bold mb-3">🛠️ Instrumenten</h3>
+						<ul class="space-y-2 text-sm">
+							<li>• CSRD/ESRS framework</li>
+							<li>• Social Cost of Carbon</li>
+							<li>• True pricing methodologie</li>
+							<li>• Say-Do Gap analyse</li>
+						</ul>
+					</div>
+
+					<div class="bg-green-600 text-white p-6 rounded-lg">
+						<h3 class="text-xl font-bold mb-3">🎯 Actiepunten</h3>
+						<ul class="space-y-2 text-sm">
+							<li>• Analyseer je eigen bedrijf</li>
+							<li>• Kwantificeer verborgen kosten</li>
+							<li>• Identificeer verbeterpunten</li>
+							<li>• Deel je bevindingen</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-8 text-center">
+					<p class="text-xl text-yellow-400">"Het verschil tussen wat bedrijven zeggen en doen is de ruimte waarin de toekomst van onze planeet wordt bepaald"</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Slide 16: Wrap-up & Feedback -->
+		<section class="slide h-full flex-col items-center justify-center text-center">
+			<div class="slide-content">
+				<h2 class="text-4xl sm:text-5xl font-bold">Wrap-up & Feedback</h2>
+				<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+					<div class="bg-gray-200 p-6 rounded-lg">
+						<h3 class="font-bold text-xl mb-2">Belangrijkste Takeaways</h3>
+						<ul class="list-disc list-inside space-y-2">
+							<li>Externe effecten leiden tot marktfalen en maatschappelijke kosten</li>
+							<li>Het verschil tussen MPC en MSC bepaalt de deadweight loss</li>
+							<li>CSRD/ESRS maken verborgen kosten transparant en meetbaar</li>
+							<li>De Say-Do Gap onthult het verschil tussen claims en werkelijkheid</li>
+							<li>True pricing en Pigouviaanse belasting kunnen externe effecten internaliseren</li>
+						</ul>
+					</div>
+					<div class="bg-gray-800 text-white p-6 rounded-lg flex flex-col items-center justify-center text-center">
+						<h3 class="font-bold text-xl mb-3">Feedback & Retrospective</h3>
+						<p class="text-gray-300 mb-4">
+							Jullie feedback is essentieel. Scan de code en laat ons weten wat je van dit college vond.
+						</p>
+						<img
+							src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20Week5"
+							alt="Retrospective QR Code"
+							class="rounded-lg bg-white p-1"
+						/>
+						<a
+							href="https://hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20Week5"
+							target="_blank"
+							class="text-xs font-mono text-gray-400 hover:text-white mt-3 break-all"
+						>
+							hanbedrijfskunde.github.io/retrospective/...
+						</a>
+					</div>
+				</div>
+				<div class="mt-8 bg-gradient-to-r from-red-500 to-orange-500 text-white p-6 rounded-lg">
+					<h3 class="font-bold text-xl mb-2">📅 Komende Weken: Assessments!</h3>
+					<div class="grid md:grid-cols-2 gap-4 mt-4">
+						<div class="bg-white/20 rounded-lg p-3">
+							<p class="font-bold">Week 6: Voorbereiding</p>
+							<p class="text-sm">Presentaties verborgen kosten + Assessment uitleg</p>
+						</div>
+						<div class="bg-white/20 rounded-lg p-3">
+							<p class="font-bold">Week 7: De Strategische Arena</p>
+							<p class="text-sm">Boardroom simulatie assessment</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- Navigation -->
+		<div class="navigation">
+			<button id="prevBtn" class="nav-btn" onclick="previousSlide()">
+				←
+			</button>
+			<span class="slide-counter">
+				<span id="currentSlide">1</span> / <span id="totalSlides">16</span>
+			</span>
+			<button id="nextBtn" class="nav-btn" onclick="nextSlide()">
+				→
+			</button>
+		</div>
+
+		<script>
+			// Slide navigation
+			let currentSlide = 1;
+			const slides = document.querySelectorAll('.slide');
+			const totalSlides = slides.length;
+
+			function showSlide(n) {
+				// Hide all slides
+				slides.forEach(slide => {
+					slide.classList.remove('active');
+				});
+
+				// Wrap around
+				if (n > totalSlides) currentSlide = 1;
+				if (n < 1) currentSlide = totalSlides;
+
+				// Show current slide
+				slides[currentSlide - 1].classList.add('active');
+
+				// Update counter
+				document.getElementById('currentSlide').textContent = currentSlide;
+				document.getElementById('totalSlides').textContent = totalSlides;
+
+				// Update navigation buttons
+				document.getElementById('prevBtn').disabled = false;
+				document.getElementById('nextBtn').disabled = false;
+			}
+
+			function nextSlide() {
+				currentSlide++;
+				showSlide(currentSlide);
+			}
+
+			function previousSlide() {
+				currentSlide--;
+				showSlide(currentSlide);
+			}
+
+			// Keyboard navigation
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'ArrowRight' || e.key === ' ') {
+					nextSlide();
+				} else if (e.key === 'ArrowLeft') {
+					previousSlide();
+				} else if (e.key >= '0' && e.key <= '9') {
+					// Jump to slide
+					const slideNum = parseInt(e.key) || 10;
+					if (slideNum <= totalSlides) {
+						currentSlide = slideNum;
+						showSlide(currentSlide);
+					}
+				}
+			});
+
+			// Touch/swipe support for mobile
+			let touchStartX = 0;
+			let touchEndX = 0;
+
+			document.addEventListener('touchstart', (e) => {
+				touchStartX = e.changedTouches[0].screenX;
+			});
+
+			document.addEventListener('touchend', (e) => {
+				touchEndX = e.changedTouches[0].screenX;
+				handleSwipe();
+			});
+
+			function handleSwipe() {
+				if (touchEndX < touchStartX - 50) nextSlide();
+				if (touchEndX > touchStartX + 50) previousSlide();
+			}
+
+			// Initialize
+			showSlide(currentSlide);
+
+			// Voting system (Slide 3) - lokale sessie voor klassikaal gebruik
+			let votes = { A: 0, B: 0, C: 0 };
+
+			function vote(option) {
+				votes[option]++;
+				updateVoteDisplay();
+			}
+
+			function updateVoteDisplay() {
+				const total = votes.A + votes.B + votes.C;
+				if (total === 0) {
+					document.getElementById('voteCount').textContent = '0 stemmen';
+					return;
+				}
+
+				const percentA = Math.round((votes.A / total) * 100);
+				const percentB = Math.round((votes.B / total) * 100);
+				const percentC = Math.round((votes.C / total) * 100);
+
+				document.getElementById('voteA').style.width = `${percentA}%`;
+				document.getElementById('voteB').style.width = `${percentB}%`;
+				document.getElementById('voteC').style.width = `${percentC}%`;
+
+				document.getElementById('voteA-count').textContent = `${percentA}%`;
+				document.getElementById('voteB-count').textContent = `${percentB}%`;
+				document.getElementById('voteC-count').textContent = `${percentC}%`;
+
+				document.getElementById('voteCount').textContent = `${total} ${total === 1 ? 'stem' : 'stemmen'}`;
+			}
+
+			function resetVotes() {
+				votes = { A: 0, B: 0, C: 0 };
+				document.getElementById('voteA').style.width = '0%';
+				document.getElementById('voteB').style.width = '0%';
+				document.getElementById('voteC').style.width = '0%';
+				document.getElementById('voteA-count').textContent = '0%';
+				document.getElementById('voteB-count').textContent = '0%';
+				document.getElementById('voteC-count').textContent = '0%';
+				document.getElementById('voteCount').textContent = '0 stemmen';
+			}
+
+			// Speed dating timer (Slide 12)
+			let timerInterval;
+
+			function startTimer() {
+				let seconds = 30;
+				const display = document.getElementById('timerDisplay');
+				const circle = document.querySelector('.timer-circle');
+
+				clearInterval(timerInterval);
+
+				timerInterval = setInterval(() => {
+					seconds--;
+					display.textContent = seconds;
+					const progress = ((30 - seconds) / 30) * 100;
+					circle.style.setProperty('--progress', `${progress}%`);
+
+					if (seconds <= 0) {
+						clearInterval(timerInterval);
+						// Play sound or visual alert
+						circle.style.background = 'red';
+						setTimeout(() => {
+							circle.style.background = '';
+							display.textContent = '30';
+							circle.style.setProperty('--progress', '0%');
+						}, 2000);
+					}
+				}, 1000);
+			}
+
+			// Create Plotly chart (Slide 5) - Based on CORE Economy Figure 12.4
+			window.addEventListener('load', () => {
+				const plotDiv = document.getElementById('plotlyChart');
+				if (plotDiv) {
+					// Data calculation functions
+					// Slight upward curve for MPC
+					const getPrivateCost = (quantity) => {
+						// Curve that passes through (0, 200) and (80000, 400), with slight upward curve
+						return 200 + (200 / 80000) * quantity + (0.0000000015 * quantity * quantity);
+					};
+					// Much stronger upward curve for MSC
+					const getSocialCost = (quantity) => {
+						// Strong exponential-like curve that intersects price at exactly 38000
+						// Solving for coefficients where f(0) = 250 and f(38000) = 400
+						const a = 0.00000004;  // Quadratic coefficient for strong curve
+						const b = (400 - 250 - a * 38000 * 38000) / 38000;  // Linear coefficient
+						return 250 + b * quantity + a * quantity * quantity;
+					};
+
+					const quantities = [];
+					const privateCostData = [];
+					const socialCostData = [];
+
+					// Generate data points
+					for (let i = 0; i <= 100000; i += 1000) {
+						quantities.push(i);
+						privateCostData.push(getPrivateCost(i));
+						socialCostData.push(getSocialCost(i));
+					}
+
+					// Plotly traces
+					const mscTrace = {
+						x: quantities,
+						y: socialCostData,
+						mode: 'lines',
+						name: 'Marginal social cost',
+						line: {
+							color: '#2e7d32',
+							width: 2.5
+						},
+						showlegend: true
+					};
+
+					const mpcTrace = {
+						x: quantities,
+						y: privateCostData,
+						mode: 'lines',
+						name: 'Marginal private cost',
+						line: {
+							color: '#8e24aa',
+							width: 2.5
+						},
+						showlegend: true
+					};
+
+					const priceTrace = {
+						x: [0, 100000],
+						y: [400, 400],
+						mode: 'lines',
+						name: 'Price',
+						line: {
+							color: 'rgb(239, 68, 68)',
+							width: 2,
+							dash: 'dash'
+						},
+						showlegend: true
+					};
+
+					// Layout with shapes and annotations
+					const layout = {
+						showlegend: true,
+						legend: {
+							x: 0.5,
+							y: -0.15,
+							xanchor: 'center',
+							orientation: 'h'
+						},
+						xaxis: {
+							title: '<b>Hoeveelheid bananen (ton per jaar)</b>',
+							range: [0, 105000],
+							zeroline: false,
+							tickformat: ',',
+							ticksuffix: ''
+						},
+						yaxis: {
+							title: '<b>Kosten ($)</b>',
+							range: [0, 900],
+							zeroline: false,
+							tickprefix: '$'
+						},
+						shapes: [
+							// Vertical line at 38k (Pareto-efficient)
+							{
+								type: 'line',
+								x0: 38000,
+								y0: 0,
+								x1: 38000,
+								y1: 400,
+								line: {
+									color: 'rgb(150, 150, 150)',
+									width: 1.5,
+									dash: 'dot'
+								}
+							},
+							// Vertical line at 80k (Market)
+							{
+								type: 'line',
+								x0: 80000,
+								y0: 0,
+								x1: 80000,
+								y1: 400,
+								line: {
+									color: 'rgb(150, 150, 150)',
+									width: 1.5,
+									dash: 'dot'
+								}
+							},
+							// Green area: Net social gain (following the MSC curve)
+							{
+								type: 'path',
+								path: (() => {
+									// Create path that follows the MSC curve from 38000 to 80000
+									let pathStr = `M 38000,400 L 80000,400 `;
+									// Add points along the MSC curve from 80000 back to 38000
+									for (let q = 80000; q >= 38000; q -= 2000) {
+										pathStr += `L ${q},${getSocialCost(q)} `;
+									}
+									pathStr += `L 38000,${getSocialCost(38000)} Z`;
+									return pathStr;
+								})(),
+								fillcolor: 'rgba(76, 175, 80, 0.25)',
+								line: { width: 0 }
+							},
+							// Purple area: Loss of profit (following the MPC curve)
+							{
+								type: 'path',
+								path: (() => {
+									// Create path that follows the MPC curve from 38000 to 80000
+									let pathStr = `M 38000,400 `;
+									// Add points along the MPC curve from 38000 to 80000
+									for (let q = 38000; q <= 80000; q += 2000) {
+										pathStr += `L ${q},${getPrivateCost(q)} `;
+									}
+									pathStr += `L 80000,400 Z`;
+									return pathStr;
+								})(),
+								fillcolor: 'rgba(156, 39, 176, 0.25)',
+								line: { width: 0 }
+							}
+						],
+						annotations: [
+							{
+								text: '<b>A</b>',
+								x: 80000,
+								y: 400,
+								showarrow: false,
+								font: { size: 14 }
+							},
+							{
+								text: '<i>Pareto-efficiënt</i>',
+								x: 38000,
+								y: -50,
+								showarrow: false,
+								font: { size: 10 }
+							},
+							{
+								text: '<i>Net social gain</i>',
+								x: 60000,
+								y: 500,
+								showarrow: false,
+								font: { color: '#2e7d32', size: 11 }
+							},
+							{
+								text: '<i>Loss of profit</i>',
+								x: 55000,
+								y: 350,
+								showarrow: false,
+								font: { color: '#8e24aa', size: 11 }
+							}
+						],
+						margin: { l: 60, r: 40, b: 80, t: 20 },
+						height: 360
+					};
+
+					// Render the chart
+					Plotly.newPlot('plotlyChart', [mpcTrace, mscTrace, priceTrace], layout, {
+						responsive: true,
+						displayModeBar: false
+					});
+				}
+			});
+
+			// Mobile check - show all slides on mobile
+			function checkMobile() {
+				if (window.innerWidth < 768) {
+					document.querySelectorAll('.slide').forEach(slide => {
+						slide.style.position = 'static';
+						slide.style.display = 'block';
+						slide.style.opacity = '1';
+					});
+					document.querySelector('.navigation').style.display = 'none';
+				}
+			}
+
+			window.addEventListener('resize', checkMobile);
+			checkMobile();
+		</script>
+	</body>
+</html>

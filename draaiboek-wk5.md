@@ -24,163 +24,174 @@ Na deze les kunnen studenten:
 - Artikelen over werkelijke gevallen (Martinique, Nederlandse cases)
 
 ### Slide Overzicht
-| Slides | Inhoud | Timing |
-|--------|--------|--------|
-| 1 | Opening: Een Tropisch Eiland Dilemma | 0:00-0:05 |
-| - | Brug vanuit Week 4: Van Sociale Dilemma's naar Marktfalen | 0:05-0:08 |
-| 2-3 | De "Fictieve" Casus: Bananen vs Vissen | 0:08-0:15 |
-| 4-5 | Externe Effecten Theorie (12.1) | 0:15-0:25 |
-| 6-7 | MPC vs MSC - Grafiek 12.1 & 12.2 | 0:25-0:40 |
-| 8 | Berekening Deadweight Loss | 0:40-0:50 |
-| PAUZE | 10 minuten | 0:50-1:00 |
-| 9-10 | Beleidsoplossingen (12.3) | 1:00-1:10 |
-| 11 | Coase Theorema - Grafiek 12.4 | 1:10-1:20 |
-| 12 | DE ONTHULLING: Dit is ECHT gebeurd | 1:20-1:30 |
-| 13-14 | True Pricing & Verborgen Kosten | 1:30-1:45 |
-| 15 | ESG Frameworks & Brede Welvaart | 1:45-1:55 |
-| 16 | Wrap-up & Opdracht | 1:55-2:00 |
+| Slide | Inhoud | Timing |
+|-------|--------|--------|
+| 1 | Marktfalen & Externe Effecten (Titel) | 0:00-0:02 |
+| 2 | Twee Paradijzen in de Caraïben | 0:02-0:07 |
+| 3 | Het Dilemma (Interactieve Poll) | 0:07-0:12 |
+| 4 | Theoretisch Kader (CORE Economy Unit 12) | 0:12-0:15 |
+| 5 | Externe Effecten: De Theorie | 0:15-0:20 |
+| 6 | Externe Kosten: Nederlands Perspectief | 0:20-0:23 |
+| 7 | **PLOT TWIST: De Waarheid over Martinique & Guadeloupe** | 0:23-0:28 |
+| 8 | Van Theorie naar Praktijk: CSRD | 0:28-0:31 |
+| 9 | ESRS: De 12 Rapportagestandaarden | 0:31-0:34 |
+| 10 | Jouw Opdracht: Verborgen Kosten Analyse | 0:34-0:40 |
+| PAUZE | 10 minuten | 0:40-0:50 |
+| 11 | Tips voor je Verborgen Kosten Onderzoek | 0:50-1:20 |
+| 12 | Speed Dating: Deel je Ontdekking! | 1:20-1:25 |
+| 13 | Van Probleem naar Oplossing | 1:25-1:30 |
+| 14 | Wat Kunnen Wij Doen? | 1:30-1:35 |
+| 15 | Synthese: Van Martinique tot Morgen | 1:35-1:40 |
+| 16 | Wrap-up & Feedback | 1:40-1:45 |
 
 ---
 
 ## ⏰ Tijdsindeling Overzicht
 
-| Tijd | Onderdeel | Duur |
-|------|-----------|------|
-| 0:00-0:05 | Opening & Systeem 2 Activatie | 5 min |
-| 0:05-0:08 | Brug vanuit Week 4 | 3 min |
-| 0:08-0:15 | De "Fictieve" Eiland Casus | 7 min |
-| 0:15-0:25 | Theorie: Externe Effecten (12.1) | 10 min |
-| 0:25-0:40 | MPC vs MSC Analyse (12.2) | 15 min |
-| 0:40-0:50 | Deadweight Loss Berekeningen | 10 min |
-| 0:50-1:00 | **PAUZE** | 10 min |
-| 1:00-1:10 | Beleidsinterventies (12.3) | 10 min |
-| 1:10-1:20 | Coase Theorema & Onderhandeling | 10 min |
-| 1:20-1:30 | **PLOT TWIST: De Werkelijke Casus** | 10 min |
-| 1:30-1:45 | True Pricing Methodologie | 15 min |
-| 1:45-1:55 | ESG & Brede Welvaart | 10 min |
-| 1:55-2:00 | Afsluiting & Opdracht | 5 min |
+| Tijd | Onderdeel | Slide(s) | Duur |
+|------|-----------|----------|------|
+| 0:00-0:02 | Opening: Titel slide | 1 | 2 min |
+| 0:02-0:07 | Twee Paradijzen in de Caraïben | 2 | 5 min |
+| 0:07-0:12 | Het Dilemma (Interactieve Poll) | 3 | 5 min |
+| 0:12-0:15 | Theoretisch Kader (CORE Economy) | 4 | 3 min |
+| 0:15-0:20 | Externe Effecten: De Theorie | 5 | 5 min |
+| 0:20-0:23 | Externe Kosten: Nederlands Perspectief | 6 | 3 min |
+| 0:23-0:28 | **PLOT TWIST: De Waarheid** | 7 | 5 min |
+| 0:28-0:31 | Van Theorie naar Praktijk: CSRD | 8 | 3 min |
+| 0:31-0:34 | ESRS: De 12 Standaarden | 9 | 3 min |
+| 0:34-0:40 | Jouw Opdracht: Instructie | 10 | 6 min |
+| 0:40-0:50 | **PAUZE** | - | 10 min |
+| 0:50-1:20 | **PRAKTIJK:** Onderzoek & Tips | 11 | 30 min |
+| 1:20-1:25 | Speed Dating: Kennisdeling | 12 | 5 min |
+| 1:25-1:30 | Van Probleem naar Oplossing | 13 | 5 min |
+| 1:30-1:35 | Wat Kunnen Wij Doen? | 14 | 5 min |
+| 1:35-1:40 | Synthese: Van Martinique tot Morgen | 15 | 5 min |
+| 1:40-1:45 | Wrap-up & Feedback | 16 | 5 min |
 
 ---
 
 ## 📝 Gedetailleerd Draaiboek
 
-### 🏝️ Opening: Een Tropisch Eiland Dilemma (0:00-0:05)
+### 🎯 Slide 1: Opening - Marktfalen & Externe Effecten (0:00-0:02)
 
 **Doel:** Systeem 2 activeren met een moreel-economisch dilemma
 
 #### Activiteiten:
 
-**Start met stilte en een beeld** (2 min)
-- Toon foto van tropisch eiland met bananenplantages en vissersboten
-- "Stel je voor: een prachtig tropisch eiland..."
-- Laat studenten het beeld absorberen
-
-**De Morele Vraag** (3 min)
-```
-🤔 "Op dit FICTIEVE eiland hebben we:
-- 1000 families die leven van bananenteelt
-- 200 families die leven van de visserij
-- Een pesticide dat de bananenoogst verdubbelt
-- ...maar de visvangst met 90% vermindert
-
-Wat zou JIJ doen als minister van dit eiland?"
-```
-
-**Snelle peiling:**
-- "Wie zou het pesticide toestaan?" (handen)
-- "Wie zou het verbieden?" (handen)
-- "Wie weet het niet?" (handen)
-- Noteer de verhoudingen op het bord
-
-**Instructie:** "Onthoud jullie keuze. We gaan vandaag ontdekken waarom dit één van de moeilijkste economische dilemma's is. En aan het eind... vertel ik jullie een geheim over dit 'fictieve' eiland."
+**Titel slide tonen** (2 min)
+- Toon de titel slide met de dramatische achtergrond
+- "Vandaag gaan we het hebben over wanneer markten falen"
+- "We beginnen met een verhaal over twee paradijselijke eilanden..."
+- Bouw spanning op voor wat komen gaat
 
 > **🎯 Docenttip**: Creëer spanning door het woord "fictieve" subtiel te benadrukken. De plot twist komt later.
 
 ---
 
-### 🔗 Brug vanuit Week 4: Van Sociale Dilemma's naar Marktfalen (0:05-0:08)
+### 🏝️ Slide 2: Twee Paradijzen in de Caraïben (0:02-0:07)
 
-**Doel:** Connectie leggen tussen Week 4 (sociale interacties) en Week 5 (marktfalen)
+**Doel:** Introductie van Guadeloupe en Martinique als 'paradijselijke' eilanden
 
-#### Terugblik & Verbinding (3 min)
+#### Presenteer de eilanden (5 min)
 
-**Opening:**
-"Vorige week hebben we gezien hoe individuele rationaliteit tot collectief slechte uitkomsten leidt..."
-
-**De Reis van Week 4 naar Week 5:**
+**Toon de data over Guadeloupe en Martinique:**
 ```
-📊 Week 4 - Sociale Dilemma's:
-- Gevangenendilemma: Beiden zwijgen is optimaal, maar beiden bekennen
-- Public Goods Game: Free-riding ondermijnt collectieve welvaart
-- Ultimatum Game: Mensen offeren geld op voor fairness
-- Innovation Rent: Verdeling van innovatiewinsten (Schumpeter)
+🏝️ GUADELOUPE:
+- 395.700 inwoners
+- Hoofdsector: Diensten (80% GDP)
+- Bananenexport: 70.000 ton/jaar
+- Werkloosheid: 16%
 
-⬇️ DE BRUG ⬇️
+🏝️ MARTINIQUE:
+- 400.500 inwoners
+- Hoofdsector: Diensten (75% GDP)
+- Bananenexport: 220.000 ton/jaar
+- Werkloosheid: 13%
 
-📊 Week 5 - Wanneer deze dilemma's de markt verstoren:
-- Gevangenendilemma → Externe effecten (mijn vervuiling, jouw probleem)
-- Public Goods → Tragedy of the Commons (overbevissing, klimaat)
-- Fairness → Acceptatie van marktuitkomsten (true pricing)
-- Innovation Rent → Wie draagt de maatschappelijke kosten?
-```
-
-**Kerninsight voor studenten:**
-"Het gevangenendilemma van vorige week? Dat speelt zich ELKE DAG af wanneer bedrijven vervuilen!"
-- Bedrijf A: "Als ik niet vervuil en concurrent wel → ik verlies"
-- Bedrijf B: "Als ik niet vervuil en concurrent wel → ik verlies"
-- Resultaat: Beiden vervuilen → collectief verlies (klimaatcrisis)
-
-**Innovation Rent Connectie - Het AI Voorbeeld:**
-"Remember de innovation rent discussie? Een bedrijf innoveert, maakt €100.000 extra winst. Vorige week vroegen we: hoeveel deel je met werknemers? Deze week vragen we: wat als die innovatie €200.000 aan maatschappelijke schade veroorzaakt?"
-
-**🤖 Actueel Voorbeeld - AI Revolution:**
-```
-💰 Innovation Rent (wie wint?):
-- OpenAI/Microsoft: €50 miljard marktwaarde stijging
-- Google/Meta: Miljarden aan efficiëntiewinsten
-- Early adopters: 70% kostenbesparing op taken
-
-💔 Sociale Kosten (wie betaalt?):
-- 1.4 miljoen Nederlandse banen in gevaar
-- Werklozen: inkomen, identiteit, mentale gezondheid
-- Overheid: €20 miljard extra WW/bijstand
-- Gemeenschappen: lokale economie krimpt
-- Families: intergenerationele effecten
+🌴 SAMEN:
+- 50% van landbouwexport = bananen
+- 8.500 directe banen in bananensector
+- 2.500 vissers
+- <1% GDP uit visserij
 ```
 
-**Het Nieuwe Ultimatum Game:**
-"Tech-gigant zegt: 'Wij maken €100 miljard winst met AI, nemen 90%, jullie krijgen 10% voor omscholing'"
-"Samenleving: Maar wij dragen €200 miljard aan sociale kosten!"
-- Moet er een "robot-tax" komen?
-- Universeel basisinkomen uit AI-winsten?
-- Verplichte omscholingsfondsen door tech-bedrijven?
+**Frame het als paradijs:**
+"Kijk naar deze prachtige Franse eilanden in de Caraïben"
+- "Perfecte vakantiebestemming"
+- "Stabiele economie met bananen als trots exportproduct"
+- "Maar er speelt een dilemma..."
 
-"Dit is het ultimatum game op mega-schaal: accepteren we deze verdeling, of eisen we fairness?"
-
-**Van Micro naar Macro:**
-- Week 4: Interactie tussen INDIVIDUEN (prisoners, spelers, werkgever-werknemer)
-- Week 5: Interactie tussen BEDRIJF en SAMENLEVING (vervuiler-slachtoffers)
-- Zelfde mechanismen, grotere schaal!
-
-**De Hoop uit Week 4:**
-"Maar wacht! Week 4 leerde ons ook dat mensen NIET puur rationeel zijn:"
-- Ultimatum Game: mensen offeren geld voor fairness
-- Public Goods: mensen dragen bij ondanks free-riding mogelijkheid
-- Dit verklaart waarom sommige bedrijven WEL duurzaam worden
-- Social shaming, reputatie, en normen kunnen markten corrigeren
-
-**Transitie naar de casus:**
-"Laten we dit concreet maken met een 'fictief' eiland waar deze dilemma's samenkomen..."
-
-> **🎯 Docenttip**: Gebruik concrete Week 4 voorbeelden. Vraag: "Wie herinnert zich het bedrag dat mensen opgaven in het ultimatum game voor fairness? Straks zien we wat mensen opgeven voor schoon milieu..."
+**Brug naar Week 4:**
+"Dit lijkt op het gevangenendilemma van vorige week:"
+- "Individuele rationaliteit vs collectief belang"
+- "Maar nu op eiland-schaal"
 
 ---
 
-### 🌴 De "Fictieve" Casus Uitwerken (0:08-0:15)
+### 🎯 Slide 3: Het Dilemma - Interactieve Poll (0:07-0:12)
 
-**Doel:** Casus opbouwen als theoretisch voorbeeld
+**Doel:** Studenten laten stemmen op het dilemma
 
-#### De Setting Beschrijven (5 min)
+#### Stel het dilemma voor (2 min)
+
+**Het scenario:**
+```
+🤔 Een FICTIEF dilemma op deze eilanden:
+- Pesticide verhoogt bananenoogst met 100%
+- MAAR: vermindert visvangst met 90%
+- 8.500 banen in bananen vs 2.500 vissers
+
+Wat zou JIJ doen als minister?
+```
+
+#### Activeer de poll (3 min)
+
+**Laat studenten stemmen:**
+- A: Pesticide toestaan (economische groei)
+- B: Pesticide verbieden (milieu beschermen)
+- C: Compromis zoeken
+
+**Live resultaten tonen:**
+- Percentages real-time op scherm
+- "Interessant, [X]% kiest voor economie..."
+- "Onthoud jullie keuze!"
+
+> **🎯 Docenttip**: Benadruk het woord "FICTIEF" subtiel. De plot twist komt in slide 7.
+
+---
+
+### 📚 Slide 4: Theoretisch Kader - CORE Economy Unit 12 (0:12-0:15)
+
+**Doel:** Theoretische basis leggen
+
+#### Presenteer het framework (3 min)
+
+**Toon de theorie:**
+```
+📖 CORE ECONOMY UNIT 12:
+- Marktfalen & Externe Effecten
+- Efficiency vs Distribution
+- Policy Interventions
+
+PDF Downloads beschikbaar:
+- Unit 12 (Engels)
+- Nederlandse samenvatting
+- Oefenopgaven
+```
+
+**Link met praktijk:**
+"Deze theorie gaan we toepassen op ons eiland-dilemma"
+
+**Verwijs naar PDF:**
+"Download de PDF voor verdieping - link opent in nieuwe tab"
+
+---
+
+### 🌴 De "Fictieve" Casus Uitwerken (0:07-0:12)
+
+**Doel:** Casus snel maar krachtig neerzetten
+
+#### De Setting Beschrijven (3 min)
 
 **PowerPoint Slide met getallen:**
 ```
@@ -197,7 +208,7 @@ VISSERS:
 - Verlies: €900.000
 ```
 
-**Klassikale Analyse** (5 min)
+**Klassikale Analyse** (2 min)
 - "Wat is de PRIVATE winst voor bananenproducenten?" (€400.000)
 - "Wat is de SOCIALE kost?" (€900.000 schade vissers)
 - "Wat is het NETTO effect voor het eiland?" (-€500.000!)
@@ -216,11 +227,11 @@ VISSERS:
 
 ---
 
-### 📊 Theorie: Externe Effecten (0:15-0:25)
+### 📊 Theorie: Externe Effecten + MPC/MSC (0:12-0:20)
 
 **Doel:** Unit 12.1 concepten introduceren
 
-#### Externe Effecten Definiëren (5 min)
+#### Externe Effecten & MPC/MSC Gecombineerd (8 min)
 
 **Definitie op slide:**
 > "Een extern effect ontstaat wanneer productie of consumptie van de één de welvaart van anderen beïnvloedt zonder dat daar compensatie tegenover staat."
@@ -232,29 +243,7 @@ VISSERS:
 **Check begrip:**
 "Geef een voorbeeld van een positief extern effect in jouw sector"
 
-#### Van Privaat naar Sociaal (5 min)
-
-**Kernconcepten Unit 12.1:**
-```
-📈 Marginale Kosten Hiërarchie:
-1. Marginale Private Kosten (MPC) = Wat de producent betaalt
-2. Marginale Externe Kosten (MEC) = Schade aan derden
-3. Marginale Sociale Kosten (MSC) = MPC + MEC
-```
-
-**Interactieve vraag:**
-"In ons eiland-voorbeeld:
-- MPC van extra bananen? (Weevokil kosten: €100.000/1000 = €100/ton)
-- MEC? (Visserijschade: €900.000/1000 = €900/ton)
-- MSC? (€100 + €900 = €1000/ton)"
-
----
-
-### 📈 MPC vs MSC Analyse - Grafieken 12.1 & 12.2 (0:25-0:40)
-
-**Doel:** Unit 12.2 grafieken gebruiken voor visuele analyse
-
-#### Grafiek 12.1: De Kostencurves (8 min)
+**Direct toepassen op eiland-casus:**
 
 **Teken op bord/slide (gebaseerd op Figure 12.1):**
 ```
@@ -276,161 +265,18 @@ Prijs
 
 **Kernvraag:** "Waarom ligt MSC ALTIJD boven MPC bij negatieve externaliteiten?"
 
-#### Grafiek 12.2: Marktuitkomst vs Optimum (7 min)
-
-**Toon Figure 12.2 equivalent:**
-```
-     MSC
-    /
-   /    MPC
-  /    /
- /    /     Vraagcurve
-/____/________
-     Q*  Qm
-     ↑    ↑
- Optimaal Markt
-```
-
-**Analyse:**
-- **Qm** = Wat de markt produceert (2000 ton)
-- **Q*** = Sociaal optimum (wellicht 500 ton)
-- **Overproductie** = Qm - Q* (1500 ton te veel!)
-
-**Deadweight Loss gebied aanwijzen:**
-"De driehoek tussen MSC, Vraag, en hoeveelheden Q* tot Qm"
+**Grafiek en berekening in één:**
+- Toon MSC > MPC grafiek
+- Quick berekening: DWL = €675.000
+- "Dit is wat markten NIET zien!"
 
 ---
 
-### 💀 Deadweight Loss Berekeningen (0:40-0:50)
+### 💣 PLOT TWIST: De Werkelijke Casus (0:20-0:25)
 
-**Doel:** Studenten leren welvaartsverlies te kwantificeren
+**Doel:** De schokkende waarheid onthullen voor maximale impact
 
-#### Gezamenlijke Berekening (5 min)
-
-**Op bord:**
-```
-Deadweight Loss = ½ × (Qm - Q*) × (MSC - MPC)
-                = ½ × (2000 - 500) × (€1000 - €100)
-                = ½ × 1500 × €900
-                = €675.000 welvaartsverlies!
-```
-
-**Interpretatie:**
-"Dit is pure VERSPILLING - waarde die vernietigd wordt door marktfalen"
-
-#### Groepsoefening (5 min)
-
-**Nieuwe getallen per groep:**
-- Groep A: MPC=€50, MSC=€200, Qm=1000, Q*=400
-- Groep B: MPC=€75, MSC=€300, Qm=800, Q*=300
-- Groep C: MPC=€100, MSC=€500, Qm=600, Q*=150
-
-**Opdracht:** "Bereken de deadweight loss voor jullie scenario"
-
----
-
-### ☕ PAUZE (0:50-1:00)
-
-**Instructies:**
-- "Denk na over de vraag: Hoe lossen we dit op?"
-- "Schrijf één mogelijke oplossing op"
-- "Na de pauze: beleidsopties!"
-
----
-
-### 🔧 Beleidsoplossingen - Unit 12.3 (1:00-1:10)
-
-**Doel:** Verschillende interventies vergelijken
-
-#### De Gereedschapskist (5 min)
-
-**1. Verbod/Regulering**
-```
-🚫 "Weevokil verbieden"
-+ Directe oplossing
-- Verlies van efficiency (geen bananen)
-- Moeilijk te handhaven
-```
-
-**2. Pigouviaanse Belasting**
-```
-💰 "Belasting = MEC = €900/ton"
-+ Internaliseert externe kosten
-+ Flexibel (bedrijf kiest zelf)
-- Lastig juiste hoogte bepalen
-```
-
-**3. Subsidie voor Alternatieven**
-```
-🌱 "Subsidie voor biologische bestrijding"
-+ Stimuleert innovatie
-- Kost overheidsgeld
-- Mogelijk niet effectief
-```
-
-**4. Verhandelbare Rechten**
-```
-📜 "Maximaal 100 ton Weevokil per jaar"
-+ Marktmechanisme bepaalt prijs
-+ Zekerheid over totale vervuiling
-- Complex systeem nodig
-```
-
-#### Quick Poll (5 min)
-
-**Stemming per oplossing:**
-"Welke oplossing heeft jullie voorkeur en waarom?"
-
-**Groepsdiscussie:**
-"Bedenk voor- en nadelen van jullie gekozen oplossing"
-
----
-
-### 🤝 Coase Theorema - Grafiek 12.4 (1:10-1:20)
-
-**Doel:** Private onderhandeling als alternatief
-
-#### Het Theorema Uitleggen (5 min)
-
-**Coase Stelling:**
-> "Als eigendomsrechten duidelijk zijn en transactiekosten laag, kunnen partijen onderhandelen tot een efficiënte uitkomst, ongeacht wie de rechten heeft"
-
-**Ons Eiland Scenario's:**
-
-**A. Vissers hebben recht op schoon water:**
-- Bananenproducenten moeten vissers compenseren
-- Alleen rendabel als winst > compensatie
-
-**B. Bananenproducenten hebben recht op Weevokil:**
-- Vissers kunnen producenten betalen om te stoppen
-- Alleen haalbaar als schade > betaling
-
-#### Grafiek 12.4: Onderhandelingsruimte (5 min)
-
-**Toon Figure 12.4 - Gains from bargaining:**
-```
-€ Winst Bananen (€400k)
-    ↑
-    |░░░░░ Mogelijke
-    |░░░░░ Onderhandelings-
-    |░░░░░ uitkomsten
-    |____________
-              → € Verlies Vissen (€900k)
-```
-
-**Waarom werkt het vaak NIET?**
-1. **Transactiekosten**: Advocaten, onderhandelingstijd
-2. **Informatieasymmetrie**: Echte schade onbekend
-3. **Veel partijen**: 1000 vs 200 families
-4. **Macht**: Ongelijke onderhandelingspositie
-
----
-
-### 💣 PLOT TWIST: De Werkelijke Casus (1:20-1:30)
-
-**Doel:** De schokkende waarheid onthullen
-
-#### De Onthulling (3 min)
+#### De Onthulling (2 min)
 
 **Dramatische Pauze:**
 "Ik heb jullie iets niet verteld..."
@@ -447,7 +293,7 @@ MARTINIQUE & GUADELOUPE - WERKELIJKHEID:
 - Kankergevallen: Wereldrecord prostaatkanker
 ```
 
-#### De Details uit Unit 12 Intro (4 min)
+#### De Details uit Unit 12 Intro (2 min)
 
 **Citaat uit CORE Economy:**
 > "Between 1972 and 1993, banana plantations in Guadeloupe and Martinique used chlordecone, a pesticide that helps banana plants resist insects. In 1993, the French government outlawed the pesticide due to its harmful effects on human health, after it had already been prohibited in the US for 17 years."
@@ -459,7 +305,7 @@ MARTINIQUE & GUADELOUPE - WERKELIJKHEID:
 - Gezondheidskosten: miljarden
 - Vertrouwen in overheid: vernietigd
 
-#### Emotionele Impact (3 min)
+#### Emotionele Impact (1 min)
 
 **Klassikale Reflectie:**
 "Wie had aan het begin voor Weevokil gekozen?"
@@ -471,85 +317,231 @@ MARTINIQUE & GUADELOUPE - WERKELIJKHEID:
 
 ---
 
-### 💰 True Pricing & Verborgen Kosten (1:30-1:45)
+### ☕ PAUZE (0:35-0:45)
 
-**Doel:** Van theorie naar praktische instrumenten
-
-#### True Pricing Methodologie (7 min)
-
-**Het Concept:**
-```
-📊 TRUE PRICE = Marktprijs + Alle Externe Kosten
-
-Voorbeeld Banaan:
-Supermarktprijs: €2/kg
-+ CO2 uitstoot: €0,15
-+ Watergebruik: €0,10
-+ Biodiversiteitsverlies: €0,25
-+ Arbeidsomstandigheden: €0,30
-+ Bodemuitputting: €0,20
-= TRUE PRICE: €3/kg
-```
-
-**Nederlandse Voorbeelden:**
-- **Tony Chocolonely**: Eerlijke cacao prijs
-- **ABN AMRO Jeans**: €33 winkelprijs = €73 echte kosten
-- **True Price supermarkt**: Albert Heijn pilots
-
-#### Groepswerk: Sector Analyse (8 min)
-
-**Opdracht per sector:**
-"Identificeer 3 verborgen kosten in jullie sector"
-
-**Sectoren:**
-- Fast Fashion
-- Vleesindustrie
-- Tech/Elektronica
-- Luchtvaart
-- Bouw
-
-**Presentatie:** 1 minuut per groep
+**Instructies:**
+- "De plot twist laten bezinken"
+- "Straks gaan jullie zelf verborgen kosten analyseren voor jullie eigen bedrijven"
+- "Denk vast na over mogelijke externe effecten in jullie sector"
 
 ---
 
-### 🌍 ESG Frameworks & Brede Welvaart (1:45-1:55)
+### 📊 CSRD/ESRS: Verplichte Transparantie (0:25-0:30)
 
-**Doel:** Verbinding met moderne bedrijfsvoering
+**Doel:** Koppeling maken tussen verborgen kosten en verplichte rapportage
 
-#### ESG als Antwoord (5 min)
+#### Slide 7: CSRD - De Game Changer (2.5 min)
 
-**Environmental, Social, Governance:**
+**Wat is CSRD?**
 ```
-🌱 Environmental: Klimaat, vervuiling, biodiversiteit
-👥 Social: Arbeidsrechten, gezondheid, gemeenschap
-🏛️ Governance: Transparantie, ethiek, verantwoording
+🇪🇺 Corporate Sustainability Reporting Directive:
+- Vanaf 2024-2026: 50.000 EU-bedrijven verplicht
+- Rapporteren volgens ESRS standaarden
+- Dubbele materialiteit:
+  • Impact op samenleving (wat wij net zagen!)
+  • Impact op bedrijf (financiële risico's)
+- Externe audit verplicht
 ```
 
-**Van Aandeelhouderswaarde naar Stakeholderwaarde:**
-- Shareholders → Stakeholders
-- Profit → People, Planet, Profit
-- Korte termijn → Lange termijn
+**Waarom relevant voor jullie analyse?**
+"Wat jullie straks gaan doen is PRECIES wat bedrijven nu MOETEN rapporteren!"
 
-#### Brede Welvaart Indicatoren (5 min)
+#### Slide 8: ESRS Standaarden - De Checklist (2.5 min)
 
-**CBS Monitor Brede Welvaart:**
-1. Materiële welvaart
-2. Gezondheid
-3. Onderwijs
-4. Sociale cohesie
-5. Veiligheid
-6. Milieu
-7. Work-life balance
-8. Instituties
-9. Subjectief welzijn
-10. Natuurlijk kapitaal
+**Toon tabel met alle ESRS standaarden:**
+```
+📝 ESRS STANDAARDEN:
+ENVIRONMENT:
+• E1: Klimaat (CO2, energie)
+• E2: Vervuiling (lucht, water, bodem)
+• E3: Water & mariene resources
+• E4: Biodiversiteit
+• E5: Circulaire economie
 
-**De Shift:**
-"Van BBP naar Brede Welvaart - van MEER naar BETER"
+SOCIAL:
+• S1: Eigen personeel
+• S2: Werknemers in keten
+• S3: Getroffen gemeenschappen
+• S4: Consumenten
+
+GOVERNANCE:
+• G1: Bedrijfsvoering & ethiek
+```
+
+**Koppeling met opdracht:**
+"Bij jullie analyse: check welke ESRS-standaarden relevant zijn!"
+"Bedrijf claimt E1 (klimaat) goed te doen? Kijk naar hun Scope 3!"
+"S2 (ketenwerkers)? Check of ze echt living wage betalen!"
+
+**De kracht van CSRD:**
+- Geen greenwashing meer mogelijk
+- Data wordt vergelijkbaar
+- Investeerders kunnen echt sturen
+- Say-Do Gap wordt zichtbaar!
 
 ---
 
-### 📋 Wrap-up & Opdracht (1:55-2:00)
+### 📋 Instructie Verborgen Kosten Analyse (0:30-0:35)
+
+**Doel:** Uitleg opdracht en werkwijze
+
+#### Opdracht Introductie (2 min)
+
+**De Opdracht:**
+"Jullie gaan nu voor JULLIE twee bedrijven de verborgen kosten analyseren volgens de handleiding."
+
+**Werkwijze:**
+- Teams van 2 personen (bestaande projectgroepen)
+- Beide bedrijven uit jullie sector analyseren
+- Gebruik laptops voor onderzoek
+- Vul de ESG-analyse systematisch in
+- Focus op 2-3 belangrijkste externe effecten per bedrijf
+
+#### Handleiding & Tools (3 min)
+
+**Verwijs naar handleiding-verborgen-kosten.md:**
+```
+📝 Stappen:
+1. Verzamel basisdata (jaarverslagen, duurzaamheidsrapporten)
+2. Vul ESG-analyse in (Ecologisch, Sociaal, Bestuur)
+3. Identificeer Say-Do Gap
+4. Kwantificeer waar mogelijk (gebruik SCC = $190/ton CO2)
+5. Trek conclusies over werkelijke kosten
+```
+
+**Databronnen reminder:**
+- Bedrijfswebsites (investor relations)
+- NGO-rapporten voor controverses
+- Nieuwsartikelen voor actuele issues
+- CDP scores voor klimaatdata
+
+---
+
+### 💻 PRAKTIJKOPDRACHT: Verborgen Kosten Analyse (0:45-1:35)
+
+**Doel:** Teams werken in twee rondes met tussentijdse kennisdeling
+
+---
+
+#### RONDE 1: Eerste Onderzoek (0:45-1:15)
+
+##### Werkfase 1A: Data Verzameling (0:45-1:00)
+
+**Teams focussen op ÉÉN bedrijf eerst:**
+- Download jaarverslag + duurzaamheidsverslag
+- Quick scan: top 3 duurzaamheidsclaims identificeren
+- Zoek eerste controverses en tegengeluiden
+- Identificeer relevante ESRS-standaarden
+
+**Docent loopt rond:**
+- Help teams met vinden van rapporten
+- "Focus eerst op één bedrijf goed!"
+- Check databronnen die teams gebruiken
+
+##### Werkfase 1B: Eerste Analyse (1:00-1:15)
+
+**Quick & dirty analyse bedrijf 1:**
+- Grootste verborgen kost identificeren
+- Say-Do Gap voor belangrijkste claim
+- Ruwe schatting van bedrag (orde van grootte)
+- Welke ESRS-standaard wordt geschonden?
+
+**Teams bereiden 30-seconden pitch voor:**
+- "Wij hebben [Bedrijf X]"
+- "Grootste verborgen kost is..."
+- "Say-Do Gap zit in..."
+
+---
+
+#### 🔄 TUSSENTIJDSE CHECK-IN (1:15-1:20)
+
+**Speed Dating Kennisdeling (5 min)**
+
+**Format:**
+- Teams staan op, vormen twee rijen tegenover elkaar
+- 30 seconden per team: deel je grootste vondst
+- Na 1 minuut: schuif door naar volgende team
+- 2-3 rondes (afhankelijk van aantal teams)
+
+**Docent noteert op bord:**
+```
+🔥 HOT FINDINGS:
+• Shell: €15 miljard CO2 kosten (Team 3)
+• Primark: 300% loonkloof Bangladesh (Team 5)
+• Unilever: Palmolie = 5 miljoen hectare bos (Team 1)
+```
+
+**Korte plenaire reflectie (1 min):**
+- "Welke methode werkte goed om Say-Do Gap te vinden?"
+- "Wie heeft een goede bron voor controverses?"
+- Tips delen voor tweede ronde
+
+---
+
+#### RONDE 2: Verdieping & Tweede Bedrijf (1:20-1:35)
+
+##### Werkfase 2A: Tweede Bedrijf Quick Scan (1:20-1:27)
+
+**Teams analyseren nu bedrijf 2 (sneller met geleerde lessen):**
+- Gebruik tips van andere teams
+- Focus op grootste impact/controverse
+- Vergelijk met bedrijf 1
+
+##### Werkfase 2B: Presentatie Voorbereiden (1:27-1:35)
+
+**Finale presentatie voorbereiden:**
+
+**Kies BESTE case van je twee bedrijven:**
+- Meest schokkende verborgen kost
+- OF beste Say-Do Gap bewijs
+- OF hoogste percentage van winst
+
+**2-minuten pitch structuur:**
+1. **30 sec**: Bedrijf + grootste verborgen kost
+2. **30 sec**: Say-Do Gap bewijs (gebruik concrete quotes!)
+3. **30 sec**: Kwantificering + ESRS-standaard
+4. **30 sec**: Vergelijking met andere bedrijf + oplossing
+
+**Visual maken (kies één):**
+- Flipchart met kerngetallen
+- Whiteboard schets
+- A4 met bullet points
+
+**Power tips van docent:**
+- "Begin met: 'Wist je dat...'"
+- "Gebruik vergelijking: 'Dit is gelijk aan het jaarbudget van...'"
+- "Eindig met: 'Als wij minister waren...'\
+
+---
+
+### 🎤 TEAM PRESENTATIES (1:35-1:55)
+
+**Doel:** Alle teams presenteren hun belangrijkste bevinding
+
+#### Presentatieronde (20 min)
+
+**Format:**
+- **8-10 teams** × 2 minuten = 16-20 minuten
+- Strikte tijdsbewaking (timer zichtbaar)
+- Geen vragen tijdens presentaties (tijd!)
+
+**Docent maakt live scoreboard:**
+```
+TEAM | BEDRIJF | VERBORGEN KOST | ESRS | % VAN WINST
+-----|---------|----------------|------|-------------
+  1  | Shell   | €15 mld CO2    | E1   | 87%
+  2  | H&M     | €3 mld arbeid  | S2   | 234%
+  ...|  ...    |      ...       | ...  | ...
+```
+
+**Publiek noteert:**
+- Meest schokkende onthulling
+- Beste kwantificering
+- Link met ESRS standaarden
+
+---
+
+### 📋 Wrap-up & Link naar Eindproject (1:55-2:00)
 
 **Doel:** Consolideren en vooruitkijken
 
@@ -562,17 +554,21 @@ Supermarktprijs: €2/kg
 4. True pricing maakt kosten transparant
 5. ESG/Brede welvaart = nieuwe norm
 
-#### Opdracht Week 5 (2 min)
+#### Huiswerkopdracht (2 min)
 
-**Sectoranalyse True Pricing:**
+**Individuele Verdieping:**
 ```
-📝 Voor jullie sector:
-1. Identificeer 3 belangrijkste externe effecten
-2. Schat de verborgen kosten (gebruik bronnen)
-3. Stel 2 beleidsinterventies voor
-4. Evalueer ESG-risico's en kansen
-5. Max 1000 woorden, deadline: volgende week
+📝 Opdracht:
+1. Werk jullie analyse verder uit in een kort rapport (500 woorden)
+2. Voeg kwantificering toe waar jullie dat nog niet hadden
+3. Identificeer welke ESRS-standaarden het bedrijf niet goed naleeft
+4. Formuleer 3 concrete beleidsaanbevelingen
+5. Upload in Brightspace voor volgende week
+6. Dit telt mee voor jullie sectoranalyse project!
 ```
+
+**Link met eindproject:**
+"Deze verborgen kosten analyse wordt een hoofdstuk in jullie eindrapport!"
 
 #### Laatste Gedachte (1 min)
 
@@ -591,24 +587,27 @@ Supermarktprijs: €2/kg
 - Gebruik stiltes na de plot twist voor reflectie
 - Verbind emotie met ratio - beide zijn nodig
 
-### Timing Management:
-- **Te weinig tijd:** Skip Coase theorema, focus op belasting/regulering
-- **Te veel tijd:** Voeg actuele Nederlandse case toe (PFAS, Tata Steel)
-- **Groepswerk loopt uit:** Presentaties inkorten tot 30 sec
+### Timing Management Praktijkopdracht:
+- **Teams lopen achter:** Skip vergelijking, focus op 1 bedrijf goed
+- **Teams zijn snel klaar:** Laat ze beleidsbrief schrijven aan minister
+- **Technische problemen:** Gebruik voorbeelddata Ahold Delhaize
 
-### Veelvoorkomende Vragen:
+### Veelvoorkomende Vragen tijdens Praktijkopdracht:
 
-**"Waarom werd Chlordecone niet eerder verboden?"**
-→ Lobby, economische belangen, informatie-asymmetrie, regulatory capture
+**"We vinden geen duurzaamheidsverslag"**
+→ Check: Sustainability Report, CSR Report, ESG Report, Integrated Report, Non-Financial Report
 
-**"Hoe bepaal je de juiste Pigouviaanse belasting?"**
-→ Complex: schade meten, toekomst voorspellen, politieke haalbaarheid
+**"Hoe bereken je sociale kosten?"**
+→ Gebruik proxy's: minimumloon vs. betaald loon × aantal werknemers, gezondheidskosten per incident
 
-**"Werkt True Pricing echt?"**
-→ Early stage, maar bewustzijn groeit. Consumenten én investeerders vragen om transparantie
+**"Het bedrijf claimt netto-zero maar stoot nog steeds CO2 uit?"**
+→ Dat is de Say-Do Gap! Check of ze compenseren of echt reduceren
 
-**"Is kapitalisme het probleem?"**
-→ Nee, maar wel kapitalisme zonder juiste prijzen. Externe kosten moeten geïnternaliseerd worden.
+**"Kunnen we ChatGPT gebruiken voor onderzoek?"**
+→ Ja voor ideeën, maar verifieer ALLES met officiële bronnen
+
+**"Wat als bedrijven uit verschillende sectoren zijn?"**
+→ Focus op grootste impacts per sector, vergelijk relatief (% van omzet/winst)
 
 ### Differentiatie:
 
@@ -637,12 +636,13 @@ Supermarktprijs: €2/kg
 
 ### Evaluatiecriteria Geslaagd:
 - [ ] Studenten begrijpen verschil MPC en MSC
-- [ ] Kunnen deadweight loss berekenen
 - [ ] Herkennen marktfalen in praktijk
 - [ ] Verbinden theorie met Martinique casus
-- [ ] Begrijpen true pricing concept
-- [ ] Zien link met ESG en brede welvaart
-- [ ] Emotionele impact van plot twist merkbaar
+- [ ] Kunnen verborgen kosten identificeren in eigen bedrijven
+- [ ] Vinden Say-Do Gap in duurzaamheidsclaims
+- [ ] Kwantificeren externe effecten waar mogelijk
+- [ ] Formuleren realistische beleidsvoorstellen
+- [ ] Zien relevantie voor hun toekomstige rol
 
 ---
 
