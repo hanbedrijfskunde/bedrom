@@ -54,7 +54,7 @@ class DefenseBuilder {
             const basePath = window.location.pathname.includes('toetsing.html')
                 ? window.location.pathname.replace('toetsing.html', '')
                 : '/';
-            const vraagbankPath = `${basePath}course-docs/toetsing/toetsing-vragenbank-uitgebreid.json`;
+            const vraagbankPath = `${basePath}course-docs/toetsing/toetsing-vragenbank-compleet.json`;
 
             console.log('Fetching vragenbank from', vraagbankPath);
             const response = await fetch(vraagbankPath);
@@ -229,6 +229,12 @@ class DefenseBuilder {
 
         // Build HTML for question and sub-questions
         const deelvragen = question.deelvragen || [];
+
+        // Beveiliging: als er geen deelvragen zijn, reset de subquestion index
+        if (deelvragen.length === 0 && this.currentSubQuestionIndex > 0) {
+            this.currentSubQuestionIndex = 0;
+        }
+
         const currentDeelvraag = deelvragen[this.currentSubQuestionIndex] || null;
         const progressPercent = ((this.currentQuestionIndex + 1) / this.selectedQuestions.length * 100);
 
@@ -257,15 +263,15 @@ class DefenseBuilder {
                     </div>
                 </div>
 
-                <!-- Stakeholder Context -->
+                <!-- Stakeholder Belang -->
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <span class="text-2xl">🎯</span>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium text-blue-900">${question.rol}</p>
-                            <p class="text-sm text-blue-800 italic mt-1">${question.context}</p>
+                            <p class="text-xs uppercase tracking-wider text-blue-700 font-semibold mb-1">Belang - ${question.rol}</p>
+                            <p class="text-sm text-blue-800 leading-relaxed">${question.belang || question.context}</p>
                         </div>
                     </div>
                 </div>
@@ -277,28 +283,26 @@ class DefenseBuilder {
                 </div>
 
                 <!-- Sub Questions -->
-                ${deelvragen.length > 0 ? `
+                ${deelvragen.length > 0 && currentDeelvraag ? `
                     <div class="mb-6">
                         <h4 class="text-md font-semibold text-gray-900 mb-3">
                             Deelvraag ${this.currentSubQuestionIndex + 1} van ${deelvragen.length}:
                         </h4>
-                        ${currentDeelvraag ? `
-                            <div class="bg-gray-50 rounded-lg p-4 mb-4">
-                                <p class="text-gray-800 font-medium mb-2">
-                                    ${currentDeelvraag.vraag}
-                                </p>
-                                <div class="text-sm text-gray-600">
-                                    <span class="inline-block bg-gray-200 rounded px-2 py-1 mr-2">
-                                        Type: ${currentDeelvraag.type}
-                                    </span>
-                                    ${currentDeelvraag.hints ? currentDeelvraag.hints.map(hint =>
-                                        `<span class="inline-block bg-yellow-100 rounded px-2 py-1 mr-2 mt-2">
-                                            💡 ${hint}
-                                        </span>`
-                                    ).join('') : ''}
-                                </div>
+                        <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                            <p class="text-gray-800 font-medium mb-2">
+                                ${currentDeelvraag.vraag}
+                            </p>
+                            <div class="text-sm text-gray-600">
+                                <span class="inline-block bg-gray-200 rounded px-2 py-1 mr-2">
+                                    Type: ${currentDeelvraag.type}
+                                </span>
+                                ${currentDeelvraag.hints ? currentDeelvraag.hints.map(hint =>
+                                    `<span class="inline-block bg-yellow-100 rounded px-2 py-1 mr-2 mt-2">
+                                        💡 ${hint}
+                                    </span>`
+                                ).join('') : ''}
                             </div>
-                        ` : ''}
+                        </div>
                     </div>
                 ` : ''}
 
@@ -312,7 +316,7 @@ class DefenseBuilder {
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                         rows="6"
                         placeholder="Type hier je antwoord..."
-                    >${this.getAnswer(currentDeelvraag?.id || `${question.id}_main`) || ''}</textarea>
+                    >${this.getAnswer(deelvragen.length === 0 ? `${question.id}_main` : (currentDeelvraag?.id || `${question.id}_main`)) || ''}</textarea>
                     <div class="flex justify-between mt-2 text-sm text-gray-500">
                         <span id="char-count">0 karakters</span>
                         <span>Min. 100 karakters aanbevolen</span>
@@ -340,14 +344,14 @@ class DefenseBuilder {
                         </button>
                     ` : ''}
 
-                    ${this.currentSubQuestionIndex === deelvragen.length - 1 && this.currentQuestionIndex < this.selectedQuestions.length - 1 ? `
+                    ${(deelvragen.length === 0 || this.currentSubQuestionIndex === deelvragen.length - 1) && this.currentQuestionIndex < this.selectedQuestions.length - 1 ? `
                         <button id="next-question"
                                 class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                             Volgende vraag →
                         </button>
                     ` : ''}
 
-                    ${this.currentSubQuestionIndex === deelvragen.length - 1 && this.currentQuestionIndex === this.selectedQuestions.length - 1 ? `
+                    ${(deelvragen.length === 0 || this.currentSubQuestionIndex === deelvragen.length - 1) && this.currentQuestionIndex === this.selectedQuestions.length - 1 ? `
                         <button id="complete-session"
                                 class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                             ✅ Sessie afronden
@@ -431,7 +435,10 @@ class DefenseBuilder {
         const deelvragen = question.deelvragen || [];
         const currentDeelvraag = deelvragen[this.currentSubQuestionIndex];
 
-        const answerId = currentDeelvraag ? currentDeelvraag.id : `${question.id}_main`;
+        // Bepaal het antwoord ID, rekening houdend met vragen zonder deelvragen
+        const answerId = deelvragen.length === 0
+            ? `${question.id}_main`
+            : (currentDeelvraag ? currentDeelvraag.id : `${question.id}_main`);
         const answer = textarea.value.trim();
 
         if (answer.length < 10) {
