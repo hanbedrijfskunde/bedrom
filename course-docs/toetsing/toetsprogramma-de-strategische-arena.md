@@ -1,41 +1,59 @@
 ### **Toetsprogramma: De Strategische Arena**
 
-Concept:  
-Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol van de Raad van Bestuur (RvB). Hun publiek bestaat niet alleen uit de docent, maar ook uit drie andere teams die elk een cruciale stakeholderrol vervullen: de Raad van Commissarissen (RvC), een groep kritische investeerders, en een onafhankelijke toezichthouder. De overige teams fungeren als observatoren en geven peer-feedback. Dit creëert een realistisch spanningsveld waarin de RvB haar strategische keuzes en analyses moet verdedigen.  
+**Concept:**
+Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol van de Raad van Bestuur (RvB). Hun publiek bestaat niet alleen uit de docent, maar ook uit drie andere teams die elk een cruciale stakeholderrol vervullen: de Raad van Commissarissen (RvC), een groep kritische investeerders, en een onafhankelijke toezichthouder. De overige teams fungeren als observatoren en geven peer-feedback. Dit creëert een realistisch spanningsveld waarin de RvB haar strategische keuzes en analyses moet verdedigen.
+
+**Kernprincipe:** *"Van theoretische analyse naar boardroom verdediging"*
+
 **Doelen:**
 
-* **Authentieke toepassing:** Studenten ervaren hoe economische analyses worden gebruikt om strategische beslissingen te onderbouwen en te verdedigen tegenover stakeholders.  
-* **Actieve participatie:** Alle studenten hebben continu een actieve rol, ook als hun team niet presenteert.  
-* **Integrale toetsing:** Toetst niet alleen de analyse (het 'wat'), maar ook de argumentatie en het omgaan met kritische vragen (het 'waarom' en 'hoe').  
-* **Verdieping:** De vragen van stakeholders dwingen de presenterende teams om dieper op de materie in te gaan dan ze wellicht zelf hadden voorbereid.
+* **Authentieke toepassing:** Studenten ervaren hoe economische analyses worden gebruikt om strategische beslissingen te onderbouwen en te verdedigen tegenover kritische stakeholders.
+* **Actieve participatie:** Alle studenten hebben continu een actieve rol door het rotatieschema waarbij iedereen verschillende perspectieven ervaart.
+* **Integrale toetsing:** Toetst niet alleen de analyse (het 'wat'), maar ook de argumentatie, adaptief denken en het omgaan met kritische vragen (het 'waarom' en 'hoe').
+* **Verdieping door dialoog:** De vragen van stakeholders dwingen presenterende teams om dieper op de materie in te gaan dan ze wellicht zelf hadden voorbereid, wat leidt tot authentiek leren.
 
 ---
 
 ### **Rolverdeling**
 
-**1\. Team in de Spotlight: De Raad van Bestuur (RvB)**
+**1. Team in de Spotlight: De Raad van Bestuur (RvB)**
 
-* **Taak:** Presenteert in 15 minuten de integrale analyse van de economische kansen en bedreigingen voor hun sector en de gekozen bedrijven. De presentatie is een management-summary van hun 10-pagina's tellende rapport.  
-* **Samenstelling (studenten verdelen dit onderling):**  
-  * **Chief Executive Officer (CEO):** Leidt de presentatie, schetst de grote lijnen en de strategische conclusie.  
-  * **Chief Financial Officer (CFO):** Focust op macro-economische variabelen, kostenstructuren, en financiële implicaties van ESG en True Pricing.  
-  * **Chief Operations Officer (COO):** Bespreekt de bedrijfskolom, marktvorm, en de impact van regulering op de operatie.  
-  * **Chief Sustainability Officer (CSO):** Presenteert de analyses rondom maatschappelijke kosten, True Pricing en het ESG-framework.
+* **Taak:** Presenteert in 15 minuten de integrale analyse van de economische kansen en bedreigingen voor hun sector en de gekozen bedrijven. De presentatie is een management-summary van hun rapport, gefocust op strategische inzichten.
+* **Samenstelling (flexibele verdeling door studenten):**
+  * **Chief Executive Officer (CEO):** Leidt de presentatie, schetst strategische visie en verbindt alle analyses tot een coherent verhaal.
+  * **Chief Financial Officer (CFO):** Analyseert macro-economische impact, conjunctuurgevoeligheid, kostenstructuren en financiële implicaties.
+  * **Chief Operations Officer (COO):** Bespreekt bedrijfskolom, marktstructuur, concurrentiepositie en operationele excellentie.
+  * **Chief Sustainability Officer (CSO):** Presenteert ESG-strategie, maatschappelijke kosten, True Pricing en duurzaamheidskansen.
 
-**2\. Stakeholder Team A: De Raad van Commissarissen (RvC)**
+**2. Stakeholder Team A: De Raad van Commissarissen (RvC)**
 
-* **Taak:** Stelt kritische vragen vanuit een toezichthoudend en adviserend perspectief. De focus ligt op de deugdelijkheid van de analyse, langetermijnstrategie en risicobeheersing.  
-* **Focusgebieden:** Conjunctuurgevoeligheid, strategische positionering in de bedrijfskolom, governance (G van ESG).
+* **Perspectief:** Toezicht & Governance
+* **Taak:** Stelt kritische vragen vanuit toezichthoudend en adviserend perspectief, test de robuustheid van strategische keuzes.
+* **Focusgebieden:**
+  - Conjunctuurgevoeligheid en scenario-planning
+  - Strategische positionering in de bedrijfskolom
+  - Governance structuur en risicomanagement
+  - Lange-termijn waardecreatie
 
-**3\. Stakeholder Team B: De Investeringsmaatschappij "FutureGrowth Capital"**
+**3. Stakeholder Team B: De Investeringsmaatschappij**
 
-* **Taak:** Vraagt door als potentiële investeerder. De focus ligt op winstgevendheid, marktkansen, concurrentievoordeel en risico-rendementsverhouding.  
-* **Focusgebieden:** Marktvorm en marktmacht, prijselasticiteit, innovatief gedrag, financiële kansen en risico's van ESG (kansen op nieuwe markten, risico's van niet-duurzaam opereren).
+* **Perspectief:** Rendement & Groei
+* **Taak:** Beoordeelt investeringspotentieel, zoekt naar waardegroei en duurzaam concurrentievoordeel.
+* **Focusgebieden:**
+  - Marktvorm, marktmacht en pricing power
+  - Innovatiecapaciteit en groeistrategie
+  - Kostenstructuur en winstgevendheid
+  - ESG als waardecreator of risicofactor
 
-**4\. Stakeholder Team C: De Toezichthouder "Autoriteit Markt & Maatschappij" (AMM)**
+**4. Stakeholder Team C: De Toezichthouder**
 
-* **Taak:** Benadert de presentatie vanuit het publieke belang en de naleving van wet- en regelgeving.  
-* **Focusgebieden:** Overheidsregulering, maatschappelijke kosten (brede welvaart), True Pricing, en de impact van de CSRD/ESRS-standaarden.
+* **Perspectief:** Publiek Belang & Compliance
+* **Taak:** Bewaakt maatschappelijke impact, eerlijke marktwerking en regelgeving naleving.
+* **Focusgebieden:**
+  - Overheidsregulering en compliance
+  - Maatschappelijke kosten en brede welvaart
+  - True Pricing implementatie
+  - CSRD/ESRS-standaarden en rapportage
 
 **5\. Overige Teams: Observatoren & Analisten**
 
@@ -43,24 +61,25 @@ Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol 
 
 ---
 
-### **Draaiboek (per sessie van 2 uur met 3 teams)**
+### **Draaiboek Assessment (40 minuten per team)**
+
+**Format:** Boardroom simulatie met roterende rollen
 
 **Benodigdheden:**
+* Presentatiescherm en timer (zichtbaar voor allen)
+* Digitale rollenkaarten (beschikbaar via toetsing.html)
+* Peer-feedback formulieren
+* Defense Builder tool voor vraagvoorbereiding
 
-* Beamer/scherm  
-* Klok/timer die voor iedereen zichtbaar is  
-* Rollenkaarten voor de stakeholderteams (zie bijlage)  
-* Peer-feedbackformulieren voor de observatoren
+**Tijdsindeling per team:**
 
-**Totaal per team: 40 minuten**
-
-| Tijd | Activiteit | Beschrijving |
-| :---- | :---- | :---- |
-| 2 min | **Voorbereiding & Opstelling** | Presenterend team (RvB) staat vooraan. De drie stakeholderteams (RvC, Investeerders, Toezichthouder) zitten tegenover hen. Docent introduceert de RvB en de casus (sector/bedrijven). |
-| 15 min | **Presentatie door de RvB** | De RvB presenteert hun analyse van de economische kansen en bedreigingen. De CEO leidt, de andere C-level functionarissen presenteren hun deel. De tijd wordt strak bewaakt. |
-| 15 min | **Kruisverhoor door Stakeholders** | De Q\&A-ronde, strak geleid door de docent. • 5 min: Vragen van de **Raad van Commissarissen (RvC)** • 5 min: Vragen van de **Investeringsmaatschappij** • 5 min: Vragen van de **Toezichthouder** |
-| 5 min | **Analyse & Conclusie** | De observator-teams krijgen 2 minuten om kort te overleggen. Vervolgens geeft elk observator-team in 1 minuut hun conclusie/advies. |
-| 3 min | **Feedback door Docent & Afronding** | De docent geeft een korte samenvatting van de sterke punten en de verbeterpunten, zowel voor de RvB als voor de stakeholders. Wissel van teams voor de volgende ronde. |
+| Fase | Tijd | Activiteit | Details |
+|:-----|:-----|:-----------|:--------|
+| **1** | 2 min | **Setup & Introductie** | • RvB neemt plaats vooraan<br>• Stakeholder teams positioneren zich<br>• Docent introduceert sector/bedrijven |
+| **2** | 15 min | **RvB Presentatie** | • CEO opent met strategische visie (3 min)<br>• CFO: Macro-economie & financiën (4 min)<br>• COO: Markt & operaties (4 min)<br>• CSO: ESG & duurzaamheid (4 min) |
+| **3** | 15 min | **Stakeholder Q&A** | • RvC: Governance vragen (5 min)<br>• Investeerders: ROI vragen (5 min)<br>• Toezichthouder: Compliance vragen (5 min) |
+| **4** | 5 min | **Observer Analyse** | • Teams overleggen kort (2 min)<br>• Elk team geeft advies (1 min per team) |
+| **5** | 3 min | **Docent Feedback** | • Sterke punten highlighten<br>• Verbeterpunten aangeven<br>• Transitie naar volgende team |
 
 ---
 
@@ -117,14 +136,67 @@ Geef de studenten een week van tevoren dit draaiboek en de rollenverdeling. Bena
   * "Uit uw analyse van de brede welvaart blijkt dat uw sector een negatieve impact heeft op 'leefomgeving'. Welke concrete en meetbare doelstellingen heeft uw bestuur geformuleerd om deze maatschappelijke kosten te verlagen?"  
   * "Welke van de door u geïdentificeerde ESRS-standaarden is het lastigst te implementeren in uw huidige bedrijfsvoering en waarom?"
 
+### **Digitale Ondersteuning**
+
+**1. Defense Builder Tool**
+* **Doel:** Oefenen met boardroom vragen per stakeholder perspectief
+* **Gebruik:** Teams kunnen vooraf oefenen met 113 authentieke vragen uit de vragenbank
+* **Features:**
+  - Vragen gesorteerd per week/thema
+  - Deelvragen met hints voor diepgang
+  - Exportfunctie voor team voorbereiding
+
+**2. Assessment Platform (toetsing.html)**
+* **Timer Module:** Visuele countdown per fase
+* **Role Cards:** Digitale rolbeschrijvingen met voorbeeldvragen
+* **Team Coordination:** Invite codes voor teamvorming
+* **Progress Tracking:** Automatische voortgangsregistratie
+
+---
+
 ### **Beoordeling**
 
-De beoordeling kan integraal plaatsvinden en rust op twee pijlers:
+**Beoordelingscriteria (gebaseerd op 13 leerdoelen):**
 
-1. **Beoordeling van de RvB (presenterend team):**  
-   * **Analyse (70%):** Kwaliteit van de economische analyse, diepgang, correcte toepassing van theorie (dit blijkt uit de presentatie en de antwoorden).  
-   * **Verdediging (30%):** De overtuigingskracht, professionaliteit en het vermogen om kritische vragen te pareren met onderbouwde argumenten.  
-2. **Beoordeling van de Stakeholders (participatie):**  
-   * De docent kan de kwaliteit van de vragen die de stakeholderteams stellen meenemen als een klein onderdeel van de eindbeoordeling (bijv. als een bonus/malus of een weging van 10%). Dit stimuleert een serieuze voorbereiding van alle rollen. Let op de relevantie en de scherpte van de vragen.
+**1. RvB Presentatie (70%)**
+* **Economische Analyse (40%)**
+  - Macro-economische inzichten en conjunctuurgevoeligheid
+  - Marktstructuur en concurrentieanalyse
+  - Kostenstructuur en prijselasticiteit
+  - Innovatie en groeistrategie
 
-Met dit format transformeert u de eindpresentatie van een monoloog naar een dynamische dialoog, wat een veel rijkere en representatievere toetsingsvorm is voor toekomstige bedrijfskundigen. Succes\!
+* **ESG & Duurzaamheid (30%)**
+  - True Pricing toepassing
+  - Brede welvaart dimensies
+  - CSRD/ESRS compliance
+  - Maatschappelijke kosten analyse
+
+**2. Boardroom Defense (30%)**
+* **Vraagbeantwoording (20%)**
+  - Diepgang en onderbouwing
+  - Adaptief denkvermogen
+  - Gebruik van data en voorbeelden
+
+* **Professionele Presentatie (10%)**
+  - Overtuigingskracht en helderheid
+  - Teamcoördinatie en rolverdeling
+  - Omgang met kritiek
+
+**3. Stakeholder Participatie (Bonus/Malus ±10%)**
+* Kwaliteit en relevantie van gestelde vragen
+* Rolvastheid en perspectief behoud
+* Constructieve bijdrage aan dialoog
+
+---
+
+### **Succesfactoren**
+
+Dit assessment format transformeert theoretische kennis naar praktische boardroom vaardigheden door:
+
+1. **Authentieke Context:** Real-world stakeholder dynamiek
+2. **Meervoudige Perspectieven:** Alle studenten ervaren verschillende rollen
+3. **Directe Toepassing:** Theorie wordt getest in dialoog
+4. **Peer Learning:** Teams leren van elkaars aanpak
+5. **Digital Tools:** Moderne ondersteuning voor voorbereiding en uitvoering
+
+Met deze aanpak ontwikkelen studenten niet alleen analytische vaardigheden, maar ook de boardroom competenties die essentieel zijn voor hun toekomstige carrière als bedrijfskundigen.
