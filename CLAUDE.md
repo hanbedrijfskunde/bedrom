@@ -8,8 +8,8 @@ This is a Business Economics course project repository ("bedrom") containing HTM
 
 ## Repository Structure
 
-- **HTML Presentations**: Standalone HTML files with embedded Tailwind CSS, MathJax for formulas, and Chart.js for visualizations
-  - `slides.html`, `slides-wk2.html`, `slides-wk3.html`, `slides-wk4.html`: Weekly presentation slides
+- **HTML Presentations**: Standalone HTML files with embedded Tailwind CSS, MathJax for formulas, and visualizations
+  - `slides.html`, `slides-wk2.html`, `slides-wk3.html`, `slides-wk4.html`, `slides-wk5.html`: Weekly presentation slides
   - `simulatie-wk1.html`: Week 1 simulation
   - `notes.html`: Course notes
   - `index.html`: Course landing page with week-based navigation
@@ -54,7 +54,8 @@ No build process or package manager is required - files can be edited directly a
 - **HTML/CSS**: Standalone presentation files
 - **Tailwind CSS**: Utility-first CSS framework (loaded via CDN)
 - **MathJax**: Mathematical notation rendering
-- **Chart.js**: Data visualization library
+- **Chart.js**: Data visualization library (Week 1-4)
+- **Plotly.js**: Advanced interactive graphs (Week 5 - CORE Economy figures)
 
 ## Architecture & Patterns
 
@@ -69,9 +70,11 @@ All slide presentations follow a consistent architecture:
 ### Interactive Elements
 Presentations include various interactive components:
 - **p5.js visualizations**: Used for economic models and simulations (e.g., isocurve demonstrations)
-- **Chart.js graphs**: Data visualizations for economic concepts
+- **Chart.js graphs**: Data visualizations for economic concepts (Weeks 1-4)
+- **Plotly.js graphs**: Interactive economic figures with curved fills (Week 5)
 - **MathJax formulas**: Mathematical notation with `$` delimiters for inline math
 - **Game buttons**: Interactive learning games integrated via modal overlays
+- **Interactive polls**: Real-time voting systems for student engagement (Week 5)
 
 ### Authentication Pattern
 Teacher-only resources use URL parameter authentication:
@@ -121,16 +124,31 @@ The course follows a weekly structure with consistent components:
 
 ### Week 5 Specifics
 **Theme**: Market Failures & External Effects (based on CORE Economy Unit 12)
-- **Key concepts**: External effects, MPC vs MSC, deadweight loss, Coase theorem, true pricing
+- **Slides**: 16 slides with interactive Plotly graph
+- **Key concepts**: External effects, MPC vs MSC, Coase theorem, bargaining & compensation
+- **Interactive elements**:
+  - Plotly.js graph showing Figure 12.4 from CORE Economy
+  - Interactive poll on chlordecone dilemma (slide 3)
+  - Speed dating timer for knowledge sharing (slide 12)
+- **Main visualization**:
+  - Figure 12.4: The gains from bargaining
+  - Curved MSC and MPC lines with proper intersection points
+  - Filled areas showing net social gain and loss of profit
+  - Pareto-efficient point at 38,000 tons, market equilibrium at 80,000 tons
+- **Case study**: Martinique & Guadeloupe chlordecone disaster (1972-1993)
+  - Real-world example of market failure
+  - 90% population contaminated
+  - Soil polluted for 700 years
+- **CSRD/ESRS integration**:
+  - Corporate Sustainability Reporting Directive
+  - 12 ESRS standards (E1-E5, S1-S4, G1, ESRS 1&2)
+  - 1,178 datapoints (265 voluntary)
+- **External tools**:
+  - Hidden Costs Analysis tool: https://hanbedrijfskunde.github.io/hidden-costs/
 - **Bridge from Week 4**:
   - Connects social dilemmas to market failures
-  - Innovation rent expanded to include social costs (AI example)
-  - Ultimatum game applied to societal cost distribution
-- **Case study**: Martinique banana/fishing dilemma (chlordecone pollution)
-- **Focus areas**:
-  - True pricing methodology
-  - ESG frameworks and broad prosperity (brede welvaart)
-  - Policy interventions for market failures
+  - Prisoner's dilemma applied to pollution decisions
+  - Ultimatum game applied to compensation negotiations
 
 ### Assessment (Toetsing) Specifics
 **Theme**: De Strategische Arena - Boardroom simulation assessment
@@ -226,3 +244,4 @@ python3 -m http.server 5502
 # Or use VS Code Live Server on port 5502
 # Access at: http://localhost:5502/toetsing.html
 ```
+- to
