@@ -164,6 +164,153 @@
 				justify-content: center;
 				font-size: 2rem;
 				font-weight: bold;
+				transition: all 0.3s ease;
+			}
+
+			/* Timer warning animations */
+			@keyframes pulse-slow {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.05); }
+			}
+
+			@keyframes pulse-medium {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.08); }
+			}
+
+			@keyframes pulse-fast {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.12); }
+			}
+
+			.timer-warning-3 {
+				animation: pulse-slow 1s ease-in-out infinite;
+				background: conic-gradient(#f59e0b var(--progress), #fed7aa var(--progress)) !important;
+			}
+
+			.timer-warning-2 {
+				animation: pulse-medium 0.7s ease-in-out infinite;
+				background: conic-gradient(#ea580c var(--progress), #fdba74 var(--progress)) !important;
+			}
+
+			.timer-warning-1 {
+				animation: pulse-fast 0.4s ease-in-out infinite;
+				background: conic-gradient(#dc2626 var(--progress), #fca5a5 var(--progress)) !important;
+			}
+
+			.timer-warning-3 #timerDisplay {
+				color: white;
+				font-size: 2.5rem;
+				font-weight: bold;
+				text-shadow: 0 0 10px rgba(0,0,0,0.5);
+			}
+
+			.timer-warning-2 #timerDisplay {
+				color: white;
+				font-size: 2.7rem;
+				font-weight: bold;
+				text-shadow: 0 0 10px rgba(0,0,0,0.5);
+			}
+
+			.timer-warning-1 #timerDisplay {
+				color: white;
+				font-size: 3rem;
+				font-weight: bold;
+				text-shadow: 0 0 10px rgba(0,0,0,0.5);
+			}
+
+			/* Revelation video styles for Slide 7 */
+			.revelation-video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 1;
+				opacity: 0;
+				transition: opacity 0.5s ease;
+			}
+
+			.revelation-video.playing {
+				opacity: 1;
+			}
+
+			@keyframes fadeOutVideo {
+				0% { opacity: 1; }
+				75% { opacity: 1; }
+				100% { opacity: 0; }
+			}
+
+			.revelation-video.fade-out {
+				animation: fadeOutVideo 2s ease-out forwards;
+				animation-delay: 6s; /* Start fading at 6 seconds, complete by 8 */
+			}
+
+			.slide-7-content {
+				position: relative;
+				z-index: 2;
+				transition: opacity 1.5s ease;
+			}
+
+			/* Initially hide content when slide 7 is active but video hasn't played */
+			#slide-revelation.slide.active .slide-7-content {
+				opacity: 0;
+				text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+			}
+
+			#slide-revelation.slide.active .slide-7-content.visible {
+				opacity: 1;
+				transition-delay: 6.5s; /* Content becomes visible as video fades */
+			}
+
+			/* Unmute button styles */
+			.unmute-btn {
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				z-index: 3;
+				background: rgba(0, 0, 0, 0.7);
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				border-radius: 50%;
+				width: 48px;
+				height: 48px;
+				display: none;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				color: white;
+			}
+
+			.unmute-btn:hover {
+				background: rgba(0, 0, 0, 0.9);
+				border-color: rgba(255, 255, 255, 0.6);
+				transform: scale(1.1);
+			}
+
+			.unmute-btn.visible {
+				display: flex;
+			}
+
+			.unmute-btn.fade-out {
+				animation: fadeOutVideo 2s ease-out forwards;
+				animation-delay: 6s;
+			}
+
+			.unmute-icon {
+				width: 24px;
+				height: 24px;
+			}
+
+			/* Pulse animation to draw attention */
+			@keyframes pulse-attention {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.1); }
+			}
+
+			.unmute-btn.pulse {
+				animation: pulse-attention 2s ease-in-out infinite;
 			}
 		</style>
 	</head>
@@ -387,8 +534,21 @@
 		</section>
 
 		<!-- Slide 7: De Onthulling -->
-		<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white">
-			<div class="slide-content text-center">
+		<section class="slide h-full flex-col items-center justify-center bg-gray-900 text-white" id="slide-revelation">
+			<!-- Paradise to destruction video - plays automatically when slide is shown -->
+			<video id="revelationVideo" class="revelation-video" playsinline preload="auto">
+				<source src="images/martinique-paradise-lost.mp4" type="video/mp4">
+			</video>
+			<!-- Mute/Unmute button for video sound -->
+			<button id="unmuteBtn" class="unmute-btn" onclick="toggleVideoSound()" title="Toggle sound">
+				<svg class="unmute-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+					<line class="sound-off" x1="23" y1="9" x2="17" y2="15"></line>
+					<line class="sound-off" x1="17" y1="9" x2="23" y2="15"></line>
+					<path class="sound-on" style="display:none" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+				</svg>
+			</button>
+			<div class="slide-content text-center slide-7-content">
 				<h2 class="text-5xl font-bold mb-8">De Waarheid over Martinique & Guadeloupe</h2>
 				<p class="text-2xl mb-8 text-gray-300">Chlordecone werd gebruikt van 1972 tot 1993...</p>
 
@@ -854,6 +1014,70 @@
 				// Show current slide
 				slides[currentSlide - 1].classList.add('active');
 
+				// Handle Slide 7 video playback
+				if (currentSlide === 7) {
+					const video = document.getElementById('revelationVideo');
+					const content = document.querySelector('.slide-7-content');
+					const unmuteBtn = document.getElementById('unmuteBtn');
+
+					if (video) {
+						// Reset video and classes
+						video.currentTime = 0;
+						video.volume = 0.3; // Set reasonable volume level
+						video.muted = false; // Default to unmuted
+						video.classList.remove('fade-out');
+						video.classList.add('playing');
+						content.classList.remove('visible');
+
+						// Show unmute button (now acts as mute button since default is unmuted)
+						unmuteBtn.classList.add('visible');
+						unmuteBtn.classList.remove('fade-out', 'pulse');
+						updateMuteIcon(false); // Show as unmuted
+
+						// Try to play with sound first
+						video.play().catch(e => {
+							// If autoplay with sound fails, fallback to muted
+							console.log('Autoplay with sound blocked, falling back to muted:', e);
+							video.muted = true;
+							updateMuteIcon(true);
+							unmuteBtn.classList.add('pulse'); // Pulse to indicate sound is available
+							// Try playing again muted
+							video.play().catch(err => console.log('Video play failed:', err));
+						});
+
+						// Start fade out animation after delay
+						setTimeout(() => {
+							video.classList.add('fade-out');
+							content.classList.add('visible');
+							unmuteBtn.classList.add('fade-out');
+							unmuteBtn.classList.remove('pulse');
+						}, 100);
+
+						// Stop and hide video after 8 seconds
+						setTimeout(() => {
+							video.pause();
+							video.classList.remove('playing');
+							unmuteBtn.classList.remove('visible');
+							// Reset mute state for next play
+							video.muted = true;
+							updateMuteIcon(true);
+						}, 8000);
+					}
+				} else {
+					// Stop video if leaving slide 7
+					const video = document.getElementById('revelationVideo');
+					const unmuteBtn = document.getElementById('unmuteBtn');
+					if (video) {
+						video.pause();
+						video.classList.remove('playing', 'fade-out');
+						video.muted = true;
+						updateMuteIcon(true);
+					}
+					if (unmuteBtn) {
+						unmuteBtn.classList.remove('visible', 'pulse', 'fade-out');
+					}
+				}
+
 				// Update counter
 				document.getElementById('currentSlide').textContent = currentSlide;
 				document.getElementById('totalSlides').textContent = totalSlides;
@@ -954,6 +1178,33 @@
 			// Speed dating timer (Slide 12)
 			let timerInterval;
 
+			// Video sound control functions
+			function toggleVideoSound() {
+				const video = document.getElementById('revelationVideo');
+				const unmuteBtn = document.getElementById('unmuteBtn');
+
+				if (video) {
+					video.muted = !video.muted;
+					updateMuteIcon(video.muted);
+
+					// Remove pulse animation once user has interacted
+					unmuteBtn.classList.remove('pulse');
+				}
+			}
+
+			function updateMuteIcon(isMuted) {
+				const soundOff = document.querySelectorAll('.sound-off');
+				const soundOn = document.querySelector('.sound-on');
+
+				if (isMuted) {
+					soundOff.forEach(line => line.style.display = 'block');
+					if (soundOn) soundOn.style.display = 'none';
+				} else {
+					soundOff.forEach(line => line.style.display = 'none');
+					if (soundOn) soundOn.style.display = 'block';
+				}
+			}
+
 			function startTimer() {
 				let seconds = 30;
 				const display = document.getElementById('timerDisplay');
@@ -967,9 +1218,53 @@
 					const progress = ((30 - seconds) / 30) * 100;
 					circle.style.setProperty('--progress', `${progress}%`);
 
+					// Apply warning classes based on remaining seconds
+					if (seconds === 3) {
+						circle.classList.add('timer-warning-3');
+					} else if (seconds === 2) {
+						circle.classList.remove('timer-warning-3');
+						circle.classList.add('timer-warning-2');
+					} else if (seconds === 1) {
+						circle.classList.remove('timer-warning-2');
+						circle.classList.add('timer-warning-1');
+					}
+
 					if (seconds <= 0) {
 						clearInterval(timerInterval);
-						// Play sound or visual alert
+						// Remove warning classes
+						circle.classList.remove('timer-warning-1', 'timer-warning-2', 'timer-warning-3');
+
+						// Play cheerful bell sound using Web Audio API
+						try {
+							const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+							// Create three bell tones for a cheerful chime
+							const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5 (major chord)
+							const startTime = audioContext.currentTime;
+
+							frequencies.forEach((freq, index) => {
+								const oscillator = audioContext.createOscillator();
+								const gainNode = audioContext.createGain();
+
+								oscillator.connect(gainNode);
+								gainNode.connect(audioContext.destination);
+
+								oscillator.frequency.value = freq;
+								oscillator.type = 'sine';
+
+								// Envelope for bell-like sound
+								gainNode.gain.setValueAtTime(0, startTime + index * 0.1);
+								gainNode.gain.linearRampToValueAtTime(0.3, startTime + index * 0.1 + 0.02);
+								gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + index * 0.1 + 0.5);
+
+								oscillator.start(startTime + index * 0.1);
+								oscillator.stop(startTime + index * 0.1 + 0.5);
+							});
+						} catch (e) {
+							console.log('Audio failed:', e);
+						}
+
+						// Flash red background
 						circle.style.background = 'red';
 						setTimeout(() => {
 							circle.style.background = '';
