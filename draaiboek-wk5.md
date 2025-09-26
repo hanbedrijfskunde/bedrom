@@ -1,43 +1,43 @@
-# Draaiboek Week 5: Marktfalen, Externe Effecten & True Pricing
+# Draaiboek Week 5: Marktfalen & Externe Effecten
 *Algemene Economie - HBO Business Studies Jaar 2*
 **Gebaseerd op CORE Economy Unit 12: Markets, Efficiency, and Public Policy**
 
-## Thema: Wanneer Markten Falen - Van Theorie naar Werkelijkheid
+## Thema: De verborgen kosten van onze economie
 
 ### Leerdoelen (CORE Unit 12.1-12.3)
 Na deze les kunnen studenten:
 1. **Marktfalen identificeren** en externe effecten herkennen in praktijksituaties (Unit 12.1)
-2. **Het verschil analyseren** tussen marginale private kosten (MPC) en marginale sociale kosten (MSC) (Unit 12.2)
+2. **Het verschil analyseren** tussen marginale private kosten (MPC), marginale externe kosten (MEC) en marginale sociale kosten (MSC) (Unit 12.2)
 3. **Deadweight loss berekenen** bij negatieve externaliteiten (Unit 12.2)
 4. **Beleidsinterventies evalueren**: regulering, belasting, subsidies, eigendomsrechten (Unit 12.3)
 5. **Het Coase-theorema toepassen** op onderhandelingssituaties (Unit 12.3)
-6. **True pricing methodologie begrijpen** als instrument voor transparantie
-7. **ESG-frameworks koppelen** aan externe effecten en marktfalen
-8. **Brede welvaart perspectief** hanteren bij economische beslissingen
+6. **CSRD/ESRS framework begrijpen** als instrument voor transparantie
+7. **Say-Do Gap identificeren** in duurzaamheidsrapportages
+8. **Verborgen kosten kwantificeren** met Social Cost of Carbon ($190/ton CO₂)
 
 ### Materialen
 - **CORE Economy Unit 12 PDF** (hoofdstukken 12.1-12.3)
-- Laptops voor berekeningen en grafieken
-- Slides-wk5.html op beamer
-- Calculators voor MPC/MSC oefeningen
-- Flipchart voor groepsdiscussies
-- Artikelen over werkelijke gevallen (Martinique, Nederlandse cases)
+- **slides-wk5.html** op beamer
+- **Verborgen Kosten Calculator**: https://hanbedrijfskunde.github.io/hidden-costs/
+- Laptops voor onderzoek en berekeningen
+- Artikelen over Chlordecone-crisis Martinique/Guadeloupe
 
-### Slide Overzicht
-| Slide | Inhoud | Timing |
-|-------|--------|--------|
-| 1 | Marktfalen & Externe Effecten (Titel) | 0:00-0:02 |
-| 2 | Twee Paradijzen in de Caraïben | 0:02-0:07 |
+### Slide Overzicht (16 slides totaal)
+
+| Slide | Titel | Timing |
+|-------|-------|--------|
+| 1 | Marktfalen & Externe Effecten | 0:00-0:02 |
+| 2 | Twee Paradijzen in de Caraïben 🏝️ | 0:02-0:07 |
 | 3 | Het Dilemma (Interactieve Poll) | 0:07-0:12 |
-| 4 | Theoretisch Kader (CORE Economy Unit 12) | 0:12-0:15 |
+| 4 | Theoretisch Kader 📚 | 0:12-0:15 |
 | 5 | Externe Effecten: De Theorie | 0:15-0:20 |
 | 6 | Externe Kosten: Nederlands Perspectief | 0:20-0:23 |
-| 7 | **PLOT TWIST: De Waarheid over Martinique & Guadeloupe** | 0:23-0:28 |
-| 8 | Van Theorie naar Praktijk: CSRD | 0:28-0:31 |
+| 7 | De Waarheid over Martinique & Guadeloupe | 0:23-0:28 |
+| 8 | Van Theorie naar Praktijk: CSRD 🇪🇺 | 0:28-0:31 |
 | 9 | ESRS: De 12 Rapportagestandaarden | 0:31-0:34 |
 | 10 | Jouw Opdracht: Verborgen Kosten Analyse | 0:34-0:40 |
 | PAUZE | 10 minuten | 0:40-0:50 |
-| 11 | Tips voor je Verborgen Kosten Onderzoek | 0:50-1:20 |
+| 11 | Tips voor je Verborgen Kosten Onderzoek 🔍 | 0:50-1:20 |
 | 12 | Speed Dating: Deel je Ontdekking! | 1:20-1:25 |
 | 13 | Van Probleem naar Oplossing | 1:25-1:30 |
 | 14 | Wat Kunnen Wij Doen? | 1:30-1:35 |
@@ -46,603 +46,590 @@ Na deze les kunnen studenten:
 
 ---
 
-## ⏰ Tijdsindeling Overzicht
+## 📝 Gedetailleerd Draaiboek per Slide
 
-| Tijd | Onderdeel | Slide(s) | Duur |
-|------|-----------|----------|------|
-| 0:00-0:02 | Opening: Titel slide | 1 | 2 min |
-| 0:02-0:07 | Twee Paradijzen in de Caraïben | 2 | 5 min |
-| 0:07-0:12 | Het Dilemma (Interactieve Poll) | 3 | 5 min |
-| 0:12-0:15 | Theoretisch Kader (CORE Economy) | 4 | 3 min |
-| 0:15-0:20 | Externe Effecten: De Theorie | 5 | 5 min |
-| 0:20-0:23 | Externe Kosten: Nederlands Perspectief | 6 | 3 min |
-| 0:23-0:28 | **PLOT TWIST: De Waarheid** | 7 | 5 min |
-| 0:28-0:31 | Van Theorie naar Praktijk: CSRD | 8 | 3 min |
-| 0:31-0:34 | ESRS: De 12 Standaarden | 9 | 3 min |
-| 0:34-0:40 | Jouw Opdracht: Instructie | 10 | 6 min |
-| 0:40-0:50 | **PAUZE** | - | 10 min |
-| 0:50-1:20 | **PRAKTIJK:** Onderzoek & Tips | 11 | 30 min |
-| 1:20-1:25 | Speed Dating: Kennisdeling | 12 | 5 min |
-| 1:25-1:30 | Van Probleem naar Oplossing | 13 | 5 min |
-| 1:30-1:35 | Wat Kunnen Wij Doen? | 14 | 5 min |
-| 1:35-1:40 | Synthese: Van Martinique tot Morgen | 15 | 5 min |
-| 1:40-1:45 | Wrap-up & Feedback | 16 | 5 min |
+### 🎯 Slide 1: Marktfalen & Externe Effecten (0:00-0:02)
 
----
+**Doel:** Impactvolle opening met focus op "verborgen kosten"
 
-## 📝 Gedetailleerd Draaiboek
+#### Presentatie:
+- **Donkere achtergrond** (bg-gray-900) voor dramatisch effect
+- **Titel:** "Marktfalen & Externe Effecten"
+- **Ondertitel:** "De verborgen kosten van onze economie"
 
-### 🎯 Slide 1: Opening - Marktfalen & Externe Effecten (0:00-0:02)
+**Opening statement:**
+> "Vandaag ontdekken we de kosten die niemand ziet, maar iedereen betaalt"
 
-**Doel:** Systeem 2 activeren met een moreel-economisch dilemma
+**Bridge naar verhaal:**
+"We beginnen met een verhaal over twee paradijselijke eilanden in de Caraïben..."
 
-#### Activiteiten:
-
-**Titel slide tonen** (2 min)
-- Toon de titel slide met de dramatische achtergrond
-- "Vandaag gaan we het hebben over wanneer markten falen"
-- "We beginnen met een verhaal over twee paradijselijke eilanden..."
-- Bouw spanning op voor wat komen gaat
-
-> **🎯 Docenttip**: Creëer spanning door het woord "fictieve" subtiel te benadrukken. De plot twist komt later.
+> **🎯 Docenttip**: Start mysterieus - de spanning bouwt op naar de Chlordecone onthulling in slide 7.
 
 ---
 
 ### 🏝️ Slide 2: Twee Paradijzen in de Caraïben (0:02-0:07)
 
-**Doel:** Introductie van Guadeloupe en Martinique als 'paradijselijke' eilanden
+**Doel:** Introductie Guadeloupe & Martinique met focus op twee kwetsbare sectoren
 
-#### Presenteer de eilanden (5 min)
+#### Presentatie (5 min):
 
-**Toon de data over Guadeloupe en Martinique:**
+**De setting:**
 ```
-🏝️ GUADELOUPE:
-- 395.700 inwoners
-- Hoofdsector: Diensten (80% GDP)
-- Bananenexport: 70.000 ton/jaar
-- Werkloosheid: 16%
-
-🏝️ MARTINIQUE:
-- 400.500 inwoners
-- Hoofdsector: Diensten (75% GDP)
-- Bananenexport: 220.000 ton/jaar
-- Werkloosheid: 13%
-
-🌴 SAMEN:
-- 50% van landbouwexport = bananen
-- 8.500 directe banen in bananensector
-- 2.500 vissers
-- <1% GDP uit visserij
+GUADELOUPE & MARTINIQUE
+🏝️ 800.000 inwoners
+🏝️ Franse overzeese gebieden
+🏝️ 80% economie = diensten
 ```
 
-**Frame het als paradijs:**
-"Kijk naar deze prachtige Franse eilanden in de Caraïben"
-- "Perfecte vakantiebestemming"
-- "Stabiele economie met bananen als trots exportproduct"
-- "Maar er speelt een dilemma..."
+**Twee vitale traditionele sectoren:**
 
-**Brug naar Week 4:**
-"Dit lijkt op het gevangenendilemma van vorige week:"
-- "Individuele rationaliteit vs collectief belang"
-- "Maar nu op eiland-schaal"
+**🍌 BANANEN EXPORT (linker box):**
+- 50% van alle landbouwexport
+- ~8.500 directe en indirecte banen
+- 290.000 ton jaarlijkse export naar EU
+- €100-170 miljoen exportwaarde
+
+**🎣 VISSERIJ (rechter box):**
+- ~2.500 actieve vissers
+- <1% van GDP maar cultureel cruciaal
+- Lokale voedselvoorziening
+- Kwetsbaar door milieuvervuiling
+
+**Closing statement:**
+> "Twee sectoren die het culturele hart vormen van eilanden waar 80% van de economie uit diensten bestaat..."
+
+**Brug naar dilemma:**
+"Maar wat gebeurt er als deze twee sectoren met elkaar in conflict komen?"
 
 ---
 
 ### 🎯 Slide 3: Het Dilemma - Interactieve Poll (0:07-0:12)
 
-**Doel:** Studenten laten stemmen op het dilemma
+**Doel:** Studenten committeren aan een keuze VOORDAT ze de gevolgen kennen
 
-#### Stel het dilemma voor (2 min)
+#### Het scenario presenteren (2 min):
 
-**Het scenario:**
+**Gele waarschuwingsbox tonen:**
 ```
-🤔 Een FICTIEF dilemma op deze eilanden:
-- Pesticide verhoogt bananenoogst met 100%
-- MAAR: vermindert visvangst met 90%
-- 8.500 banen in bananen vs 2.500 vissers
-
-Wat zou JIJ doen als minister?
+⚠️ De bananenindustrie wordt bedreigd door insectenplagen.
+Er is een wondermiddel: Chlordecone - zeer effectief tegen insecten.
+Mogelijk schadelijk voor het milieu, maar wetenschappelijk bewijs is nog onduidelijk.
 ```
 
-#### Activeer de poll (3 min)
+**De vraag stellen:**
+"Wat zou jij doen als beleidsmaker?"
 
-**Laat studenten stemmen:**
-- A: Pesticide toestaan (economische groei)
-- B: Pesticide verbieden (milieu beschermen)
-- C: Compromis zoeken
+#### Interactieve poll activeren (3 min):
 
-**Live resultaten tonen:**
-- Percentages real-time op scherm
-- "Interessant, [X]% kiest voor economie..."
-- "Onthoud jullie keuze!"
+**Stemopties (klik activeerd stem):**
 
-> **🎯 Docenttip**: Benadruk het woord "FICTIEF" subtiel. De plot twist komt in slide 7.
+**A. Toestaan - economie eerst** (groen)
+- "8.500 banen en €170 miljoen export staan op het spel"
+
+**B. Beperkt toestaan met strenge regels** (geel)
+- "Balans tussen economie en milieubescherming"
+
+**C. Verbieden - voorzorgsprincipe** (rood)
+- "Bij twijfel, niet doen - gezondheid boven alles"
+
+**Live resultaten:**
+- Percentages verschijnen real-time
+- Gekleurde balken groeien met stemmen
+- Totaal aantal stemmen onderaan
+
+**Reflectie:**
+"Interessant! [X]% kiest voor economie, [Y]% voor voorzorg... Onthoud jullie keuze!"
+
+> **🎯 Docenttip**: NIET zeggen dat het een historisch verhaal is! De impact komt van de onthulling in slide 7.
 
 ---
 
 ### 📚 Slide 4: Theoretisch Kader - CORE Economy Unit 12 (0:12-0:15)
 
-**Doel:** Theoretische basis leggen
+**Doel:** Theoretische basis leggen voor analyse
 
-#### Presenteer het framework (3 min)
+#### Presentatie (3 min):
 
-**Toon de theorie:**
+**CORE Economy framework:**
 ```
-📖 CORE ECONOMY UNIT 12:
-- Marktfalen & Externe Effecten
-- Efficiency vs Distribution
-- Policy Interventions
+📚 CORE ECONOMY - UNIT 12
+Markets, Efficiency, and Public Policy
 
-PDF Downloads beschikbaar:
-- Unit 12 (Engels)
-- Nederlandse samenvatting
-- Oefenopgaven
+KERNCONCEPTEN:
+• Externe effecten (externalities)
+• Marginal Private Cost (MPC)
+• Marginal Social Cost (MSC)
+• Deadweight loss
+• Pigouviaanse belasting
+
+RELEVANTE FIGUREN:
+📊 Figure 12.1: Market with negative externality
+📈 Figure 12.3: MPC vs MSC curves
+📉 Figure 12.4: Deadweight loss
+🎯 Figure 12.5: Policy interventions
 ```
 
-**Link met praktijk:**
-"Deze theorie gaan we toepassen op ons eiland-dilemma"
+**Link naar praktijk:**
+"Deze concepten gaan we nu toepassen op ons eiland-dilemma"
 
-**Verwijs naar PDF:**
-"Download de PDF voor verdieping - link opent in nieuwe tab"
+**Download optie:**
+📥 Link naar The Economy Unit 12 PDF
 
 ---
 
-### 🌴 De "Fictieve" Casus Uitwerken (0:07-0:12)
+### 📊 Slide 5: Externe Effecten - De Theorie (0:15-0:20)
 
-**Doel:** Casus snel maar krachtig neerzetten
+**Doel:** MPC, MEC en MSC uitleggen met interactieve Plotly grafiek
 
-#### De Setting Beschrijven (3 min)
+#### Drie kostencomponenten (links, 2 min):
 
-**PowerPoint Slide met getallen:**
-```
-🏝️ Eiland Economie:
-BANANENPRODUCENTEN:
-- Zonder Weevokil: 1000 ton/jaar à €500 = €500.000
-- Met Weevokil: 2000 ton/jaar à €500 = €1.000.000
-- Kosten Weevokil: €100.000
-- Nettowinst extra: €400.000
+**📦 MPC - Marginal Private Cost (blauw):**
+- Kosten voor producent
+- Wat bedrijven WEL zien
 
-VISSERS:
-- Zonder vervuiling: 500 ton/jaar à €2000 = €1.000.000
-- Met vervuiling: 50 ton/jaar à €2000 = €100.000
-- Verlies: €900.000
-```
+**📦 MEC - Marginal External Cost (geel):**
+- Kosten voor derden
+- Wat bedrijven NIET meenemen
 
-**Klassikale Analyse** (2 min)
-- "Wat is de PRIVATE winst voor bananenproducenten?" (€400.000)
-- "Wat is de SOCIALE kost?" (€900.000 schade vissers)
-- "Wat is het NETTO effect voor het eiland?" (-€500.000!)
-- "Maar waarom gebruiken ze het dan toch?"
+**📦 MSC - Marginal Social Cost (rood):**
+- MSC = MPC + MEC
+- De WERKELIJKE kosten voor samenleving
 
-**Het Kernprobleem** (5 min)
-```
-💡 "Dit is MARKTFALEN in actie:
-- Bananenproducenten kijken alleen naar eigen kosten/baten
-- De schade aan vissers telt niet mee in hun beslissing
-- De markt produceert een inefficiënte uitkomst
-- Dit noemen we een NEGATIEVE EXTERNALITEIT"
-```
+#### Figure 12.4 grafiek uitleggen (rechts, 3 min):
 
-**Instructie:** "Laten we dit theoretisch model nu wetenschappelijk analyseren met grafieken uit Unit 12."
+**De grafiek toont:**
+- **Paarse lijn (MPC):** Van $200 naar $400 bij 80.000 ton
+- **Groene lijn (MSC):** Sterke curve door externe kosten
+- **Rode stippellijn:** Marktprijs = $400
+- **Punt A:** Marktuitkomst (80.000 ton)
+- **Pareto-efficiënt:** 38.000 ton
+
+**Gekleurde vlakken:**
+- **Groen:** Net social gain (wat we winnen door reductie)
+- **Paars:** Loss of profit (wat producenten verliezen)
+
+**🎯 Coase Theorema (gele box onderaan):**
+> "Bij onderhandeling tussen bananenproducenten en vissers kan de productie van 80.000 ton naar 38.000 ton. De netto sociale winst is groter dan het verlies aan winst - daarom is compensatie mogelijk!"
 
 ---
 
-### 📊 Theorie: Externe Effecten + MPC/MSC (0:12-0:20)
+### 💰 Slide 6: Externe Kosten - Nederlands Perspectief (0:20-0:23)
 
-**Doel:** Unit 12.1 concepten introduceren
+**Doel:** Externe kosten zijn niet abstract maar zeer reëel en meetbaar
 
-#### Externe Effecten & MPC/MSC Gecombineerd (8 min)
+#### Presentatie (3 min):
 
-**Definitie op slide:**
-> "Een extern effect ontstaat wanneer productie of consumptie van de één de welvaart van anderen beïnvloedt zonder dat daar compensatie tegenover staat."
-
-**Soorten externe effecten:**
-- **Negatief**: Luchtvervuiling, geluid, congestie
-- **Positief**: Vaccinaties, onderwijs, innovatie
-
-**Check begrip:**
-"Geef een voorbeeld van een positief extern effect in jouw sector"
-
-**Direct toepassen op eiland-casus:**
-
-**Teken op bord/slide (gebaseerd op Figure 12.1):**
+**Centrale boodschap (grote rode box):**
 ```
-Prijs
-  ^
-  |     MSC (Marginale Sociale Kosten)
-  |    /
-  |   /  ← Verticale afstand = MEC
-  |  /  MPC (Marginale Private Kosten)
-  | /
-  |/________________> Hoeveelheid Bananen
+€20+ miljard
+Jaarlijkse externe kosten verkeer & milieu in Nederland
+(CE Delft, PBL onderzoek)
 ```
 
-**Uitleg met eiland-getallen:**
-- "Bij 1000 ton extra bananen:"
-- "MPC = €100 per ton (alleen Weevokil)"
-- "MEC = €900 per ton (schade vissers)"
-- "MSC = €1000 per ton (totale kosten voor samenleving)"
+**Drie categorieën (boxes):**
 
-**Kernvraag:** "Waarom ligt MSC ALTIJD boven MPC bij negatieve externaliteiten?"
+**🚗 Verkeer & Transport:**
+- €18.1 miljard
+- Luchtvervuiling, ongevallen, geluid
 
-**Grafiek en berekening in één:**
-- Toon MSC > MPC grafiek
-- Quick berekening: DWL = €675.000
-- "Dit is wat markten NIET zien!"
+**✈️ Luchtvaart:**
+- €4+ miljard
+- Ongedekte maatschappelijke kosten
+
+**🏭 Klimaatbeleid:**
+- €2-3 miljard/jaar
+- Transitiekosten (0.3% BBP)
+
+**Context (blauwe box):**
+- CO₂-belasting Nederland: €88/ton (2023)
+- Huishoudens betalen 2.5x meer dan bedrijven
+- €1.13 miljard opbrengst emissierechten
+
+**Bridge naar plot twist:**
+"Dit zijn de kosten die we KENNEN. Maar wat als je ze pas ontdekt als het te laat is?"
 
 ---
 
-### 💣 PLOT TWIST: De Werkelijke Casus (0:20-0:25)
+### 🚨 Slide 7: De Waarheid over Martinique & Guadeloupe (0:23-0:28)
 
-**Doel:** De schokkende waarheid onthullen voor maximale impact
+**Doel:** Schokkende onthulling voor maximale impact
 
-#### De Onthulling (2 min)
+#### De onthulling (5 min):
 
-**Dramatische Pauze:**
-"Ik heb jullie iets niet verteld..."
+**Donkere achtergrond (bg-gray-900), dramatische pauze:**
+> "Chlordecone werd gebruikt van 1972 tot 1993..."
 
-**PowerPoint slide met krantenkoppen:**
+**🚨 De Gevolgen (rode box):**
 ```
-🗞️ "DIT IS GEEN FICTIEF VERHAAL"
-
-MARTINIQUE & GUADELOUPE - WERKELIJKHEID:
-- Pesticide: Chlordecone (Kepone/Weevokil)
-- Periode: 1972-1993
-- Gevolgen: 90% bevolking besmet
-- Bodem: 700 jaar vervuild
-- Kankergevallen: Wereldrecord prostaatkanker
+• 92-95% van de bevolking besmet
+• 18.000 hectare vervuild (25% landbouwgrond)
+• 1/3 van kustwateren gesloten voor visserij
+• Hoogste percentage prostaatkanker ter wereld
 ```
 
-#### De Details uit Unit 12 Intro (2 min)
+**💰 De Impact (oranje box):**
+```
+• Werkloosheid: 16% Guadeloupe, 13% Martinique
+• 80% voedsel moet geïmporteerd worden
+• 300-700 jaar bodemvervuiling
+• Grootste milieuramp Franse geschiedenis
+```
 
-**Citaat uit CORE Economy:**
-> "Between 1972 and 1993, banana plantations in Guadeloupe and Martinique used chlordecone, a pesticide that helps banana plants resist insects. In 1993, the French government outlawed the pesticide due to its harmful effects on human health, after it had already been prohibited in the US for 17 years."
+**De tijdlijn:**
+- Verboden in VS: 1976
+- Frankrijk gaf uitzonderingen tot: 1993
+- 17 jaar lang gebruikt terwijl gevaren bekend waren
 
-**De Schade:**
-- Drinkwater permanent vervuild
-- Vis en schaaldieren oneetbaar
-- Bodem voor eeuwen onbruikbaar
-- Gezondheidskosten: miljarden
-- Vertrouwen in overheid: vernietigd
+**Emotionele impact:**
+> "Voor bananen ter waarde van miljoenen, een paradijs voor eeuwen vergiftigd"
 
-#### Emotionele Impact (1 min)
-
-**Klassikale Reflectie:**
-"Wie had aan het begin voor Weevokil gekozen?"
-"Hoe voel je je nu?"
-"Wat zegt dit over markten?"
-
-**De Les:**
-"Marktfalen is geen abstract concept - het heeft echte, permanente, tragische gevolgen"
+**Klassikale reflectie:**
+"Wie stemde voor optie A? Hoe voel je je nu?"
+"Dit is wat marktfalen in de praktijk betekent"
 
 ---
 
-### ☕ PAUZE (0:35-0:45)
+### 🇪🇺 Slide 8: Van Theorie naar Praktijk - CSRD (0:28-0:31)
+
+**Doel:** Europese wetgeving als antwoord op verborgen kosten
+
+#### CSRD uitleggen (3 min):
+
+**Corporate Sustainability Reporting Directive:**
+```
+🇪🇺 Europese richtlijn die bedrijven verplicht transparant te rapporteren over:
+• Duurzaamheidsbeleid
+• Impact op mens, milieu en maatschappij
+```
+
+**Wat is CSRD? (linker box):**
+- ✓ Onderdeel van European Green Deal
+- ✓ Rapportage volgens ESRS-standaarden
+- ✓ Inclusief waardeketen
+- ✓ In bestuursverslag verplicht
+
+**Dubbele Materialiteit (rechter box):**
+- 🏭→🌍 Impact materialiteit (inside-out)
+- 🌍→💰 Financiële materialiteit (outside-in)
+
+**💡 Kernboodschap (gele box):**
+> "Externe kosten worden eindelijk zichtbaar en meetbaar gemaakt!"
+
+---
+
+### 📋 Slide 9: ESRS - De 12 Rapportagestandaarden (0:31-0:34)
+
+**Doel:** Concrete checklist voor verborgen kosten analyse
+
+#### ESRS Framework presenteren (3 min):
+
+**🌍 Environment (groene box):**
+- E1 - Klimaatverandering
+- E2 - Vervuiling
+- E3 - Water & mariene hulpbronnen
+- E4 - Biodiversiteit
+- E5 - Circulaire economie
+
+**👥 Social (blauwe box):**
+- S1 - Eigen personeel
+- S2 - Werknemers in keten
+- S3 - Getroffen gemeenschappen
+- S4 - Consumenten
+
+**⚖️ Governance (paarse box):**
+- G1 - Bedrijfsvoering
+- + ESRS 1 & 2: Algemene vereisten
+
+**📊 Bottom line (gradient box):**
+- 1.178 datapunten totaal
+- 265 vrijwillig
+- Materialiteitsanalyse bepaalt wat verplicht is
+
+**Link met opdracht:**
+"Jullie gaan nu zelf deze standaarden toepassen!"
+
+---
+
+### 💻 Slide 10: Jouw Opdracht - Verborgen Kosten Analyse (0:34-0:40)
+
+**Doel:** Instructie voor praktijkopdracht
+
+#### De opdracht (6 min):
+
+**Centrale opdracht (paarse box):**
+> "Analyseer de verborgen ecologische en sociale kosten van jouw gekozen bedrijf"
+
+**Drie stappen proces (3 boxes):**
+
+**🔍 Stap 1: Identificeer de Say-Do Gap**
+- Wat claimt het bedrijf?
+- Wat doen ze werkelijk?
+
+**💰 Stap 2: Kwantificeer externe kosten**
+- Gebruik Social Cost of Carbon: $190/ton CO₂e
+- Schat andere externe kosten
+
+**📊 Stap 3: Vergelijk met nettowinst**
+- Hoeveel % van de winst?
+- Zijn ze echt winstgevend?
+
+**Tool (gele box):**
+```
+Verborgen Kosten Calculator
+Social Cost of Carbon: $190/ton CO₂e
+🔗 https://hanbedrijfskunde.github.io/hidden-costs/
+```
+
+---
+
+### ☕ PAUZE (0:40-0:50)
 
 **Instructies:**
-- "De plot twist laten bezinken"
-- "Straks gaan jullie zelf verborgen kosten analyseren voor jullie eigen bedrijven"
-- "Denk vast na over mogelijke externe effecten in jullie sector"
+- "Denk na over de Martinique case"
+- "Welke verborgen kosten heeft jouw bedrijf?"
+- "Download alvast jaarverslagen"
 
 ---
 
-### 📊 CSRD/ESRS: Verplichte Transparantie (0:25-0:30)
+### 🔍 Slide 11: Tips voor je Verborgen Kosten Onderzoek (0:50-1:20)
 
-**Doel:** Koppeling maken tussen verborgen kosten en verplichte rapportage
+**Doel:** 30 minuten onderzoekstijd met concrete handvatten
 
-#### Slide 7: CSRD - De Game Changer (2.5 min)
+#### Tips presenteren & begeleid onderzoek (30 min):
 
-**Wat is CSRD?**
-```
-🇪🇺 Corporate Sustainability Reporting Directive:
-- Vanaf 2024-2026: 50.000 EU-bedrijven verplicht
-- Rapporteren volgens ESRS standaarden
-- Dubbele materialiteit:
-  • Impact op samenleving (wat wij net zagen!)
-  • Impact op bedrijf (financiële risico's)
-- Externe audit verplicht
-```
+**📊 Waar vind je de data? (blauwe box):**
+- **Jaarverslag:** Zoek "Sustainability" sectie
+- **CDP scores:** Carbon Disclosure Project database
+- **NGO rapporten:** Greenpeace, Milieudefensie
+- **Nieuws:** Zoek "[bedrijf] controversy environment"
+- **CSRD rapportage:** Vanaf 2024 voor grote bedrijven
 
-**Waarom relevant voor jullie analyse?**
-"Wat jullie straks gaan doen is PRECIES wat bedrijven nu MOETEN rapporteren!"
+**💡 Bereken de Say-Do Gap (groene box):**
+- **Stap 1:** Noteer claims uit jaarverslag
+- **Stap 2:** Zoek tegenstrijdig bewijs
+- **Stap 3:** Bereken CO₂ × $190/ton
+- **Stap 4:** Vergelijk met nettowinst
+- **Stap 5:** Wat is het percentage?
 
-#### Slide 8: ESRS Standaarden - De Checklist (2.5 min)
+**⚠️ Let op deze Red Flags (gele box):**
 
-**Toon tabel met alle ESRS standaarden:**
-```
-📝 ESRS STANDAARDEN:
-ENVIRONMENT:
-• E1: Klimaat (CO2, energie)
-• E2: Vervuiling (lucht, water, bodem)
-• E3: Water & mariene resources
-• E4: Biodiversiteit
-• E5: Circulaire economie
+**Vage taalgebruik:**
+"Streven naar", "Ambitie om", zonder concrete targets
 
-SOCIAL:
-• S1: Eigen personeel
-• S2: Werknemers in keten
-• S3: Getroffen gemeenschappen
-• S4: Consumenten
+**Cherry-picking:**
+Alleen positieve jaren tonen, scope 3 negeren
 
-GOVERNANCE:
-• G1: Bedrijfsvoering & ethiek
-```
+**Offsetting focus:**
+CO₂-compensatie i.p.v. daadwerkelijke reductie
 
-**Koppeling met opdracht:**
-"Bij jullie analyse: check welke ESRS-standaarden relevant zijn!"
-"Bedrijf claimt E1 (klimaat) goed te doen? Kijk naar hun Scope 3!"
-"S2 (ketenwerkers)? Check of ze echt living wage betalen!"
+**⏱️ Focus tip (paarse box):**
+> "Je hebt 30 minuten - focus op de grootste discrepanties!"
 
-**De kracht van CSRD:**
-- Geen greenwashing meer mogelijk
-- Data wordt vergelijkbaar
-- Investeerders kunnen echt sturen
-- Say-Do Gap wordt zichtbaar!
+**Docent begeleiding tijdens onderzoek:**
+- Loop rond en help teams
+- Check databronnen
+- Geef hints bij vastlopen
+- Noteer interessante vondsten op bord
 
 ---
 
-### 📋 Instructie Verborgen Kosten Analyse (0:30-0:35)
+### ⏱️ Slide 12: Speed Dating - Deel je Ontdekking! (1:20-1:25)
 
-**Doel:** Uitleg opdracht en werkwijze
+**Doel:** Snelle kennisdeling met timer
 
-#### Opdracht Introductie (2 min)
+#### Speed dating format (5 min):
 
-**De Opdracht:**
-"Jullie gaan nu voor JULLIE twee bedrijven de verborgen kosten analyseren volgens de handleiding."
+**Timer display (grote cirkel):**
+- 30 seconden countdown
+- Visuele voortgangscirkel
+- Start Timer button
 
-**Werkwijze:**
-- Teams van 2 personen (bestaande projectgroepen)
-- Beide bedrijven uit jullie sector analyseren
-- Gebruik laptops voor onderzoek
-- Vul de ESG-analyse systematisch in
-- Focus op 2-3 belangrijkste externe effecten per bedrijf
-
-#### Handleiding & Tools (3 min)
-
-**Verwijs naar handleiding-verborgen-kosten.md:**
+**Instructies (box):**
 ```
-📝 Stappen:
-1. Verzamel basisdata (jaarverslagen, duurzaamheidsrapporten)
-2. Vul ESG-analyse in (Ecologisch, Sociaal, Bestuur)
-3. Identificeer Say-Do Gap
-4. Kwantificeer waar mogelijk (gebruik SCC = $190/ton CO2)
-5. Trek conclusies over werkelijke kosten
+1. Vorm twee rijen tegenover elkaar
+2. 30 seconden per persoon
+3. Deel je grootste "shock" ontdekking
+4. Schuif door bij het signaal
 ```
 
-**Databronnen reminder:**
-- Bedrijfswebsites (investor relations)
-- NGO-rapporten voor controverses
-- Nieuwsartikelen voor actuele issues
-- CDP scores voor klimaatdata
+**Facilitatie:**
+- Start timer voor elke ronde
+- "SWITCH!" na 30 seconden
+- 3-4 rondes totaal
+- Noteer highlights op bord
 
 ---
 
-### 💻 PRAKTIJKOPDRACHT: Verborgen Kosten Analyse (0:45-1:35)
+### 🏛️ Slide 13: Van Probleem naar Oplossing (1:25-1:30)
 
-**Doel:** Teams werken in twee rondes met tussentijdse kennisdeling
+**Doel:** Beleidsinterventies en marktoplossingen presenteren
 
----
+#### Twee categorieën (5 min):
 
-#### RONDE 1: Eerste Onderzoek (0:45-1:15)
+**🏛️ Overheidsinterventies (blauwe box):**
 
-##### Werkfase 1A: Data Verzameling (0:45-1:00)
+**💶 Pigouviaanse belasting**
+- €190/ton CO₂
 
-**Teams focussen op ÉÉN bedrijf eerst:**
-- Download jaarverslag + duurzaamheidsverslag
-- Quick scan: top 3 duurzaamheidsclaims identificeren
-- Zoek eerste controverses en tegengeluiden
-- Identificeer relevante ESRS-standaarden
+**📜 Regulering**
+- CSRD, emissienormen
 
-**Docent loopt rond:**
-- Help teams met vinden van rapporten
-- "Focus eerst op één bedrijf goed!"
-- Check databronnen die teams gebruiken
+**🏷️ Cap & Trade**
+- EU ETS systeem
 
-##### Werkfase 1B: Eerste Analyse (1:00-1:15)
+**🏪 Marktoplossingen (groene box):**
 
-**Quick & dirty analyse bedrijf 1:**
-- Grootste verborgen kost identificeren
-- Say-Do Gap voor belangrijkste claim
-- Ruwe schatting van bedrag (orde van grootte)
-- Welke ESRS-standaard wordt geschonden?
+**💰 True Pricing**
+- Echte kosten in de prijs
 
-**Teams bereiden 30-seconden pitch voor:**
-- "Wij hebben [Bedrijf X]"
-- "Grootste verborgen kost is..."
-- "Say-Do Gap zit in..."
+**🤝 Coase onderhandeling**
+- Private afspraken
 
----
+**📊 ESG investing**
+- €35 biljoen wereldwijd
 
-#### 🔄 TUSSENTIJDSE CHECK-IN (1:15-1:20)
+**De Coase Voorwaarde (grijze box):**
+> "Als eigendomsrechten duidelijk zijn en transactiekosten laag, lost de markt externe effecten zelf op"
 
-**Speed Dating Kennisdeling (5 min)**
-
-**Format:**
-- Teams staan op, vormen twee rijen tegenover elkaar
-- 30 seconden per team: deel je grootste vondst
-- Na 1 minuut: schuif door naar volgende team
-- 2-3 rondes (afhankelijk van aantal teams)
-
-**Docent noteert op bord:**
-```
-🔥 HOT FINDINGS:
-• Shell: €15 miljard CO2 kosten (Team 3)
-• Primark: 300% loonkloof Bangladesh (Team 5)
-• Unilever: Palmolie = 5 miljoen hectare bos (Team 1)
-```
-
-**Korte plenaire reflectie (1 min):**
-- "Welke methode werkte goed om Say-Do Gap te vinden?"
-- "Wie heeft een goede bron voor controverses?"
-- Tips delen voor tweede ronde
+📚 Link: CORE Economy Unit 12 - Sections 12.4-12.7
 
 ---
 
-#### RONDE 2: Verdieping & Tweede Bedrijf (1:20-1:35)
+### 🌍 Slide 14: Wat Kunnen Wij Doen? (1:30-1:35)
 
-##### Werkfase 2A: Tweede Bedrijf Quick Scan (1:20-1:27)
+**Doel:** Persoonlijke call to action
 
-**Teams analyseren nu bedrijf 2 (sneller met geleerde lessen):**
-- Gebruik tips van andere teams
-- Focus op grootste impact/controverse
-- Vergelijk met bedrijf 1
+#### Drie rollen (5 min):
 
-##### Werkfase 2B: Presentatie Voorbereiden (1:27-1:35)
+**🎓 Als Student (gele box):**
+- Kritisch analyseren
+- Say-Do Gap ontmaskeren
+- Kennis delen
 
-**Finale presentatie voorbereiden:**
+**💼 Als Professional (blauwe box):**
+- True pricing toepassen
+- Impact meten & rapporteren
+- Duurzame keuzes maken
 
-**Kies BESTE case van je twee bedrijven:**
-- Meest schokkende verborgen kost
-- OF beste Say-Do Gap bewijs
-- OF hoogste percentage van winst
+**🌍 Als Burger (groene box):**
+- Bewust consumeren
+- Stemmen met je portemonnee
+- Transparantie eisen
 
-**2-minuten pitch structuur:**
-1. **30 sec**: Bedrijf + grootste verborgen kost
-2. **30 sec**: Say-Do Gap bewijs (gebruik concrete quotes!)
-3. **30 sec**: Kwantificering + ESRS-standaard
-4. **30 sec**: Vergelijking met andere bedrijf + oplossing
-
-**Visual maken (kies één):**
-- Flipchart met kerngetallen
-- Whiteboard schets
-- A4 met bullet points
-
-**Power tips van docent:**
-- "Begin met: 'Wist je dat...'"
-- "Gebruik vergelijking: 'Dit is gelijk aan het jaarbudget van...'"
-- "Eindig met: 'Als wij minister waren...'\
+**Quote (grijze box onderaan):**
+> "De toekomst begint vandaag"
+>
+> "De werkelijke prijs van alles is de hoeveelheid leven die je ervoor ruilt"
+> - Henry David Thoreau
 
 ---
 
-### 🎤 TEAM PRESENTATIES (1:35-1:55)
+### 🔗 Slide 15: Synthese - Van Martinique tot Morgen (1:35-1:40)
 
-**Doel:** Alle teams presenteren hun belangrijkste bevinding
+**Doel:** Alles samenvoegen in coherent verhaal
 
-#### Presentatieronde (20 min)
+#### Drie kolommen synthese (donkere achtergrond):
 
-**Format:**
-- **8-10 teams** × 2 minuten = 16-20 minuten
-- Strikte tijdsbewaking (timer zichtbaar)
-- Geen vragen tijdens presentaties (tijd!)
+**🔍 Wat We Leerden (rode box):**
+- Externe kosten zijn reëel
+- Marktfalen heeft catastrofale gevolgen
+- Private winst ≠ maatschappelijke welvaart
+- Transparantie is essentieel
 
-**Docent maakt live scoreboard:**
-```
-TEAM | BEDRIJF | VERBORGEN KOST | ESRS | % VAN WINST
------|---------|----------------|------|-------------
-  1  | Shell   | €15 mld CO2    | E1   | 87%
-  2  | H&M     | €3 mld arbeid  | S2   | 234%
-  ...|  ...    |      ...       | ...  | ...
-```
+**🛠️ Instrumenten (blauwe box):**
+- CSRD/ESRS framework
+- Social Cost of Carbon
+- True pricing methodologie
+- Say-Do Gap analyse
 
-**Publiek noteert:**
-- Meest schokkende onthulling
-- Beste kwantificering
-- Link met ESRS standaarden
+**🎯 Actiepunten (groene box):**
+- Analyseer je eigen bedrijf
+- Kwantificeer verborgen kosten
+- Identificeer verbeterpunten
+- Deel je bevindingen
 
----
-
-### 📋 Wrap-up & Link naar Eindproject (1:55-2:00)
-
-**Doel:** Consolideren en vooruitkijken
-
-#### Kernboodschappen (2 min)
-
-**Take-aways:**
-1. Markten falen bij externe effecten
-2. Werkelijke kosten zijn vaak verborgen
-3. Beleid kan marktfalen corrigeren
-4. True pricing maakt kosten transparant
-5. ESG/Brede welvaart = nieuwe norm
-
-#### Huiswerkopdracht (2 min)
-
-**Individuele Verdieping:**
-```
-📝 Opdracht:
-1. Werk jullie analyse verder uit in een kort rapport (500 woorden)
-2. Voeg kwantificering toe waar jullie dat nog niet hadden
-3. Identificeer welke ESRS-standaarden het bedrijf niet goed naleeft
-4. Formuleer 3 concrete beleidsaanbevelingen
-5. Upload in Brightspace voor volgende week
-6. Dit telt mee voor jullie sectoranalyse project!
-```
-
-**Link met eindproject:**
-"Deze verborgen kosten analyse wordt een hoofdstuk in jullie eindrapport!"
-
-#### Laatste Gedachte (1 min)
-
-**Quote van de dag:**
-> "The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design" - F.A. Hayek
-
-"Maar ook: hoe veel schade we kunnen voorkomen als we de werkelijke kosten kennen."
+**Centrale boodschap (geel, onderaan):**
+> "Het verschil tussen wat bedrijven zeggen en doen is de ruimte waarin de toekomst van onze planeet wordt bepaald"
 
 ---
 
-## 🎯 Docent Cheat Sheet
+### 📝 Slide 16: Wrap-up & Feedback (1:40-1:45)
 
-### Systeem 2 Activatie Tips:
-- Begin met het morele dilemma VOORDAT je theorie introduceert
-- Laat studenten commitment maken (stemming) voor de onthulling
-- Gebruik stiltes na de plot twist voor reflectie
-- Verbind emotie met ratio - beide zijn nodig
+**Doel:** Afsluiting met feedback en vooruitblik
 
-### Timing Management Praktijkopdracht:
-- **Teams lopen achter:** Skip vergelijking, focus op 1 bedrijf goed
-- **Teams zijn snel klaar:** Laat ze beleidsbrief schrijven aan minister
-- **Technische problemen:** Gebruik voorbeelddata Ahold Delhaize
+#### Twee kolommen layout:
 
-### Veelvoorkomende Vragen tijdens Praktijkopdracht:
+**Belangrijkste Takeaways (linker box):**
+- Externe effecten leiden tot marktfalen
+- Verschil tussen MPC en MSC bepaalt deadweight loss
+- CSRD/ESRS maken verborgen kosten transparant
+- Say-Do Gap onthult verschil tussen claims en werkelijkheid
+- True pricing en Pigouviaanse belasting kunnen externe effecten internaliseren
 
-**"We vinden geen duurzaamheidsverslag"**
-→ Check: Sustainability Report, CSR Report, ESG Report, Integrated Report, Non-Financial Report
+**Feedback & Retrospective (rechter box):**
+- QR code voor feedback
+- Link: hanbedrijfskunde.github.io/retrospective/?workshop=AEC%20Week5
+- "Jullie feedback is essentieel"
 
-**"Hoe bereken je sociale kosten?"**
-→ Gebruik proxy's: minimumloon vs. betaald loon × aantal werknemers, gezondheidskosten per incident
+**📅 Komende Weken (rode gradient box):**
 
-**"Het bedrijf claimt netto-zero maar stoot nog steeds CO2 uit?"**
-→ Dat is de Say-Do Gap! Check of ze compenseren of echt reduceren
+**Week 6: Voorbereiding**
+- Presentaties verborgen kosten
+- Assessment uitleg
 
-**"Kunnen we ChatGPT gebruiken voor onderzoek?"**
-→ Ja voor ideeën, maar verifieer ALLES met officiële bronnen
+**Week 7: De Strategische Arena**
+- Boardroom simulatie assessment
 
-**"Wat als bedrijven uit verschillende sectoren zijn?"**
-→ Focus op grootste impacts per sector, vergelijk relatief (% van omzet/winst)
+---
+
+## 🎯 Docenttips & Troubleshooting
+
+### Timing Management:
+- **Te weinig tijd:** Focus op slides 1-10, skip speed dating
+- **Te veel tijd:** Laat teams beide bedrijven analyseren
+- **Poll werkt niet:** Handopsteken als backup
+
+### Veelvoorkomende Vragen:
+
+**"Waarom gebruikten ze Chlordecone als ze wisten dat het gevaarlijk was?"**
+→ Marktfalen: private winst > sociale kosten, geen regulering
+
+**"Hoe bereken je externe kosten?"**
+→ Social Cost of Carbon: $190/ton CO₂ (EPA standaard)
+→ Gezondheidskosten: VSL (Value of Statistical Life)
+→ Biodiversiteitsverlies: Ecosystem services valuation
+
+**"Is Say-Do Gap hetzelfde als greenwashing?"**
+→ Say-Do Gap is meetbaar verschil
+→ Greenwashing is intentionele misleiding
+→ Say-Do Gap kan onbedoeld zijn
 
 ### Differentiatie:
 
 **Verdieping:**
-- Laat sterke studenten Pigou vs Coase debat uitwerken
-- Extra: Behavioral economics en nudging
-- Onderzoek doen naar carbon pricing mechanismen
+- Coase vs Pigou debat
+- Behavioral economics & nudging
+- Carbon pricing mechanismen
 
 **Ondersteuning:**
-- Extra begeleiding bij grafiekinterpretatie
-- Versimpelde getallen voor berekeningen
-- Concrete voorbeelden uit dagelijks leven
+- Voorbeeldbedrijf: Shell
+- Versimpelde getallen
+- Focus op CO₂ alleen
 
-### Technische Hulpmiddelen:
-- Excel sheet voor deadweight loss berekeningen
-- Links naar True Price reports
-- CBS Brede Welvaart Monitor online
-- CORE Economy grafieken als PDF
-
-### Actuele Cases voor Verdieping:
-- **Nederland**: PFAS vervuiling (DuPont/Chemours)
-- **Global**: Forever chemicals (3M)
-- **Tech**: Cobalt mijnen Congo (smartphones)
-- **Fashion**: Rana Plaza Bangladesh
-- **Food**: Palmolie en ontbossing
+### Technische Setup:
+- slides-wk5.html op volledig scherm
+- Poll werkt via JavaScript (geen internet nodig)
+- Timer in slide 12 heeft Start button
+- Plotly grafiek in slide 5 is interactief (hover voor waardes)
 
 ### Evaluatiecriteria Geslaagd:
-- [ ] Studenten begrijpen verschil MPC en MSC
-- [ ] Herkennen marktfalen in praktijk
-- [ ] Verbinden theorie met Martinique casus
-- [ ] Kunnen verborgen kosten identificeren in eigen bedrijven
-- [ ] Vinden Say-Do Gap in duurzaamheidsclaims
-- [ ] Kwantificeren externe effecten waar mogelijk
-- [ ] Formuleren realistische beleidsvoorstellen
-- [ ] Zien relevantie voor hun toekomstige rol
+- [ ] Studenten begrijpen MPC, MEC, MSC relatie
+- [ ] Herkennen marktfalen in Martinique case
+- [ ] Kunnen Say-Do Gap identificeren
+- [ ] Passen ESRS framework toe
+- [ ] Kwantificeren minimaal 1 externe kost
+- [ ] Verbinden theorie met praktijk
+- [ ] Zien relevantie voor eigen toekomst
 
 ---
 
@@ -650,21 +637,15 @@ TEAM | BEDRIJF | VERBORGEN KOST | ESRS | % VAN WINST
 
 ### Kernbronnen:
 - CORE Economy Unit 12: Markets, efficiency, and public policy
+- Chlordecone case studies (French Senate reports)
 - True Price Foundation: trueprice.org
-- CBS Monitor Brede Welvaart
-- "The True Price of Bananas" - Documentaire
-
-### Wetenschappelijke Artikelen:
-- Pigou, A.C. (1920): The Economics of Welfare
-- Coase, R. (1960): The Problem of Social Cost
-- Stern Review on Climate Change (2006)
-- Dasgupta Review on Biodiversity (2021)
+- EU CSRD/ESRS documentation
 
 ### Voor Studenten:
-- TED Talk: "The True Cost of Fashion"
-- Netflix: "Seaspiracy" (externe effecten visserij)
+- TED Talk: "The True Cost"
+- Documentary: "Bananas!*" (2009)
 - Boek: "Doughnut Economics" - Kate Raworth
-- Podcast: "Planet Money" episode on carbon pricing
+- Website: https://hanbedrijfskunde.github.io/hidden-costs/
 
 ---
 
