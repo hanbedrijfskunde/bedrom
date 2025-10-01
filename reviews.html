@@ -1,0 +1,442 @@
+import React, { useState, useEffect } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
+
+// Jouw daadwerkelijke data embedded als JSON
+const RAW_DATA = [
+  {"id":727,"timestamp":"04/09/2025 11:39","voornaam":"Mees","informatie":4,"interactie":5,"inspiratie":3,"course":"AEC Week1"},
+  {"id":728,"timestamp":"04/09/2025 11:39","voornaam":"Anne","informatie":5,"interactie":3,"inspiratie":3,"course":"AEC Week1"},
+  {"id":729,"timestamp":"04/09/2025 11:39","voornaam":"Jip","informatie":4,"interactie":4,"inspiratie":3,"course":"AEC Week1"},
+  {"id":730,"timestamp":"04/09/2025 11:39","voornaam":"Joep","informatie":4,"interactie":4,"inspiratie":2,"course":"AEC Week1"},
+  {"id":731,"timestamp":"04/09/2025 11:39","voornaam":"Cas","informatie":4,"interactie":5,"inspiratie":4,"course":"AEC Week1"},
+  {"id":732,"timestamp":"04/09/2025 11:39","voornaam":"Joost","informatie":4,"interactie":4,"inspiratie":4,"course":"AEC Week1"},
+  {"id":733,"timestamp":"04/09/2025 11:39","voornaam":"Tristan","informatie":3,"interactie":4,"inspiratie":3,"course":"AEC Week1"},
+  {"id":734,"timestamp":"04/09/2025 11:39","voornaam":"Mart","informatie":3,"interactie":2,"inspiratie":3,"course":"AEC Week1"},
+  {"id":735,"timestamp":"04/09/2025 11:39","voornaam":"Tijmen","informatie":4,"interactie":4,"inspiratie":4,"course":"AEC Week1"},
+  {"id":738,"timestamp":"04/09/2025 11:39","voornaam":"Dante","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week1"},
+  {"id":739,"timestamp":"04/09/2025 11:39","voornaam":"Desi","informatie":4,"interactie":4,"inspiratie":3,"course":"AEC Week1"},
+  {"id":740,"timestamp":"04/09/2025 11:40","voornaam":"Hugo","informatie":4,"interactie":4,"inspiratie":3,"course":"AEC Week1"},
+  {"id":741,"timestamp":"04/09/2025 11:40","voornaam":"Freek","informatie":4,"interactie":5,"inspiratie":4,"course":"AEC Week1"},
+  {"id":742,"timestamp":"04/09/2025 11:40","voornaam":"Murray","informatie":4,"interactie":3,"inspiratie":4,"course":"AEC Week1"},
+  {"id":743,"timestamp":"04/09/2025 11:40","voornaam":"Liv","informatie":4,"interactie":4,"inspiratie":3,"course":"AEC Week1"},
+  {"id":745,"timestamp":"04/09/2025 11:40","voornaam":"Julian","informatie":4,"interactie":3,"inspiratie":3,"course":"AEC Week1"},
+  {"id":747,"timestamp":"04/09/2025 11:40","voornaam":"Louise","informatie":5,"interactie":4,"inspiratie":4,"course":"AEC Week1"},
+  {"id":790,"timestamp":"10/09/2025 13:10","voornaam":"Joep","informatie":4,"interactie":2,"inspiratie":4,"course":"AEC Week2"},
+  {"id":791,"timestamp":"10/09/2025 13:10","voornaam":"Freek","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week2"},
+  {"id":792,"timestamp":"10/09/2025 13:10","voornaam":"Tristan","informatie":5,"interactie":4,"inspiratie":4,"course":"AEC Week2"},
+  {"id":793,"timestamp":"10/09/2025 13:10","voornaam":"Joost","informatie":4,"interactie":5,"inspiratie":4,"course":"AEC Week2"},
+  {"id":796,"timestamp":"10/09/2025 13:10","voornaam":"Anne","informatie":4,"interactie":1,"inspiratie":4,"course":"AEC Week2"},
+  {"id":797,"timestamp":"10/09/2025 13:10","voornaam":"Mart","informatie":3,"interactie":3,"inspiratie":3,"course":"AEC Week2"},
+  {"id":798,"timestamp":"10/09/2025 13:10","voornaam":"Cas","informatie":3,"interactie":4,"inspiratie":3,"course":"AEC Week2"},
+  {"id":799,"timestamp":"10/09/2025 13:10","voornaam":"Hugo","informatie":4,"interactie":5,"inspiratie":3,"course":"AEC Week2"},
+  {"id":800,"timestamp":"10/09/2025 13:16","voornaam":"Louise","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week2"},
+  {"id":892,"timestamp":"17/09/2025 13:50","voornaam":"Jip","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week3"},
+  {"id":893,"timestamp":"17/09/2025 13:50","voornaam":"Freek","informatie":4,"interactie":5,"inspiratie":5,"course":"AEC Week3"},
+  {"id":895,"timestamp":"17/09/2025 13:52","voornaam":"Tijmen","informatie":4,"interactie":5,"inspiratie":4,"course":"AEC Week3"},
+  {"id":896,"timestamp":"17/09/2025 13:53","voornaam":"Louise","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week3"},
+  {"id":925,"timestamp":"24/09/2025 14:45","voornaam":"Freek","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week4"},
+  {"id":926,"timestamp":"24/09/2025 14:47","voornaam":"Joost","informatie":5,"interactie":5,"inspiratie":5,"course":"AEC Week4"},
+  {"id":927,"timestamp":"24/09/2025 14:48","voornaam":"Bo","informatie":4,"interactie":4,"inspiratie":4,"course":"AEC Week4"},
+  {"id":929,"timestamp":"24/09/2025 14:48","voornaam":"Hugo","informatie":4,"interactie":4,"inspiratie":4,"course":"AEC Week4"},
+  {"id":930,"timestamp":"24/09/2025 14:48","voornaam":"Lars","informatie":5,"interactie":5,"inspiratie":4,"course":"AEC Week4"},
+  {"id":932,"timestamp":"24/09/2025 14:48","voornaam":"Liv","informatie":3,"interactie":5,"inspiratie":3,"course":"AEC Week4"},
+  {"id":958,"timestamp":"01/10/2025 11:07","voornaam":"Mart","informatie":4,"interactie":5,"inspiratie":4,"course":"AEC Week5"},
+  {"id":959,"timestamp":"01/10/2025 11:08","voornaam":"Joost","informatie":5,"interactie":5,"inspiratie":4,"course":"AEC Week5"},
+  {"id":960,"timestamp":"01/10/2025 11:08","voornaam":"Hugo","informatie":3,"interactie":4,"inspiratie":4,"course":"AEC Week5"},
+  {"id":962,"timestamp":"01/10/2025 11:08","voornaam":"Tristan","informatie":4,"interactie":5,"inspiratie":3,"course":"AEC Week5"},
+  {"id":963,"timestamp":"01/10/2025 11:08","voornaam":"Louise","informatie":3,"interactie":5,"inspiratie":4,"course":"AEC Week5"}
+];
+
+const MacroEconDashboard = () => {
+  const [weeklyData, setWeeklyData] = useState([]);
+  const [distributionData, setDistributionData] = useState({});
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [selectedWeek, setSelectedWeek] = useState('all');
+
+  useEffect(() => {
+    processData();
+  }, []);
+
+  const processData = () => {
+    const processedData = RAW_DATA.map(row => ({
+      ...row,
+      dateOnly: row.timestamp.split(' ')[0]
+    }));
+
+    const grouped = {};
+    processedData.forEach(row => {
+      const weekLabel = row.course.replace('AEC ', '');
+      if (!grouped[weekLabel]) {
+        grouped[weekLabel] = {
+          entries: [],
+          dates: new Set()
+        };
+      }
+      grouped[weekLabel].entries.push(row);
+      grouped[weekLabel].dates.add(row.dateOnly);
+    });
+
+    const weekly = Object.keys(grouped).sort((a, b) => {
+      const weekNum = (w) => parseInt(w.replace('Week', ''));
+      return weekNum(a) - weekNum(b);
+    }).map((weekLabel) => {
+      const entries = grouped[weekLabel].entries;
+      const dates = Array.from(grouped[weekLabel].dates).sort((a, b) => {
+        const parseDate = (dateStr) => {
+          const [day, month, year] = dateStr.split('/');
+          return new Date(`${year}-${month}-${day}`);
+        };
+        return parseDate(a) - parseDate(b);
+      });
+      
+      return {
+        week: weekLabel,
+        date: dates.join(', '),
+        informatie: (entries.reduce((sum, e) => sum + e.informatie, 0) / entries.length).toFixed(2),
+        interactie: (entries.reduce((sum, e) => sum + e.interactie, 0) / entries.length).toFixed(2),
+        inspiratie: (entries.reduce((sum, e) => sum + e.inspiratie, 0) / entries.length).toFixed(2),
+        count: entries.length,
+        entries: entries
+      };
+    });
+
+    setWeeklyData(weekly);
+    calculateDistributions();
+  };
+
+  const calculateDistributions = () => {
+    const distributions = {
+      informatie: [0, 0, 0, 0, 0, 0],
+      interactie: [0, 0, 0, 0, 0, 0],
+      inspiratie: [0, 0, 0, 0, 0, 0]
+    };
+
+    RAW_DATA.forEach(entry => {
+      distributions.informatie[entry.informatie]++;
+      distributions.interactie[entry.interactie]++;
+      distributions.inspiratie[entry.inspiratie]++;
+    });
+
+    const formatDistribution = (dist) => {
+      return [1, 2, 3, 4, 5].map(score => ({
+        score: score.toString(),
+        count: dist[score],
+        percentage: ((dist[score] / RAW_DATA.length) * 100).toFixed(1)
+      }));
+    };
+
+    setDistributionData({
+      informatie: formatDistribution(distributions.informatie),
+      interactie: formatDistribution(distributions.interactie),
+      inspiratie: formatDistribution(distributions.inspiratie)
+    });
+  };
+
+  const getOverallStats = () => {
+    if (weeklyData.length === 0) return { informatie: 0, interactie: 0, inspiratie: 0, total: 0 };
+    
+    const allScores = {
+      informatie: RAW_DATA.map(e => e.informatie),
+      interactie: RAW_DATA.map(e => e.interactie),
+      inspiratie: RAW_DATA.map(e => e.inspiratie)
+    };
+
+    const mean = (arr) => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(2);
+    const median = (arr) => {
+      const sorted = [...arr].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 ? sorted[mid] : ((sorted[mid - 1] + sorted[mid]) / 2).toFixed(1);
+    };
+    const mode = (arr) => {
+      const freq = {};
+      arr.forEach(v => freq[v] = (freq[v] || 0) + 1);
+      const maxFreq = Math.max(...Object.values(freq));
+      return Object.keys(freq).find(k => freq[k] === maxFreq);
+    };
+
+    return {
+      informatie: { mean: mean(allScores.informatie), median: median(allScores.informatie), mode: mode(allScores.informatie) },
+      interactie: { mean: mean(allScores.interactie), median: median(allScores.interactie), mode: mode(allScores.interactie) },
+      inspiratie: { mean: mean(allScores.inspiratie), median: median(allScores.inspiratie), mode: mode(allScores.inspiratie) },
+      total: RAW_DATA.length
+    };
+  };
+
+  const filteredEntries = selectedWeek === 'all' 
+    ? RAW_DATA 
+    : weeklyData.find(w => w.week === selectedWeek)?.entries || [];
+
+  const overallStats = getOverallStats();
+
+  const COLORS = ['#ef4444', '#f97316', '#eab308', '#84cc16', '#22c55e'];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+          <h1 className="text-3xl font-bold text-indigo-900 mb-2">Macro-economie Colleges Analyse</h1>
+          <p className="text-gray-600">Interactief dashboard voor de analyse van feedbackscores van AEC colleges</p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg mb-6">
+          <div className="flex border-b">
+            <button
+              onClick={() => setActiveTab('dashboard')}
+              className={`px-6 py-3 font-semibold ${activeTab === 'dashboard' ? 'bg-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-50'} transition-colors`}
+            >
+              Dashboard
+            </button>
+            <button
+              onClick={() => setActiveTab('entries')}
+              className={`px-6 py-3 font-semibold ${activeTab === 'entries' ? 'bg-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-50'} transition-colors`}
+            >
+              Individuele Inzendingen
+            </button>
+          </div>
+        </div>
+
+        {activeTab === 'dashboard' && (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Totaal Reacties</h3>
+                <p className="text-3xl font-bold text-indigo-600">{overallStats.total}</p>
+                <p className="text-xs text-gray-500 mt-1">{weeklyData.length} sessies</p>
+              </div>
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Informatie</h3>
+                <p className="text-3xl font-bold text-green-600">{overallStats.informatie.mean}/5</p>
+                <p className="text-xs text-gray-500 mt-1">Mediaan: {overallStats.informatie.median} | Modus: {overallStats.informatie.mode}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Interactie</h3>
+                <p className="text-3xl font-bold text-blue-600">{overallStats.interactie.mean}/5</p>
+                <p className="text-xs text-gray-500 mt-1">Mediaan: {overallStats.interactie.median} | Modus: {overallStats.interactie.mode}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow p-6">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Inspiratie</h3>
+                <p className="text-3xl font-bold text-purple-600">{overallStats.inspiratie.mean}/5</p>
+                <p className="text-xs text-gray-500 mt-1">Mediaan: {overallStats.inspiratie.median} | Modus: {overallStats.inspiratie.mode}</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Score Trends over de Tijd</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={weeklyData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="week" />
+                  <YAxis domain={[0, 5]} />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="informatie" stroke="#10b981" strokeWidth={2} name="Informatie" />
+                  <Line type="monotone" dataKey="interactie" stroke="#3b82f6" strokeWidth={2} name="Interactie" />
+                  <Line type="monotone" dataKey="inspiratie" stroke="#8b5cf6" strokeWidth={2} name="Inspiratie" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Score Verdeling Statistieken</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-green-700 mb-3">Informatie Verdeling</h3>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <BarChart data={distributionData.informatie}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="score" label={{ value: 'Score', position: 'insideBottom', offset: -5 }} />
+                      <YAxis label={{ value: 'Aantal', angle: -90, position: 'insideLeft' }} />
+                      <Tooltip content={({ active, payload }) => {
+                        if (active && payload && payload.length) {
+                          return (
+                            <div className="bg-white p-2 border border-gray-300 rounded shadow">
+                              <p className="text-sm">Score: {payload[0].payload.score}</p>
+                              <p className="text-sm">Aantal: {payload[0].payload.count}</p>
+                              <p className="text-sm">Percentage: {payload[0].payload.percentage}%</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="count" fill="#10b981">
+                        {distributionData.informatie?.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-700 mb-3">Interactie Verdeling</h3>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <BarChart data={distributionData.interactie}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="score" label={{ value: 'Score', position: 'insideBottom', offset: -5 }} />
+                      <YAxis label={{ value: 'Aantal', angle: -90, position: 'insideLeft' }} />
+                      <Tooltip content={({ active, payload }) => {
+                        if (active && payload && payload.length) {
+                          return (
+                            <div className="bg-white p-2 border border-gray-300 rounded shadow">
+                              <p className="text-sm">Score: {payload[0].payload.score}</p>
+                              <p className="text-sm">Aantal: {payload[0].payload.count}</p>
+                              <p className="text-sm">Percentage: {payload[0].payload.percentage}%</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="count" fill="#3b82f6">
+                        {distributionData.interactie?.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-purple-700 mb-3">Inspiratie Verdeling</h3>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <BarChart data={distributionData.inspiratie}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="score" label={{ value: 'Score', position: 'insideBottom', offset: -5 }} />
+                      <YAxis label={{ value: 'Aantal', angle: -90, position: 'insideLeft' }} />
+                      <Tooltip content={({ active, payload }) => {
+                        if (active && payload && payload.length) {
+                          return (
+                            <div className="bg-white p-2 border border-gray-300 rounded shadow">
+                              <p className="text-sm">Score: {payload[0].payload.score}</p>
+                              <p className="text-sm">Aantal: {payload[0].payload.count}</p>
+                              <p className="text-sm">Percentage: {payload[0].payload.percentage}%</p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }} />
+                      <Bar dataKey="count" fill="#8b5cf6">
+                        {distributionData.inspiratie?.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Weekoverzicht</h2>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Week</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Datum(s)</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Informatie</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Interactie</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Inspiratie</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Reacties</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {weeklyData.map((week, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm font-medium text-gray-900">{week.week}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{week.date}</td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className="inline-block bg-green-100 text-green-800 px-2 py-1 rounded">{week.informatie}</span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded">{week.interactie}</span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className="inline-block bg-purple-100 text-purple-800 px-2 py-1 rounded">{week.inspiratie}</span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center text-gray-600">{week.count}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'entries' && (
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow p-6">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Filter op Week</label>
+              <select 
+                value={selectedWeek}
+                onChange={(e) => setSelectedWeek(e.target.value)}
+                className="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option value="all">Alle Weken</option>
+                {weeklyData.map((week, idx) => (
+                  <option key={idx} value={week.week}>{week.week}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">
+                Individuele Inzendingen {selectedWeek !== 'all' && `- ${selectedWeek}`}
+              </h2>
+              <div className="text-sm text-gray-600 mb-4">
+                {filteredEntries.length} inzendingen weergegeven
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">ID</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Tijdstip</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Naam</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Informatie</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Interactie</th>
+                      <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Inspiratie</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Vak</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {filteredEntries.map((entry, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm text-gray-600">{entry.id}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{entry.timestamp}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{entry.voornaam}</td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className={`inline-block px-2 py-1 rounded ${
+                            entry.informatie >= 4 ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {entry.informatie}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className={`inline-block px-2 py-1 rounded ${
+                            entry.interactie >= 4 ? 'bg-blue-100 text-blue-800' : 'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {entry.interactie}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          <span className={`inline-block px-2 py-1 rounded ${
+                            entry.inspiratie >= 4 ? 'bg-purple-100 text-purple-800' : 'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {entry.inspiratie}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{entry.course}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default MacroEconDashboard;

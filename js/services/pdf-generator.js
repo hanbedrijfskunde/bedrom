@@ -451,7 +451,13 @@ export class PDFGenerator {
         doc.setFontSize(9);
         doc.setTextColor(100, 116, 139);
         doc.text(`Pagina ${pageNum}/${totalPages}`, 20, yPos);
-        doc.text('INLEVERINSTRUCTIES: Teamleider verzamelt → Plastic hoes → Docent', 105, yPos, { align: 'center' });
+
+        // Inleverinstructies - use smaller font and better positioning
+        doc.setFontSize(8);
+        doc.text('INLEVEREN: Teamleider → Plastic hoes → Docent', 95, yPos, { align: 'center' });
+
+        // Handtekening
+        doc.setFontSize(9);
         doc.text('Handtekening: _____________', 140, yPos + 5);
     }
 

@@ -1,7 +1,7 @@
 ### **Toetsprogramma: De Strategische Arena**
 
 **Concept:**
-Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol van de Raad van Bestuur (RvB). Hun publiek bestaat niet alleen uit de docent, maar ook uit drie andere teams die elk een cruciale stakeholderrol vervullen: de Raad van Commissarissen (RvC), een groep kritische investeerders, en een onafhankelijke toezichthouder. De overige teams fungeren als observatoren en geven peer-feedback. Dit creëert een realistisch spanningsveld waarin de RvB haar strategische keuzes en analyses moet verdedigen.
+Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol van de Raad van Bestuur (RvB). Hun publiek bestaat uit drie andere teams die elk een cruciale stakeholderrol vervullen: de Raad van Commissarissen (RvC), een groep kritische investeerders, en een onafhankelijke toezichthouder. De overige teams fungeren als observatoren en geven peer-feedback. Dit creëert een realistisch spanningsveld waarin de RvB haar strategische keuzes en analyses moet verdedigen.
 
 **Kernprincipe:** *"Van theoretische analyse naar boardroom verdediging"*
 
@@ -19,10 +19,12 @@ Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol 
 **1. Team in de Spotlight: De Raad van Bestuur (RvB)**
 
 * **Taak:** Presenteert in 15 minuten de integrale analyse van de economische kansen en bedreigingen voor hun sector en de gekozen bedrijven. De presentatie is een management-summary van hun rapport, gefocust op strategische inzichten.
-* **Samenstelling (flexibele verdeling door studenten):**
+* **Samenstelling (flexibele verdeling door studenten, max 6 rollen):**
   * **Chief Executive Officer (CEO):** Leidt de presentatie, schetst strategische visie en verbindt alle analyses tot een coherent verhaal.
   * **Chief Financial Officer (CFO):** Analyseert macro-economische impact, conjunctuurgevoeligheid, kostenstructuren en financiële implicaties.
   * **Chief Operations Officer (COO):** Bespreekt bedrijfskolom, marktstructuur, concurrentiepositie en operationele excellentie.
+  * **Chief Technology Officer (CTO):** Focust op technologische innovatie, digitale transformatie en disruptieve trends in de sector.
+  * **Chief Marketing Officer (CMO):** Analyseert klantbehoeften, marktsegmentatie, prijselasticiteit en concurrentiestrategie.
   * **Chief Sustainability Officer (CSO):** Presenteert ESG-strategie, maatschappelijke kosten, True Pricing en duurzaamheidskansen.
 
 **2. Stakeholder Team A: De Raad van Commissarissen (RvC)**
@@ -75,11 +77,11 @@ Elk team presenteert de resultaten van hun sector- en bedrijfsanalyse in de rol 
 
 | Fase | Tijd | Activiteit | Details |
 |:-----|:-----|:-----------|:--------|
-| **1** | 2 min | **Setup & Introductie** | • RvB neemt plaats vooraan<br>• Stakeholder teams positioneren zich<br>• Docent introduceert sector/bedrijven |
-| **2** | 15 min | **RvB Presentatie** | • CEO opent met strategische visie (3 min)<br>• CFO: Macro-economie & financiën (4 min)<br>• COO: Markt & operaties (4 min)<br>• CSO: ESG & duurzaamheid (4 min) |
-| **3** | 15 min | **Stakeholder Q&A** | • RvC: Governance vragen (5 min)<br>• Investeerders: ROI vragen (5 min)<br>• Toezichthouder: Compliance vragen (5 min) |
-| **4** | 5 min | **Observer Analyse** | • Teams overleggen kort (2 min)<br>• Elk team geeft advies (1 min per team) |
-| **5** | 3 min | **Docent Feedback** | • Sterke punten highlighten<br>• Verbeterpunten aangeven<br>• Transitie naar volgende team |
+| **1** | 5 min | **Voorbereiding** | • RvB neemt plaats vooraan<br>• Stakeholder teams positioneren zich<br>• Laatste checks presentatie & techniek |
+| **2** | 3 min | **Opening** | • CEO opent met strategische context<br>• Introduceert sector en bedrijven<br>• Schetst hoofdlijnen presentatie |
+| **3** | 20 min | **Economische kansen en bedreigingen** | • CEO: Strategische visie (3 min)<br>• CFO: Macro-economie & conjunctuur (4 min)<br>• COO: Markt & concurrentie (4 min)<br>• CTO: Technologie & innovatie (3 min)<br>• CMO: Klanten & marktkansen (3 min)<br>• CSO: ESG & duurzaamheid (3 min) |
+| **4** | 10 min | **Q&A** | • RvC: Toezicht vragen (3-4 min)<br>• Investeerders: ROI vragen (3-4 min)<br>• Toezichthouder: Compliance vragen (3-4 min) |
+| **5** | 2 min | **Afsluiting** | • Observer teams geven kort advies<br>• CEO bedankt voor aandacht<br>• Transitie naar volgende team |
 
 ---
 
@@ -156,36 +158,42 @@ Geef de studenten een week van tevoren dit draaiboek en de rollenverdeling. Bena
 
 ### **Beoordeling**
 
-**Beoordelingscriteria (gebaseerd op 13 leerdoelen):**
+**Beoordelingscriteria en niveau (gebaseerd op 13 leerdoelen):**
 
-**1. RvB Presentatie (70%)**
-* **Economische Analyse (40%)**
-  - Macro-economische inzichten en conjunctuurgevoeligheid
-  - Marktstructuur en concurrentieanalyse
-  - Kostenstructuur en prijselasticiteit
-  - Innovatie en groeistrategie
+**RvB Presentatie - Economische Analyse**
+* Macro-economische inzichten en conjunctuurgevoeligheid
+* Marktstructuur en concurrentieanalyse
+* Kostenstructuur en prijselasticiteit
+* Innovatie en groeistrategie
+* Bedrijfskolom positionering
 
-* **ESG & Duurzaamheid (30%)**
-  - True Pricing toepassing
-  - Brede welvaart dimensies
-  - CSRD/ESRS compliance
-  - Maatschappelijke kosten analyse
+**RvB Presentatie - ESG & Duurzaamheid**
+* True Pricing toepassing
+* Brede welvaart dimensies
+* CSRD/ESRS compliance
+* Maatschappelijke kosten analyse
+* Externe effecten identificatie
 
-**2. Boardroom Defense (30%)**
-* **Vraagbeantwoording (20%)**
-  - Diepgang en onderbouwing
-  - Adaptief denkvermogen
-  - Gebruik van data en voorbeelden
+**Boardroom Defense - Vraagbeantwoording**
+* Diepgang en onderbouwing van antwoorden
+* Adaptief denkvermogen tijdens Q&A
+* Gebruik van concrete data en voorbeelden
+* Theoretische concepten correct toepassen
+* Kritische vragen adequaat pareren
 
-* **Professionele Presentatie (10%)**
-  - Overtuigingskracht en helderheid
-  - Teamcoördinatie en rolverdeling
-  - Omgang met kritiek
+**Professionele Vaardigheden**
+* Overtuigingskracht en helderheid
+* Teamcoördinatie en rolverdeling
+* Omgang met kritiek en tegenwind
+* Rolvastheid tijdens presentatie
+* Strategische samenhang in verhaal
 
-**3. Stakeholder Participatie (Bonus/Malus ±10%)**
+**Stakeholder Participatie**
 * Kwaliteit en relevantie van gestelde vragen
-* Rolvastheid en perspectief behoud
-* Constructieve bijdrage aan dialoog
+* Perspectief van rol consequent behouden
+* Constructieve bijdrage aan boardroom dialoog
+* Kritisch maar respectvol challengen
+* Kennis van stakeholder belangen
 
 ---
 

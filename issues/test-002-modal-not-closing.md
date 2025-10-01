@@ -1,10 +1,12 @@
-# Issue: Team Creation Modal Not Closing After Success
+# Issue: Team Creation Modal Not Closing After Success [PENDING]
 
 ## Metadata
 - **Date**: 2024-01-09T10:45:00Z
 - **Test**: Team Coordination Flow
 - **Severity**: Medium
 - **Category**: UI/UX
+- **Status**: PENDING
+- **Last Reviewed**: 2025-09-23
 
 ## Description
 After successfully creating a team, the team creation modal remains open in the background while the team dashboard is displayed. This creates a confusing layered interface where both the form and the success screen are visible simultaneously.

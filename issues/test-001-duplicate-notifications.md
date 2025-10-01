@@ -1,10 +1,12 @@
-# Issue: Duplicate Notifications on Role Selection [FIXED]
+# Issue: Duplicate Notifications on Role Selection [FIXED ✅]
 
 ## Metadata
 - **Date**: 2024-01-09T10:30:00Z
 - **Test**: Role Selection Flow
 - **Severity**: Medium
 - **Category**: UI/Functionality
+- **Status**: FIXED (2024-01-09)
+- **Resolution Date**: 2024-01-09
 
 ## Description
 When selecting a role (Raad van Bestuur), three identical notification messages appear simultaneously at the bottom of the screen, all saying "Raad van Bestuur geselecteerd als je rol". This creates visual clutter and confusion.

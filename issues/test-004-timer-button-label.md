@@ -1,10 +1,13 @@
-# Issue: Timer Button Label Doesn't Update When Running
+# Issue: Timer Button Label Doesn't Update When Running [PENDING]
 
 ## Metadata
 - **Date**: 2024-01-09T11:15:00Z
 - **Test**: Timer Functionality
 - **Severity**: Low
 - **Category**: UI/UX
+- **Status**: PENDING
+- **Priority**: Low
+- **Last Reviewed**: 2025-09-23
 
 ## Description
 When the timer is started, the button still shows "▶ Start Timer" instead of changing to "⏸ Pause Timer" or similar. This makes it unclear whether the timer is running or not.

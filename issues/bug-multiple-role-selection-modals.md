@@ -1,7 +1,10 @@
-# Bug: Multiple Role Selection Modals Appearing
+# Bug: Multiple Role Selection Modals Appearing [FIXED ✅ - Duplicate of test-001]
 
 ## Issue Description
 When navigating to the "Rollen" (Roles) section and clicking on a role card, the modal for confirming the selection appears multiple times instead of just once.
+
+## Status: FIXED (2024-01-09)
+**Resolution**: This issue was the same root cause as test-001-duplicate-notifications.md and has been fixed with the same solution.
 
 ## Steps to Reproduce
 1. Navigate to the "Rollen" section
@@ -45,5 +48,21 @@ In `/workspaces/bedrom/js/components/role-selection.js`:
 - The bug doesn't prevent the role selection from working, but creates a confusing user experience
 - May also cause performance issues if many modals are created
 
+## Fix Applied (2024-01-09)
+The issue was caused by duplicate event handlers being attached to role cards. This was the same root cause as test-001-duplicate-notifications.md.
+
+### Solution:
+1. Removed duplicate inline onclick handlers from role cards
+2. Added proper event listener cleanup to prevent duplicates
+3. Implemented debounce mechanism for notifications and modals
+4. Updated cache version in service worker
+
+### Files Modified:
+- `/js/components/role-selection.js` - Fixed duplicate event handling
+- `/sw.js` - Updated cache version
+
 ## Date Reported
 2025-09-23
+
+## Date Fixed
+2024-01-09

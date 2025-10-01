@@ -129,13 +129,13 @@ Succes met de voorbereiding!
 
    Elk team moet deze matrix inleveren:
 
-   | Rol | Student 1 | Student 2 | Student 3 | Student 4 | Student 5 |
-   |-----|-----------|-----------|-----------|-----------|-----------|
-   | **Als RvB** | CEO | CFO | CTO | COO | CSO |
-   | **Als RvC** | Audit | ESG | Strategie | Digital | Governance |
-   | **Als Investeerder** | Pensioenfonds | Hedge Fund | Value | Activist | VV Bank |
-   | **Als Toezichthouder** | AFM | ACM | AP | FNV | Milieu |
-   | **Als Observer** | Observer | Observer | Observer | Observer | Observer |
+   | Rol | Student 1 | Student 2 | Student 3 | Student 4 | Student 5 | Student 6 |
+   |-----|-----------|-----------|-----------|-----------|-----------|-----------|
+   | **Als RvB** | CEO | CFO | COO | CTO | CMO | CSO |
+   | **Als RvC** | Audit | ESG | Strategie | Digital | Governance | - |
+   | **Als Investeerder** | Pensioenfonds | Hedge Fund | Value | Activist | VV Bank | Private Equity |
+   | **Als Toezichthouder** | AFM | ACM | AP | FNV | Milieu | RVO |
+   | **Als Observer** | Observer | Observer | Observer | Observer | Observer | Observer |
 
    Let op: Dezelfde student kan bijvoorbeeld CEO zijn in RvB-rol EN Audit in RvC-rol
 
@@ -206,11 +206,11 @@ We starten over 5 minuten met Team A als RvB."
 
 | Tijd | Fase | Docent Actie |
 |------|------|--------------|
-| 0:00-5:00 | **Voorbereiding** | Teams nemen posities in, RvB setup presentatie |
-| 5:00-8:00 | **Opening RvB** | Start timer, observeer presentatiestijl |
-| 8:00-28:00 | **Economische Analyse** | Monitor 13 eindkwalificaties coverage |
-| 28:00-38:00 | **Q&A Sessie** | Modereer tijd per stakeholder groep |
-| 38:00-40:00 | **Afsluiting** | Verzamel observer feedback, transition |
+| 0:00-5:00 | **Voorbereiding** | Teams nemen posities in, RvB setup presentatie, laatste checks |
+| 5:00-8:00 | **Opening** | CEO opent met strategische context, introduceert sector |
+| 8:00-28:00 | **Economische kansen & bedreigingen** | Monitor alle C-levels presenteren (CEO 3min, CFO 4min, COO 4min, CTO 3min, CMO 3min, CSO 3min) |
+| 28:00-38:00 | **Q&A** | Modereer tijd: RvC (3-4 min), Investeerders (3-4 min), Toezichthouder (3-4 min) |
+| 38:00-40:00 | **Afsluiting** | Observer advies, CEO bedankt, transitie volgende team |
 
 #### Gedetailleerde Ronde Begeleiding:
 
@@ -219,34 +219,35 @@ We starten over 5 minuten met Team A als RvB."
 - Check techniek met presentatie team
 - Herinner stakeholders aan hun rol
 
-**T=0: Start Presentatie**
-- Start timer zichtbaar voor iedereen
-- "Team [X] als RvB, jullie hebben het woord"
+**T=0: Opening**
+- CEO opent de presentatie
+- Docent start timer (zichtbaar voor iedereen)
 - Noteer eerste indruk voor feedback
 
-**T+10 min: Checkpoint**
-- Geef stilletje seintje als te weinig economische content
-- Noteer welke eindkwalificaties al behandeld zijn
+**T+3 min: Start Economische Analyse**
+- CEO geeft over aan CFO
+- Monitor of alle C-levels aan bod komen
+- Noteer welke eindkwalificaties behandeld worden
 
-**T+20 min: Waarschuwing**
+**T+20 min: Checkpoint**
+- Check of alle C-levels hebben gepresenteerd
 - "Nog 8 minuten voor Q&A start"
-- Check of kern boodschap duidelijk is
 
 **T+28 min: Q&A Start**
-- "We starten nu met vragen. RvC, jullie eerst - 3 minuten"
+- "We starten nu met vragen. RvC, jullie eerst"
 - Strict tijdbewaking per stakeholder groep:
-  - RvC: 3 minuten
-  - Investeerders: 3 minuten
-  - Toezichthouder: 3 minuten
-  - Algemene vragen: 1 minuut
+  - RvC: 3-4 minuten
+  - Investeerders: 3-4 minuten
+  - Toezichthouder: 3-4 minuten
 
-**T+38 min: Observer Feedback**
-- "Observers, 1 minuut voor jullie hoofdconclusie"
-- Verzamel ingevulde formulieren van observers
+**T+38 min: Afsluiting**
+- "Observers, geef kort jullie advies"
+- CEO bedankt voor aandacht
+- Verzamel formulieren
 
 **T+40 min: Transition**
-- "Applaus voor Team [X]. We nemen 2 minuten voor de wissel"
-- Direct feedback note voor eigen administratie
+- Teams wisselen van rol
+- 2 minuten voor setup volgende ronde
 
 ### Tussen de Rondes (2 min)
 
@@ -312,14 +313,42 @@ We starten over 5 minuten met Team A als RvB."
 
 ## 📊 Beoordeling & Evaluatie
 
-### Beoordelingscomponenten
+### Beoordelingscriteria (gebaseerd op 13 leerdoelen)
 
-| Component | Weging | Beoordeling door |
-|-----------|---------|------------------|
-| Presentatie Kwaliteit | 30% | Docent + Peer observers |
-| Economische Inhoud (13 criteria) | 40% | Docent rubric |
-| Q&A Performance | 20% | Stakeholder feedback |
-| Rolvastheid & Professionaliteit | 10% | Algemene observatie |
+**RvB Presentatie - Economische Analyse**
+* Macro-economische inzichten en conjunctuurgevoeligheid
+* Marktstructuur en concurrentieanalyse
+* Kostenstructuur en prijselasticiteit
+* Innovatie en groeistrategie
+* Bedrijfskolom positionering
+
+**RvB Presentatie - ESG & Duurzaamheid**
+* True Pricing toepassing
+* Brede welvaart dimensies
+* CSRD/ESRS compliance
+* Maatschappelijke kosten analyse
+* Externe effecten identificatie
+
+**Boardroom Defense - Vraagbeantwoording**
+* Diepgang en onderbouwing van antwoorden
+* Adaptief denkvermogen tijdens Q&A
+* Gebruik van concrete data en voorbeelden
+* Theoretische concepten correct toepassen
+* Kritische vragen adequaat pareren
+
+**Professionele Vaardigheden**
+* Overtuigingskracht en helderheid
+* Teamcoördinatie en rolverdeling
+* Omgang met kritiek en tegenwind
+* Rolvastheid tijdens presentatie
+* Strategische samenhang in verhaal
+
+**Stakeholder Participatie**
+* Kwaliteit en relevantie van gestelde vragen
+* Perspectief van rol consequent behouden
+* Constructieve bijdrage aan boardroom dialoog
+* Kritisch maar respectvol challengen
+* Kennis van stakeholder belangen
 
 ### Rubric per Leerdoel (40%)
 
@@ -386,7 +415,10 @@ EINDCIJFER: [X.X]
 INDIVIDUELE NOTITIES:
 - CEO [Naam]: [Specifieke feedback]
 - CFO [Naam]: [Specifieke feedback]
-[... etc voor alle rollen]
+- COO [Naam]: [Specifieke feedback]
+- CTO [Naam]: [Specifieke feedback]
+- CMO [Naam]: [Specifieke feedback]
+- CSO [Naam]: [Specifieke feedback]
 ```
 
 ### Inleverprotocol Cijfers
@@ -496,13 +528,18 @@ INDIVIDUELE NOTITIES:
 ```
 RONDE TOTAAL: 40 minuten
 ├── 00:00-05:00 Voorbereiding (5 min)
-├── 05:00-08:00 Opening (3 min)
-├── 08:00-28:00 Presentatie (20 min)
+├── 05:00-08:00 Opening door CEO (3 min)
+├── 08:00-28:00 Economische kansen & bedreigingen (20 min)
+│   ├── CEO: Strategische visie (3 min)
+│   ├── CFO: Macro-economie & conjunctuur (4 min)
+│   ├── COO: Markt & concurrentie (4 min)
+│   ├── CTO: Technologie & innovatie (3 min)
+│   ├── CMO: Klanten & marktkansen (3 min)
+│   └── CSO: ESG & duurzaamheid (3 min)
 ├── 28:00-38:00 Q&A (10 min)
-│   ├── 28:00-31:00 RvC (3 min)
-│   ├── 31:00-34:00 Investeerders (3 min)
-│   ├── 34:00-37:00 Toezichthouder (3 min)
-│   └── 37:00-38:00 Algemeen (1 min)
+│   ├── 28:00-31/32:00 RvC (3-4 min)
+│   ├── 31/32:00-34/35:00 Investeerders (3-4 min)
+│   └── 34/35:00-37/38:00 Toezichthouder (3-4 min)
 └── 38:00-40:00 Afsluiting (2 min)
 ```
 
