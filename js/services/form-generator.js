@@ -263,6 +263,69 @@ function getTeamLeadFields() {
                 </tr>
             `).join('')}
         </table>
+
+        <div class="section" style="margin-top: 30px;">
+            <h3>Subrolverdeling per Team</h3>
+            <p style="font-style: italic; color: #666; margin-bottom: 15px;">Let op: Dezelfde student kan bijvoorbeeld CEO zijn in RvB-rol EN Audit in RvC-rol</p>
+            <table>
+                <tr>
+                    <th width="150">Rol</th>
+                    <th>Student 1</th>
+                    <th>Student 2</th>
+                    <th>Student 3</th>
+                    <th>Student 4</th>
+                    <th>Student 5</th>
+                    <th>Student 6</th>
+                </tr>
+                <tr>
+                    <td><strong>Als RvB</strong></td>
+                    <td style="text-align: center; color: #ccc;">CEO</td>
+                    <td style="text-align: center; color: #ccc;">CFO</td>
+                    <td style="text-align: center; color: #ccc;">COO</td>
+                    <td style="text-align: center; color: #ccc;">CTO</td>
+                    <td style="text-align: center; color: #ccc;">CMO</td>
+                    <td style="text-align: center; color: #ccc;">CSO</td>
+                </tr>
+                <tr>
+                    <td><strong>Als RvC</strong></td>
+                    <td style="text-align: center; color: #ccc;">Audit</td>
+                    <td style="text-align: center; color: #ccc;">ESG</td>
+                    <td style="text-align: center; color: #ccc;">Strategie</td>
+                    <td style="text-align: center; color: #ccc;">Digital</td>
+                    <td style="text-align: center; color: #ccc;">Governance</td>
+                    <td style="text-align: center; color: #ccc;">-</td>
+                </tr>
+                <tr>
+                    <td><strong>Als Investeerder</strong></td>
+                    <td style="text-align: center; color: #ccc;">Pensioenfonds</td>
+                    <td style="text-align: center; color: #ccc;">Hedge Fund</td>
+                    <td style="text-align: center; color: #ccc;">Value</td>
+                    <td style="text-align: center; color: #ccc;">Activist</td>
+                    <td style="text-align: center; color: #ccc;">VV Bank</td>
+                    <td style="text-align: center; color: #ccc;">Private Equity</td>
+                </tr>
+                <tr>
+                    <td><strong>Als Toezichthouder</strong></td>
+                    <td style="text-align: center; color: #ccc;">AFM</td>
+                    <td style="text-align: center; color: #ccc;">ACM</td>
+                    <td style="text-align: center; color: #ccc;">AP</td>
+                    <td style="text-align: center; color: #ccc;">FNV</td>
+                    <td style="text-align: center; color: #ccc;">Milieu</td>
+                    <td style="text-align: center; color: #ccc;">RVO</td>
+                </tr>
+                <tr>
+                    <td><strong>Als Observer</strong></td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                    <td style="text-align: center; color: #ccc;">Observer</td>
+                </tr>
+            </table>
+            <p style="font-size: 12px; color: #666; margin-top: 10px;">Vul in elke cel de naam van de student die deze subrol vervult</p>
+        </div>
+
         <div class="section">
             <h3>Inlever Checklist</h3>
             <p>☐ Alle formulieren verzameld</p>
